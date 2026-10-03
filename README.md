@@ -29,7 +29,6 @@ notebooks/    notebooks para Colab, uno por sesión
 datos/        datos del caso (los mismos que genera la primera celda de cada notebook)
 fuente/       fuente de las páginas: módulos, estilos y lógica de simuladores y cuestionarios
 precalculo/   scripts que generan los datos, ejecutan las celdas y construyen y auditan cada sesión
-PLAN_Procesamiento_de_Datos.md   plan del curso: decisiones, cómo se construye y estado
 ```
 
 ## Cómo se construye una sesión

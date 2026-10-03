@@ -13,3 +13,6 @@ hadoop-*.tar.gz
 
 # Documento institucional: no se publica
 *SYLLABUS*.pdf
+
+# Plan interno del docente: no se publica
+PLAN_Procesamiento_de_Datos.md
