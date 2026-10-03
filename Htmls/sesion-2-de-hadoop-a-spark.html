@@ -3858,17 +3858,21 @@ html.modo-presentacion #enlaceSesiones {
       <div class="agenda" data-agenda></div>
 
       <h3>Antes de empezar: el notebook</h3>
-      <p>Descarga el notebook de hoy, ábrelo en Google Colab (<strong>Archivo → Subir notebook</strong>) y ejecuta las
-        tres primeras celdas. La primera crea los datos del caso, idénticos a los de la sesión 1; la segunda repite la
+      <p>Abre el notebook de hoy con el botón <strong>Abrir en Colab</strong>, guarda tu copia (<strong>Archivo →
+        Guardar una copia en Drive</strong>) y ejecuta las tres primeras celdas. La primera crea los datos del caso, idénticos a los de la sesión 1; la segunda repite la
         limpieza de la sesión 1 para que partamos del mismo punto, aunque no tengas tu notebook anterior; la tercera
         muestra las versiones. Enseguida ejecuta también la primera celda del módulo 2, <code>hadoop_descarga</code>:
         baja Hadoop, tarda uno o dos minutos, y la dejamos trabajando mientras hacemos el calentamiento.</p>
-      <div class="flex flex-wrap gap-3 mb-6">
+      <div class="flex flex-wrap gap-3 mb-3">
+        <a class="uc-button" href="https://colab.research.google.com/github/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp/blob/main/notebooks/sesion-2-hadoop-spark.ipynb" target="_blank" rel="noopener"><i
+            class="fas fa-arrow-up-right-from-square mr-2" aria-hidden="true"></i>Abrir en Colab</a>
         <button type="button" class="uc-button" data-descargar="notebook"><i class="fas fa-download mr-2"
             aria-hidden="true"></i>Notebook de la sesión 2</button>
         <button type="button" class="uc-button" data-descargar="logs"><i class="fas fa-download mr-2"
             aria-hidden="true"></i>logs_web.jsonl</button>
       </div>
+      <p class="text-sm text-gray-600 mb-6">¿El enlace no abre? Descarga el notebook y súbelo en Colab
+        (<strong>Archivo → Subir notebook</strong>).</p>
 
       <div class="celda" data-celda="datos"><pre><code class="language-python"># En el notebook, esta celda trae el generador completo (oculto).
 # Crea la carpeta datos/ con los cuatro archivos del caso (los mismos de la sesión 1)

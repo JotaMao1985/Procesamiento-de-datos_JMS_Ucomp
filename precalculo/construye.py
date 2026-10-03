@@ -11,6 +11,7 @@ Lee fuente/sesionN/sesionN.html y resuelve sus marcadores:
     {{JSON:nombre}}      datos para los simuladores (ver datos_json)
     {{MUESTRA:archivo|n}} primeras n líneas de un archivo de datos/, escapadas
     {{LOGO}}             logo institucional como data URI
+    {{COLAB}}            enlace que abre en Colab el notebook de la sesión publicado en GitHub
 
 El código sale de celdas_sesionN.py y las salidas de salidas_sesionN.json
 (ejecuta_celdas.py): el HTML nunca lleva una cifra escrita a mano. Si queda un
@@ -25,10 +26,10 @@ import re
 from pathlib import Path
 
 from ejecuta_celdas import leer_celdas
-from sesiones import AQUI, RAIZ, sesion_de_argumentos
+from sesiones import AQUI, RAIZ, enlace_colab, sesion_de_argumentos
 
 FUENTE = RAIZ / "fuente"
-MARCADOR = re.compile(r"\{\{([A-Z]+):([^}]+)\}\}|\{\{LOGO\}\}")
+MARCADOR = re.compile(r"\{\{([A-Z]+):([^}]+)\}\}|\{\{LOGO\}\}|\{\{COLAB\}\}")
 
 
 def _codigo_html(celda):
@@ -116,6 +117,8 @@ def construir():
         def sustituir(m):
             if m.group(0) == "{{LOGO}}":
                 return f"data:image/png;base64,{logo}"
+            if m.group(0) == "{{COLAB}}":
+                return html.escape(enlace_colab(sesion))
             tipo, arg = m.group(1), m.group(2).strip()
             if tipo == "INCLUIR":
                 return resolver((FUENTE / arg).read_text(encoding="utf-8"), profundidad + 1)

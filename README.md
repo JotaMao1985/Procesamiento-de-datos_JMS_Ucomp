@@ -7,19 +7,19 @@ corresponden a personas ni a empresas reales.
 
 **Material en línea:** <https://jotamao1985.github.io/Procesamiento-de-datos_JMS_Ucomp/>
 
-| Sesión | Tema | Estado |
+| Sesión | Tema | Notebook |
 |---|---|---|
-| 1 | Del dato al MapReduce: ciclo de procesamiento, nube, Hadoop, pandas y MapReduce en Python | Disponible |
-| 2 | De Hadoop a Spark: HDFS, Hadoop Streaming, PySpark, Spark SQL y base de datos del caso | Disponible |
+| 1 | Del dato al MapReduce: ciclo de procesamiento, nube, Hadoop, pandas y MapReduce en Python | [Abrir en Colab](https://colab.research.google.com/github/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp/blob/main/notebooks/sesion-1-procesamiento.ipynb) |
+| 2 | De Hadoop a Spark: HDFS, Hadoop Streaming, PySpark, Spark SQL y base de datos del caso | [Abrir en Colab](https://colab.research.google.com/github/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp/blob/main/notebooks/sesion-2-hadoop-spark.ipynb) |
 | 3 | Datos no estructurados | Próximamente |
 
 Cada sesión tiene:
 
 - **una página HTML** para proyectar en clase y repasar después. Incluye explicaciones,
   simuladores, autoevaluaciones y el taller con su rúbrica;
-- **un notebook de Google Colab** con las mismas celdas. Se descarga desde la propia página o desde
-  la carpeta `notebooks/`, y la primera celda crea los datos del caso, así que no hay que subir
-  nada más.
+- **un notebook de Google Colab** con las mismas celdas. Se abre con el botón «Abrir en Colab» de la
+  página o del cuadro de arriba; después hay que guardar una copia en Drive para conservar los
+  cambios. La primera celda crea los datos del caso, así que no hay que subir nada más.
 
 ## Estructura del repositorio
 

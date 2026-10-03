@@ -27,7 +27,7 @@ import tempfile
 from pathlib import Path
 
 from ejecuta_celdas import ejecutar_celda
-from sesiones import (AQUI, RAIZ, SESIONES, en_docker, relanzar_en_docker,
+from sesiones import (AQUI, RAIZ, SESIONES, en_docker, enlace_colab, relanzar_en_docker,
                       sesion_de_argumentos)
 
 fallos = []
@@ -120,7 +120,8 @@ def notebook(sesion):
 def html(sesion):
     print("4. HTML")
     h = (RAIZ / "Htmls" / sesion["html"]).read_text(encoding="utf-8")
-    comprobar(not re.search(r"\{\{[A-Z]+:[^}]*\}\}|\{\{LOGO\}\}", h), "sin marcadores sin resolver")
+    comprobar(not re.search(r"\{\{[A-Z]+:[^}]*\}\}|\{\{LOGO\}\}|\{\{COLAB\}\}", h), "sin marcadores sin resolver")
+    comprobar(f'href="{enlace_colab(sesion)}"' in h, f"enlace «Abrir en Colab» a notebooks/{sesion['notebook']}")
     plantillas = re.findall(r'<template id="module-(\d+)">', h)
     n = sesion["modulos"]
     comprobar(sorted(map(int, plantillas)) == list(range(1, n + 1)), f"{n} módulos, del 1 al {n}")

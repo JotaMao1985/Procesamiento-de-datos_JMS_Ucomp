@@ -21,6 +21,8 @@ AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parent
 IMAGEN = "procesamiento-colab:amd64"
 PLATAFORMA = "linux/amd64"            # la arquitectura de Colab
+REPOSITORIO = "JotaMao1985/Procesamiento-de-datos_JMS_Ucomp"   # GitHub: de aquí abre Colab los notebooks
+RAMA = "main"
 
 SESIONES = {
     1: {
@@ -48,6 +50,12 @@ SESIONES = {
         "docker": True,
     },
 }
+
+
+def enlace_colab(sesion):
+    """Abre en Colab el notebook de la sesión publicado en GitHub (rama RAMA)."""
+    return (f"https://colab.research.google.com/github/{REPOSITORIO}/blob/{RAMA}/"
+            f"notebooks/{sesion['notebook']}")
 
 
 def sesion_de_argumentos():

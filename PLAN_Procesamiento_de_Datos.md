@@ -72,6 +72,11 @@ primeras»).
 raíz. Al hacer `git push` de cambios en `Htmls/`, el flujo `.github/workflows/pages.yml` lo
 publica de nuevo. El syllabus en PDF no se sube: lo excluye `.gitignore`.
 
+El botón «Abrir en Colab» (marcador `{{COLAB}}`) abre el notebook que está en GitHub. Su enlace
+se arma con `REPOSITORIO` y `RAMA` de `sesiones.py`. Por eso, después de regenerar un notebook
+hay que subirlo para que Colab abra la versión nueva, y si el repositorio cambia de nombre o de
+dueño hay que actualizar `REPOSITORIO`.
+
 ## Revisión de contenido del 2026-10-02 (8 revisores en paralelo)
 
 El docente pidió revisar redacción, coherencia, gráficos, simulaciones, preguntas, barajado,
