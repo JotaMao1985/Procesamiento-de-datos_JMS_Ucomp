@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="100%" style="max-width:680px;" role="img"
+          aria-labelledby="dikw-titulo dikw-desc">
+          <title id="dikw-titulo">Pirámide de datos, información, conocimiento y decisión</title>
+          <desc id="dikw-desc">Cuatro niveles. Datos: hechos sueltos como la venta V00002. Información: datos
+            organizados, como el porcentaje de ventas de Bogotá. Conocimiento: patrones que permiten anticipar, como que
+            la app va camino de alcanzar a la tienda.
+            Decisión: acción con criterio, como invertir en la app.</desc>
+          <polygon points="135,20 185,20 212.8,90 107.2,90" fill="#B84A00" />
+          <polygon points="105.1,95.5 214.9,95.5 241.5,162.5 78.5,162.5" fill="#691E7A" />
+          <polygon points="76.3,168 243.7,168 270.3,235 49.7,235" fill="#8A2E9E" />
+          <polygon points="47.6,240.5 272.4,240.5 300,310 20,310" fill="#566B7F" />
+          <text x="160" y="60" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Decisión</text>
+          <text x="160" y="134" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Conocimiento</text>
+          <text x="160" y="206" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Información</text>
+          <text x="160" y="280" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Datos</text>
+          <g stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.2">
+            <line x1="205" y1="55" x2="315" y2="55" />
+            <line x1="232" y1="129" x2="315" y2="129" />
+            <line x1="262" y1="201" x2="315" y2="201" />
+            <line x1="292" y1="275" x2="315" y2="275" />
+          </g>
+          <g font-size="12.5">
+            <text x="322" y="50" font-weight="700" fill="#B84A00">Acción con criterio</text>
+            <text x="322" y="68" fill="#334155">«Invertir en la app y en sus domicilios»</text>
+            <text x="322" y="124" font-weight="700" fill="#691E7A">Patrones: ¿por qué?, ¿qué sigue?</text>
+            <text x="322" y="142" fill="#334155">«La app va camino de alcanzar a la tienda»</text>
+            <text x="322" y="196" font-weight="700" fill="#691E7A">Datos organizados: ¿qué?, ¿cuánto?</text>
+            <text x="322" y="214" fill="#334155">«Bogotá: 33,3 % de las ventas del semestre»</text>
+            <text x="322" y="270" font-weight="700" fill="#475569">Hechos sueltos, sin contexto</text>
+            <text x="322" y="288" fill="#334155" font-family="Fira Code, monospace" font-size="11.5">V00002 · Barranquilla · 3 · 16900</text>
+          </g>
+        </svg>

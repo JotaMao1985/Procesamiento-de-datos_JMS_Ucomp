@@ -17,6 +17,7 @@ Cada sesión tiene:
 
 - **una página HTML** para proyectar en clase y repasar después. Incluye explicaciones,
   simuladores, autoevaluaciones y el taller con su rúbrica;
+- **diapositivas de clase** para la exposición, enlazadas desde la portada (por ahora, las de la sesión 1);
 - **un notebook de Google Colab** con las mismas celdas. Se abre con el botón «Abrir en Colab» de la
   página o del cuadro de arriba; después hay que guardar una copia en Drive para conservar los
   cambios. La primera celda crea los datos del caso, así que no hay que subir nada más.
@@ -27,7 +28,8 @@ Cada sesión tiene:
 Htmls/        páginas publicadas en GitHub Pages (generadas, no se editan a mano)
 notebooks/    notebooks para Colab, uno por sesión
 datos/        datos del caso (los mismos que genera la primera celda de cada notebook)
-fuente/       fuente de las páginas: módulos, estilos y lógica de simuladores y cuestionarios
+fuente/       fuente de las páginas: módulos, estilos y lógica de simuladores y cuestionarios;
+              en fuente/diapositivas/, la fuente Markdown de las diapositivas
 precalculo/   scripts que generan los datos, ejecutan las celdas y construyen y auditan cada sesión
 ```
 

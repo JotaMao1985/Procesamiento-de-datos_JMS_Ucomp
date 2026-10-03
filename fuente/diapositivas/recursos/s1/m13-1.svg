@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 210" width="100%" style="max-width:660px;" role="img"
+          aria-labelledby="sac-titulo sac-desc">
+          <title id="sac-titulo">Patrón dividir, aplicar, combinar</title>
+          <desc id="sac-desc">Una tabla de ventas con ciudades mezcladas se divide en un grupo por ciudad, a cada grupo
+            se le suma el total y los resultados se combinan en una tabla con una fila por ciudad.</desc>
+          <defs>
+            <marker id="sac-flecha" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6 z" fill="#64748b" />
+            </marker>
+          </defs>
+          <g font-size="12" font-weight="700" fill="#691E7A" text-anchor="middle">
+            <text x="75" y="20">Tabla</text>
+            <text x="250" y="20">Dividir</text>
+            <text x="420" y="20">Aplicar: sum()</text>
+            <text x="575" y="20">Combinar</text>
+          </g>
+          <g font-family="Fira Code, monospace" font-size="11">
+            <rect x="15" y="32" width="120" height="160" rx="8" fill="#fff" stroke="#cbd5e1" />
+            <text x="27" y="56" fill="#691E7A">Cali    12</text>
+            <text x="27" y="80" fill="#B84A00">Bogotá  30</text>
+            <text x="27" y="104" fill="#691E7A">Cali     8</text>
+            <text x="27" y="128" fill="#566B7F">Medellín 9</text>
+            <text x="27" y="152" fill="#B84A00">Bogotá  25</text>
+            <text x="27" y="176" fill="#566B7F">Medellín 6</text>
+            <rect x="190" y="32" width="120" height="44" rx="8" fill="#FFF1E6" stroke="#F46201" />
+            <text x="202" y="52" fill="#1F2933">Bogotá  30</text>
+            <text x="202" y="68" fill="#1F2933">Bogotá  25</text>
+            <rect x="190" y="90" width="120" height="44" rx="8" fill="#F3E9F5" stroke="#691E7A" />
+            <text x="202" y="110" fill="#1F2933">Cali    12</text>
+            <text x="202" y="126" fill="#1F2933">Cali     8</text>
+            <rect x="190" y="148" width="120" height="44" rx="8" fill="#E9EEF2" stroke="#566B7F" />
+            <text x="202" y="168" fill="#1F2933">Medellín 9</text>
+            <text x="202" y="184" fill="#1F2933">Medellín 6</text>
+            <rect x="365" y="38" width="110" height="32" rx="8" fill="#FFF1E6" stroke="#F46201" />
+            <text x="380" y="59" fill="#1F2933">Bogotá  55</text>
+            <rect x="365" y="96" width="110" height="32" rx="8" fill="#F3E9F5" stroke="#691E7A" />
+            <text x="380" y="117" fill="#1F2933">Cali    20</text>
+            <rect x="365" y="154" width="110" height="32" rx="8" fill="#E9EEF2" stroke="#566B7F" />
+            <text x="380" y="175" fill="#1F2933">Medellín 15</text>
+            <rect x="520" y="62" width="110" height="100" rx="8" fill="#fff" stroke="#691E7A" />
+            <text x="532" y="90" fill="#1F2933">Bogotá  55</text>
+            <text x="532" y="116" fill="#1F2933">Cali    20</text>
+            <text x="532" y="142" fill="#1F2933">Medellín 15</text>
+          </g>
+          <g stroke="#64748b" stroke-width="1.4" fill="none" marker-end="url(#sac-flecha)">
+            <line x1="137" y1="80" x2="187" y2="56" />
+            <line x1="137" y1="110" x2="187" y2="112" />
+            <line x1="137" y1="150" x2="187" y2="168" />
+            <line x1="312" y1="54" x2="362" y2="54" />
+            <line x1="312" y1="112" x2="362" y2="112" />
+            <line x1="312" y1="170" x2="362" y2="170" />
+            <line x1="477" y1="54" x2="517" y2="85" />
+            <line x1="477" y1="112" x2="517" y2="112" />
+            <line x1="477" y1="170" x2="517" y2="139" />
+          </g>
+        </svg>

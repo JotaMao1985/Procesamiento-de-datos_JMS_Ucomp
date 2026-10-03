@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 270" width="100%" role="img" aria-labelledby="mr-titulo mr-desc">
+          <title id="mr-titulo">Flujo de MapReduce para contar palabras</title>
+          <desc id="mr-desc">Tres bloques de entrada: entrega rápida, app rápida, entrega tarde. Cada mapper emite
+            pares palabra uno. El shuffle agrupa por palabra en dos particiones: app y entrega a la primera, rápida y
+            tarde a la segunda. Dos reducers suman y la salida es app 1, entrega 2, rápida 2, tarde 1.</desc>
+          <defs>
+            <marker id="mr-flecha" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6 z" fill="#64748b" />
+            </marker>
+          </defs>
+          <g font-size="12" font-weight="700" fill="#691E7A" text-anchor="middle">
+            <text x="72" y="28">1 · Entrada</text>
+            <text x="237" y="28">2 · Map</text>
+            <text x="420" y="28">3 · Shuffle y orden</text>
+            <text x="570" y="28">4 · Reduce</text>
+            <text x="674" y="28">5 · Salida</text>
+          </g>
+          <g fill="#E9EEF2" stroke="#566B7F">
+            <rect x="10" y="45" width="125" height="46" rx="8" />
+            <rect x="10" y="125" width="125" height="46" rx="8" />
+            <rect x="10" y="205" width="125" height="46" rx="8" />
+          </g>
+          <g font-size="12.5" fill="#1F2933" text-anchor="middle">
+            <text x="72" y="73">entrega rápida</text>
+            <text x="72" y="153">app rápida</text>
+            <text x="72" y="233">entrega tarde</text>
+          </g>
+          <g fill="#F3E9F5" stroke="#691E7A">
+            <rect x="170" y="45" width="135" height="46" rx="8" />
+            <rect x="170" y="125" width="135" height="46" rx="8" />
+            <rect x="170" y="205" width="135" height="46" rx="8" />
+          </g>
+          <g font-size="11" fill="#3A0F47" text-anchor="middle" font-family="Fira Code, monospace">
+            <text x="237" y="64">(entrega, 1)</text>
+            <text x="237" y="81">(rápida, 1)</text>
+            <text x="237" y="144">(app, 1)</text>
+            <text x="237" y="161">(rápida, 1)</text>
+            <text x="237" y="224">(entrega, 1)</text>
+            <text x="237" y="241">(tarde, 1)</text>
+          </g>
+          <rect x="350" y="45" width="140" height="95" rx="8" fill="#FFF1E6" stroke="#691E7A" />
+          <rect x="350" y="160" width="140" height="91" rx="8" fill="#FFF1E6" stroke="#F46201" />
+          <g font-size="11" fill="#1F2933" font-family="Fira Code, monospace">
+            <text x="362" y="75">app → [1]</text>
+            <text x="362" y="100">entrega → [1, 1]</text>
+            <text x="362" y="190">rápida → [1, 1]</text>
+            <text x="362" y="215">tarde → [1]</text>
+          </g>
+          <g font-size="10.5" fill="#B84A00" text-anchor="middle">
+            <text x="420" y="128">partición 1</text>
+            <text x="420" y="240">partición 2</text>
+          </g>
+          <g fill="#691E7A">
+            <rect x="530" y="67" width="80" height="50" rx="8" />
+            <rect x="530" y="180" width="80" height="50" rx="8" />
+          </g>
+          <g font-size="12" fill="#fff" text-anchor="middle" font-weight="700">
+            <text x="570" y="96">Reducer 1</text>
+            <text x="570" y="209">Reducer 2</text>
+          </g>
+          <rect x="635" y="45" width="78" height="206" rx="8" fill="#F8F1FA" stroke="#691E7A" />
+          <g font-size="11.5" fill="#1F2933" font-family="Fira Code, monospace">
+            <text x="645" y="88">app 1</text>
+            <text x="645" y="108">entrega 2</text>
+            <text x="645" y="200">rápida 2</text>
+            <text x="645" y="220">tarde 1</text>
+          </g>
+          <g stroke="#64748b" stroke-width="1.4" marker-end="url(#mr-flecha)" fill="none">
+            <line x1="135" y1="68" x2="167" y2="68" />
+            <line x1="135" y1="148" x2="167" y2="148" />
+            <line x1="135" y1="228" x2="167" y2="228" />
+            <line x1="490" y1="92" x2="527" y2="92" />
+            <line x1="490" y1="205" x2="527" y2="205" />
+            <line x1="610" y1="92" x2="632" y2="92" />
+            <line x1="610" y1="205" x2="632" y2="205" />
+          </g>
+          <g stroke-width="1.4" marker-end="url(#mr-flecha)" fill="none" opacity="0.85">
+            <line x1="305" y1="64" x2="347" y2="96" stroke="#691E7A" />
+            <line x1="305" y1="78" x2="347" y2="190" stroke="#F46201" />
+            <line x1="305" y1="144" x2="347" y2="75" stroke="#691E7A" />
+            <line x1="305" y1="158" x2="347" y2="196" stroke="#F46201" />
+            <line x1="305" y1="224" x2="347" y2="104" stroke="#691E7A" />
+            <line x1="305" y1="238" x2="347" y2="214" stroke="#F46201" />
+          </g>
+        </svg>
