@@ -1,0 +1,188 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 9 · Modelo MapReduce y flujo de datos       (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-9">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 9 · Bloque 2 · Temas 2.2.1 y 2.3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">El modelo MapReduce y el
+          flujo ingesta → procesamiento → explotación <span class="text-gray-500 font-normal text-2xl">/ The MapReduce
+            model</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Describir las fases de MapReduce con un ejemplo
+              concreto y ubicar las herramientas del ecosistema en el recorrido del dato: entrar, procesarse y
+              usarse.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>La propuesta de Dean y Ghemawat (2004) fue tan simple como poderosa: quien programa escribe <strong>solo dos
+          funciones</strong>, <code>map</code> y <code>reduce</code>, y el sistema se encarga de todo lo difícil —partir
+        los datos, repartir el trabajo entre cientos de máquinas, reintentar lo que falle y juntar los resultados—.</p>
+
+      <div class="formula">
+        $$\text{map}: (k_1, v_1) \rightarrow \text{lista}(k_2, v_2)
+        \qquad
+        \text{reduce}: \big(k_2, \text{lista}(v_2)\big) \rightarrow \text{lista}(v_2)$$
+      </div>
+
+      <p>Leído en castellano: <code>map</code> toma un registro y emite pares <em>clave–valor</em>; el sistema agrupa
+        todos los valores que comparten clave; <code>reduce</code> recibe una clave con su lista de valores y la
+        resume. El ejemplo canónico es contar palabras. Con tres fragmentos de reseñas:</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 720 270" width="100%" role="img" aria-labelledby="mr-titulo mr-desc">
+          <title id="mr-titulo">Flujo de MapReduce para contar palabras</title>
+          <desc id="mr-desc">Tres bloques de entrada: entrega rápida, app rápida, entrega tarde. Cada mapper emite
+            pares palabra uno. El shuffle agrupa por palabra en dos particiones: app y entrega a la primera, rápida y
+            tarde a la segunda. Dos reducers suman y la salida es app 1, entrega 2, rápida 2, tarde 1.</desc>
+          <defs>
+            <marker id="mr-flecha" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6 z" fill="#64748b" />
+            </marker>
+          </defs>
+          <g font-size="12" font-weight="700" fill="#691E7A" text-anchor="middle">
+            <text x="72" y="28">1 · Entrada</text>
+            <text x="237" y="28">2 · Map</text>
+            <text x="420" y="28">3 · Shuffle y orden</text>
+            <text x="570" y="28">4 · Reduce</text>
+            <text x="674" y="28">5 · Salida</text>
+          </g>
+          <g fill="#E9EEF2" stroke="#566B7F">
+            <rect x="10" y="45" width="125" height="46" rx="8" />
+            <rect x="10" y="125" width="125" height="46" rx="8" />
+            <rect x="10" y="205" width="125" height="46" rx="8" />
+          </g>
+          <g font-size="12.5" fill="#1F2933" text-anchor="middle">
+            <text x="72" y="73">entrega rápida</text>
+            <text x="72" y="153">app rápida</text>
+            <text x="72" y="233">entrega tarde</text>
+          </g>
+          <g fill="#F3E9F5" stroke="#691E7A">
+            <rect x="170" y="45" width="135" height="46" rx="8" />
+            <rect x="170" y="125" width="135" height="46" rx="8" />
+            <rect x="170" y="205" width="135" height="46" rx="8" />
+          </g>
+          <g font-size="11" fill="#3A0F47" text-anchor="middle" font-family="Fira Code, monospace">
+            <text x="237" y="64">(entrega, 1)</text>
+            <text x="237" y="81">(rápida, 1)</text>
+            <text x="237" y="144">(app, 1)</text>
+            <text x="237" y="161">(rápida, 1)</text>
+            <text x="237" y="224">(entrega, 1)</text>
+            <text x="237" y="241">(tarde, 1)</text>
+          </g>
+          <rect x="350" y="45" width="140" height="95" rx="8" fill="#FFF1E6" stroke="#691E7A" />
+          <rect x="350" y="160" width="140" height="91" rx="8" fill="#FFF1E6" stroke="#F46201" />
+          <g font-size="11" fill="#1F2933" font-family="Fira Code, monospace">
+            <text x="362" y="75">app → [1]</text>
+            <text x="362" y="100">entrega → [1, 1]</text>
+            <text x="362" y="190">rápida → [1, 1]</text>
+            <text x="362" y="215">tarde → [1]</text>
+          </g>
+          <g font-size="10.5" fill="#B84A00" text-anchor="middle">
+            <text x="420" y="128">partición 1</text>
+            <text x="420" y="240">partición 2</text>
+          </g>
+          <g fill="#691E7A">
+            <rect x="530" y="67" width="80" height="50" rx="8" />
+            <rect x="530" y="180" width="80" height="50" rx="8" />
+          </g>
+          <g font-size="12" fill="#fff" text-anchor="middle" font-weight="700">
+            <text x="570" y="96">Reducer 1</text>
+            <text x="570" y="209">Reducer 2</text>
+          </g>
+          <rect x="635" y="45" width="78" height="206" rx="8" fill="#F8F1FA" stroke="#691E7A" />
+          <g font-size="11.5" fill="#1F2933" font-family="Fira Code, monospace">
+            <text x="645" y="88">app 1</text>
+            <text x="645" y="108">entrega 2</text>
+            <text x="645" y="200">rápida 2</text>
+            <text x="645" y="220">tarde 1</text>
+          </g>
+          <g stroke="#64748b" stroke-width="1.4" marker-end="url(#mr-flecha)" fill="none">
+            <line x1="135" y1="68" x2="167" y2="68" />
+            <line x1="135" y1="148" x2="167" y2="148" />
+            <line x1="135" y1="228" x2="167" y2="228" />
+            <line x1="490" y1="92" x2="527" y2="92" />
+            <line x1="490" y1="205" x2="527" y2="205" />
+            <line x1="610" y1="92" x2="632" y2="92" />
+            <line x1="610" y1="205" x2="632" y2="205" />
+          </g>
+          <g stroke-width="1.4" marker-end="url(#mr-flecha)" fill="none" opacity="0.85">
+            <line x1="305" y1="64" x2="347" y2="96" stroke="#691E7A" />
+            <line x1="305" y1="78" x2="347" y2="190" stroke="#F46201" />
+            <line x1="305" y1="144" x2="347" y2="75" stroke="#691E7A" />
+            <line x1="305" y1="158" x2="347" y2="196" stroke="#F46201" />
+            <line x1="305" y1="224" x2="347" y2="104" stroke="#691E7A" />
+            <line x1="305" y1="238" x2="347" y2="214" stroke="#F46201" />
+          </g>
+        </svg>
+        <p class="leyenda-diagrama">Cada mapper ve solo su bloque. En el shuffle, los pares intermedios viajan por la
+          red de un nodo a otro: cada par va al reducer de su partición (en el dibujo, morado a la 1 y naranja a la 2), y
+          así cada reducer recibe <em>todas</em> las apariciones de sus claves.</p>
+      </div>
+
+      <div class="definition">
+        <h4><i class="fas fa-diagram-project mr-2" aria-hidden="true"></i>Las fases, una por una</h4>
+        <ol style="margin-bottom:0;">
+          <li><strong>Entrada</strong> (<em>input split</em>): el archivo de HDFS se divide en fragmentos, normalmente
+            uno por bloque. Cada fragmento lo procesa una tarea map, en lo posible en el nodo que guarda el bloque.</li>
+          <li><strong>Map</strong>: la función del programador se aplica a cada registro y emite pares
+            <code>(clave, valor)</code>. Los mappers no se hablan entre sí.</li>
+          <li><strong>Combine</strong> (opcional): un «mini reduce» local que suma dentro de cada mapper antes de
+            enviar, para que viajen menos pares por la red.</li>
+          <li><strong>Shuffle y orden</strong>: cada par se envía al reducer que le corresponde
+            —normalmente <code>hash(clave) mod R</code>, con R reducers— y allí se ordenan por clave.</li>
+          <li><strong>Reduce</strong>: la segunda función del programador recibe cada clave con la lista de sus valores y
+            produce el resultado.</li>
+          <li><strong>Salida</strong>: cada reducer escribe su parte en HDFS.</li>
+        </ol>
+      </div>
+
+      <p>Lo implementaremos con nuestras propias manos en Python en los módulos 15 y 16, y con un simulador que deja
+        variar el número de mappers y reducers.</p>
+
+      <h3>Del dato crudo al uso: ingesta, procesamiento y explotación</h3>
+      <p>Un sistema de Big Data se organiza como una tubería de tres tramos. Cada herramienta del ecosistema vive en
+        uno de ellos.</p>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">1 · Ingesta</span>
+          <p class="tarjeta-titulo"><i class="fas fa-right-to-bracket" aria-hidden="true"></i>Que el dato entre</p>
+          <p>Por lotes (<em>batch</em>), como copiar cada noche la base de datos de las cajas al clúster —antes con
+            Sqoop, retirado en 2021; hoy con Spark o con servicios de la nube—, o en flujo continuo
+            (<em>streaming</em>), como los eventos de la app con Kafka.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">2 · Procesamiento</span>
+          <p class="tarjeta-titulo"><i class="fas fa-gears" aria-hidden="true"></i>Que el dato se transforme</p>
+          <p>Limpieza, uniones y agregaciones con MapReduce, Spark o Hive, sobre los datos guardados en HDFS.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">3 · Explotación</span>
+          <p class="tarjeta-titulo"><i class="fas fa-chart-column" aria-hidden="true"></i>Que el dato se use</p>
+          <p>Consultas SQL con Hive o Impala, tableros de BI para la gerencia, modelos de aprendizaje automático.</p>
+        </div>
+      </div>
+      <p class="text-sm">No confundas este <em>streaming</em> (datos que llegan sin parar) con <strong>Hadoop
+          Streaming</strong>, que verás en el módulo 16: es la forma de escribir el mapper y el reducer como programas
+        de Python que leen y escriben texto, y sigue siendo procesamiento por lotes.</p>
+
+      <div class="quiz" data-quiz="control-b2">
+        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Control del bloque 2</h4>
+        <p class="text-sm" style="margin-bottom:0;">Tres preguntas antes del break largo.</p>
+        <div class="quiz-progreso" role="presentation">
+          <div class="quiz-progreso-barra"></div>
+        </div>
+        <div class="quiz-preguntas"></div>
+        <div class="quiz-resumen" role="status" hidden></div>
+        <div class="quiz-marcador">
+          <span class="quiz-conteo"></span>
+          <button type="button" class="quiz-reiniciar">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+  </template>

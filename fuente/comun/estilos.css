@@ -1,0 +1,3586 @@
+/* ==================================================================
+   Paleta UCompensar (tomada de la portada del syllabus institucional).
+   Criterio de contraste WCAG AA: el naranja de marca (#F46201) y el ámbar
+   solo van en bordes, íconos, barras y texto grande; para texto normal se
+   usa --uc-naranja-texto (5,2:1 sobre blanco).
+   ================================================================== */
+:root {
+  --uc-morado: #691E7A;
+  --uc-morado-claro: #8A2E9E;
+  --uc-morado-profundo: #3A0F47;
+  --uc-naranja: #F46201;
+  --uc-naranja-claro: #FF7A1F;
+  --uc-naranja-texto: #B84A00;
+  --uc-ambar: #FAA012;
+  --uc-pizarra: #566B7F;
+  --uc-tinta: #1F2933;
+}
+
+/* Base fallback styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Degradado institucional */
+.uc-gradient {
+  background: linear-gradient(140deg, var(--uc-morado) 0%, var(--uc-naranja) 100%);
+}
+
+.uc-gradient-hover:hover {
+  background: linear-gradient(140deg, var(--uc-morado-claro) 0%, var(--uc-naranja-claro) 100%);
+}
+
+/* Cabecera institucional */
+.uc-header {
+  background: linear-gradient(180deg, #5C1A6C 0%, var(--uc-morado-profundo) 100%);
+}
+
+/* Tarjeta */
+.uc-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.uc-card:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.uc-button {
+  background: linear-gradient(140deg, var(--uc-morado) 0%, var(--uc-naranja-texto) 100%);
+  color: white;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.uc-button:hover {
+  background: linear-gradient(140deg, var(--uc-morado-claro) 0%, #9A3E00 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(105, 30, 122, 0.35);
+}
+
+/* Sidebar Container */
+.sidebar-container {
+  display: none;
+  width: 280px;
+  flex-shrink: 0;
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .sidebar-container {
+    display: block;
+    order: 1;
+  }
+}
+
+/* Por debajo de 768 px la barra lateral está en display:none, pero el botón
+   flotante que la pliega seguía dibujándose sobre el texto —un círculo fijo a
+   media altura que tapa la prosa— y declaraba aria-expanded sobre algo que no
+   existe. Se oculta donde no controla nada. En móvil la navegación son
+   los botones Anterior / Siguiente del pie de cada módulo. */
+@media (max-width: 767.98px) {
+  #sidebarToggle { display: none; }
+}
+
+.sidebar-inner {
+  position: sticky;
+  top: 9rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  max-height: calc(100vh - 12rem);
+  overflow-y: auto;
+}
+
+#sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Sidebar Header */
+.sidebar-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+/* Nav Items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: #4B5563;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1d5db;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background: #f3f4f6;
+  color: var(--uc-morado);
+}
+
+.nav-item:hover::before {
+  background: var(--uc-morado);
+  transform: scale(1.2);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, var(--uc-morado) 0%, var(--uc-morado-claro) 100%);
+  color: white;
+  box-shadow: inset 4px 0 0 var(--uc-naranja), 0 4px 12px rgba(105, 30, 122, 0.3);
+}
+
+.nav-item.active::before {
+  background: white;
+}
+
+/* Fallback para asegurar visibilidad del sidebar */
+@media (min-width: 768px) {
+  #sidebar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(140deg, var(--uc-morado) 0%, var(--uc-naranja) 100%);
+  color: white;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(105, 30, 122, 0.4);
+  transition: all 0.3s ease;
+  z-index: 50;
+  border: none;
+}
+
+.scroll-to-top.visible {
+  display: flex;
+}
+
+.scroll-to-top:hover {
+  background: linear-gradient(140deg, var(--uc-morado-claro) 0%, var(--uc-naranja-claro) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(105, 30, 122, 0.5);
+}
+
+/* Caja de consejo */
+.tip-box {
+  background: linear-gradient(135deg, rgba(105, 30, 122, 0.08) 0%, rgba(244, 98, 1, 0.08) 100%);
+  border: 1px solid rgba(105, 30, 122, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Focus visible styles for keyboard navigation - subtle */
+*:focus-visible {
+  outline: 2px solid rgba(105, 30, 122, 0.5);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--uc-morado);
+  outline-offset: 3px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: white;
+  color: var(--uc-morado);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 500;
+  border: 2px solid var(--uc-morado);
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Print styles */
+@media print {
+
+  header,
+  footer,
+  #sidebar,
+  #sidebarToggle,
+  #scrollToTopBtn {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .uc-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #f5f5f5;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Sidebar Toggle classes */
+.sidebar-collapsed {
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.sidebar-collapsed+main {
+  width: 100% !important;
+  flex-grow: 1;
+}
+
+#sidebarToggle {
+  transition: all 0.3s ease;
+}
+
+/* H2 section titles styling */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(244, 98, 1, 0.2);
+  margin-top: 2rem;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+/* H3 subtitles styling */
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h3::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 24px;
+  background: var(--uc-naranja);
+  border-radius: 4px;
+}
+
+/* H4 subtitles styling */
+h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(135deg, rgba(105, 30, 122, 0.08) 0%, rgba(244, 98, 1, 0.08) 100%);
+  border-left: 3px solid var(--uc-naranja);
+  border-radius: 0.375rem;
+}
+
+/* Override h4 in definition, note, warning boxes */
+.definition h4,
+.note h4,
+.warning h4,
+.simulador h4 {
+  background: none;
+  border-left: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.625;
+  color: #374151;
+  text-align: justify;
+}
+
+ul,
+ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Custom Box Components - CSS Puro */
+.definition {
+  background-color: #F8F1FA;
+  border-left: 4px solid var(--uc-morado);
+  padding: 1.5rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.definition h4 {
+  color: var(--uc-morado);
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.note {
+  background-color: #fff7ed;
+  border-left: 4px solid var(--uc-naranja);
+  padding: 1.5rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.note strong {
+  color: var(--uc-naranja-texto);
+}
+
+.warning {
+  background-color: #fff1f2;
+  border-left: 4px solid #DC2626;
+  padding: 1.5rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.warning strong {
+  color: #9f1239;
+}
+
+.formula {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .formula {
+    padding: 1.5rem;
+  }
+}
+
+.diagram {
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.diagram h4 {
+  text-align: center;
+  color: #475569;
+  margin-bottom: 1.5rem;
+}
+
+.diagram svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* KaTeX dibuja con SVG el signo de \sqrt (y los acentos anchos, las llaves y
+   las flechas estirables) y le da `height: inherit` con `.katex svg`. La regla
+   anterior tiene la misma especificidad y va después de katex.min.css, así que
+   su `height: auto` ganaba y el signo √ quedaba con 0 px de alto dentro de un
+   .diagram. Se devuelve solo el alto: lo demás ya coincide con lo que tiene
+   el mismo SVG fuera del diagrama. */
+.diagram .katex svg {
+  height: inherit;
+}
+
+.exercise {
+  background-color: #F1F4F7;
+  border: 1px solid #DCE3EA;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.exercise h4 {
+  color: #3D5163;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+/* Code Blocks - CSS Puro */
+.code-block-wrapper {
+  position: relative;
+  margin-bottom: 2.5rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #334155;
+  gap: 0.5rem;
+}
+
+.code-block-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.code-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.code-toggle-btn,
+.code-copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #cbd5e1;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.code-toggle-btn:hover,
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.code-copy-btn.copied {
+  background: rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+.code-toggle-btn i,
+.code-copy-btn i {
+  font-size: 0.625rem;
+  transition: transform 0.2s;
+}
+
+.code-toggle-btn.expanded i {
+  transform: rotate(180deg);
+}
+
+pre {
+  background-color: #1e293b !important;
+  color: #f3f4f6 !important;
+  padding: 1.5rem !important;
+  border-radius: 0;
+  overflow-x: auto;
+  margin: 0;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  max-height: 300px;
+  overflow-y: auto;
+  transition: max-height 0.3s ease;
+}
+
+pre.expanded {
+  max-height: 2000px;
+}
+
+pre.collapsed {
+  max-height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+pre.collapsed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, #1e293b);
+  pointer-events: none;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+}
+
+p code,
+li code {
+  background-color: #f3f4f6;
+  color: var(--uc-naranja-texto);
+  padding: 0.25rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+}
+
+/* Pestañas de código R / Python */
+.code-tabs {
+  margin-bottom: 2.5rem;
+}
+
+.code-tabs .code-block-wrapper {
+  margin-bottom: 0;
+  border-top-left-radius: 0;
+}
+
+.code-tabs-nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.code-tab-btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: #e2e8f0;
+  color: #64748b;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.code-tab-btn:hover {
+  background: #cbd5e1;
+  color: var(--uc-morado);
+}
+
+.code-tab-btn.active {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+}
+
+.code-tab-panel[hidden] {
+  display: none;
+}
+
+/* Simulador interactivo */
+.simulador {
+  background: linear-gradient(135deg, rgba(105, 30, 122, 0.04) 0%, rgba(244, 98, 1, 0.04) 100%);
+  border: 1px solid rgba(105, 30, 122, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.simulador h4 {
+  color: var(--uc-morado);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.simulador-controles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 1.5rem;
+  margin: 1.25rem 0;
+}
+
+@media (min-width: 768px) {
+  .simulador-controles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.control-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.control-slider label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-slider output {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: white;
+  background: var(--uc-morado);
+  border-radius: 0.375rem;
+  padding: 0.1rem 0.5rem;
+  min-width: 3.25rem;
+  text-align: center;
+}
+
+.control-slider input[type="range"] {
+  width: 100%;
+  accent-color: var(--uc-naranja);
+  cursor: pointer;
+}
+
+.grafico-wrapper {
+  position: relative;
+  height: 320px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .grafico-wrapper {
+    height: 260px;
+  }
+}
+
+/* Tables - CSS Puro */
+table {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+table th {
+  background-color: var(--uc-morado);
+  color: white;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+table tr:hover {
+  background-color: #fff7ed;
+}
+
+/* Session Header - CSS Puro */
+.session-header {
+  background: linear-gradient(to right, var(--uc-morado), var(--uc-naranja-texto));
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.session-header h2 {
+  color: white;
+  border: none;
+  margin: 0;
+  font-size: 1.875rem;
+  text-shadow: none;
+  padding: 0;
+}
+
+.references {
+  background-color: #f3f4f6;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  margin-top: 3rem;
+}
+
+.references h3::before {
+  display: none;
+}
+
+/* SVG Styles */
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg text {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Mobile typography improvements */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  .session-header h2 {
+    font-size: 1.25rem !important;
+  }
+
+  section h2 {
+    font-size: 1.375rem;
+  }
+
+  section h3 {
+    font-size: 1.125rem;
+  }
+
+  pre {
+    font-size: 0.75rem;
+    padding: 1rem;
+    max-height: 250px;
+  }
+
+  pre.collapsed {
+    max-height: 120px;
+  }
+
+  .code-block-header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .code-toggle-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .uc-card {
+    padding: 1.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .uc-card {
+    border: 1px solid #000;
+  }
+
+  .definition,
+  .note,
+  .warning {
+    border-left-width: 4px;
+  }
+}
+
+/* Blockquote styling */
+blockquote {
+  background: linear-gradient(135deg, rgba(105, 30, 122, 0.05) 0%, rgba(244, 98, 1, 0.05) 100%);
+  border-left: 4px solid var(--uc-morado);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+  font-style: italic;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+details {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--uc-morado);
+  padding: 0.5rem;
+}
+
+summary:hover {
+  color: var(--uc-naranja-texto);
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed #cbd5e1;
+  margin: 2rem 0;
+}
+
+/* --- Mejoras de accesibilidad y responsive (auditoría) --- */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.definition,
+.note,
+.warning,
+.exercise {
+  overflow-x: auto;
+}
+
+.nav-item {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Pie de página: las referencias van sobre fondo verde oscuro, pero la
+   regla global `ul li { color:#374151 }` (pensada para listas dentro de
+   las tarjetas claras del contenido) las volvía ilegibles. Se restablece
+   el texto claro en el pie con mayor especificidad, sin !important. */
+footer ul li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ------------------------------------------------------------------
+   Controles de simulador añadidos en el Capítulo 2: menú desplegable
+   (elegir serie) e interruptores (aplicar transformaciones). Heredan
+   el aire de .control-slider para que la fila de controles sea
+   visualmente homogénea.
+   ------------------------------------------------------------------ */
+.control-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.control-selector label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.control-selector select {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--uc-morado);
+  background: white;
+  border: 1px solid rgba(105, 30, 122, 0.25);
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.control-selector select:focus-visible {
+  outline: 2px solid var(--uc-naranja);
+  outline-offset: 1px;
+}
+
+.control-interruptores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.control-interruptor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  background: white;
+  border: 1px solid rgba(105, 30, 122, 0.25);
+  border-radius: 50px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-interruptor:hover {
+  border-color: var(--uc-naranja);
+}
+
+.control-interruptor input {
+  accent-color: var(--uc-naranja);
+  cursor: pointer;
+}
+
+.control-interruptor.activo {
+  background: var(--uc-morado);
+  color: white;
+  border-color: var(--uc-morado);
+}
+
+/* Lectura numérica que acompaña a un simulador (n, banda, estadísticos) */
+.simulador-lectura {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 0.85rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8125rem;
+  color: #1e293b;
+}
+
+.simulador-lectura b {
+  color: var(--uc-morado);
+}
+
+/* ------------------------------------------------------------------
+   Autoevaluación: preguntas de opción múltiple con retroalimentación
+   por opción. Componente nuevo del Capítulo 2, reutilizable en todos
+   los capítulos.
+   ------------------------------------------------------------------ */
+.quiz {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.quiz h4 {
+  color: #92400e;
+  margin-top: 0;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* El titulo del quiz y su parrafo introductorio quedaban pegados (hueco de
+   0 px): el h4 no tiene margen inferior y Tailwind pone los <p> a cero.
+   Mismo fallo que la auditoria de T4d encontro en los simuladores, aqui en
+   el componente de autoevaluacion. */
+.quiz > h4 + p {
+  margin-top: 0.6rem;
+}
+
+.quiz-pregunta {
+  background: white;
+  border: 1px solid #fde68a;
+  border-radius: 0.5rem;
+  padding: 1rem 1.15rem;
+  margin-top: 1rem;
+}
+
+.quiz-enunciado {
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.75rem 0;
+}
+
+.quiz-enunciado .quiz-numero {
+  color: #b45309;
+  margin-right: 0.4rem;
+}
+
+.quiz-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.quiz-opcion {
+  font-family: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  color: #374151;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.quiz-opcion:hover:not(:disabled) {
+  border-color: var(--uc-naranja);
+  background: #fff7ed;
+}
+
+.quiz-opcion:focus-visible {
+  outline: 2px solid var(--uc-naranja);
+  outline-offset: 2px;
+}
+
+.quiz-opcion .quiz-letra {
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.quiz-opcion.correcta {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+  color: #065f46;
+}
+
+.quiz-opcion.correcta .quiz-letra {
+  color: #059669;
+}
+
+.quiz-opcion.incorrecta {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.quiz-opcion.incorrecta .quiz-letra {
+  color: #dc2626;
+}
+
+.quiz-opcion:disabled {
+  cursor: default;
+}
+
+.quiz-retro {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background: #f1f5f9;
+  border-left: 3px solid #94a3b8;
+  color: #334155;
+}
+
+.quiz-retro.bien {
+  background: #ecfdf5;
+  border-left-color: #059669;
+  color: #065f46;
+}
+
+.quiz-retro.mal {
+  background: #fef2f2;
+  border-left-color: #dc2626;
+  color: #991b1b;
+}
+
+.quiz-retro[hidden] {
+  display: none;
+}
+
+/* Desglose por opción dentro de la retroalimentación (preguntas de
+   selección múltiple). La regla global `ul li { color: #374151 }`, pensada
+   para las listas del contenido, pisaba el color de .quiz-retro.bien/.mal y
+   dejaba el desglose en gris sobre fondo rojo o verde: el mismo fallo que ya
+   se corrigió en el pie de página. `color: inherit` lo devuelve al color de
+   la caja. */
+.quiz-retro ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.1rem;
+  /* Sin viñeta, por decisión del autor (2026-08-12). El `padding-left`
+     se conserva: da la sangría que el desglose ya tenía. Declararlo
+     explícitamente evita que el aspecto dependa de si el Preflight de
+     Tailwind gana o pierde a `main ul`. */
+  list-style-type: none;
+}
+
+.quiz-retro ul li {
+  color: inherit;
+  margin-bottom: 0.35rem;
+}
+
+.quiz-retro ul li:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-marcador {
+  margin-top: 1.15rem;
+  font-weight: 600;
+  color: #92400e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.quiz-reiniciar {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #92400e;
+  background: transparent;
+  border: 1px solid #fbbf24;
+  border-radius: 50px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-reiniciar:hover {
+  background: #fbbf24;
+  color: var(--uc-morado);
+}
+
+/* Barra de progreso de la autoevaluación */
+.quiz-progreso {
+  height: 6px;
+  background: #fde68a;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0.85rem 0 0.25rem 0;
+}
+
+.quiz-progreso-barra {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #b45309 0%, var(--uc-naranja) 100%);
+  border-radius: 3px;
+  transition: width 0.35s ease;
+}
+
+/* Etiqueta del tipo de pregunta */
+.quiz-tipo {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #92400e;
+  background: #fef3c7;
+  border-radius: 50px;
+  padding: 0.1rem 0.6rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Pista: aparece tras el primer fallo, antes de revelar la respuesta */
+.quiz-pista {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background: #fffbeb;
+  border-left: 3px solid #f59e0b;
+  color: #78350f;
+}
+
+.quiz-pista[hidden] {
+  display: none;
+}
+
+/* Opción marcada por el estudiante en selección múltiple, aún sin corregir */
+.quiz-opcion.marcada {
+  background: #fff7ed;
+  border-color: var(--uc-naranja);
+  font-weight: 600;
+}
+
+.quiz-opcion .quiz-casilla {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.15rem;
+  border: 2px solid #94a3b8;
+  border-radius: 0.25rem;
+  display: inline-block;
+  position: relative;
+}
+
+.quiz-opcion.marcada .quiz-casilla {
+  border-color: var(--uc-naranja);
+  background: var(--uc-naranja);
+}
+
+.quiz-opcion.marcada .quiz-casilla::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Falta por marcar: se señala al corregir una selección múltiple */
+.quiz-opcion.faltaba {
+  border-color: #6ee7b7;
+  border-style: dashed;
+  background: #f0fdf4;
+}
+
+/* Respuesta numérica */
+.quiz-numerica {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.quiz-numerica input {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  color: var(--uc-morado);
+  background: white;
+  border: 1px solid rgba(105, 30, 122, 0.25);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  width: 11rem;
+}
+
+.quiz-numerica input:focus-visible {
+  outline: 2px solid var(--uc-naranja);
+  outline-offset: 1px;
+}
+
+.quiz-numerica input:disabled {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.quiz-numerica .quiz-unidad {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8125rem;
+  color: #475569;
+}
+
+.quiz-comprobar {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: white;
+  background: var(--uc-morado);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.quiz-comprobar:hover:not(:disabled) {
+  background: var(--uc-naranja-texto);
+}
+
+.quiz-comprobar:disabled {
+  background: #94a3b8;
+  cursor: default;
+}
+
+/* Gráfico dentro de una pregunta */
+.quiz-grafico {
+  position: relative;
+  height: 210px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+/* Resumen final */
+.quiz-resumen {
+  margin-top: 1.15rem;
+  padding: 1rem 1.15rem;
+  border-radius: 0.5rem;
+  background: white;
+  border: 1px solid #fde68a;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.quiz-resumen[hidden] {
+  display: none;
+}
+
+.quiz-resumen h5 {
+  margin: 0 0 0.5rem 0;
+  color: #92400e;
+  font-weight: 700;
+}
+
+.quiz-resumen ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.1rem;
+}
+
+.quiz-resumen ul li {
+  color: #334155;
+}
+
+/* ------------------------------------------------------------------
+   Ejercicios guiados: pista y solución comentada desplegables.
+   ------------------------------------------------------------------ */
+.ejercicio-guiado {
+  background: white;
+  border: 1px solid #DCE3EA;
+  border-radius: 0.5rem;
+  padding: 1rem 1.15rem;
+  margin-top: 1rem;
+}
+
+.ejercicio-guiado > p:first-child {
+  margin-top: 0;
+}
+
+.ejercicio-enunciado {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.ejercicio-enunciado .ejercicio-numero {
+  font-weight: 700;
+  color: #3D5163;
+  margin-right: 0.4rem;
+}
+
+.ejercicio-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.ejercicio-boton {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #3D5163;
+  background: transparent;
+  border: 1px solid #A9B8C6;
+  border-radius: 50px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ejercicio-boton:hover {
+  background: #DCE3EA;
+}
+
+.ejercicio-boton[aria-expanded="true"] {
+  background: #3D5163;
+  color: white;
+  border-color: #3D5163;
+}
+
+.ejercicio-boton .fa-chevron-down {
+  transition: transform 0.2s ease;
+  font-size: 0.7rem;
+}
+
+.ejercicio-boton[aria-expanded="true"] .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.ejercicio-panel {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.ejercicio-panel[hidden] {
+  display: none;
+}
+
+.ejercicio-panel.pista {
+  background: #fffbeb;
+  border-left: 3px solid #f59e0b;
+  color: #78350f;
+}
+
+.ejercicio-panel.solucion {
+  background: #f8fafc;
+  border-left: 3px solid #3D5163;
+  color: #1e293b;
+}
+
+.ejercicio-panel.solucion .code-block-wrapper {
+  margin-bottom: 1rem;
+}
+
+.ejercicio-panel table {
+  font-size: 0.8125rem;
+  margin: 0.75rem 0;
+}
+/* ------------------------------------------------------------------
+   Aire alrededor de los gráficos.
+   Auditoría del 2026-07-26: el título del simulador quedaba pegado a su
+   párrafo (0 px) y las etiquetas que encabezan cada panel quedaban a 4 px
+   del lienzo, con lo que el bloque se leía amontonado. Los márgenes iban
+   en atributos `style` repartidos por el HTML; aquí se centralizan en dos
+   clases con un ritmo vertical propio.
+   ------------------------------------------------------------------ */
+.simulador h4 {
+  margin-bottom: 0.7rem;
+}
+
+/* Párrafo que presenta el simulador, justo debajo del título */
+.simulador-intro {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  text-align: left;
+  color: #475569;
+}
+
+/* Etiqueta que encabeza un panel concreto dentro de un simulador */
+.grafico-etiqueta {
+  margin: 1.25rem 0 0.5rem 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--uc-morado);
+}
+
+/* El espacio lo pone siempre el elemento de arriba: así no se acumulan
+   márgenes ni quedan huecos dobles entre paneles consecutivos. */
+.simulador-intro + .grafico-wrapper,
+.simulador-controles + .grafico-wrapper,
+.grafico-etiqueta + .grafico-wrapper {
+  margin-top: 0;
+}
+
+.grafico-wrapper + .grafico-wrapper {
+  margin-top: 0.9rem;
+}
+
+/* La lectura numérica se separa del lienzo con una línea fina, para que
+   se lea como una banda de resultados y no como un pie pegado al gráfico. */
+.simulador-lectura {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(105, 30, 122, 0.12);
+  line-height: 1.55;
+}
+
+/* La lectura numérica se diseñó para ir al final del simulador, así que no
+   lleva margen inferior. Cuando va ANTES de un gráfico (Módulos 9 y 11 del
+   Capítulo 5) el hueco medido era de 0 px. */
+.simulador-lectura + .grafico-etiqueta,
+.simulador-lectura + .grafico-wrapper {
+  margin-top: 0.85rem;
+}
+
+/* Enunciado de una pregunta con gráfico: mismo criterio de separación */
+.quiz-pregunta .quiz-enunciado + .quiz-grafico {
+  margin-top: 0.9rem;
+}
+
+/* ------------------------------------------------------------------
+   Derivación plegable (añadida en el Capítulo 3, 2026-07-26).
+
+   Guarda el desarrollo algebraico completo de un resultado sin que el
+   texto principal cargue con él: quien acepta la fórmula sigue leyendo,
+   quien quiere el porqué lo abre. Mismo patrón accesible que los
+   ejercicios guiados (aria-expanded + aria-controls), pero en la familia
+   de color primaria —es teoría, no un ejercicio— para que se distinga de
+   las cajas azules de ejercicio y de las ámbar de pista.
+   ------------------------------------------------------------------ */
+.derivacion {
+  margin: 1rem 0;
+}
+
+.derivacion-boton {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--uc-morado);
+  background: transparent;
+  border: 1px solid rgba(105, 30, 122, 0.3);
+  border-radius: 50px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.derivacion-boton:hover {
+  background: rgba(105, 30, 122, 0.06);
+}
+
+.derivacion-boton[aria-expanded="true"] {
+  background: var(--uc-morado);
+  color: white;
+  border-color: var(--uc-morado);
+}
+
+.derivacion-boton .fa-chevron-down {
+  transition: transform 0.2s ease;
+  font-size: 0.7rem;
+}
+
+.derivacion-boton[aria-expanded="true"] .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.derivacion-panel {
+  margin-top: 0.75rem;
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+  border-left: 3px solid var(--uc-morado);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.derivacion-panel[hidden] {
+  display: none;
+}
+
+/* Los pasos van numerados: en una derivación el orden es la explicación. */
+.derivacion-pasos {
+  list-style: none;
+  counter-reset: paso;
+  margin: 0;
+  padding: 0;
+}
+
+.derivacion-pasos > li {
+  counter-increment: paso;
+  position: relative;
+  padding-left: 2.1rem;
+  margin: 0 0 1.1rem 0;
+  color: #1e293b;
+}
+
+.derivacion-pasos > li:last-child {
+  margin-bottom: 0;
+}
+
+.derivacion-pasos > li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--uc-morado);
+  color: white;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.derivacion-pasos > li > p:first-child {
+  margin-top: 0;
+}
+
+.derivacion-pasos > li > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Cierre de la derivación: el resultado al que se quería llegar. */
+.derivacion-resultado {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(105, 30, 122, 0.15);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------
+   Componente .ciclo — diagrama de etapas recorrible
+   ------------------------------------------------------------------
+   Para procedimientos que se recorren y en los que se VUELVE ATRÁS
+   (Box-Jenkins, un pipeline de preprocesamiento, un flujo de
+   descomposición). Una imagen fija enseña el orden; esto enseña
+   además qué hace cada etapa, con qué función, y qué hallazgo te
+   devuelve a la anterior — que es donde está el aprendizaje.
+
+   Semántica de pestañas (role="tablist"/"tab"/"tabpanel") en vez de
+   la de acordeón de .derivacion: las etapas son alternativas de una
+   misma cosa, no bloques independientes, y así el teclado recorre el
+   ciclo con las flechas. La familia de color es la naranja de acento,
+   para no confundirlo con las cajas verdes de derivación.
+   ------------------------------------------------------------------ */
+.ciclo {
+  margin: 1.25rem 0;
+}
+
+.ciclo-etapas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 0.6rem 0;
+  padding: 0;
+}
+
+.ciclo-etapa {
+  display: flex;
+  align-items: stretch;
+}
+
+/* La flecha vive en el separador, no en el botón: así el orden se lee
+   aunque las etapas salten de línea. */
+.ciclo-etapa:not(:last-child)::after {
+  content: "\2192";
+  align-self: center;
+  margin: 0 0.15rem;
+  color: rgba(105, 30, 122, 0.35);
+  font-weight: 700;
+}
+
+.ciclo-boton {
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid rgba(105, 30, 122, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 8.5rem;
+  transition: all 0.2s ease;
+}
+
+.ciclo-boton:hover {
+  border-color: var(--uc-morado);
+  background: rgba(105, 30, 122, 0.04);
+}
+
+.ciclo-boton[aria-selected="true"] {
+  background: var(--uc-morado);
+  border-color: var(--uc-morado);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(105, 30, 122, 0.25);
+}
+
+.ciclo-numero {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--uc-naranja-texto);
+  font-weight: 600;
+}
+
+.ciclo-boton[aria-selected="true"] .ciclo-numero {
+  color: var(--uc-ambar);
+}
+
+.ciclo-titulo {
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.ciclo-resumen {
+  font-size: 0.74rem;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.ciclo-boton[aria-selected="true"] .ciclo-resumen {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* La vuelta atrás es lo que distingue un ciclo de una lista de pasos. */
+.ciclo-retorno {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  color: #64748b;
+  font-style: italic;
+  margin: 0 0 0.7rem 0;
+}
+
+.ciclo-retorno::before {
+  content: "\21BA";
+  font-style: normal;
+  font-size: 1rem;
+  color: var(--uc-naranja-texto);
+}
+
+.ciclo-panel {
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+  border-left: 3px solid var(--uc-naranja);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.ciclo-panel[hidden] {
+  display: none;
+}
+
+.ciclo-campo {
+  margin: 0 0 0.7rem 0;
+}
+
+.ciclo-campo:last-child {
+  margin-bottom: 0;
+}
+
+.ciclo-etiqueta {
+  display: block;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--uc-morado);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.ciclo-vuelta {
+  margin-top: 0.85rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(244, 98, 1, 0.25);
+}
+
+.ciclo-vuelta .ciclo-etiqueta {
+  color: var(--uc-naranja-texto);
+}
+
+.ciclo-panel code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  background: rgba(105, 30, 122, 0.07);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+/* En móvil el ciclo se lee en vertical y las flechas giran con él. */
+@media (max-width: 640px) {
+  .ciclo-etapas {
+    flex-direction: column;
+  }
+
+  .ciclo-etapa {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ciclo-boton {
+    width: 100%;
+  }
+
+  .ciclo-etapa:not(:last-child)::after {
+    content: "\2193";
+    align-self: center;
+    margin: 0.15rem 0;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Componente .rubrica — criterios de calificación recorribles
+   ------------------------------------------------------------------
+   Para entregables que se califican por varios criterios a la vez: un
+   taller, un proyecto. Publicar la rúbrica DENTRO del material —y no
+   como anexo del profesor— es lo que permite leerla antes de escribir,
+   que es cuando sirve de algo.
+
+   Se pulsa un criterio y el panel de abajo muestra su foco y sus
+   niveles. El `foco` es obligatorio en la práctica aunque el código no
+   lo exija: es la frase que dice QUÉ MIDE el criterio, y sin ella la
+   rúbrica se lee como una lista de castigos.
+
+   El panel es `role="status"` con `aria-live="polite"`, así que el
+   cambio de criterio se anuncia; los criterios son botones con
+   `aria-pressed`, no <div> con onclick.
+   ------------------------------------------------------------------ */
+.rubrica {
+  margin: 1.75rem 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.rubrica-titulo {
+  margin: 0;
+  padding: 0.7rem 1.1rem;
+  background: var(--uc-morado);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rubrica-puntos-total {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 50px;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+
+.rubrica-intro {
+  margin: 0;
+  padding: 0.75rem 1.1rem 0;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.rubrica-criterios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.9rem 1.1rem 0.35rem;
+}
+
+.rubrica-criterio {
+  flex: 1 1 9.5rem;
+  min-width: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  font-family: inherit;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.7rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, color 0.15s ease;
+}
+
+.rubrica-criterio:hover {
+  border-color: var(--uc-morado);
+  box-shadow: 0 1px 4px rgba(105, 30, 122, 0.12);
+}
+
+.rubrica-criterio.activo {
+  background: var(--uc-morado);
+  border-color: var(--uc-morado);
+  color: white;
+}
+
+.rubrica-criterio-clave {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--uc-naranja-texto);
+}
+
+.rubrica-criterio.activo .rubrica-criterio-clave {
+  color: var(--uc-ambar);
+}
+
+.rubrica-criterio-nombre {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1e293b;
+}
+
+.rubrica-criterio.activo .rubrica-criterio-nombre {
+  color: white;
+}
+
+.rubrica-criterio-puntos {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.rubrica-criterio.activo .rubrica-criterio-puntos {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.rubrica-detalle {
+  margin: 0.5rem 1.1rem 0;
+}
+
+.rubrica-foco {
+  margin: 0 0 0.6rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid var(--uc-naranja);
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.rubrica-foco strong {
+  color: var(--uc-morado);
+}
+
+.rubrica-niveles {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.rubrica-nivel {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #94a3b8;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.85rem;
+}
+
+.rubrica-nivel[data-grado="0"] { border-left-color: #12805c; }
+.rubrica-nivel[data-grado="1"] { border-left-color: #0f766e; }
+.rubrica-nivel[data-grado="2"] { border-left-color: #d97706; }
+.rubrica-nivel[data-grado="3"] { border-left-color: #b91c1c; }
+
+.rubrica-nivel-marca {
+  flex: 0 0 5.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.rubrica-nivel-nombre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.rubrica-nivel-rango {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.rubrica-nivel-observa {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.rubrica-nivel-observa strong {
+  color: var(--uc-morado);
+}
+
+.rubrica-anula {
+  margin: 0.85rem 1.1rem 0;
+  background: rgba(185, 28, 28, 0.05);
+  border: 1px dashed rgba(185, 28, 28, 0.35);
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.83rem;
+  color: #1e293b;
+}
+
+.rubrica-anula .rotulo {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #b91c1c;
+  margin-bottom: 0.3rem;
+}
+
+.rubrica-anula ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.rubrica-anula li {
+  margin: 0.2rem 0;
+  color: #475569;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.rubrica-nota {
+  margin: 0;
+  padding: 0.75rem 1.1rem 1rem;
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+@media (max-width: 900px) {
+  .rubrica-criterio {
+    min-width: 0;
+  }
+
+  .rubrica-nivel {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .rubrica-nivel-marca {
+    /* El `flex: 0 0 5.6rem` de arriba fija la BASE, y al pasar el nivel
+       a columna la base deja de ser el ancho y pasa a ser el alto: la
+       marca se estira a 5.6rem con 1.2rem de contenido y deja un hueco
+       vacío del tamaño del propio texto. Se restituye a `auto`. */
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+}
+
+/* ==================================================================
+   COMPONENTES PROPIOS DEL CURSO (UCompensar · Procesamiento de Datos)
+   ================================================================== */
+
+/* ---- Cabecera: franja de colores y logo ---------------------------- */
+.uc-franja {
+  height: 5px;
+  background: linear-gradient(90deg, var(--uc-naranja) 0%, var(--uc-ambar) 55%, var(--uc-pizarra) 100%);
+}
+
+.uc-logo {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  flex-shrink: 0;
+}
+
+.uc-logo img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.uc-boton-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.45rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.uc-boton-header:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.uc-boton-header:focus-visible {
+  outline: 2px solid var(--uc-ambar);
+  outline-offset: 2px;
+}
+
+.uc-boton-header[aria-pressed="true"] {
+  background: var(--uc-ambar);
+  border-color: var(--uc-ambar);
+  color: var(--uc-morado-profundo);
+}
+
+.reloj-sesion {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  white-space: nowrap;
+}
+
+.reloj-sesion.break {
+  background: var(--uc-ambar);
+  color: var(--uc-morado-profundo);
+}
+
+/* ---- Sidebar agrupado por bloques ---------------------------------- */
+.nav-bloque {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 1.1rem 0 0.35rem 0;
+  padding: 0 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--uc-morado);
+}
+
+.nav-bloque:first-child {
+  margin-top: 0;
+}
+
+.nav-bloque-hora {
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.nav-break {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.7rem 0.35rem 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--uc-naranja-texto);
+  white-space: nowrap;
+}
+
+.nav-break::before,
+.nav-break::after {
+  content: '';
+  flex: 1;
+  border-top: 1px dashed rgba(244, 98, 1, 0.5);
+}
+
+.nav-item {
+  font-size: 0.875rem;
+  padding: 0.6rem 0.8rem;
+}
+
+.nav-item .nav-titulo {
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-item .nav-duracion {
+  margin-left: 0.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.nav-item.active .nav-duracion {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sidebar-container {
+  width: 300px;
+}
+
+/* ---- Cabecera de cada módulo -------------------------------------- */
+.modulo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--uc-naranja-texto);
+}
+
+.modulo-meta .chip-tiempo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--uc-morado);
+  background: #F3E9F5;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+}
+
+.aviso-ficticio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--uc-naranja-texto);
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+
+/* ---- Celda de código con su salida real ---------------------------- */
+.celda {
+  margin-bottom: 2.25rem;
+}
+
+.code-tab-panel > .celda {
+  margin-bottom: 0;
+}
+
+.celda .code-block-wrapper {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.celda-id {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 0.4rem;
+}
+
+.salida {
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 0.75rem 0.75rem;
+  background: #FCFBFA;
+  overflow: hidden;
+}
+
+.salida-rotulo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid #eef0f3;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--uc-pizarra);
+}
+
+.salida pre {
+  background: #FCFBFA !important;
+  color: var(--uc-tinta) !important;
+  padding: 0.8rem 1rem !important;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  max-height: 420px;
+  white-space: pre;
+  border-radius: 0;
+}
+
+.salida pre + .salida-tabla {
+  border-top: 1px dashed #e2e8f0;
+}
+
+.salida-tabla {
+  overflow-x: auto;
+  padding: 0.6rem 1rem 0.8rem;
+}
+
+.salida table.tabla-salida {
+  display: table;
+  width: auto;
+  margin: 0;
+  border-collapse: collapse;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.76rem;
+}
+
+.salida table.tabla-salida th,
+.salida table.tabla-salida td {
+  padding: 0.3rem 0.65rem;
+  text-align: right;
+  white-space: nowrap;
+  color: var(--uc-tinta);
+  border-bottom: 1px solid #eef0f3;
+}
+
+.salida table.tabla-salida thead th {
+  background: transparent;
+  font-weight: 700;
+  border-bottom: 1px solid #94a3b8;
+}
+
+.salida table.tabla-salida tbody th {
+  background: transparent;
+  font-weight: 700;
+  text-align: left;
+}
+
+.salida table.tabla-salida tr:nth-child(even) {
+  background: #F7F2F8;
+}
+
+.salida table.tabla-salida tr:hover {
+  background: #fff7ed;
+}
+
+.salida-nota {
+  margin: 0;
+  padding: 0.45rem 1rem 0.6rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #64748b;
+  text-align: left;
+}
+
+/* ---- Agenda de la sesión ------------------------------------------- */
+.agenda {
+  margin: 1.5rem 0 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.agenda-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1.1rem;
+  background: var(--uc-morado);
+  color: white;
+}
+
+.agenda-cabecera .agenda-titulo-general {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.agenda-cabecera label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.agenda-cabecera input[type="time"] {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--uc-morado-profundo);
+  background: white;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.25rem 0.45rem;
+}
+
+.agenda-cabecera input[type="time"]:focus-visible {
+  outline: 2px solid var(--uc-ambar);
+  outline-offset: 2px;
+}
+
+.agenda-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.agenda-fila {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr auto;
+  gap: 0.15rem 1rem;
+  align-items: center;
+  margin: 0;
+  padding: 0.65rem 1.1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.agenda-hora {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--uc-morado);
+}
+
+.agenda-nombre {
+  font-weight: 600;
+  color: var(--uc-tinta);
+}
+
+.agenda-detalle {
+  grid-column: 2 / 3;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.agenda-duracion {
+  grid-row: 1 / span 2;
+  grid-column: 3;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.agenda-fila.es-break {
+  background: #fff7ed;
+}
+
+.agenda-fila.es-break .agenda-nombre {
+  color: var(--uc-naranja-texto);
+}
+
+.agenda-fila.actual {
+  background: #F8F1FA;
+  box-shadow: inset 4px 0 0 var(--uc-naranja);
+}
+
+.agenda-pie {
+  margin: 0;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.78rem;
+  color: #64748b;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .agenda-fila {
+    grid-template-columns: 1fr auto;
+  }
+
+  .agenda-hora,
+  .agenda-detalle {
+    grid-column: 1 / 2;
+  }
+
+  .agenda-duracion {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* ---- Modo presentación (proyección en clase) ---------------------- */
+html.modo-presentacion {
+  font-size: 19px;
+}
+
+html.modo-presentacion #sidebar,
+html.modo-presentacion #sidebarToggle,
+html.modo-presentacion #scrollToTopBtn,
+html.modo-presentacion footer {
+  display: none !important;
+}
+
+html.modo-presentacion .reloj-sesion {
+  display: inline-flex;
+}
+
+html.modo-presentacion .contenedor-principal {
+  max-width: 100rem;
+}
+
+html.modo-presentacion p {
+  text-align: left;
+}
+
+/* ---- Tarjetas genéricas ------------------------------------------- */
+.rejilla-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.rejilla-tarjetas.una-columna {
+  grid-template-columns: 1fr;
+}
+
+.tarjeta {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+  color: var(--uc-morado);
+}
+
+.tarjeta-titulo i {
+  color: var(--uc-naranja);
+}
+
+.tarjeta p {
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta p:last-child {
+  margin-bottom: 0;
+}
+
+.tarjeta ul {
+  margin: 0.25rem 0 0 1.1rem;
+  font-size: 0.88rem;
+}
+
+.tarjeta ul li {
+  margin-bottom: 0.25rem;
+}
+
+.tarjeta.destacada {
+  border: 2px solid var(--uc-morado);
+  box-shadow: 0 4px 14px rgba(105, 30, 122, 0.15);
+}
+
+.tarjeta-etiqueta {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--uc-naranja-texto);
+  margin-bottom: 0.25rem;
+}
+
+/* Muestra de un tipo de dato (estructurado, semi, no estructurado) */
+.tipo-dato pre {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  font-size: 0.72rem;
+  padding: 0.75rem !important;
+  border-radius: 0.5rem;
+  max-height: 11rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0.5rem 0 0 0;
+}
+
+/* ---- Pila de responsabilidad en la nube --------------------------- */
+.pila {
+  display: grid;
+  gap: 4px;
+  margin-top: 0.5rem;
+}
+
+.pila-capa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.pila-capa .pila-quien {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pila-capa.tu {
+  background: var(--uc-morado);
+  color: white;
+}
+
+.pila-capa.proveedor {
+  background: #E5EAEF;
+  color: #334155;
+}
+
+.pila-ejemplo {
+  margin-top: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid var(--uc-naranja);
+  border-radius: 0.5rem;
+  font-size: 0.88rem;
+  color: #334155;
+  text-align: left;
+}
+
+/* ---- Ecosistema Hadoop (capas con piezas pulsables) --------------- */
+.ecosistema {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.eco-capa {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.eco-capa-nombre {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--uc-morado);
+}
+
+.eco-piezas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.eco-pieza {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--uc-morado-profundo);
+  background: #F3E9F5;
+  border: 1px solid rgba(105, 30, 122, 0.2);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.eco-pieza:hover {
+  border-color: var(--uc-morado);
+}
+
+.eco-pieza.nucleo {
+  background: var(--uc-morado);
+  color: white;
+}
+
+.eco-pieza[aria-pressed="true"] {
+  background: var(--uc-naranja-texto);
+  border-color: var(--uc-naranja-texto);
+  color: white;
+}
+
+.eco-detalle {
+  margin-top: 0.75rem;
+  min-height: 3.2rem;
+  padding: 0.75rem 0.9rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid var(--uc-naranja);
+  border-radius: 0.5rem;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+@media (max-width: 640px) {
+  .eco-capa {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+/* ---- Simulador HDFS ----------------------------------------------- */
+.hdfs-nodos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.hdfs-nodo {
+  font-family: inherit;
+  text-align: left;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  min-height: 5.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.hdfs-nodo:hover {
+  border-color: var(--uc-morado);
+}
+
+.hdfs-nodo-nombre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+}
+
+.hdfs-nodo-estado {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.hdfs-bloques {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 0.4rem;
+}
+
+.hdfs-bloque {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 0.08rem 0.3rem;
+}
+
+.hdfs-nodo.caido {
+  background: repeating-linear-gradient(45deg, #fef2f2, #fef2f2 6px, #fee2e2 6px, #fee2e2 12px);
+  border-color: #fca5a5;
+}
+
+.hdfs-nodo.caido .hdfs-nodo-estado {
+  color: #b91c1c;
+}
+
+.hdfs-nodo.caido .hdfs-bloque {
+  opacity: 0.3;
+}
+
+.hdfs-perdidos {
+  font-weight: 700;
+  color: #b91c1c;
+}
+
+/* ---- Simulador MapReduce ------------------------------------------ */
+.mr-entrada textarea {
+  width: 100%;
+  min-height: 7.25rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--uc-tinta);
+  border: 1px solid rgba(105, 30, 122, 0.25);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  resize: vertical;
+}
+
+.mr-entrada textarea:focus-visible {
+  outline: 2px solid var(--uc-naranja);
+  outline-offset: 1px;
+}
+
+.mr-entrada label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.3rem;
+}
+
+.mr-flujo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .mr-flujo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .mr-flujo {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mr-fase {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.6rem;
+  min-width: 0;
+}
+
+.mr-fase-titulo {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--uc-morado);
+}
+
+.mr-fase-titulo span:last-child {
+  color: #64748b;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.mr-caja {
+  border: 1px dashed #cbd5e1;
+  border-radius: 0.45rem;
+  padding: 0.35rem 0.45rem;
+  margin-bottom: 0.4rem;
+}
+
+.mr-caja:last-child {
+  margin-bottom: 0;
+}
+
+.mr-caja-titulo {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.25rem;
+}
+
+.mr-texto {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #334155;
+  margin: 0;
+  text-align: left;
+}
+
+.mr-pares {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.mr-par {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.64rem;
+  border-radius: 0.25rem;
+  padding: 0.05rem 0.3rem;
+  white-space: nowrap;
+  color: var(--uc-tinta);
+  background: #F1F5F9;
+  border-left: 3px solid transparent;
+}
+
+.mr-par.r0 { border-left-color: var(--uc-morado); background: #F3E9F5; }
+.mr-par.r1 { border-left-color: var(--uc-naranja); background: #FFF1E6; }
+.mr-par.r2 { border-left-color: var(--uc-pizarra); background: #E9EEF2; }
+
+.mr-leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.mr-leyenda .mr-par {
+  font-size: 0.7rem;
+}
+
+/* ---- Tablero de calidad -------------------------------------------- */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.indicador {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+}
+
+.indicador-valor {
+  display: block;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--uc-morado);
+}
+
+.indicador-etiqueta {
+  display: block;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: #64748b;
+}
+
+.indicador.alerta {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.indicador.alerta .indicador-valor {
+  color: #b91c1c;
+}
+
+.indicador.ok .indicador-valor {
+  color: #0f766e;
+}
+
+/* Los interruptores ocupan toda la fila de controles, no media columna */
+.simulador-controles .control-interruptores {
+  grid-column: 1 / -1;
+}
+
+.control-interruptor .dimension {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+/* ---- Pirámide DIKW y diagramas SVG -------------------------------- */
+.diagram svg text {
+  font-family: 'Roboto', sans-serif;
+}
+
+.leyenda-diagrama {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Entrada suave de cada módulo (se anula con prefers-reduced-motion) */
+.animate-fade-in {
+  animation: aparecer 0.35s ease both;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ------------------------------------------------------------------
+   Tipografía del contenido frente al «preflight» de Tailwind.
+   El CDN de Tailwind inyecta su hoja DESPUÉS de esta y, a igual
+   especificidad, gana: deja los <p> sin margen, las listas sin viñetas
+   ni sangría y los <h3>/<h4> sin tamaño ni peso. Se restituyen dentro de
+   .module-content con más especificidad. Solo se tocan los elementos SIN
+   clase: los componentes (.ciclo-etapas, .quiz-enunciado, .mr-texto…)
+   conservan los márgenes que ya declaran.
+   ------------------------------------------------------------------ */
+.module-content p:not([class]) {
+  margin-bottom: 1rem;
+}
+
+.module-content ul:not([class]),
+.module-content ol:not([class]) {
+  margin: 0 0 1.25rem 0;
+  padding-left: 1.4rem;
+}
+
+.module-content ul:not([class]) {
+  list-style: disc;
+}
+
+.module-content ol:not([class]) {
+  list-style: decimal;
+}
+
+.module-content ol[type="a"]:not([class]) {
+  list-style: lower-alpha;
+}
+
+.module-content .tarjeta p:not([class]) {
+  margin-bottom: 0.5rem;
+}
+
+.module-content .tarjeta p:not([class]):last-child,
+.module-content .ciclo-campo p:not([class]) {
+  margin-bottom: 0;
+}
+
+.module-content .tarjeta ul:not([class]) {
+  margin: 0.25rem 0 0 0;
+  padding-left: 1.1rem;
+}
+
+.module-content .quiz-retro ul,
+.module-content .quiz-resumen ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.1rem;
+}
+
+.module-content .quiz-retro ul {
+  list-style: none;
+}
+
+.module-content .rubrica-anula ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.module-content h3:not([class]) {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+}
+
+.module-content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* En el teléfono la cabecera fija se comía un tercio de la pantalla: ahí
+   se desplaza con la página, y el modo presentación (que es para proyectar)
+   no se ofrece. */
+@media (max-width: 767.98px) {
+  .uc-header.sticky {
+    position: static;
+  }
+
+  #botonPresentacion {
+    display: none;
+  }
+
+  .uc-logo img {
+    height: 24px;
+  }
+}
+
+html.modo-presentacion #enlaceSesiones {
+  display: none;
+}
+
+/* ==================================================================
+   Componentes de la sesión 2
+   ================================================================== */
+
+/* ---- Particiones: tareas por núcleo en el tiempo (diagrama de Gantt) */
+.gantt {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+}
+
+.gantt-fila {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gantt-nucleo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+}
+
+.gantt-carril {
+  position: relative;
+  height: 1.6rem;
+  background: #F1F4F7;
+  border-radius: 0.35rem;
+  overflow: hidden;
+}
+
+.gantt-tarea {
+  position: absolute;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  display: flex;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: inset -1px 0 0 white;
+}
+
+.gantt-arranque {
+  background: var(--uc-ambar);
+}
+
+.gantt-trabajo {
+  flex: 1;
+  background: var(--uc-morado);
+}
+
+.gantt-tarea.oleada-par .gantt-trabajo {
+  background: var(--uc-morado-claro);
+}
+
+.gantt-leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.gantt-leyenda span::before {
+  content: '';
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.35rem;
+  border-radius: 0.2rem;
+  vertical-align: -0.1rem;
+}
+
+.gantt-leyenda .l-trabajo::before { background: var(--uc-morado); }
+.gantt-leyenda .l-arranque::before { background: var(--uc-ambar); }
+.gantt-leyenda .l-ocioso::before { background: #F1F4F7; border: 1px solid #cbd5e1; }
+.gantt-leyenda .l-trabajo-par::before { background: var(--uc-morado-claro); }
+
+.gantt-eje {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0.5rem;
+}
+
+.gantt-eje div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font: 0.7rem 'Fira Code', monospace;
+  color: #475569;
+}
+
+/* ---- DAG: operaciones agrupadas en etapas ------------------------- */
+.dag-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.dag-grupo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.dag-grupo-nombre {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #475569;
+  min-width: 7.5rem;
+}
+
+.dag-op {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(105, 30, 122, 0.25);
+  background: #F3E9F5;
+  color: var(--uc-morado-profundo);
+  cursor: pointer;
+}
+
+.dag-op.ancha {
+  background: #FFF1E6;
+  border-color: rgba(184, 74, 0, 0.35);
+  color: #7C2D12;
+}
+
+.dag-op.accion {
+  background: var(--uc-morado);
+  border-color: var(--uc-morado);
+  color: white;
+}
+
+.dag-op.control {
+  background: white;
+  border-color: #cbd5e1;
+  color: #334155;
+  font-family: inherit;
+}
+
+.dag-op:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dag-etapas {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.dag-etapa {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid var(--uc-morado);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.7rem;
+}
+
+.dag-etapa-titulo {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+  margin-bottom: 0.4rem;
+}
+
+.dag-pasos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.4rem;
+}
+
+.dag-paso {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #1F2933;
+  background: #F8FAFC;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.45rem;
+}
+
+.dag-flecha {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.dag-paso.accion {
+  color: var(--uc-naranja-texto);
+  font-weight: 600;
+}
+
+.dag-shuffle {
+  align-self: center;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  text-align: center;
+  color: #7C2D12;
+  background: #FFF7ED;
+  border: 1px dashed var(--uc-naranja);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.dag-aviso {
+  width: 100%;
+  font-size: 0.85rem;
+  color: #334155;
+  background: #F8FAFC;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.dag-aviso.ejecutado {
+  border-left: 3px solid var(--uc-morado);
+}
+
+/* ---- Formatos: bytes por columna y mes en Parquet ------------------ */
+.pq-opciones {
+  display: grid;
+  gap: 0.6rem;
+  grid-column: 1 / -1;
+}
+
+.pq-opciones fieldset {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem 0.55rem;
+  background: white;
+}
+
+.pq-opciones legend {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--uc-morado);
+  padding: 0 0.3rem;
+}
+
+.pq-casillas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+}
+
+.pq-casillas label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #1F2933;
+  cursor: pointer;
+}
+
+.pq-casillas input {
+  accent-color: var(--uc-morado);
+}
+
+.pq-rejilla {
+  margin-top: 0.9rem;
+  overflow-x: auto;
+}
+
+.pq-rejilla table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 0.72rem;
+  margin: 0;
+}
+
+.pq-rejilla th {
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  color: #334155;
+  background: transparent;
+  padding: 0.2rem 0.35rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.pq-rejilla thead th {
+  text-align: center;
+}
+
+.pq-rejilla td {
+  text-align: right;
+  font-family: 'Fira Code', monospace;
+  padding: 0.25rem 0.35rem;
+  border-radius: 0.2rem;
+  background: #F1F4F7;
+  color: #475569;
+  border: none;
+}
+
+.pq-rejilla td.leida {
+  background: var(--uc-morado);
+  color: white;
+}

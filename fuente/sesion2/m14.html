@@ -1,0 +1,141 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 14 · Crear la base de datos                 (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-14">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 14 · Bloque 4 · Tema 6.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Crear la base de datos
+          <span class="text-gray-500 font-normal text-2xl">/ Creating a database</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Entender cómo guarda Spark una base de datos, diseñar
+              las tablas del caso y crearlas con SQL, distinguiendo tablas administradas y externas.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Hasta ahora, cada resultado vivía en una variable de Python que desaparece al cerrar Colab. Una
+        <strong>base de datos</strong> les da nombre, estructura y permanencia, y permite que cualquiera los consulte
+        con SQL sin conocer el código que los produjo.</p>
+
+      <h3>Catálogo y almacenamiento</h3>
+      <p>En Spark, una base de datos tiene dos partes, como HDFS tenía NameNode y DataNodes:</p>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Catálogo</span>
+          <p class="tarjeta-titulo"><i class="fas fa-book" aria-hidden="true"></i>Lo que existe</p>
+          <p>Nombres de bases de datos y tablas, columnas, tipos, comentarios y dónde están los archivos. En producción
+            lo guarda un servicio aparte —Hive Metastore, AWS Glue Data Catalog, Unity Catalog— para que lo compartan
+            muchos usuarios y herramientas.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Almacenamiento</span>
+          <p class="tarjeta-titulo"><i class="fas fa-hard-drive" aria-hidden="true"></i>Los datos</p>
+          <p>Archivos —normalmente Parquet— en una carpeta: en Colab, <code>spark-warehouse/</code>; en un clúster,
+            HDFS o el almacenamiento de objetos de la nube.</p>
+        </div>
+      </div>
+      <p>Esta combinación —archivos abiertos más un catálogo que les da forma de tablas— es la base de un lago de
+        datos que se consulta con SQL. Cuando además se agregan transacciones, historial de versiones y control de
+        cambios con formatos como Delta Lake o Apache Iceberg, se habla de <em>lakehouse</em>: la escala de un lago de
+        datos con la disciplina de una base de datos.</p>
+
+      <h3>El diseño: un modelo en estrella en miniatura</h3>
+      <div class="diagram">
+        <svg viewBox="0 0 720 230" width="100%" role="img" aria-labelledby="estrella-titulo estrella-desc">
+          <title id="estrella-titulo">Tablas de la base de datos guadua</title>
+          <desc id="estrella-desc">La tabla de hechos ventas, con una fila por venta, se relaciona por id_producto con
+            la dimensión productos. Aparte están ventas_bronce, una tabla externa sobre el CSV original; cuarentena, con
+            las filas apartadas; y eventos_web, con los eventos de la web aplanados.</desc>
+          <rect x="250" y="20" width="220" height="190" rx="10" fill="#691E7A" />
+          <g fill="#fff">
+            <text x="360" y="48" font-size="15" font-weight="700" text-anchor="middle">ventas · hechos</text>
+            <g font-size="11.5" font-family="Fira Code, monospace">
+              <text x="270" y="78">id_venta</text>
+              <text x="270" y="98">fecha · mes</text>
+              <text x="270" y="118">ciudad · canal</text>
+              <text x="270" y="138">id_cliente · metodo_pago</text>
+              <text x="270" y="158" fill="#FAA012">id_producto ⟶</text>
+              <text x="270" y="178">cantidad · precio_unitario</text>
+              <text x="270" y="198">descuento · total</text>
+            </g>
+          </g>
+          <rect x="535" y="55" width="170" height="120" rx="10" fill="#FFF1E6" stroke="#F46201" />
+          <g fill="#1F2933">
+            <text x="620" y="82" font-size="14" font-weight="700" text-anchor="middle">productos</text>
+            <g font-size="11.5" font-family="Fira Code, monospace">
+              <text x="552" y="108" fill="#B84A00">id_producto</text>
+              <text x="552" y="128">nombre</text>
+              <text x="552" y="148">categoria · precio_lista</text>
+            </g>
+          </g>
+          <line x1="470" y1="154" x2="535" y2="104" stroke="#F46201" stroke-width="2" />
+          <g>
+            <rect x="15" y="20" width="185" height="54" rx="10" fill="#E9EEF2" stroke="#566B7F" />
+            <rect x="15" y="88" width="185" height="54" rx="10" fill="#E9EEF2" stroke="#566B7F" />
+            <rect x="15" y="156" width="185" height="54" rx="10" fill="#E9EEF2" stroke="#566B7F" />
+          </g>
+          <g fill="#1F2933" text-anchor="middle">
+            <text x="107" y="44" font-size="13" font-weight="700">ventas_bronce</text>
+            <text x="107" y="62" font-size="10.5">externa · capa bronce</text>
+            <text x="107" y="112" font-size="13" font-weight="700">cuarentena</text>
+            <text x="107" y="130" font-size="10.5">filas apartadas y su motivo</text>
+            <text x="107" y="180" font-size="13" font-weight="700">eventos_web</text>
+            <text x="107" y="198" font-size="10.5">logs aplanados</text>
+          </g>
+        </svg>
+        <p class="leyenda-diagrama">La tabla de <strong>hechos</strong> guarda una fila por venta y solo la
+          <em>llave</em> del producto; el nombre y la categoría viven una sola vez en la <strong>dimensión</strong>
+          <code>productos</code>. Si un producto cambia de categoría, se corrige en un solo lugar. Es un <strong>modelo
+            en estrella</strong> en miniatura: en una bodega completa, la fecha, la ciudad y el cliente tendrían también
+          su propia dimensión; aquí, como no tienen más atributos, se quedan como columnas de <code>ventas</code>. Con
+          este diseño se responden las preguntas de la gerencia: ciudad, canal y mes están en los hechos, y la categoría
+          queda a un <code>JOIN</code> de distancia.</p>
+      </div>
+
+      <h3>Crear la base de datos</h3>
+      {{CELDA:bd_crear}}
+      <p><code>USE guadua</code> hace que las tablas que se nombren sin prefijo se busquen y se creen en
+        <code>guadua</code>.</p>
+
+      <h3>Definir una tabla con DDL</h3>
+      <p>El lenguaje de definición de datos (DDL) de SQL declara la tabla antes de cargarla: nombre, columnas, tipos,
+        comentarios y formato de almacenamiento. Es el mismo contrato que el esquema del módulo 10, ahora guardado en
+        el catálogo para todos.</p>
+      {{CELDA:bd_ddl}}
+
+      <h3>Tablas administradas y externas</h3>
+      {{CELDA:bd_externa}}
+      <table>
+        <caption class="sr-only">Diferencias entre tablas administradas y externas</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Administrada (<em>managed</em>)</th>
+            <th scope="col">Externa (<em>external</em>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Quién maneja los archivos</th><td>Spark, dentro de su carpeta</td><td>Alguien más; Spark
+              solo apunta a ellos</td></tr>
+          <tr><th scope="row">Al hacer <code>DROP TABLE</code></th><td>Se borran la definición <strong>y los
+                datos</strong></td><td>Se borra solo la definición; los archivos quedan</td></tr>
+          <tr><th scope="row">En el caso</th><td><code>productos</code>, <code>ventas</code>, <code>cuarentena</code>,
+              <code>eventos_web</code></td><td><code>ventas_bronce</code>: el CSV original, que nunca se toca (la capa bronce del módulo 10)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Sobre este notebook.</strong> Para no instalar más servicios, la sesión de
+          Spark de Colab guarda el catálogo en memoria: los archivos de <code>spark-warehouse/</code> quedan en el
+          disco, pero si Colab se reinicia hay que volver a crear las tablas: la primera celda de este módulo borra los
+          archivos que quedaron sin catálogo, y las de los módulos 14 y 15 las recrean. Con un catálogo persistente —el
+          Metastore de Hive o el de la plataforma de nube— las definiciones sobreviven y las comparten todos los
+          usuarios.</p>
+      </div>
+    </div>
+  </template>

@@ -1,0 +1,167 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 7 · Arquitectura y RDD                      (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-7">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 7 · Bloque 2 · Tema 5.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Arquitectura de Spark y RDD
+          <span class="text-gray-500 font-normal text-2xl">/ Driver, executors and RDDs</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Explicar quién hace qué en una aplicación de Spark,
+              qué es una partición y reescribir en Spark el conteo de palabras de la sesión 1.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Driver, gestor y ejecutores</h3>
+      <div class="diagram">
+        <svg viewBox="0 0 720 300" width="100%" role="img" aria-labelledby="arq-titulo arq-desc">
+          <title id="arq-titulo">Arquitectura de una aplicación de Spark</title>
+          <desc id="arq-desc">El driver, con la SparkSession, convierte el programa en tareas y le pide recursos al
+            gestor del clúster. El gestor asigna ejecutores en los nodos de trabajo. Cada ejecutor corre varias tareas,
+            una por partición, y guarda datos en caché. Los ejecutores leen los datos de HDFS o del almacenamiento en la
+            nube.</desc>
+          <defs>
+            <marker id="arq-flecha" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6 z" fill="#64748b" />
+            </marker>
+          </defs>
+          <rect x="15" y="95" width="190" height="110" rx="10" fill="#691E7A" />
+          <g fill="#fff" text-anchor="middle">
+            <text x="110" y="128" font-size="15" font-weight="700">Driver</text>
+            <text x="110" y="150" font-size="11.5">SparkSession · tu programa</text>
+            <text x="110" y="168" font-size="11.5">arma el plan y lo parte</text>
+            <text x="110" y="186" font-size="11.5">en etapas y tareas</text>
+          </g>
+          <rect x="265" y="20" width="190" height="60" rx="10" fill="#FFF1E6" stroke="#F46201" />
+          <g text-anchor="middle" fill="#1F2933">
+            <text x="360" y="45" font-size="13.5" font-weight="700">Gestor del clúster</text>
+            <text x="360" y="64" font-size="11">local · standalone · YARN · Kubernetes</text>
+          </g>
+          <g>
+            <rect x="265" y="110" width="190" height="80" rx="10" fill="#F3E9F5" stroke="#691E7A" />
+            <rect x="265" y="205" width="190" height="80" rx="10" fill="#F3E9F5" stroke="#691E7A" />
+          </g>
+          <g font-size="12.5" font-weight="700" fill="#3A0F47">
+            <text x="278" y="130">Ejecutor 1 · nodo A</text>
+            <text x="278" y="225">Ejecutor 2 · nodo B</text>
+          </g>
+          <g fill="#691E7A">
+            <rect x="278" y="140" width="50" height="22" rx="4" />
+            <rect x="334" y="140" width="50" height="22" rx="4" />
+            <rect x="278" y="235" width="50" height="22" rx="4" />
+            <rect x="334" y="235" width="50" height="22" rx="4" />
+          </g>
+          <g fill="#fff" font-size="10.5" text-anchor="middle">
+            <text x="303" y="155">tarea</text><text x="359" y="155">tarea</text>
+            <text x="303" y="250">tarea</text><text x="359" y="250">tarea</text>
+          </g>
+          <g fill="#FAA012">
+            <rect x="392" y="140" width="52" height="22" rx="4" />
+            <rect x="392" y="235" width="52" height="22" rx="4" />
+          </g>
+          <g fill="#3A0F47" font-size="10.5" text-anchor="middle">
+            <text x="418" y="155">caché</text><text x="418" y="250">caché</text>
+          </g>
+          <g font-size="10" fill="#566B7F">
+            <text x="278" y="180">una tarea por partición</text>
+            <text x="278" y="275">una tarea por partición</text>
+          </g>
+          <rect x="530" y="110" width="175" height="175" rx="10" fill="#E9EEF2" stroke="#566B7F" />
+          <g text-anchor="middle" fill="#1F2933">
+            <text x="617" y="140" font-size="13.5" font-weight="700">Datos</text>
+            <text x="617" y="165" font-size="11.5">HDFS</text>
+            <text x="617" y="185" font-size="11.5">S3 · GCS · ADLS</text>
+            <text x="617" y="205" font-size="11.5">bases de datos</text>
+            <text x="617" y="225" font-size="11.5">Parquet · CSV · JSON</text>
+          </g>
+          <g stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arq-flecha)">
+            <path d="M205 120 C 235 90, 240 60, 262 52" />
+            <line x1="360" y1="80" x2="360" y2="107" />
+            <path d="M205 150 L 262 150" />
+            <path d="M205 180 C 235 200, 240 240, 262 245" />
+            <line x1="455" y1="150" x2="527" y2="170" />
+            <line x1="455" y1="245" x2="527" y2="225" />
+          </g>
+          <g font-size="10" fill="#64748b">
+            <text x="210" y="80">pide recursos</text>
+            <text x="212" y="143">envía tareas</text>
+            <text x="470" y="150">lee</text>
+            <text x="366" y="99">asigna ejecutores</text>
+          </g>
+        </svg>
+        <p class="leyenda-diagrama">El driver piensa; los ejecutores trabajan. En Colab, con <code>local[*]</code>,
+          driver y ejecutor son un mismo proceso de Java, y cada núcleo es un hilo de trabajo que ejecuta una tarea a la
+          vez.</p>
+      </div>
+
+      <ul>
+        <li>El <strong>driver</strong> ejecuta tu programa: convierte cada operación en un plan, lo parte en
+          <em>etapas</em> (módulo 8) y cada etapa en <em>tareas</em>, las reparte y recibe los resultados de las
+          acciones; por eso <code>collect()</code> o <code>toPandas()</code> traen los datos al driver.</li>
+        <li>El <strong>gestor del clúster</strong> asigna máquinas y memoria.</li>
+        <li>Los <strong>ejecutores</strong> son procesos en los nodos de trabajo: corren las tareas y pueden guardar
+          datos en memoria (caché) para reutilizarlos.</li>
+      </ul>
+
+      <h3>Particiones: la unidad de paralelismo</h3>
+      <p>Spark reparte cada conjunto de datos en <strong>particiones</strong> y lanza una tarea por partición: son el
+        equivalente de los <em>splits</em> que MapReduce entrega a cada mapper. No son los bloques de HDFS: el bloque es
+        cómo se guarda el archivo en disco; la partición, cómo se reparte el trabajo entre las tareas. La estructura más básica de Spark es el <strong>RDD</strong> (<em>Resilient
+          Distributed Dataset</em>): una colección de objetos repartida en particiones, que se puede recalcular si se
+        pierde una.</p>
+      {{CELDA:rdd_particiones}}
+
+      <div class="simulador" data-simulador="particiones">
+        <h4><i class="fas fa-bars-progress" aria-hidden="true"></i> ¿Cuántas particiones?</h4>
+        <p class="simulador-intro">Cada núcleo ejecuta una tarea a la vez; las tareas que no caben esperan su turno, en
+          «oleadas». Cada tarea paga además un costo fijo —planificarla, enviarle el código, abrir su trozo de archivo—;
+          en Spark real es de centésimas a décimas de segundo. El eje de tiempo queda fijo: mueve los controles y mira
+          cómo se ocupan los núcleos y cuánto se acorta el trabajo.</p>
+        <div class="simulador-controles"></div>
+        <div class="gantt" aria-live="polite"></div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Qué mirar en el simulador.</strong> Con menos particiones que núcleos, hay
+          núcleos ociosos. Con un número de particiones que no es múltiplo de los núcleos, la última oleada queda a
+          medias. Con miles de particiones diminutas, el costo de arranque se come la ganancia. La guía de ajuste de
+          Spark recomienda dos o tres tareas por núcleo; al leer archivos, Spark arma por defecto particiones de hasta
+          128 MB.</p>
+      </div>
+
+      <h3>El conteo de palabras, en Spark</h3>
+      <p>En la sesión 1 escribimos el mapper, el shuffle y el reducer a mano. En Spark son tres transformaciones
+        encadenadas:</p>
+      {{CELDA:rdd_conteo}}
+
+      <table>
+        <caption class="sr-only">Correspondencia entre el MapReduce de la sesión 1 y el de Spark</caption>
+        <thead>
+          <tr>
+            <th scope="col">Sesión 1, a mano</th>
+            <th scope="col">Spark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>mapper(texto)</code> emite <code>(palabra, 1)</code></td><td><code>flatMap</code> (de un texto, muchas
+              palabras) y <code>map</code> (cada palabra a un par)</td></tr>
+          <tr><td>Agrupar con <code>sorted</code> y un <code>defaultdict</code></td><td>Lo hace Spark dentro de
+              <code>reduceByKey</code>: es el shuffle. A diferencia de Hadoop, no entrega las claves ordenadas; por eso
+              usamos <code>takeOrdered</code> para ver las más frecuentes</td></tr>
+          <tr><td><code>reducer(palabra, unos)</code> suma</td><td>La función <code>lambda a, b: a + b</code></td></tr>
+          <tr><td>Un solo proceso</td><td>Una tarea por partición, en paralelo</td></tr>
+        </tbody>
+      </table>
+
+      {{CELDA:rdd_verifica}}
+      <p>Las mismas {{CIFRA:palabras_distintas}} palabras y los mismos conteos de la sesión 1. <code>reduceByKey</code>
+        además combina dentro de cada partición antes del shuffle: trae el combiner incorporado.</p>
+    </div>
+  </template>

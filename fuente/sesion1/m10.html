@@ -1,0 +1,104 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 10 · Python para datos en 10 minutos        (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-10">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 10 · Bloque 3 · Tema 3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Python para datos en 10
+          minutos <span class="text-gray-500 font-normal text-2xl">/ Python refresher</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Repasar lo mínimo de Python —cinco piezas del lenguaje
+              y la idea de DataFrame— para leer con soltura todo el código de la sesión, aunque no hayas programado
+              antes.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>No hace falta ser programador para procesar datos con Python, pero sí leer con calma cinco piezas que
+        aparecen todo el tiempo. Esta tabla es el mapa; el bloque de código, el ejemplo.</p>
+
+      <table>
+        <caption class="sr-only">Cinco piezas de Python que usaremos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pieza</th>
+            <th scope="col">Se escribe</th>
+            <th scope="col">Para qué la usaremos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Lista</strong></td><td><code>["Cali", "Bogotá"]</code></td><td>Colecciones en orden: textos de reseñas, pares (clave, valor)</td></tr>
+          <tr><td><strong>Diccionario</strong></td><td><code>{"ciudad": "Cali"}</code></td><td>Buscar por clave: la tabla que unifica las grafías de ciudad</td></tr>
+          <tr><td><strong>Función</strong></td><td><code>def nombre(x): return …</code></td><td>Pasos reutilizables: el <code>mapper</code>, el <code>reducer</code></td></tr>
+          <tr><td><strong>lambda</strong></td><td><code>lambda x: x * 1.19</code></td><td>Funciones de una línea, sin nombre, para pasarlas a otra función</td></tr>
+          <tr><td><strong>Comprensión</strong></td><td><code>[f(x) for x in datos if …]</code></td><td>Construir una lista transformando y filtrando otra</td></tr>
+        </tbody>
+      </table>
+
+      {{CELDA:py_basico}}
+
+      <div class="derivacion">
+        <button type="button" class="derivacion-boton" aria-expanded="false" aria-controls="m10-leer">
+          <i class="fas fa-glasses" aria-hidden="true"></i>
+          <span class="derivacion-texto">Si nunca has programado: cómo leer una línea de Python</span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="derivacion-panel" id="m10-leer" hidden>
+          <ol class="derivacion-pasos">
+            <li>
+              <p><strong>El signo <code>=</code> no es igualdad, es asignación.</strong> <code>montos = [120_000,
+                  85_500]</code> se lee «guarda esta lista con el nombre <em>montos</em>». Los guiones bajos dentro de
+                un número solo ayudan a leerlo: <code>120_000</code> es ciento veinte mil.</p>
+            </li>
+            <li>
+              <p><strong>Los paréntesis después de un nombre ejecutan algo.</strong> <code>len(ciudades)</code> llama
+                a la función <code>len</code> con <code>ciudades</code> como entrada y devuelve 3.</p>
+            </li>
+            <li>
+              <p><strong>El punto pide algo a un objeto.</strong> <code>c.upper()</code> le pide al texto
+                <code>c</code> su versión en mayúsculas. En pandas se encadenan:
+                <code>serie.str.strip().str.lower()</code> se lee de izquierda a derecha, un paso tras otro.</p>
+            </li>
+            <li>
+              <p><strong>La sangría es parte del código.</strong> Las líneas con cuatro espacios debajo de un
+                <code>def</code> o un <code>for</code> son el cuerpo de esa función o de ese ciclo.</p>
+            </li>
+            <li>
+              <p><strong>Lo que sigue a <code>#</code> es un comentario</strong>: Python lo ignora, es para las
+                personas.</p>
+            </li>
+          </ol>
+          <p class="derivacion-resultado">Con estas cinco reglas se puede leer, despacio, cualquier bloque de esta
+            sesión.</p>
+        </div>
+      </div>
+
+      <h3>De la lista a la tabla: el DataFrame</h3>
+      <div class="definition">
+        <h4><i class="fas fa-table-cells mr-2" aria-hidden="true"></i>Series y DataFrame</h4>
+        <p style="margin-bottom:0;">En <strong>pandas</strong>, la biblioteca de Python para datos tabulares, una
+          <strong>Series</strong> es una columna —valores de un mismo tipo con un índice— y un
+          <strong>DataFrame</strong> es una tabla: varias Series del mismo largo, cada una con su nombre. Casi todo lo
+          que hace una hoja de cálculo lo hace un DataFrame, pero escrito, repetible y con millones de filas.</p>
+      </div>
+
+      {{CELDA:py_pandas}}
+
+      <p>La última línea <strong>filtra</strong>: <code>mini["monto"] &gt; 80_000</code> produce una columna de
+        <code>True</code>/<code>False</code> —una <em>máscara</em>— y <code>mini[máscara]</code> se queda solo con las
+        filas verdaderas. Para combinar condiciones, pandas usa <code>&amp;</code> («y»), <code>|</code> («o») y
+        <code>~</code> («no»): los verás en la limpieza del módulo 12.</p>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Por qué pandas y no una hoja de cálculo.</strong> Una hoja de cálculo guarda
+          el <em>resultado</em>; un script guarda el <em>procedimiento</em>. Si el próximo semestre llega otro
+          consolidado igual de sucio, el mismo código lo limpia en segundos y deja constancia de cada paso: eso es
+          trazabilidad, la base de los controles de coherencia que pide el criterio CR3.</p>
+      </div>
+    </div>
+  </template>

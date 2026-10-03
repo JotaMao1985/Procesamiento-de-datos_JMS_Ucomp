@@ -1,0 +1,61 @@
+id_producto,nombre,categoria,precio_lista
+P001,Arroz blanco 1 kg,Despensa,4900
+P002,Lentejas 500 g,Despensa,3900
+P003,Fríjol cargamanto 500 g,Despensa,6800
+P004,Aceite vegetal 1 L,Despensa,11900
+P005,Azúcar 1 kg,Despensa,4600
+P006,Sal refinada 1 kg,Despensa,1900
+P007,Pasta spaghetti 500 g,Despensa,3400
+P008,Harina de maíz 1 kg,Despensa,3800
+P009,Atún en lata 170 g,Despensa,6900
+P010,Panela 500 g,Despensa,3200
+P011,Café molido 500 g,Despensa,16900
+P012,Chocolate de mesa 250 g,Despensa,7500
+P013,Agua sin gas 600 ml,Bebidas,1800
+P014,"Gaseosa 1,5 L",Bebidas,5200
+P015,Jugo de naranja 1 L,Bebidas,6400
+P016,Té helado 500 ml,Bebidas,3100
+P017,Bebida energizante 250 ml,Bebidas,4900
+P018,Leche entera 1 L,Bebidas,4300
+P019,Yogur bebible 1 L,Bebidas,8200
+P020,Kumis 1 L,Bebidas,7400
+P021,Malta 330 ml,Bebidas,2500
+P022,Agua con gas 600 ml,Bebidas,2100
+P023,Huevos x 30,Frescos,17900
+P024,Pollo entero kg,Frescos,13900
+P025,Carne molida 500 g,Frescos,12400
+P026,Queso campesino 500 g,Frescos,11800
+P027,Plátano verde kg,Frescos,3600
+P028,Papa pastusa kg,Frescos,2900
+P029,Tomate chonto kg,Frescos,4200
+P030,Cebolla cabezona kg,Frescos,3300
+P031,Aguacate hass unidad,Frescos,3900
+P032,Banano kg,Frescos,2800
+P033,Detergente en polvo 1 kg,Aseo,14500
+P034,Jabón de loza 500 g,Aseo,5900
+P035,Limpiador multiusos 1 L,Aseo,7800
+P036,Cloro 1 L,Aseo,4100
+P037,Papel higiénico x 12,Aseo,21900
+P038,Toallas de cocina x 3,Aseo,9600
+P039,Suavizante 1 L,Aseo,10900
+P040,Esponjas x 3,Aseo,3700
+P041,Bolsas de basura x 10,Aseo,6200
+P042,Desinfectante 500 ml,Aseo,8900
+P043,Champú 400 ml,Cuidado personal,15900
+P044,Crema dental 100 ml,Cuidado personal,6300
+P045,Jabón de baño x 3,Cuidado personal,8400
+P046,Desodorante 150 ml,Cuidado personal,13200
+P047,Cepillo dental,Cuidado personal,4800
+P048,Acondicionador 400 ml,Cuidado personal,16400
+P049,Protector solar 120 ml,Cuidado personal,32900
+P050,Toallas higiénicas x 10,Cuidado personal,7900
+P051,Crema corporal 400 ml,Cuidado personal,18700
+P052,Bombillo LED 9 W,Hogar,7900
+P053,Pilas AA x 4,Hogar,12900
+P054,Velas x 6,Hogar,5400
+P055,Vasos plásticos x 25,Hogar,4300
+P056,Platos desechables x 20,Hogar,6900
+P057,Encendedor,Hogar,2500
+P058,Extensión eléctrica 3 m,Hogar,24900
+P059,Olla 24 cm,Hogar,59900
+P060,Juego de cubiertos 16 piezas,Hogar,39900

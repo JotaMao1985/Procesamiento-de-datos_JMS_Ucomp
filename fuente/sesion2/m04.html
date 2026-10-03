@@ -1,0 +1,142 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 4 · Hadoop Streaming                        (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-4">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 4 · Bloque 1 · Tema 4.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 25 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Hadoop Streaming: el mapper y
+          el reducer de la sesión 1 <span class="text-gray-500 font-normal text-2xl">/ MapReduce on Hadoop</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Ejecutar en Hadoop los programas de la sesión 1, leer
+              los contadores de un job y medir lo que ahorra el combiner en el shuffle.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Prometimos ejecutar en Hadoop <em>exactamente</em> los dos archivos de la sesión 1. Aquí están, sin cambiar
+        una línea:</p>
+      {{CELDA:mapper_py}}
+      {{CELDA:reducer_py}}
+
+      <h3>El job</h3>
+      <p>Hadoop está escrito en Java. Su modo <strong>Streaming</strong> lanza nuestros programas de Python como
+        procesos aparte y se comunica con ellos por texto: les pasa las líneas de su bloque por la entrada estándar y
+        recoge los pares <code>clave&lt;TAB&gt;valor</code> que escriben en la salida estándar.</p>
+      {{CELDA:streaming_job}}
+
+      <table>
+        <caption class="sr-only">Opciones de la orden de Hadoop Streaming</caption>
+        <thead>
+          <tr>
+            <th scope="col">Opción</th>
+            <th scope="col">Qué indica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>-files mapper.py,reducer.py</code></td><td>Archivos que Hadoop copia a cada nodo que vaya a
+              ejecutar una tarea</td></tr>
+          <tr><td><code>-mapper "python3 mapper.py"</code></td><td>La orden que ejecuta cada tarea map</td></tr>
+          <tr><td><code>-reducer "python3 reducer.py"</code></td><td>La orden que ejecuta cada tarea reduce</td></tr>
+          <tr><td><code>-input</code></td><td>Archivo o carpeta de HDFS que se va a leer</td></tr>
+          <tr><td><code>-output</code></td><td>Carpeta de HDFS para el resultado. <strong>No puede existir</strong>:
+              Hadoop se niega a sobrescribir un resultado anterior</td></tr>
+          <tr><td><code>-combiner "python3 reducer.py"</code></td><td>La orden que resume la salida de cada tarea map
+              antes del shuffle (opcional)</td></tr>
+          <tr><td><code>-D mapreduce.job.reduces=2</code></td><td>Cuántas tareas reduce lanzar (por defecto, 1); va
+              antes de las demás opciones</td></tr>
+        </tbody>
+      </table>
+
+      <p>Los <strong>contadores</strong> son el informe que Hadoop deja de cada job, y conviene leerlos siempre:</p>
+      <ul>
+        <li><strong>Map input records = {{CIFRA:map_input}}</strong>: las líneas leídas, incluido el encabezado.</li>
+        <li><strong>Map output records = {{CIFRA:map_output}}</strong>: los pares que emitió el mapper, uno por venta
+          limpia. El encabezado no emitió nada.</li>
+        <li><strong>Reduce input groups = {{CIFRA:reduce_grupos}}</strong>: las claves distintas que recibió el reducer,
+          las seis ciudades y «Sin dato».</li>
+      </ul>
+      <p>El resultado queda en HDFS como un archivo por reducer (<code>part-00000</code>,
+        <code>part-00001</code>…), junto a un archivo vacío
+        <code>_SUCCESS</code> que marca que el job terminó bien. Otros programas pueden esperar a que aparezca
+        <code>_SUCCESS</code> antes de leer.</p>
+
+      <h3>Control de coherencia: Hadoop contra pandas</h3>
+      {{CELDA:streaming_verifica}}
+      <p>Diferencia cero en las siete ciudades. Hadoop no «sabe» que el resultado es correcto: lo sabemos nosotros
+        porque lo comparamos con un camino independiente. Es el control de coherencia del criterio CR3.</p>
+
+      <h3>Cuatro mappers, dos reducers y el combiner</h3>
+      <p>Hadoop lanza una tarea map por cada <em>split</em> de la entrada: un archivo pequeño es un split, y uno grande
+        aporta, por lo general, uno por bloque. Para tener varios mappers, partimos los datos en cuatro archivos, como
+        los cuatro bloques de la sesión 1. Sin YARN, el ejecutor local corre esas cuatro tareas una tras otra en un solo
+        proceso; en un clúster correrían a la vez, cada una en el nodo que guarda sus datos.</p>
+      {{CELDA:streaming_partes}}
+      <p>Y ejecutamos el mismo job dos veces, con dos reducers (<code>-D mapreduce.job.reduces=2</code>): primero sin
+        combiner y después usando el propio <code>reducer.py</code> como combiner. Sirve por dos razones: sumar es
+        asociativo y conmutativo —da igual sumar por partes y en cualquier orden—, y <code>reducer.py</code> escribe lo
+        mismo que lee, <code>clave&lt;TAB&gt;valor</code>. Hadoop puede aplicar el combiner cero, una o varias veces,
+        así que solo vale si no cambia el resultado. Para no escribir dos veces la orden larga, la celda define una
+        función de bash, <code>ejecutar</code>: recibe el nombre del job y, en la segunda llamada, la opción
+        <code>-combiner</code>.</p>
+      {{CELDA:streaming_combiner}}
+
+      <div class="simulador" data-simulador="contadores">
+        <h4><i class="fas fa-gauge-high" aria-hidden="true"></i> Lo que viaja en el shuffle, con y sin combiner</h4>
+        <p class="simulador-intro">Los contadores reales de los dos jobs anteriores. Elige qué medir.</p>
+        <div class="simulador-controles"></div>
+        <div class="grafico-wrapper" style="height:220px;">
+          <canvas aria-label="Comparación de los contadores del shuffle entre el job sin combiner y con combiner"
+            role="img"></canvas>
+        </div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <p>Con combiner, cada uno de los {{CIFRA:splits_partes}} mappers envía a lo sumo siete subtotales en lugar de
+        cientos de pares: {{CIFRA:combine_output}} registros en total, y los bytes del shuffle bajan de
+        {{CIFRA:shuffle_sin}} a {{CIFRA:shuffle_con}}, un {{CIFRA:shuffle_ahorro_pct}} % menos. En Colab esos bytes se
+        copian dentro de la misma máquina; en un clúster viajarían por la red, el recurso más lento. Con
+        {{CIFRA:filas_limpias}} ventas la diferencia es de milisegundos; con miles de millones, puede ser la diferencia
+        entre horas y minutos.</p>
+
+      <p>Con dos reducers hay dos archivos de salida. Cada ciudad cae en uno según el <em>hash</em> de su nombre, y
+        todas las ventas de una ciudad llegan al mismo reducer:</p>
+      {{CELDA:streaming_reducers}}
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Cuenta con Hadoop Streaming
+            <strong>cuántas ventas</strong> hubo en cada ciudad, sobre las cuatro partes. ¿Puedes reutilizar
+            <code>reducer.py</code>? (Si no alcanza el tiempo en clase, queda para el trabajo independiente.)</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m4-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m4-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="s2m4-e1-pista" hidden>
+            <p style="margin:0;">Contar es sumar unos. Solo cambia lo que emite el mapper: en vez de
+              <code>ciudad&lt;TAB&gt;total</code>, <code>ciudad&lt;TAB&gt;1</code>. Escribe el nuevo mapper con
+              <code>%%writefile</code> y cuida que el nombre del archivo coincida en <code>-files</code> y en
+              <code>-mapper</code>.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="s2m4-e1-sol" hidden>
+            {{CELDA:sol_mapper_conteo}}
+            {{CELDA:sol_conteo_ciudad}}
+            <p style="margin-bottom:0;">Los mismos conteos que daría <code>df["ciudad"].value_counts()</code>. El reducer
+              no cambió: no le importa si suma pesos o unos. Separar «qué se emite» de «cómo se combina» es lo que
+              hace reutilizable a MapReduce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

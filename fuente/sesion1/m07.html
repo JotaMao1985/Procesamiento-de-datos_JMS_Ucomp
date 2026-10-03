@@ -1,0 +1,112 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 7 · Cloud computing                         (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-7">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 7 · Bloque 2 · Tema 2.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Computación en la nube <span
+            class="text-gray-500 font-normal text-2xl">/ Cloud computing</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Definir la computación en la nube según el NIST,
+              distinguir sus modelos de servicio por quién se hace cargo de qué, y elegir el adecuado para procesar
+              datos a escala.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Montar un clúster propio exige comprar servidores, instalarlos, mantenerlos y pagarlos aunque estén
+        apagados la mitad del tiempo. La nube cambia esa ecuación: los recursos se <strong>alquilan por uso</strong>,
+        se crean en minutos y se devuelven al terminar. Para el procesamiento de datos eso significa poder levantar un
+        clúster de cien nodos para un trabajo de una hora, y pagar solo esa hora.</p>
+
+      <div class="definition">
+        <h4><i class="fas fa-cloud mr-2" aria-hidden="true"></i>Definición (NIST SP 800-145)</h4>
+        <p style="margin-bottom:0;">La computación en la nube es un modelo que permite el acceso por red, ubicuo,
+          conveniente y bajo demanda, a un conjunto compartido de recursos de cómputo configurables —redes,
+          servidores, almacenamiento, aplicaciones y servicios— que se aprovisionan y liberan con rapidez, con un
+          mínimo esfuerzo de gestión o de interacción con el proveedor (Mell y Grance, 2011).</p>
+      </div>
+
+      <h3>Cinco características esenciales</h3>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-hand-pointer" aria-hidden="true"></i>Autoservicio bajo demanda</p>
+          <p>Se pide un servidor o un clúster desde una consola, sin hablar con nadie.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-wifi" aria-hidden="true"></i>Amplio acceso por red</p>
+          <p>Se usa desde cualquier dispositivo con conexión: el portátil, el celular, Colab en el navegador.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-layer-group" aria-hidden="true"></i>Recursos compartidos</p>
+          <p>El proveedor atiende a muchos clientes con la misma infraestructura física, asignándola según la
+            demanda.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-up-right-and-down-left-from-center"
+              aria-hidden="true"></i>Elasticidad rápida</p>
+          <p>Se crece y se decrece en minutos: diez nodos para el cierre de mes, dos el resto del tiempo.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-receipt" aria-hidden="true"></i>Servicio medido</p>
+          <p>Se mide y se cobra lo que se usa: horas de máquina, gigabytes guardados, consultas ejecutadas.</p>
+        </div>
+      </div>
+
+      <h3>Modelos de servicio: ¿quién se hace cargo de qué?</h3>
+      <p>La diferencia entre IaaS, PaaS y SaaS no es técnica sino de <strong>responsabilidad</strong>: cuántas capas
+        de la pila administra el cliente y cuántas el proveedor. Cambia de modelo y mira cómo se mueve la frontera.</p>
+
+      <div class="simulador" data-simulador="responsabilidad-nube">
+        <h4><i class="fas fa-layer-group" aria-hidden="true"></i> La pila de responsabilidad</h4>
+        <p class="simulador-intro">En morado lo que administras tú; en gris lo que administra el proveedor. Debajo,
+          cómo se vería el procesamiento de datos de Tiendas Guadua con cada modelo.</p>
+        <div class="simulador-controles"></div>
+        <div class="pila"></div>
+        <div class="pila-ejemplo" aria-live="polite"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Hadoop y Spark como servicio.</strong> Los grandes proveedores ofrecen
+          clústeres de Hadoop y Spark gestionados —Amazon EMR, Google Cloud Dataproc, Azure HDInsight—, y Databricks
+          ofrece Spark gestionado sobre esas mismas nubes: tú subes los datos y el programa; ellos instalan, configuran
+          y reparan las máquinas. Es un PaaS, y es la forma
+          más común de usar estas tecnologías hoy. El patrón típico es el <strong>clúster efímero</strong>: se crea,
+          procesa y se apaga.</p>
+      </div>
+
+      <h3>Modelos de despliegue</h3>
+      <table>
+        <caption class="sr-only">Modelos de despliegue de la nube</caption>
+        <thead>
+          <tr>
+            <th scope="col">Modelo</th>
+            <th scope="col">Quién usa la infraestructura</th>
+            <th scope="col">Cuándo conviene</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Pública</strong></td><td>Cualquier cliente del proveedor</td><td>Elasticidad y costo variable; la opción por defecto</td></tr>
+          <tr><td><strong>Privada</strong></td><td>Una sola organización</td><td>Requisitos estrictos de control o regulación</td></tr>
+          <tr><td><strong>Comunitaria</strong></td><td>Varias organizaciones con intereses comunes</td><td>Sectores que comparten normas, como salud o gobierno</td></tr>
+          <tr><td><strong>Híbrida</strong></td><td>Combinación de las anteriores, conectadas</td><td>Datos sensibles en casa y picos de cómputo en la nube pública</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warning">
+        <p style="margin-bottom:0;"><strong>Los datos siguen siendo tuyos… y tu responsabilidad.</strong> En todos los
+          modelos de la pila, la capa de <em>datos</em> es del cliente. Si el proveedor guarda o procesa datos
+          personales fuera de Colombia por cuenta de tu empresa, tu empresa sigue siendo la responsable y el proveedor
+          actúa como su <em>encargado</em>: es una <strong>transmisión internacional</strong>, que exige un contrato de
+          transmisión (Decreto 1074 de 2015, artículo 2.2.2.25.5.2). Si el proveedor usara esos datos para sus propios
+          fines, sería una <em>transferencia</em>, que la Ley 1581 de 2012 (artículo 26) solo permite hacia países con
+          un nivel adecuado de protección, salvo las excepciones que prevé. Elegir la región del centro de datos y
+          revisar el contrato son también decisiones legales.</p>
+      </div>
+    </div>
+  </template>

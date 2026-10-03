@@ -1,0 +1,68 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 6 · Spark: el ecosistema                    (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-6">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 6 · Bloque 2 · Tema 5.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Spark: el ecosistema
+          <span class="text-gray-500 font-normal text-2xl">/ The Spark ecosystem</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Reconocer los componentes de Apache Spark, dónde se
+              ejecuta y con qué se conecta, y abrir la primera sesión de Spark en Colab.</p>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Apache Spark</strong> nació en 2009 en el AMPLab de la Universidad de California en Berkeley, como
+        tesis doctoral de Matei Zaharia, para resolver lo que vimos en el módulo anterior. Se volvió proyecto de la
+        Apache Software Foundation en 2013 y hoy es uno de los motores de procesamiento distribuido más usados. Lo distinguen tres
+        rasgos:</p>
+      <ul>
+        <li><strong>En memoria</strong>: entre un paso y otro, los resultados intermedios no se escriben en HDFS, y los
+          datos que se reutilizan pueden quedarse en la memoria de los ejecutores. Solo el shuffle deja archivos
+          temporales en el disco local.</li>
+        <li><strong>Unificado</strong>: lotes, SQL, flujos en tiempo real y aprendizaje automático con el mismo motor
+          y los mismos datos.</li>
+        <li><strong>Para varios lenguajes</strong>: Scala (en el que está escrito), Java, SQL y Python. Desde Python
+          se usa con <strong>PySpark</strong>.</li>
+      </ul>
+
+      <div class="simulador" data-simulador="ecosistema-spark">
+        <h4><i class="fas fa-cubes" aria-hidden="true"></i> Las piezas de Spark</h4>
+        <p class="simulador-intro">Pulsa cada pieza para ver qué hace y cómo la usaría Tiendas Guadua. Las marcadas en
+          color son las que usaremos hoy.</p>
+        <div class="ecosistema"></div>
+        <div class="eco-detalle" aria-live="polite"></div>
+      </div>
+
+      <h3>¿Dónde se ejecuta Spark?</h3>
+      <p>Spark no administra máquinas: le pide recursos a un <strong>gestor de clúster</strong>. En <code>local</code>
+        corre dentro de un solo computador, con un hilo por núcleo; en un clúster, el gestor puede ser el propio de
+        Spark (<em>standalone</em>), YARN —el de Hadoop, el que vimos en la sesión 1— o Kubernetes. El código no
+        cambia: cambia una línea de configuración.</p>
+      <p>En la nube se usa casi siempre como plataforma gestionada (PaaS, sesión 1): Databricks, Amazon EMR, Google
+        Cloud Dataproc, Azure HDInsight o Microsoft Fabric.</p>
+
+      <h3>La primera sesión de Spark</h3>
+      <p>Todo programa de Spark empieza por una <strong>SparkSession</strong>, la puerta de entrada al motor.
+        <code>master("local[*]")</code> le dice a Spark que trabaje en esta máquina con todos sus núcleos, y la zona
+        horaria de Bogotá, que fechas y horas se interpreten y muestren con la hora de Colombia, no con la hora
+        universal (UTC) del servidor de Colab.</p>
+      {{CELDA:spark_sesion}}
+      <p>La versión gratuita de Colab da {{CIFRA:nucleos}} núcleos: un clúster en miniatura, con dos tareas a la vez. El
+        mismo código, en un clúster de cien nodos, correría con cientos de tareas en paralelo.</p>
+
+      <div class="note">
+        <h4><i class="fas fa-circle-info mr-2" aria-hidden="true"></i>Si trabajas fuera de Colab</h4>
+        <p style="margin-bottom:0;">Colab ya trae PySpark instalado. En tu propio computador necesitas Java 17 o 21 y
+          <code>pip install pyspark</code>. Spark también ofrece una página web de monitoreo —la <em>Spark UI</em>, en el
+          puerto 4040— con cada job, sus etapas y sus tareas; en Colab no se ve directamente, pero en cualquier
+          instalación local basta con abrir <code>http://localhost:4040</code> mientras la sesión está activa.</p>
+      </div>
+    </div>
+  </template>

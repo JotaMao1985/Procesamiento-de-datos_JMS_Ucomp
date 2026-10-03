@@ -1,0 +1,116 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 13 · Datos semiestructurados: logs web      (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-13">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 13 · Bloque 3 · Tema 5.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Datos semiestructurados: los
+          eventos de la web <span class="text-gray-500 font-normal text-2xl">/ Semi-structured data</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Leer datos JSON con campos opcionales y anidados,
+              medir su completitud y aplanarlos en una tabla lista para la base de datos.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>En la sesión 1 presentamos <code>logs_web.jsonl</code>: un evento de la tienda web o de la app por línea, en
+        formato JSON. El archivo cubre los {{CIFRA:eventos}} eventos de junio de 2025: por eso, cuando lo crucemos con
+        las ventas (módulo 17), compararemos con las ventas de junio. Cada evento nombra sus campos —por eso tiene estructura— pero no todos traen los mismos: una
+        búsqueda trae <code>consulta</code>, un pago trae <code>pago</code>. Es el dato
+        <strong>semiestructurado</strong>. Así se ven dos líneas del archivo:</p>
+      <div class="tarjeta tipo-dato">
+        <pre>{{MUESTRA:logs_web.jsonl|2}}</pre>
+      </div>
+
+      <h3>Spark deduce el esquema</h3>
+      {{CELDA:logs_esquema}}
+      <p>Spark recorrió los {{CIFRA:eventos}} eventos y armó un esquema que los cubre a todos: la unión de los campos
+        que encontró, en orden alfabético. <code>dispositivo</code> y <code>pago</code> son <strong>estructuras</strong>
+        (<code>struct</code>): un objeto dentro de otro, con sus propios campos.</p>
+
+      <h3>¿Qué tan completo es cada campo?</h3>
+      {{CELDA:logs_campos}}
+      <p>Aquí un nulo no es un error: es un campo que no aplica. Solo las búsquedas traen <code>consulta</code> y solo
+        los pagos traen <code>pago</code>. <code>id_cliente</code> es distinto: aparece en
+        {{CIFRA:eventos_con_cliente}} eventos, el {{CIFRA:pct_eventos_cliente}} %. Mientras alguien solo busca o mira
+        productos, el vacío es normal: navegó sin iniciar sesión. Pero en la sesión 1 vimos que en la web y en la app no
+        se puede comprar sin cuenta, y aun así {{CIFRA:pagos_sin_cliente}} de los {{CIFRA:eventos_pago}} intentos de
+        pago llegan sin cliente: ese vacío sí es un problema de calidad, para llevárselo al equipo de la app. Medir la
+        completitud de un dato semiestructurado exige saber, campo por campo, <em>cuándo debería estar</em>.</p>
+
+      <h3>Campos anidados</h3>
+      <p>Se leen con un punto, como una ruta: <code>dispositivo.tipo</code>, <code>pago.medio</code>.</p>
+      {{CELDA:logs_anidados}}
+      {{CELDA:logs_pagos}}
+      <p>De {{CIFRA:eventos_pago}} intentos de pago, se aprobó el {{CIFRA:pct_pagos_aprobados}} %. La tasa de rechazo
+        más alta es la de la {{CIFRA:medio_mas_rechazo}}, pero con tan pocos intentos por medio la diferencia es de unos
+        pocos rechazos: es una pista para vigilar en los próximos meses, no una conclusión.</p>
+
+      <div class="simulador" data-simulador="embudo">
+        <h4><i class="fas fa-filter" aria-hidden="true"></i> Los eventos de la web y la app, por tipo</h4>
+        <p class="simulador-intro">Eventos reales del archivo, contados con Spark. Filtra por tipo de dispositivo y
+          sistema operativo y compara cómo se reparten las búsquedas, las vistas, los carritos y los pagos.</p>
+        <div class="simulador-controles"></div>
+        <div class="grafico-wrapper" style="height:260px;">
+          <canvas aria-label="Número de eventos de cada tipo según el dispositivo y el sistema operativo elegidos"
+            role="img"></canvas>
+        </div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Una advertencia honesta.</strong> En estos datos, cada evento tiene su propio
+          identificador de sesión: no se puede seguir a una misma persona de la búsqueda al pago. Por eso el gráfico
+          compara volúmenes por tipo de evento y no es un embudo de conversión en sentido estricto: la lectura «intentos
+          de pago por cada 100 vistas» es una razón entre dos volúmenes, no la proporción de quienes vieron un producto y
+          terminaron pagando. Tampoco hay un campo de canal: «móvil» puede ser la app o la web desde el celular. Saber
+          qué <em>no</em> permite responder un conjunto de datos es parte de interpretarlo bien.</p>
+      </div>
+
+      <h3>Aplanar: de JSON anidado a tabla</h3>
+      <p>Para guardar los eventos en la base de datos y consultarlos con SQL, conviene una tabla de columnas simples.
+        Se eligen los campos, se «sacan» los anidados y se convierte la marca de tiempo en un tipo de fecha y hora:</p>
+      {{CELDA:logs_aplanar}}
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>¿Qué buscan más los clientes en la
+            web y la app? Muestra las cinco búsquedas más frecuentes, con su reparto entre móvil y escritorio. (Si no
+            alcanza el tiempo en clase, queda para el trabajo independiente.)</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m13-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m13-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="s2m13-e1-pista" hidden>
+            <p style="margin:0;">Filtra los eventos <code>buscar</code>, agrupa por <code>consulta</code> y usa
+              <code>pivot</code> sobre el campo anidado <code>dispositivo.tipo</code>.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="s2m13-e1-sol" hidden>
+            {{CELDA:sol_consultas}}
+            <p style="margin-bottom:0;">Las búsquedas están muy repartidas: entre la primera y la quinta hay apenas unos
+              pocos eventos de diferencia. Con datos así, un «top 5» dice poco; vale más mirar si la búsqueda termina en
+              una vista del producto, cosa que estos datos no permiten seguir.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Lo logrado en el bloque 3.</strong> La limpieza de la sesión 1 corre ahora en
+          Spark y llega a las mismas {{CIFRA:filas_limpias}} ventas; los {{CIFRA:eventos}} eventos de la web quedaron
+          aplanados en una tabla. Después del break, todo esto pasa a una base de datos con nombre, permanencia y
+          controles.</p>
+      </div>
+    </div>
+  </template>

@@ -1,0 +1,3584 @@
+{
+ "sesion": 1,
+ "generado": "2026-10-03",
+ "versiones": {
+  "python": "3.13.16",
+  "pandas": "2.2.3"
+ },
+ "celdas": {
+  "datos": {
+   "texto": "productos.csv :    60 filas\nventas.csv    :  3029 filas\nresenas.csv   :    40 filas\nlogs_web.jsonl:  1500 eventos\n",
+   "salida": null,
+   "banderas": [
+    "generador"
+   ]
+  },
+  "entorno": {
+   "texto": "Python: 3.13.16\npandas: 2.2.3\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "crudo": {
+   "texto": "id_venta,fecha,ciudad,canal,id_cliente,id_producto,cantidad,precio_unitario,descuento,metodo_pago\nV00001,2025-01-01,Barranquilla,App,C1198,P035,3,7800,0.1,Transferencia\nV00002,2025-01-01,Barranquilla,Tienda,C0182,P011,3,16900,0,Efectivo\nV00003,2025-01-01,Medellín,Web,C0014,P034,2,5900,0,Tarjeta\n",
+   "salida": null,
+   "banderas": []
+  },
+  "py_basico": {
+   "texto": "3 Bogotá 269700\nBogotá\n11900\n[120.0, 85.5, 64.2]\n['BOGOTÁ', 'MEDELLÍN']\n",
+   "salida": null,
+   "banderas": []
+  },
+  "py_pandas": {
+   "texto": "     ciudad   monto\n0    Bogotá  120000\n1  Medellín   85500\n2      Cali   64200\nPromedio: 89900.0\n     ciudad   monto\n0    Bogotá  120000\n1  Medellín   85500\n",
+   "salida": null,
+   "banderas": []
+  },
+  "cargar": {
+   "texto": "ventas: (3029, 10) · productos: (60, 4)\n",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>id_venta</th>\n      <th>fecha</th>\n      <th>ciudad</th>\n      <th>canal</th>\n      <th>id_cliente</th>\n      <th>id_producto</th>\n      <th>cantidad</th>\n      <th>precio_unitario</th>\n      <th>descuento</th>\n      <th>metodo_pago</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>V00001</td>\n      <td>2025-01-01</td>\n      <td>Barranquilla</td>\n      <td>App</td>\n      <td>C1198</td>\n      <td>P035</td>\n      <td>3</td>\n      <td>7800</td>\n      <td>0.10</td>\n      <td>Transferencia</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>V00002</td>\n      <td>2025-01-01</td>\n      <td>Barranquilla</td>\n      <td>Tienda</td>\n      <td>C0182</td>\n      <td>P011</td>\n      <td>3</td>\n      <td>16900</td>\n      <td>0.00</td>\n      <td>Efectivo</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>V00003</td>\n      <td>2025-01-01</td>\n      <td>Medellín</td>\n      <td>Web</td>\n      <td>C0014</td>\n      <td>P034</td>\n      <td>2</td>\n      <td>5900</td>\n      <td>0.00</td>\n      <td>Tarjeta</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>V00004</td>\n      <td>2025-01-01</td>\n      <td>Bogotá</td>\n      <td>App</td>\n      <td>C0662</td>\n      <td>P026</td>\n      <td>1</td>\n      <td>11800</td>\n      <td>0.00</td>\n      <td>Billetera digital</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>V00005</td>\n      <td>01/01/2025</td>\n      <td>Bogotá</td>\n      <td>Tienda</td>\n      <td>NaN</td>\n      <td>P035</td>\n      <td>1</td>\n      <td>7800</td>\n      <td>0.05</td>\n      <td>Tarjeta</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "info": {
+   "texto": "<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 3029 entries, 0 to 3028\nData columns (total 10 columns):\n #   Column           Non-Null Count  Dtype  \n---  ------           --------------  -----  \n 0   id_venta         3029 non-null   object \n 1   fecha            3029 non-null   object \n 2   ciudad           3018 non-null   object \n 3   canal            3029 non-null   object \n 4   id_cliente       2472 non-null   object \n 5   id_producto      3029 non-null   object \n 6   cantidad         3029 non-null   int64  \n 7   precio_unitario  3029 non-null   object \n 8   descuento        2957 non-null   float64\n 9   metodo_pago      3000 non-null   object \ndtypes: float64(1), int64(1), object(8)\nmemory usage: 236.8+ KB\n",
+   "salida": null,
+   "banderas": []
+  },
+  "describe": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>cantidad</th>\n      <th>descuento</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>count</th>\n      <td>3029.000000</td>\n      <td>2957.000000</td>\n    </tr>\n    <tr>\n      <th>mean</th>\n      <td>2.494553</td>\n      <td>0.026868</td>\n    </tr>\n    <tr>\n      <th>std</th>\n      <td>12.336583</td>\n      <td>0.044951</td>\n    </tr>\n    <tr>\n      <th>min</th>\n      <td>-3.000000</td>\n      <td>0.000000</td>\n    </tr>\n    <tr>\n      <th>25%</th>\n      <td>1.000000</td>\n      <td>0.000000</td>\n    </tr>\n    <tr>\n      <th>50%</th>\n      <td>2.000000</td>\n      <td>0.000000</td>\n    </tr>\n    <tr>\n      <th>75%</th>\n      <td>3.000000</td>\n      <td>0.050000</td>\n    </tr>\n    <tr>\n      <th>max</th>\n      <td>580.000000</td>\n      <td>0.150000</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "conteos": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "ciudad\nBogotá                 969\nMedellín               547\nCali                   413\nBarranquilla           360\nBucaramanga            282\nCartagena              249\nBogotá D.C.             19\nbogota                  18\nMEDELLIN                17\nBogota                  14\nbarranquilla            14\nMedellin                13\nBOGOTÁ                  11\nCALI                    11\n Bogotá                 11\ncali                    10\nmedellín                10\nbucaramanga             10\nB/manga                  9\nBarranquilla             8\nB/quilla                 7\nCali                     7\nCartagena de Indias      6\ncartagena                3\nName: count, dtype: int64"
+   },
+   "banderas": []
+  },
+  "nulos": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "id_venta             0\nfecha                0\nciudad              11\ncanal                0\nid_cliente         557\nid_producto          0\ncantidad             0\nprecio_unitario      0\ndescuento           72\nmetodo_pago         29\ndtype: int64"
+   },
+   "banderas": []
+  },
+  "sol_clientes": {
+   "texto": "Clientes distintos: 1016\nVentas sin cliente (%): 18.4\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "duplicados": {
+   "texto": "Filas iniciales: 3029\nFilas duplicadas: 29\nFilas tras quitar duplicados: 3000\n",
+   "salida": null,
+   "banderas": []
+  },
+  "texto": {
+   "texto": "Grafías sin regla: []\n{'Bogotá': 1033, 'Medellín': 579, 'Cali': 437, 'Barranquilla': 386, 'Bucaramanga': 298, 'Cartagena': 256, 'Sin dato': 11}\n{'Tienda': 1349, 'App': 938, 'Web': 713}\n",
+   "salida": null,
+   "banderas": []
+  },
+  "precios": {
+   "texto": "Precios con «$» y punto de miles: 74\n['$3.100', '$4.900', '$1.800']\nPrecios sin convertir: 0\nTipo final: int64\n",
+   "salida": null,
+   "banderas": []
+  },
+  "fechas": {
+   "texto": "Fechas en formato dd/mm/aaaa: 105\nFechas sin interpretar: 0\nRango: 2025-01-01 a 2025-06-30\n",
+   "salida": null,
+   "banderas": []
+  },
+  "reglas": {
+   "texto": "Cantidades fuera de [1, 50]: 31\n{-3: 6, -2: 7, -1: 8, 0: 7, 120: 1, 330: 1, 580: 1}\nFilas válidas: 2969 · en cuarentena: 31\n",
+   "salida": null,
+   "banderas": []
+  },
+  "completitud": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "id_venta           0\nfecha              0\nciudad             0\ncanal              0\nid_cliente         0\nid_producto        0\ncantidad           0\nprecio_unitario    0\ndescuento          0\nmetodo_pago        0\ndtype: int64"
+   },
+   "banderas": []
+  },
+  "reporte": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>antes</th>\n      <th>después</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>filas</th>\n      <td>3029</td>\n      <td>2969</td>\n    </tr>\n    <tr>\n      <th>filas duplicadas</th>\n      <td>29</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>celdas vacías</th>\n      <td>669</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>grafías de ciudad</th>\n      <td>24</td>\n      <td>7</td>\n    </tr>\n    <tr>\n      <th>grafías de canal</th>\n      <td>9</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>precios no numéricos</th>\n      <td>74</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>fechas sin interpretar</th>\n      <td>107</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>cantidades fuera de rango</th>\n      <td>31</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "sol_nulos_canal": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "canal\nApp         0\nTienda    557\nWeb         0\nName: id_cliente, dtype: int64"
+   },
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "derivadas": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>id_venta</th>\n      <th>cantidad</th>\n      <th>precio_unitario</th>\n      <th>descuento</th>\n      <th>total</th>\n      <th>mes</th>\n      <th>dia_semana</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>V00001</td>\n      <td>3</td>\n      <td>7800</td>\n      <td>0.10</td>\n      <td>21060.0</td>\n      <td>2025-01</td>\n      <td>miércoles</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>V00002</td>\n      <td>3</td>\n      <td>16900</td>\n      <td>0.00</td>\n      <td>50700.0</td>\n      <td>2025-01</td>\n      <td>miércoles</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>V00003</td>\n      <td>2</td>\n      <td>5900</td>\n      <td>0.00</td>\n      <td>11800.0</td>\n      <td>2025-01</td>\n      <td>miércoles</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>V00004</td>\n      <td>1</td>\n      <td>11800</td>\n      <td>0.00</td>\n      <td>11800.0</td>\n      <td>2025-01</td>\n      <td>miércoles</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>V00005</td>\n      <td>1</td>\n      <td>7800</td>\n      <td>0.05</td>\n      <td>7410.0</td>\n      <td>2025-01</td>\n      <td>miércoles</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "union": {
+   "texto": "Ventas sin producto en el catálogo: 0\n",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>id_venta</th>\n      <th>nombre</th>\n      <th>categoria</th>\n      <th>total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>V00001</td>\n      <td>Limpiador multiusos 1 L</td>\n      <td>Aseo</td>\n      <td>21060.0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>V00002</td>\n      <td>Café molido 500 g</td>\n      <td>Despensa</td>\n      <td>50700.0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>V00003</td>\n      <td>Jabón de loza 500 g</td>\n      <td>Aseo</td>\n      <td>11800.0</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "por_ciudad": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>ventas</th>\n      <th>total_millones</th>\n      <th>ticket_promedio</th>\n    </tr>\n    <tr>\n      <th>ciudad</th>\n      <th></th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Bogotá</th>\n      <td>1019</td>\n      <td>14.6</td>\n      <td>14347.0</td>\n    </tr>\n    <tr>\n      <th>Medellín</th>\n      <td>570</td>\n      <td>8.4</td>\n      <td>14814.0</td>\n    </tr>\n    <tr>\n      <th>Cali</th>\n      <td>436</td>\n      <td>7.0</td>\n      <td>16086.0</td>\n    </tr>\n    <tr>\n      <th>Barranquilla</th>\n      <td>381</td>\n      <td>5.9</td>\n      <td>15390.0</td>\n    </tr>\n    <tr>\n      <th>Bucaramanga</th>\n      <td>297</td>\n      <td>4.3</td>\n      <td>14585.0</td>\n    </tr>\n    <tr>\n      <th>Cartagena</th>\n      <td>255</td>\n      <td>3.6</td>\n      <td>13988.0</td>\n    </tr>\n    <tr>\n      <th>Sin dato</th>\n      <td>11</td>\n      <td>0.1</td>\n      <td>10492.0</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "pivote": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th>canal</th>\n      <th>App</th>\n      <th>Tienda</th>\n      <th>Web</th>\n      <th>Total</th>\n    </tr>\n    <tr>\n      <th>categoria</th>\n      <th></th>\n      <th></th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Aseo</th>\n      <td>2.4</td>\n      <td>3.3</td>\n      <td>1.8</td>\n      <td>7.5</td>\n    </tr>\n    <tr>\n      <th>Bebidas</th>\n      <td>2.4</td>\n      <td>3.4</td>\n      <td>1.8</td>\n      <td>7.6</td>\n    </tr>\n    <tr>\n      <th>Cuidado personal</th>\n      <td>1.8</td>\n      <td>2.6</td>\n      <td>1.6</td>\n      <td>6.1</td>\n    </tr>\n    <tr>\n      <th>Despensa</th>\n      <td>3.2</td>\n      <td>4.9</td>\n      <td>2.5</td>\n      <td>10.6</td>\n    </tr>\n    <tr>\n      <th>Frescos</th>\n      <td>2.1</td>\n      <td>3.5</td>\n      <td>1.8</td>\n      <td>7.5</td>\n    </tr>\n    <tr>\n      <th>Hogar</th>\n      <td>1.3</td>\n      <td>2.0</td>\n      <td>1.5</td>\n      <td>4.8</td>\n    </tr>\n    <tr>\n      <th>Total</th>\n      <td>13.3</td>\n      <td>19.8</td>\n      <td>10.9</td>\n      <td>44.0</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "app_mes": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th>canal</th>\n      <th>App</th>\n      <th>Tienda</th>\n      <th>Web</th>\n    </tr>\n    <tr>\n      <th>mes</th>\n      <th></th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>2025-01</th>\n      <td>23.0</td>\n      <td>52.8</td>\n      <td>24.3</td>\n    </tr>\n    <tr>\n      <th>2025-02</th>\n      <td>29.1</td>\n      <td>48.6</td>\n      <td>22.3</td>\n    </tr>\n    <tr>\n      <th>2025-03</th>\n      <td>24.8</td>\n      <td>49.8</td>\n      <td>25.4</td>\n    </tr>\n    <tr>\n      <th>2025-04</th>\n      <td>33.1</td>\n      <td>39.4</td>\n      <td>27.4</td>\n    </tr>\n    <tr>\n      <th>2025-05</th>\n      <td>35.1</td>\n      <td>41.6</td>\n      <td>23.3</td>\n    </tr>\n    <tr>\n      <th>2025-06</th>\n      <td>35.9</td>\n      <td>37.9</td>\n      <td>26.3</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "sol_dia": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "dia_semana\nlunes        15442.0\nviernes      15183.0\nsábado       15021.0\nmiércoles    14888.0\ndomingo      14728.0\nmartes       14209.0\njueves       14062.0\nName: total, dtype: float64"
+   },
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "sol_app_categoria": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "categoria\nDespensa            3.2\nBebidas             2.4\nAseo                2.4\nFrescos             2.1\nCuidado personal    1.8\nHogar               1.3\nName: total, dtype: float64"
+   },
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "bucle_for": {
+   "texto": "[15351, 5355, 28322, 10353]\n",
+   "salida": null,
+   "banderas": []
+  },
+  "con_map": {
+   "texto": "[15351, 5355, 28322, 10353]\n",
+   "salida": null,
+   "banderas": []
+  },
+  "comprension": {
+   "texto": "[15351, 5355, 28322, 10353]\n",
+   "salida": null,
+   "banderas": []
+  },
+  "filter_reduce": {
+   "texto": "[12900, 23800]\n49900 == 49900\n",
+   "salida": null,
+   "banderas": []
+  },
+  "wc_textos": {
+   "texto": "40 reseñas\nExcelente servicio y excelente calidad. Seguiré comprando en Cartagena.\n",
+   "salida": null,
+   "banderas": []
+  },
+  "wc_map": {
+   "texto": "[('excelente', 1), ('servicio', 1), ('y', 1), ('excelente', 1), ('calidad', 1), ('seguiré', 1), ('comprando', 1), ('en', 1), ('cartagena', 1)]\nPares emitidos: 468\n",
+   "salida": null,
+   "banderas": []
+  },
+  "wc_shuffle": {
+   "texto": "Palabras distintas: 209\nentrega → [1, 1, 1]\n",
+   "salida": null,
+   "banderas": []
+  },
+  "wc_reduce": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "[('el', 32), ('y', 23), ('la', 21), ('en', 20), ('de', 12), ('muy', 9), ('llegó', 8), ('app', 7), ('es', 7), ('a', 6)]"
+   },
+   "banderas": []
+  },
+  "wc_vacias": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "[('llegó', 8), ('app', 7), ('excelente', 6), ('pedido', 6), ('calidad', 5), ('domicilio', 5), ('precio', 5), ('tienda', 5), ('buen', 4), ('buena', 4)]"
+   },
+   "banderas": []
+  },
+  "wc_counter": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "True"
+   },
+   "banderas": []
+  },
+  "sol_negativas": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "[('llegó', 4), ('pedido', 3), ('dos', 3), ('veces', 3), ('domicilio', 2), ('nadie', 2), ('chat', 2), ('precio', 2), ('app', 2), ('producto', 2)]"
+   },
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "mr_ventas": {
+   "texto": "Filas por bloque: [743, 743, 743, 740]\n",
+   "salida": {
+    "tipo": "texto",
+    "texto": "Bogotá          14.6\nMedellín         8.4\nCali             7.0\nBarranquilla     5.9\nBucaramanga      4.3\nCartagena        3.6\nSin dato         0.1\ndtype: float64"
+   },
+   "banderas": []
+  },
+  "mr_verifica": {
+   "texto": "Máxima diferencia: 0.0\n¿Coinciden? True\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sol_pago": {
+   "texto": "{'Tarjeta': 1372, 'Billetera digital': 765, 'Efectivo': 494, 'Transferencia': 309, 'Sin dato': 29}\n¿Coincide? True\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "exporta": {
+   "texto": "ciudad,total\nBarranquilla,21060.0\nBarranquilla,50700.0\n",
+   "salida": null,
+   "banderas": []
+  },
+  "mapper_py": {
+   "texto": "Writing mapper.py\n",
+   "salida": null,
+   "banderas": []
+  },
+  "reducer_py": {
+   "texto": "Writing reducer.py\n",
+   "salida": null,
+   "banderas": []
+  },
+  "streaming": {
+   "texto": "Barranquilla\t5863470\nBogotá\t14619650\nBucaramanga\t4331705\nCali\t7013590\nCartagena\t3566865\nMedellín\t8443795\nSin dato\t115415\n",
+   "salida": null,
+   "banderas": []
+  },
+  "cifras": {
+   "texto": "",
+   "salida": null,
+   "banderas": [
+    "privada"
+   ]
+  }
+ },
+ "cifras": {
+  "filas_crudas": "3.029",
+  "columnas": "10",
+  "productos": "60",
+  "duplicados": "29",
+  "grafias_ciudad": "24",
+  "grafias_canal": "9",
+  "precios_texto": "74",
+  "fechas_dma": "105",
+  "fechas_dma_crudas": "107",
+  "fuera_rango": "31",
+  "cantidad_min": "−3",
+  "cantidad_max": "580",
+  "nulos_cliente": "557",
+  "pct_nulos_cliente": "18,4",
+  "nulos_descuento": "72",
+  "nulos_ciudad": "11",
+  "nulos_pago": "29",
+  "clientes_distintos": "1.016",
+  "pct_anonimo_tienda": "40,8",
+  "filas_limpias": "2.969",
+  "pct_filas_conservadas": "98,0",
+  "total_millones": "44,0",
+  "ciudad_top": "Bogotá",
+  "ciudad_top_millones": "14,6",
+  "ciudad_top_pct": "33,3",
+  "ticket_promedio": "14.804",
+  "app_ene": "23,0",
+  "app_jun": "35,9",
+  "resenas": "40",
+  "pares_emitidos": "468",
+  "palabras_distintas": "209",
+  "palabra_top": "el",
+  "palabra_top_n": "32",
+  "palabra_util_top": "llegó",
+  "palabra_util_top_n": "8",
+  "filas_bloque": "743"
+ },
+ "calidad": {
+  "pasos": [
+   {
+    "clave": "duplicados",
+    "etiqueta": "Quitar duplicados",
+    "dimension": "Unicidad"
+   },
+   {
+    "clave": "texto",
+    "etiqueta": "Estandarizar texto",
+    "dimension": "Consistencia"
+   },
+   {
+    "clave": "precios",
+    "etiqueta": "Convertir precios",
+    "dimension": "Validez"
+   },
+   {
+    "clave": "fechas",
+    "etiqueta": "Interpretar fechas",
+    "dimension": "Validez"
+   },
+   {
+    "clave": "reglas",
+    "etiqueta": "Apartar cantidades imposibles",
+    "dimension": "Exactitud"
+   },
+   {
+    "clave": "completitud",
+    "etiqueta": "Tratar vacíos",
+    "dimension": "Completitud"
+   }
+  ],
+  "combinaciones": {
+   "0": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 669,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 2886,
+    "total_millones": 48.68,
+    "barras": [
+     [
+      "Bogotá",
+      15.59
+     ],
+     [
+      "Barranquilla",
+      8.68
+     ],
+     [
+      "Medellín",
+      7.5
+     ],
+     [
+      "Cali",
+      6.39
+     ],
+     [
+      "Bucaramanga",
+      4.59
+     ],
+     [
+      "Cartagena",
+      3.14
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "1": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 665,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 2857,
+    "total_millones": 48.19,
+    "barras": [
+     [
+      "Bogotá",
+      15.44
+     ],
+     [
+      "Barranquilla",
+      8.62
+     ],
+     [
+      "Medellín",
+      7.41
+     ],
+     [
+      "Cali",
+      6.29
+     ],
+     [
+      "Bucaramanga",
+      4.54
+     ],
+     [
+      "Cartagena",
+      3.13
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "2": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 658,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 2886,
+    "total_millones": 48.68,
+    "barras": [
+     [
+      "Bogotá",
+      16.5
+     ],
+     [
+      "Barranquilla",
+      8.98
+     ],
+     [
+      "Medellín",
+      8.0
+     ],
+     [
+      "Cali",
+      6.84
+     ],
+     [
+      "Bucaramanga",
+      4.93
+     ],
+     [
+      "Cartagena",
+      3.33
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "3": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 654,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 2857,
+    "total_millones": 48.19,
+    "barras": [
+     [
+      "Bogotá",
+      16.35
+     ],
+     [
+      "Barranquilla",
+      8.91
+     ],
+     [
+      "Medellín",
+      7.9
+     ],
+     [
+      "Cali",
+      6.74
+     ],
+     [
+      "Bucaramanga",
+      4.88
+     ],
+     [
+      "Cartagena",
+      3.31
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "4": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 669,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 2957,
+    "total_millones": 49.83,
+    "barras": [
+     [
+      "Bogotá",
+      15.87
+     ],
+     [
+      "Barranquilla",
+      8.96
+     ],
+     [
+      "Medellín",
+      7.63
+     ],
+     [
+      "Cali",
+      6.52
+     ],
+     [
+      "Bucaramanga",
+      4.63
+     ],
+     [
+      "Cartagena",
+      3.33
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.02
+     ]
+    ]
+   },
+   "5": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 665,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 2928,
+    "total_millones": 49.35,
+    "barras": [
+     [
+      "Bogotá",
+      15.72
+     ],
+     [
+      "Barranquilla",
+      8.89
+     ],
+     [
+      "Medellín",
+      7.53
+     ],
+     [
+      "Cali",
+      6.42
+     ],
+     [
+      "Bucaramanga",
+      4.58
+     ],
+     [
+      "Cartagena",
+      3.32
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.02
+     ]
+    ]
+   },
+   "6": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 658,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 2957,
+    "total_millones": 49.83,
+    "barras": [
+     [
+      "Bogotá",
+      16.84
+     ],
+     [
+      "Barranquilla",
+      9.25
+     ],
+     [
+      "Medellín",
+      8.14
+     ],
+     [
+      "Cali",
+      6.99
+     ],
+     [
+      "Bucaramanga",
+      4.97
+     ],
+     [
+      "Cartagena",
+      3.52
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "7": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 654,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 2928,
+    "total_millones": 49.35,
+    "barras": [
+     [
+      "Bogotá",
+      16.69
+     ],
+     [
+      "Barranquilla",
+      9.18
+     ],
+     [
+      "Medellín",
+      8.04
+     ],
+     [
+      "Cali",
+      6.89
+     ],
+     [
+      "Bucaramanga",
+      4.92
+     ],
+     [
+      "Cartagena",
+      3.51
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "8": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 669,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2886,
+    "total_millones": 48.68,
+    "barras": [
+     [
+      "Bogotá",
+      15.59
+     ],
+     [
+      "Barranquilla",
+      8.68
+     ],
+     [
+      "Medellín",
+      7.5
+     ],
+     [
+      "Cali",
+      6.39
+     ],
+     [
+      "Bucaramanga",
+      4.59
+     ],
+     [
+      "Cartagena",
+      3.14
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "9": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 665,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2857,
+    "total_millones": 48.19,
+    "barras": [
+     [
+      "Bogotá",
+      15.44
+     ],
+     [
+      "Barranquilla",
+      8.62
+     ],
+     [
+      "Medellín",
+      7.41
+     ],
+     [
+      "Cali",
+      6.29
+     ],
+     [
+      "Bucaramanga",
+      4.54
+     ],
+     [
+      "Cartagena",
+      3.13
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "10": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 658,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2886,
+    "total_millones": 48.68,
+    "barras": [
+     [
+      "Bogotá",
+      16.5
+     ],
+     [
+      "Barranquilla",
+      8.98
+     ],
+     [
+      "Medellín",
+      8.0
+     ],
+     [
+      "Cali",
+      6.84
+     ],
+     [
+      "Bucaramanga",
+      4.93
+     ],
+     [
+      "Cartagena",
+      3.33
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "11": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 654,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2857,
+    "total_millones": 48.19,
+    "barras": [
+     [
+      "Bogotá",
+      16.35
+     ],
+     [
+      "Barranquilla",
+      8.91
+     ],
+     [
+      "Medellín",
+      7.9
+     ],
+     [
+      "Cali",
+      6.74
+     ],
+     [
+      "Bucaramanga",
+      4.88
+     ],
+     [
+      "Cartagena",
+      3.31
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "12": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 669,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2957,
+    "total_millones": 49.83,
+    "barras": [
+     [
+      "Bogotá",
+      15.87
+     ],
+     [
+      "Barranquilla",
+      8.96
+     ],
+     [
+      "Medellín",
+      7.63
+     ],
+     [
+      "Cali",
+      6.52
+     ],
+     [
+      "Bucaramanga",
+      4.63
+     ],
+     [
+      "Cartagena",
+      3.33
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.02
+     ]
+    ]
+   },
+   "13": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 665,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2928,
+    "total_millones": 49.35,
+    "barras": [
+     [
+      "Bogotá",
+      15.72
+     ],
+     [
+      "Barranquilla",
+      8.89
+     ],
+     [
+      "Medellín",
+      7.53
+     ],
+     [
+      "Cali",
+      6.42
+     ],
+     [
+      "Bucaramanga",
+      4.58
+     ],
+     [
+      "Cartagena",
+      3.32
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.02
+     ]
+    ]
+   },
+   "14": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 658,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2957,
+    "total_millones": 49.83,
+    "barras": [
+     [
+      "Bogotá",
+      16.84
+     ],
+     [
+      "Barranquilla",
+      9.25
+     ],
+     [
+      "Medellín",
+      8.14
+     ],
+     [
+      "Cali",
+      6.99
+     ],
+     [
+      "Bucaramanga",
+      4.97
+     ],
+     [
+      "Cartagena",
+      3.52
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "15": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 654,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2928,
+    "total_millones": 49.35,
+    "barras": [
+     [
+      "Bogotá",
+      16.69
+     ],
+     [
+      "Barranquilla",
+      9.18
+     ],
+     [
+      "Medellín",
+      8.04
+     ],
+     [
+      "Cali",
+      6.89
+     ],
+     [
+      "Bucaramanga",
+      4.92
+     ],
+     [
+      "Cartagena",
+      3.51
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "16": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 662,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2855,
+    "total_millones": 42.21,
+    "barras": [
+     [
+      "Bogotá",
+      13.05
+     ],
+     [
+      "Medellín",
+      7.68
+     ],
+     [
+      "Cali",
+      6.39
+     ],
+     [
+      "Barranquilla",
+      5.18
+     ],
+     [
+      "Bucaramanga",
+      3.98
+     ],
+     [
+      "Cartagena",
+      3.15
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.96
+     ]
+    ]
+   },
+   "17": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 658,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2826,
+    "total_millones": 41.73,
+    "barras": [
+     [
+      "Bogotá",
+      12.89
+     ],
+     [
+      "Medellín",
+      7.58
+     ],
+     [
+      "Cali",
+      6.29
+     ],
+     [
+      "Barranquilla",
+      5.12
+     ],
+     [
+      "Bucaramanga",
+      3.92
+     ],
+     [
+      "Cartagena",
+      3.13
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.96
+     ]
+    ]
+   },
+   "18": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 651,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2855,
+    "total_millones": 42.21,
+    "barras": [
+     [
+      "Bogotá",
+      13.95
+     ],
+     [
+      "Medellín",
+      8.17
+     ],
+     [
+      "Cali",
+      6.84
+     ],
+     [
+      "Barranquilla",
+      5.49
+     ],
+     [
+      "Bucaramanga",
+      4.32
+     ],
+     [
+      "Cartagena",
+      3.34
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "19": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 647,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2826,
+    "total_millones": 41.73,
+    "barras": [
+     [
+      "Bogotá",
+      13.8
+     ],
+     [
+      "Medellín",
+      8.08
+     ],
+     [
+      "Cali",
+      6.74
+     ],
+     [
+      "Barranquilla",
+      5.42
+     ],
+     [
+      "Bucaramanga",
+      4.26
+     ],
+     [
+      "Cartagena",
+      3.32
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "20": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 662,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2926,
+    "total_millones": 43.37,
+    "barras": [
+     [
+      "Bogotá",
+      13.32
+     ],
+     [
+      "Medellín",
+      7.8
+     ],
+     [
+      "Cali",
+      6.52
+     ],
+     [
+      "Barranquilla",
+      5.46
+     ],
+     [
+      "Bucaramanga",
+      4.01
+     ],
+     [
+      "Cartagena",
+      3.34
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.04
+     ]
+    ]
+   },
+   "21": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 658,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2897,
+    "total_millones": 42.88,
+    "barras": [
+     [
+      "Bogotá",
+      13.17
+     ],
+     [
+      "Medellín",
+      7.71
+     ],
+     [
+      "Cali",
+      6.42
+     ],
+     [
+      "Barranquilla",
+      5.39
+     ],
+     [
+      "Bucaramanga",
+      3.96
+     ],
+     [
+      "Cartagena",
+      3.33
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.04
+     ]
+    ]
+   },
+   "22": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 651,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2926,
+    "total_millones": 43.37,
+    "barras": [
+     [
+      "Bogotá",
+      14.3
+     ],
+     [
+      "Medellín",
+      8.31
+     ],
+     [
+      "Cali",
+      6.99
+     ],
+     [
+      "Barranquilla",
+      5.77
+     ],
+     [
+      "Bucaramanga",
+      4.36
+     ],
+     [
+      "Cartagena",
+      3.53
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "23": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 647,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2897,
+    "total_millones": 42.88,
+    "barras": [
+     [
+      "Bogotá",
+      14.14
+     ],
+     [
+      "Medellín",
+      8.22
+     ],
+     [
+      "Cali",
+      6.89
+     ],
+     [
+      "Barranquilla",
+      5.7
+     ],
+     [
+      "Bucaramanga",
+      4.3
+     ],
+     [
+      "Cartagena",
+      3.51
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "24": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 662,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2855,
+    "total_millones": 42.21,
+    "barras": [
+     [
+      "Bogotá",
+      13.05
+     ],
+     [
+      "Medellín",
+      7.68
+     ],
+     [
+      "Cali",
+      6.39
+     ],
+     [
+      "Barranquilla",
+      5.18
+     ],
+     [
+      "Bucaramanga",
+      3.98
+     ],
+     [
+      "Cartagena",
+      3.15
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.96
+     ]
+    ]
+   },
+   "25": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 658,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2826,
+    "total_millones": 41.73,
+    "barras": [
+     [
+      "Bogotá",
+      12.89
+     ],
+     [
+      "Medellín",
+      7.58
+     ],
+     [
+      "Cali",
+      6.29
+     ],
+     [
+      "Barranquilla",
+      5.12
+     ],
+     [
+      "Bucaramanga",
+      3.92
+     ],
+     [
+      "Cartagena",
+      3.13
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "Bogota",
+      0.21
+     ],
+     [
+      "bogota",
+      0.2
+     ],
+     [
+      "Bogotá D.C.",
+      0.2
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.96
+     ]
+    ]
+   },
+   "26": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 651,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2855,
+    "total_millones": 42.21,
+    "barras": [
+     [
+      "Bogotá",
+      13.95
+     ],
+     [
+      "Medellín",
+      8.17
+     ],
+     [
+      "Cali",
+      6.84
+     ],
+     [
+      "Barranquilla",
+      5.49
+     ],
+     [
+      "Bucaramanga",
+      4.32
+     ],
+     [
+      "Cartagena",
+      3.34
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "27": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 647,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2826,
+    "total_millones": 41.73,
+    "barras": [
+     [
+      "Bogotá",
+      13.8
+     ],
+     [
+      "Medellín",
+      8.08
+     ],
+     [
+      "Cali",
+      6.74
+     ],
+     [
+      "Barranquilla",
+      5.42
+     ],
+     [
+      "Bucaramanga",
+      4.26
+     ],
+     [
+      "Cartagena",
+      3.32
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "28": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 662,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2926,
+    "total_millones": 43.37,
+    "barras": [
+     [
+      "Bogotá",
+      13.32
+     ],
+     [
+      "Medellín",
+      7.8
+     ],
+     [
+      "Cali",
+      6.52
+     ],
+     [
+      "Barranquilla",
+      5.46
+     ],
+     [
+      "Bucaramanga",
+      4.01
+     ],
+     [
+      "Cartagena",
+      3.34
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.04
+     ]
+    ]
+   },
+   "29": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 658,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2897,
+    "total_millones": 42.88,
+    "barras": [
+     [
+      "Bogotá",
+      13.17
+     ],
+     [
+      "Medellín",
+      7.71
+     ],
+     [
+      "Cali",
+      6.42
+     ],
+     [
+      "Barranquilla",
+      5.39
+     ],
+     [
+      "Bucaramanga",
+      3.96
+     ],
+     [
+      "Cartagena",
+      3.33
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "MEDELLIN",
+      0.22
+     ],
+     [
+      "cali",
+      0.21
+     ],
+     [
+      "BOGOTÁ",
+      0.21
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.04
+     ]
+    ]
+   },
+   "30": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 651,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2926,
+    "total_millones": 43.37,
+    "barras": [
+     [
+      "Bogotá",
+      14.3
+     ],
+     [
+      "Medellín",
+      8.31
+     ],
+     [
+      "Cali",
+      6.99
+     ],
+     [
+      "Barranquilla",
+      5.77
+     ],
+     [
+      "Bucaramanga",
+      4.36
+     ],
+     [
+      "Cartagena",
+      3.53
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "31": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 647,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2897,
+    "total_millones": 42.88,
+    "barras": [
+     [
+      "Bogotá",
+      14.14
+     ],
+     [
+      "Medellín",
+      8.22
+     ],
+     [
+      "Cali",
+      6.89
+     ],
+     [
+      "Barranquilla",
+      5.7
+     ],
+     [
+      "Bucaramanga",
+      4.3
+     ],
+     [
+      "Cartagena",
+      3.51
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "32": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 2955,
+    "total_millones": 49.73,
+    "barras": [
+     [
+      "Bogotá",
+      16.0
+     ],
+     [
+      "Barranquilla",
+      8.83
+     ],
+     [
+      "Medellín",
+      7.65
+     ],
+     [
+      "Cali",
+      6.5
+     ],
+     [
+      "Bucaramanga",
+      4.62
+     ],
+     [
+      "Cartagena",
+      3.19
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "33": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 2926,
+    "total_millones": 49.24,
+    "barras": [
+     [
+      "Bogotá",
+      15.85
+     ],
+     [
+      "Barranquilla",
+      8.76
+     ],
+     [
+      "Medellín",
+      7.56
+     ],
+     [
+      "Cali",
+      6.4
+     ],
+     [
+      "Bucaramanga",
+      4.57
+     ],
+     [
+      "Cartagena",
+      3.18
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "34": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 2955,
+    "total_millones": 49.73,
+    "barras": [
+     [
+      "Bogotá",
+      16.98
+     ],
+     [
+      "Barranquilla",
+      9.12
+     ],
+     [
+      "Medellín",
+      8.23
+     ],
+     [
+      "Cali",
+      6.95
+     ],
+     [
+      "Bucaramanga",
+      4.96
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "35": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 2926,
+    "total_millones": 49.24,
+    "barras": [
+     [
+      "Bogotá",
+      16.82
+     ],
+     [
+      "Barranquilla",
+      9.05
+     ],
+     [
+      "Medellín",
+      8.13
+     ],
+     [
+      "Cali",
+      6.85
+     ],
+     [
+      "Bucaramanga",
+      4.91
+     ],
+     [
+      "Cartagena",
+      3.37
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "36": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 3029,
+    "total_millones": 50.91,
+    "barras": [
+     [
+      "Bogotá",
+      16.28
+     ],
+     [
+      "Barranquilla",
+      9.11
+     ],
+     [
+      "Medellín",
+      7.78
+     ],
+     [
+      "Cali",
+      6.64
+     ],
+     [
+      "Bucaramanga",
+      4.66
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.05
+     ]
+    ]
+   },
+   "37": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 3000,
+    "total_millones": 50.42,
+    "barras": [
+     [
+      "Bogotá",
+      16.13
+     ],
+     [
+      "Barranquilla",
+      9.05
+     ],
+     [
+      "Medellín",
+      7.68
+     ],
+     [
+      "Cali",
+      6.54
+     ],
+     [
+      "Bucaramanga",
+      4.61
+     ],
+     [
+      "Cartagena",
+      3.37
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.05
+     ]
+    ]
+   },
+   "38": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 107,
+    "fuera_rango": 31,
+    "filas_con_total": 3029,
+    "total_millones": 50.91,
+    "barras": [
+     [
+      "Bogotá",
+      17.32
+     ],
+     [
+      "Barranquilla",
+      9.42
+     ],
+     [
+      "Medellín",
+      8.37
+     ],
+     [
+      "Cali",
+      7.11
+     ],
+     [
+      "Bucaramanga",
+      5.0
+     ],
+     [
+      "Cartagena",
+      3.57
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "39": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 31,
+    "filas_con_total": 3000,
+    "total_millones": 50.42,
+    "barras": [
+     [
+      "Bogotá",
+      17.17
+     ],
+     [
+      "Barranquilla",
+      9.35
+     ],
+     [
+      "Medellín",
+      8.27
+     ],
+     [
+      "Cali",
+      7.01
+     ],
+     [
+      "Bucaramanga",
+      4.95
+     ],
+     [
+      "Cartagena",
+      3.56
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "40": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2955,
+    "total_millones": 49.73,
+    "barras": [
+     [
+      "Bogotá",
+      16.0
+     ],
+     [
+      "Barranquilla",
+      8.83
+     ],
+     [
+      "Medellín",
+      7.65
+     ],
+     [
+      "Cali",
+      6.5
+     ],
+     [
+      "Bucaramanga",
+      4.62
+     ],
+     [
+      "Cartagena",
+      3.19
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "41": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2926,
+    "total_millones": 49.24,
+    "barras": [
+     [
+      "Bogotá",
+      15.85
+     ],
+     [
+      "Barranquilla",
+      8.76
+     ],
+     [
+      "Medellín",
+      7.56
+     ],
+     [
+      "Cali",
+      6.4
+     ],
+     [
+      "Bucaramanga",
+      4.57
+     ],
+     [
+      "Cartagena",
+      3.18
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.95
+     ]
+    ]
+   },
+   "42": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2955,
+    "total_millones": 49.73,
+    "barras": [
+     [
+      "Bogotá",
+      16.98
+     ],
+     [
+      "Barranquilla",
+      9.12
+     ],
+     [
+      "Medellín",
+      8.23
+     ],
+     [
+      "Cali",
+      6.95
+     ],
+     [
+      "Bucaramanga",
+      4.96
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "43": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 2926,
+    "total_millones": 49.24,
+    "barras": [
+     [
+      "Bogotá",
+      16.82
+     ],
+     [
+      "Barranquilla",
+      9.05
+     ],
+     [
+      "Medellín",
+      8.13
+     ],
+     [
+      "Cali",
+      6.85
+     ],
+     [
+      "Bucaramanga",
+      4.91
+     ],
+     [
+      "Cartagena",
+      3.37
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "44": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 3029,
+    "total_millones": 50.91,
+    "barras": [
+     [
+      "Bogotá",
+      16.28
+     ],
+     [
+      "Barranquilla",
+      9.11
+     ],
+     [
+      "Medellín",
+      7.78
+     ],
+     [
+      "Cali",
+      6.64
+     ],
+     [
+      "Bucaramanga",
+      4.66
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.05
+     ]
+    ]
+   },
+   "45": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 3000,
+    "total_millones": 50.42,
+    "barras": [
+     [
+      "Bogotá",
+      16.13
+     ],
+     [
+      "Barranquilla",
+      9.05
+     ],
+     [
+      "Medellín",
+      7.68
+     ],
+     [
+      "Cali",
+      6.54
+     ],
+     [
+      "Bucaramanga",
+      4.61
+     ],
+     [
+      "Cartagena",
+      3.37
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.05
+     ]
+    ]
+   },
+   "46": {
+    "filas": 3029,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 3029,
+    "total_millones": 50.91,
+    "barras": [
+     [
+      "Bogotá",
+      17.32
+     ],
+     [
+      "Barranquilla",
+      9.42
+     ],
+     [
+      "Medellín",
+      8.37
+     ],
+     [
+      "Cali",
+      7.11
+     ],
+     [
+      "Bucaramanga",
+      5.0
+     ],
+     [
+      "Cartagena",
+      3.57
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "47": {
+    "filas": 3000,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 31,
+    "filas_con_total": 3000,
+    "total_millones": 50.42,
+    "barras": [
+     [
+      "Bogotá",
+      17.17
+     ],
+     [
+      "Barranquilla",
+      9.35
+     ],
+     [
+      "Medellín",
+      8.27
+     ],
+     [
+      "Cali",
+      7.01
+     ],
+     [
+      "Bucaramanga",
+      4.95
+     ],
+     [
+      "Cartagena",
+      3.56
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "48": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2924,
+    "total_millones": 43.26,
+    "barras": [
+     [
+      "Bogotá",
+      13.46
+     ],
+     [
+      "Medellín",
+      7.83
+     ],
+     [
+      "Cali",
+      6.5
+     ],
+     [
+      "Barranquilla",
+      5.33
+     ],
+     [
+      "Bucaramanga",
+      4.01
+     ],
+     [
+      "Cartagena",
+      3.2
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.97
+     ]
+    ]
+   },
+   "49": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2895,
+    "total_millones": 42.78,
+    "barras": [
+     [
+      "Bogotá",
+      13.3
+     ],
+     [
+      "Medellín",
+      7.73
+     ],
+     [
+      "Cali",
+      6.4
+     ],
+     [
+      "Barranquilla",
+      5.26
+     ],
+     [
+      "Bucaramanga",
+      3.95
+     ],
+     [
+      "Cartagena",
+      3.19
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.97
+     ]
+    ]
+   },
+   "50": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2924,
+    "total_millones": 43.26,
+    "barras": [
+     [
+      "Bogotá",
+      14.43
+     ],
+     [
+      "Medellín",
+      8.4
+     ],
+     [
+      "Cali",
+      6.95
+     ],
+     [
+      "Barranquilla",
+      5.64
+     ],
+     [
+      "Bucaramanga",
+      4.35
+     ],
+     [
+      "Cartagena",
+      3.39
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "51": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2895,
+    "total_millones": 42.78,
+    "barras": [
+     [
+      "Bogotá",
+      14.28
+     ],
+     [
+      "Medellín",
+      8.3
+     ],
+     [
+      "Cali",
+      6.85
+     ],
+     [
+      "Barranquilla",
+      5.57
+     ],
+     [
+      "Bucaramanga",
+      4.29
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "52": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2998,
+    "total_millones": 44.44,
+    "barras": [
+     [
+      "Bogotá",
+      13.73
+     ],
+     [
+      "Medellín",
+      7.95
+     ],
+     [
+      "Cali",
+      6.64
+     ],
+     [
+      "Barranquilla",
+      5.61
+     ],
+     [
+      "Bucaramanga",
+      4.04
+     ],
+     [
+      "Cartagena",
+      3.39
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.06
+     ]
+    ]
+   },
+   "53": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2969,
+    "total_millones": 43.95,
+    "barras": [
+     [
+      "Bogotá",
+      13.58
+     ],
+     [
+      "Medellín",
+      7.86
+     ],
+     [
+      "Cali",
+      6.54
+     ],
+     [
+      "Barranquilla",
+      5.54
+     ],
+     [
+      "Bucaramanga",
+      3.99
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.06
+     ]
+    ]
+   },
+   "54": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 105,
+    "fuera_rango": 0,
+    "filas_con_total": 2998,
+    "total_millones": 44.44,
+    "barras": [
+     [
+      "Bogotá",
+      14.77
+     ],
+     [
+      "Medellín",
+      8.54
+     ],
+     [
+      "Cali",
+      7.11
+     ],
+     [
+      "Barranquilla",
+      5.93
+     ],
+     [
+      "Bucaramanga",
+      4.39
+     ],
+     [
+      "Cartagena",
+      3.58
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "55": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 103,
+    "fuera_rango": 0,
+    "filas_con_total": 2969,
+    "total_millones": 43.95,
+    "barras": [
+     [
+      "Bogotá",
+      14.62
+     ],
+     [
+      "Medellín",
+      8.44
+     ],
+     [
+      "Cali",
+      7.01
+     ],
+     [
+      "Barranquilla",
+      5.86
+     ],
+     [
+      "Bucaramanga",
+      4.33
+     ],
+     [
+      "Cartagena",
+      3.57
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "56": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2924,
+    "total_millones": 43.26,
+    "barras": [
+     [
+      "Bogotá",
+      13.46
+     ],
+     [
+      "Medellín",
+      7.83
+     ],
+     [
+      "Cali",
+      6.5
+     ],
+     [
+      "Barranquilla",
+      5.33
+     ],
+     [
+      "Bucaramanga",
+      4.01
+     ],
+     [
+      "Cartagena",
+      3.2
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.97
+     ]
+    ]
+   },
+   "57": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2895,
+    "total_millones": 42.78,
+    "barras": [
+     [
+      "Bogotá",
+      13.3
+     ],
+     [
+      "Medellín",
+      7.73
+     ],
+     [
+      "Cali",
+      6.4
+     ],
+     [
+      "Barranquilla",
+      5.26
+     ],
+     [
+      "Bucaramanga",
+      3.95
+     ],
+     [
+      "Cartagena",
+      3.19
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.23
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      1.97
+     ]
+    ]
+   },
+   "58": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2924,
+    "total_millones": 43.26,
+    "barras": [
+     [
+      "Bogotá",
+      14.43
+     ],
+     [
+      "Medellín",
+      8.4
+     ],
+     [
+      "Cali",
+      6.95
+     ],
+     [
+      "Barranquilla",
+      5.64
+     ],
+     [
+      "Bucaramanga",
+      4.35
+     ],
+     [
+      "Cartagena",
+      3.39
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "59": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 74,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2895,
+    "total_millones": 42.78,
+    "barras": [
+     [
+      "Bogotá",
+      14.28
+     ],
+     [
+      "Medellín",
+      8.3
+     ],
+     [
+      "Cali",
+      6.85
+     ],
+     [
+      "Barranquilla",
+      5.57
+     ],
+     [
+      "Bucaramanga",
+      4.29
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "Sin dato",
+      0.11
+     ]
+    ]
+   },
+   "60": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2998,
+    "total_millones": 44.44,
+    "barras": [
+     [
+      "Bogotá",
+      13.73
+     ],
+     [
+      "Medellín",
+      7.95
+     ],
+     [
+      "Cali",
+      6.64
+     ],
+     [
+      "Barranquilla",
+      5.61
+     ],
+     [
+      "Bucaramanga",
+      4.04
+     ],
+     [
+      "Cartagena",
+      3.39
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.06
+     ]
+    ]
+   },
+   "61": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 11,
+    "grafias_ciudad": 24,
+    "grafias_canal": 9,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2969,
+    "total_millones": 43.95,
+    "barras": [
+     [
+      "Bogotá",
+      13.58
+     ],
+     [
+      "Medellín",
+      7.86
+     ],
+     [
+      "Cali",
+      6.54
+     ],
+     [
+      "Barranquilla",
+      5.54
+     ],
+     [
+      "Bucaramanga",
+      3.99
+     ],
+     [
+      "Cartagena",
+      3.38
+     ],
+     [
+      "MEDELLIN",
+      0.29
+     ],
+     [
+      "Bogotá D.C.",
+      0.26
+     ],
+     [
+      "Bogota",
+      0.23
+     ],
+     [
+      "bogota",
+      0.22
+     ],
+     [
+      "otras 14 grafías y vacíos",
+      2.06
+     ]
+    ]
+   },
+   "62": {
+    "filas": 2998,
+    "duplicadas": 29,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2998,
+    "total_millones": 44.44,
+    "barras": [
+     [
+      "Bogotá",
+      14.77
+     ],
+     [
+      "Medellín",
+      8.54
+     ],
+     [
+      "Cali",
+      7.11
+     ],
+     [
+      "Barranquilla",
+      5.93
+     ],
+     [
+      "Bucaramanga",
+      4.39
+     ],
+     [
+      "Cartagena",
+      3.58
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   },
+   "63": {
+    "filas": 2969,
+    "duplicadas": 0,
+    "vacias": 0,
+    "grafias_ciudad": 7,
+    "grafias_canal": 3,
+    "precios_malos": 0,
+    "fechas_malas": 0,
+    "fuera_rango": 0,
+    "filas_con_total": 2969,
+    "total_millones": 43.95,
+    "barras": [
+     [
+      "Bogotá",
+      14.62
+     ],
+     [
+      "Medellín",
+      8.44
+     ],
+     [
+      "Cali",
+      7.01
+     ],
+     [
+      "Barranquilla",
+      5.86
+     ],
+     [
+      "Bucaramanga",
+      4.33
+     ],
+     [
+      "Cartagena",
+      3.57
+     ],
+     [
+      "Sin dato",
+      0.12
+     ]
+    ]
+   }
+  }
+ }
+}

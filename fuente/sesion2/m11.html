@@ -1,0 +1,90 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 11 · La limpieza de la sesión 1, en Spark   (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-11">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 11 · Bloque 3 · Tema 5.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 25 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">La limpieza de la sesión 1,
+          en Spark <span class="text-gray-500 font-normal text-2xl">/ Data cleaning with PySpark</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Traducir a PySpark las seis reglas de limpieza de la
+              sesión 1 y demostrar que Spark y pandas llegan exactamente a la misma tabla.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Las reglas son las mismas de la sesión 1, con las mismas dimensiones de calidad. Cambia el vocabulario:</p>
+      <table>
+        <caption class="sr-only">Cada paso de limpieza en pandas y en PySpark</caption>
+        <thead>
+          <tr>
+            <th scope="col">Dimensión</th>
+            <th scope="col">pandas (sesión 1)</th>
+            <th scope="col">PySpark (hoy)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Unicidad</td><td><code>drop_duplicates()</code></td><td><code>dropDuplicates()</code></td></tr>
+          <tr><td>Consistencia</td><td><code>str.strip().str.lower()</code>, <code>str.normalize</code> (tildes),
+              <code>map(dicc)</code></td>
+            <td><code>F.trim</code>, <code>F.lower</code>, <code>F.translate</code> (tildes), <code>F.create_map</code></td></tr>
+          <tr><td>Validez (precios)</td><td><code>str.replace(regex)</code>, <code>pd.to_numeric</code></td>
+            <td><code>F.regexp_replace</code>, <code>.try_cast("int")</code></td></tr>
+          <tr><td>Validez (fechas)</td><td><code>pd.to_datetime(errors="coerce")</code></td>
+            <td><code>F.try_to_timestamp</code></td></tr>
+          <tr><td>Exactitud</td><td><code>between(1, 50)</code></td><td><code>F.col(…).between(1, 50)</code></td></tr>
+          <tr><td>Completitud</td><td><code>fillna(…)</code></td><td><code>fillna({…})</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Unicidad</h3>
+      {{CELDA:sp_duplicados}}
+
+      <h3>Consistencia</h3>
+      <p>El diccionario <code>CIUDAD_CANONICA</code> de la sesión 1 se convierte en un <strong>mapa</strong> de Spark.
+        Antes de aplicarlo, contamos las grafías que no tendrían regla: si apareciera una nueva, como
+        «Medellín D.E.», debe saltar a la vista y no convertirse en «Sin dato» sin que nadie lo note.</p>
+      {{CELDA:sp_texto}}
+
+      <h3>Validez: un cambio importante de Spark 4</h3>
+      <p>En pandas usamos <code>errors="coerce"</code>: lo que no encaja se vuelve nulo. Spark 4 trabaja por defecto en
+        <strong>modo ANSI</strong>, el comportamiento del estándar SQL: un valor que no se puede convertir es un
+        error.</p>
+      {{CELDA:sp_ansi}}
+      <p>Es una decisión de calidad: el motor prefiere detenerse a inventar un nulo. Cuando el nulo sí es lo que
+        queremos —para contar lo que no se pudo convertir, o para probar un segundo formato—, se pide explícitamente
+        con las funciones <code>try_</code> (<code>try_cast</code>, <code>try_to_timestamp</code>).</p>
+
+      <h3>Validez: precios</h3>
+      {{CELDA:sp_precios}}
+
+      <h3>Validez: fechas</h3>
+      <p>Cada formato se prueba de forma explícita: si la fecha no encaja en el primero, queda nula y se intenta con el
+        segundo.</p>
+      {{CELDA:sp_fechas}}
+
+      <h3>Exactitud y completitud</h3>
+      {{CELDA:sp_reglas}}
+      {{CELDA:sp_completitud}}
+      <p>Cero vacíos en todas las columnas, y {{CIFRA:cuarentena}} filas apartadas en <code>cuarentena_sp</code> para
+        revisión, como en la sesión 1.</p>
+
+      <h3>Control de coherencia: Spark contra pandas</h3>
+      <p>Dos implementaciones independientes de las mismas reglas deben producir la misma tabla. Si no coinciden, una
+        de las dos tiene un error, y no sabemos cuál hasta revisarlo.</p>
+      {{CELDA:sp_coherencia}}
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Por qué importa este control.</strong> Las ventas limpias que irán a la base
+          de datos del bloque 4 salen de Spark. Esta celda prueba que son <em>exactamente</em> las
+          {{CIFRA:filas_limpias}} ventas del análisis de la sesión 1, con los mismos identificadores y los mismos totales.
+          Cuando migres un proceso de una herramienta a otra —de Excel a pandas, de pandas a Spark—, esta comparación
+          debe hacerse antes de apagar el proceso viejo.</p>
+      </div>
+    </div>
+  </template>

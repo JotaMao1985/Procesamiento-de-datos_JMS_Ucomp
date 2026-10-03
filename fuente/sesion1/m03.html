@@ -1,0 +1,115 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 3 · El caso y sus datos                     (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-3">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 3 · Bloque 1 · Contextualización</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">El caso: Tiendas Guadua y
+          sus datos <span class="text-gray-500 font-normal text-2xl">/ The case</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Conocer el problema de negocio que guía el curso y
+              reconocer en sus fuentes los tres tipos de dato: estructurado, semiestructurado y no estructurado.</p>
+          </div>
+        </div>
+      </div>
+
+      <p><span class="aviso-ficticio"><i class="fas fa-flask" aria-hidden="true"></i> Empresa y datos
+          ficticios</span></p>
+
+      <p><strong>Tiendas Guadua S.A.S.</strong> es una cadena de tiendas de barrio con puntos de venta en seis
+        ciudades —Bogotá, Medellín, Cali, Barranquilla, Bucaramanga y Cartagena—, una tienda web y una app con
+        domicilios. Cada canal tiene su propio sistema. Este año la gerencia consolidó por primera vez las ventas del
+        primer semestre de 2025 en un solo archivo y se llevó una sorpresa: <strong>los totales por ciudad no
+          cuadran</strong> con lo que reporta cada tienda, hay ventas que parecen repetidas y nadie sabe bien cuántos
+        clientes tiene.</p>
+
+      <div class="exercise">
+        <h4><i class="fas fa-briefcase mr-2" aria-hidden="true"></i>Las preguntas de la gerencia</h4>
+        <ol style="margin-bottom:0;">
+          <li>¿Podemos <strong>confiar</strong> en el consolidado? ¿Qué está mal y cuánto pesa?</li>
+          <li>¿Cuánto vendimos por <strong>ciudad</strong>, <strong>canal</strong> y <strong>categoría</strong>?</li>
+          <li>¿Es cierto que la <strong>app</strong> está ganando terreno?</li>
+          <li>¿Qué dicen los <strong>clientes</strong> cuando escriben una reseña?</li>
+          <li>Si mañana los datos fueran mil veces más, ¿el mismo proceso seguiría funcionando?</li>
+        </ol>
+      </div>
+
+      <h3>Cuatro archivos, tres tipos de dato</h3>
+      <p>Las fuentes del caso cubren los tres tipos de dato que nombra la competencia del curso. La diferencia no es
+        el formato del archivo sino <strong>cuánta estructura</strong> trae el dato: si hay un esquema fijo que todas
+        las filas cumplen, si cada registro describe sus propios campos, o si no hay estructura que leer.</p>
+
+      <div class="rejilla-tarjetas una-columna">
+        <div class="tarjeta tipo-dato">
+          <span class="tarjeta-etiqueta">Estructurado</span>
+          <p class="tarjeta-titulo"><i class="fas fa-table" aria-hidden="true"></i>ventas.csv</p>
+          <p>{{CIFRA:filas_crudas}} filas × {{CIFRA:columnas}} columnas. Mismo esquema en todas las filas: se lee como
+            una tabla. Lo acompaña <code>productos.csv</code>, el catálogo de {{CIFRA:productos}} productos.</p>
+          <pre>{{MUESTRA:ventas.csv|4}}</pre>
+        </div>
+        <div class="tarjeta tipo-dato">
+          <span class="tarjeta-etiqueta">Semiestructurado</span>
+          <p class="tarjeta-titulo"><i class="fas fa-code" aria-hidden="true"></i>logs_web.jsonl</p>
+          <p>Un evento JSON por línea. Cada registro nombra sus campos, pero no todos tienen los mismos y algunos van
+            anidados. Lo trabajaremos en la sesión 2.</p>
+          <pre>{{MUESTRA:logs_web.jsonl|2}}</pre>
+        </div>
+        <div class="tarjeta tipo-dato">
+          <span class="tarjeta-etiqueta">No estructurado</span>
+          <p class="tarjeta-titulo"><i class="fas fa-comment-dots" aria-hidden="true"></i>resenas.csv · texto</p>
+          <p>{{CIFRA:resenas}} reseñas. La columna <code>texto</code> es lenguaje natural: para sacar algo de ahí hay
+            que procesarla (hoy contaremos palabras; en la sesión 3, sentimientos).</p>
+          <pre>{{MUESTRA:resenas.csv|3}}</pre>
+        </div>
+      </div>
+
+      <h3>Diccionario de datos de <code>ventas.csv</code></h3>
+      <table>
+        <caption class="sr-only">Columnas del archivo de ventas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Columna</th>
+            <th scope="col">Qué registra</th>
+            <th scope="col">Tipo esperado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>id_venta</code></td><td>Identificador de la línea de venta</td><td>texto, único</td></tr>
+          <tr><td><code>fecha</code></td><td>Día de la venta</td><td>fecha</td></tr>
+          <tr><td><code>ciudad</code></td><td>Ciudad del punto de venta o de entrega</td><td>categoría (6 valores)</td></tr>
+          <tr><td><code>canal</code></td><td>Tienda, Web o App</td><td>categoría (3 valores)</td></tr>
+          <tr><td><code>id_cliente</code></td><td>Cliente registrado (seudónimo); vacío si compró sin registrarse</td><td>texto</td></tr>
+          <tr><td><code>id_producto</code></td><td>Producto vendido (llave hacia <code>productos.csv</code>)</td><td>texto</td></tr>
+          <tr><td><code>cantidad</code></td><td>Unidades vendidas</td><td>entero positivo</td></tr>
+          <tr><td><code>precio_unitario</code></td><td>Precio por unidad, en pesos</td><td>entero</td></tr>
+          <tr><td><code>descuento</code></td><td>Fracción de descuento (0,10 = 10 %)</td><td>decimal entre 0 y 1</td></tr>
+          <tr><td><code>metodo_pago</code></td><td>Efectivo, Tarjeta, Transferencia o Billetera digital</td><td>categoría</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>¿Y lo de «Big Data»?</strong> {{CIFRA:filas_crudas}} filas caben en
+          cualquier portátil, y está bien que así sea para aprender. Una cadena real registra millones de líneas de
+          venta al día y sus eventos web se cuentan por miles por segundo. Lo que hoy hacemos con pandas en un
+          computador es exactamente lo que Hadoop y Spark reparten entre muchas máquinas: por eso conviene entenderlo
+          primero en pequeño.</p>
+      </div>
+
+      <h3>Descarga los archivos</h3>
+      <p>No hace falta para seguir la clase —el notebook los crea solo, incluido el archivo de logs que usaremos en la
+        sesión 2—, pero sirven para abrirlos en Excel o en tu propio Python.</p>
+      <div class="flex flex-wrap gap-3 mb-6">
+        <button type="button" class="uc-button" data-descargar="ventas"><i class="fas fa-download mr-2"
+            aria-hidden="true"></i>ventas.csv</button>
+        <button type="button" class="uc-button" data-descargar="productos"><i class="fas fa-download mr-2"
+            aria-hidden="true"></i>productos.csv</button>
+        <button type="button" class="uc-button" data-descargar="resenas"><i class="fas fa-download mr-2"
+            aria-hidden="true"></i>resenas.csv</button>
+      </div>
+    </div>
+  </template>

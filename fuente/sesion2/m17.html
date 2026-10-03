@@ -1,0 +1,130 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 17 · Controles de la base de datos (CR3)    (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-17">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 17 · Bloque 4 · Tema 6 · CR3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 25 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Controles: seguridad,
+          eficiencia, coherencia y correlación <span class="text-gray-500 font-normal text-2xl">/ Data controls</span>
+        </h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Usar la base de datos del caso para establecer los
+              cuatro tipos de control que pide el criterio CR3, cada uno con evidencia ejecutable.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>El criterio CR3 del curso habla de la «utilización y empleabilidad de base de datos para establecer controles
+        de seguridad, eficiencia, coherencia y correlación de los datos». Ya practicamos varios por el camino; aquí los reunimos sobre la base de
+        datos <code>guadua</code>.</p>
+
+      <h3>1 · Seguridad: seudonimizar antes de compartir</h3>
+      <p>En la sesión 1 dijimos que <code>C0182</code> ya es un seudónimo: no es un nombre ni una cédula. Pero solo lo es
+        para quien no tiene acceso al sistema de clientes de Guadua; dentro de la empresa, cualquiera con ese acceso
+        puede buscar a quién corresponde. Un analista que estudia ventas por ciudad no necesita saber quién compró,
+        aunque sí puede necesitar contar clientes distintos o seguir la frecuencia de compra de uno. La
+        <strong>seudonimización</strong> reemplaza el identificador por un segundo código que permite esos cálculos y ya
+        no se puede cruzar con el sistema de clientes. Se obtiene con un <em>hash</em> —de la misma familia que la
+        huella SHA-512 del módulo 2; aquí, SHA-256— calculado sobre el identificador más una <strong>sal</strong>
+        secreta, larga y aleatoria: sin ella, nadie puede recalcular el código a partir de un identificador
+        conocido.</p>
+      {{CELDA:ctl_seguridad}}
+      <p>La tabla <code>ventas_analitica</code> no tiene <code>id_cliente</code>, y aun así cuenta los mismos clientes
+        registrados («ANONIMO» agrupa las compras sin registro y no se cuenta): la seudonimización no le quitó al
+        análisis nada de lo que necesitaba. Son algo menos que los clientes distintos de la sesión 1 porque allí
+        contamos sobre el archivo crudo, que incluía clientes cuyas únicas compras fueron a cuarentena. Con
+        <code>ventas_analitica</code> aparece la capa <strong>oro</strong> del módulo 10: una tabla preparada para un
+        uso concreto —el trabajo de los analistas—, sin los datos que ese uso no necesita. La plata
+        (<code>ventas</code>) sigue siendo la fuente de verdad.</p>
+
+      <div class="warning">
+        <h4><i class="fas fa-scale-balanced mr-2" aria-hidden="true"></i>Seudonimizar no es anonimizar</h4>
+        <p style="margin-bottom:0;">Quien tenga la sal puede volver a vincular cada código con su cliente: como los
+          identificadores son pocos y predecibles (C0001, C0002…), basta calcular el seudónimo de todos y compararlos.
+          Además, el seudónimo permite seguir las compras de una misma persona, y la fecha, la ciudad y el valor de una
+          compra pueden bastar para reconocerla. Por eso los datos seudonimizados siguen siendo datos personales: la Ley
+          1581 de 2012 llama así a cualquier información que pueda asociarse a una persona determinable. La sal debe
+          ser larga, aleatoria y secreta, y se guarda fuera del código y fuera de los datos —en Colab, en el panel de
+          <strong>Secretos</strong>; en una empresa, en un gestor de secretos—. La del notebook es un ejemplo público:
+          con datos reales, esos seudónimos no protegerían nada. El acceso a las tablas con identificadores se restringe con los permisos de la plataforma.
+          Spark de código abierto no gestiona permisos por tabla: eso lo hacen el catálogo y herramientas como Apache
+          Ranger o Unity Catalog.</p>
+      </div>
+
+      <h3>2 · Coherencia: controles que deben dar cero</h3>
+      <p>Antes de publicar cualquier cifra, una batería de consultas verifica las reglas que la tabla debe cumplir.
+        Cada una cuenta violaciones: el resultado esperado es siempre cero.</p>
+      {{CELDA:ctl_coherencia}}
+      <p>El último control es el más revelador: las cuentas cuadran. Las {{CIFRA:filas_crudas}} filas originales,
+        menos {{CIFRA:duplicados}} duplicados, son exactamente las {{CIFRA:filas_limpias}} de la tabla limpia más las
+        {{CIFRA:cuarentena}} de la cuarentena. (Una cuenta que cuadra no prueba por sí sola que sean las mismas filas;
+        para eso se comparan los identificadores, como hicimos contra pandas en el módulo 11.) En un proceso real, estos controles corren
+        automáticamente después de cada carga y detienen la publicación si alguno falla.</p>
+
+      <p>Y la prueba de coherencia más fuerte: el total por ciudad calculado por cuatro caminos. No son del todo
+        independientes —Hadoop sumó el archivo que limpió pandas, y las dos columnas de Spark salen de la misma
+        limpieza—, pero combinan dos limpiezas hechas por separado (pandas y Spark) con cuatro motores de cálculo
+        distintos: si una regla o una suma fallara en cualquiera de ellos, alguna columna no cuadraría. Si Hadoop no
+        arrancó en tu Colab, borra la línea «Hadoop Streaming» de la celda: los otros tres caminos siguen siendo una
+        conciliación válida.</p>
+      {{CELDA:ctl_conciliacion}}
+
+      <h3>3 · Correlación: ¿qué se mueve junto?</h3>
+      <p>El <strong>coeficiente de correlación de Pearson</strong> mide qué tan bien se alinean dos variables en una
+        recta: \(+1\) si suben juntas, \(-1\) si una sube cuando la otra baja, \(0\) si no hay relación lineal.</p>
+      {{CELDA:ctl_correlacion}}
+      <ul>
+        <li><strong>Precio y cantidad ({{CIFRA:corr_precio}})</strong>: relación inversa, de débil a moderada: está más
+          cerca de 0 que de −1. En promedio, los productos más caros se compran en menos unidades, pero con muchas
+          excepciones. Es una tendencia con sentido de negocio, no una regla.</li>
+        <li><strong>Mes y participación de la app ({{CIFRA:corr_app}})</strong>: muy fuerte. Pero son solo seis puntos,
+          y la correlación no dice <em>por qué</em> crece la app: para eso hacen falta otras fuentes, como las reseñas
+          de la sesión 3.</li>
+        <li><strong>Vistas y unidades vendidas por la web y la app en junio ({{CIFRA:corr_vistas}})</strong>:
+          prácticamente cero. Se usa junio porque es el único mes que cubren los eventos, y solo las ventas en línea
+          porque en la tienda física nadie pasó por la web. En estos datos no aparece una relación lineal entre lo que
+          se mira y lo que se vende, pero la prueba es débil: es un solo mes y cada producto tiene pocas vistas.
+          Integrar dos fuentes por su llave y medir es el método; para decidir con el resultado harían falta más
+          meses.</li>
+      </ul>
+
+      <h3>4 · Eficiencia: leer solo lo necesario</h3>
+      <p>En el módulo 16 vimos que Spark solo lee las columnas y las particiones que necesita. ¿Cuánto pesa cada
+        columna de la tabla de ventas en Parquet?</p>
+      {{CELDA:ctl_formatos}}
+      <p>Todo el CSV original pesa {{CIFRA:bytes_csv}} bytes y cualquier consulta sobre él tiene que leerlo completo. En
+        Parquet, las columnas de la tabla limpia —{{CIFRA:filas_limpias}} ventas, ya con la columna <code>total</code>—
+        suman {{CIFRA:bytes_parquet}} bytes, el {{CIFRA:pct_parquet}} %, y la consulta del total por ciudad en junio solo
+        lee {{CIFRA:bytes_junio_2col}} bytes de datos: el {{CIFRA:pct_junio_2col}} % de lo que costaría en CSV. Los
+        archivos ocupan algo más en disco (el <code>du</code> del módulo 15) porque cada uno guarda además sus metadatos
+        —que Spark también lee para ubicar cada columna— y el disco reserva espacio por bloques; con archivos tan
+        pequeños eso pesa en proporción, y en tablas de gigabytes es despreciable. En la tabla de arriba, las columnas
+        con casi todos sus valores distintos (<code>id_venta</code>, <code>id_cliente</code>, <code>total</code>) son
+        las que más pesan; las que repiten pocos valores (<code>canal</code>, <code>descuento</code>,
+        <code>cantidad</code>) casi no ocupan: Parquet guarda cada valor distinto una vez y después solo referencias a
+        él.</p>
+
+      <div class="simulador" data-simulador="formatos">
+        <h4><i class="fas fa-table-cells" aria-hidden="true"></i> ¿Cuántos bytes lee tu consulta?</h4>
+        <p class="simulador-intro">Los tamaños reales de cada columna y cada mes en los archivos Parquet de
+          <code>guadua.ventas</code>. Marca las columnas que usa tu consulta y los meses que filtra; las celdas en color
+          son las que Spark tendría que leer.</p>
+        <div class="simulador-controles"></div>
+        <div class="pq-rejilla" aria-live="polite"></div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Los cuatro controles, juntos.</strong> Seguridad: seudónimo con sal y una tabla
+          pensada para analistas, sin el identificador; los permisos que la protegen los pone la plataforma, como los de
+          HDFS del módulo 3. Coherencia: reglas que dan cero y totales que concilian por cuatro caminos.
+          Correlación: relaciones medidas, con sus límites declarados. Eficiencia: formato columnar y particiones que
+          hacen barata cada consulta. Es lo que pedirá el taller.</p>
+      </div>
+    </div>
+  </template>

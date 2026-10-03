@@ -1,0 +1,94 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 10 · Leer con esquema                       (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-10">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 10 · Bloque 3 · Tema 5.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Leer con esquema
+          <span class="text-gray-500 font-normal text-2xl">/ Schemas and read modes</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Declarar el esquema esperado de los datos, detectar las
+              filas que no lo cumplen y elegir qué hacer con ellas sin perder información en silencio.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Adivinar los tipos (<code>inferSchema</code>) es cómodo para explorar, pero en un proceso que corre cada noche
+        tiene dos problemas: obliga a leer los datos una vez de más, y el resultado cambia si cambian los datos. Un
+        día llega un precio con «$» y la columna entera pasa a texto sin que nadie se entere. La alternativa es
+        <strong>declarar el esquema</strong>: un contrato que dice qué columnas y qué tipos se esperan.</p>
+
+      {{CELDA:esquema_estricto}}
+      <p>{{CIFRA:corruptos}} filas no cumplen el contrato, todas por el mismo motivo: un precio escrito como texto. Con
+        la columna <code>_corrupt_record</code>, Spark guarda la línea original tal cual: nada se pierde y cada fila
+        problemática queda identificada.</p>
+
+      <h3>¿Qué hacer con una fila que no cumple?</h3>
+      <p>Spark ofrece tres políticas, y la elección es una decisión de calidad, no un detalle técnico. <strong>Antes de
+          ejecutar:</strong> ¿cuántas filas crees que dejará cada modo, sabiendo que {{CIFRA:corruptos}} filas no cumplen
+        el esquema? Anótalo y compara.</p>
+      {{CELDA:modos}}
+
+      <table>
+        <caption class="sr-only">Modos de lectura de Spark y sus consecuencias</caption>
+        <thead>
+          <tr>
+            <th scope="col">Modo</th>
+            <th scope="col">Qué hace con la fila</th>
+            <th scope="col">El riesgo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>PERMISSIVE</code> (por defecto)</td><td>La conserva y pone nulo en el campo que no encaja</td>
+            <td>Nulos que parecen «dato faltante» cuando en realidad había un dato mal escrito</td></tr>
+          <tr><td><code>DROPMALFORMED</code></td><td>La descarta</td>
+            <td>Pierde {{CIFRA:corruptos}} ventas reales sin avisar: el total queda subestimado</td></tr>
+          <tr><td><code>FAILFAST</code></td><td>Detiene todo con un error</td>
+            <td>Ninguno para la calidad, pero un solo registro malo frena el proceso completo</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warning">
+        <h4><i class="fas fa-triangle-exclamation mr-2" aria-hidden="true"></i>Una trampa: <code>count()</code> no
+          revisa las columnas</h4>
+        <p style="margin-bottom:0;">Para contar filas, Spark no necesita interpretar ninguna columna, así que se las
+          salta: la última línea de la celda lo muestra, y sin el <code>cache()</code> los tres modos habrían contado
+          {{CIFRA:filas_crudas}} filas y <code>FAILFAST</code> no habría fallado. Es el optimizador aprovechando la
+          ejecución perezosa del módulo 8: como ve el plan completo antes de leer, descarta el trabajo que nadie pidió
+          —aquí, interpretar las columnas— y con él la validación. Para validar, hay que forzar la lectura de todas las
+          columnas.</p>
+      </div>
+
+      <h3>La arquitectura por capas: bronce, plata y oro</h3>
+      <p>¿Entonces cuál usar? Una práctica muy extendida separa la responsabilidad en capas, y así ninguna política
+        tiene que resolverlo todo:</p>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Bronce</span>
+          <p class="tarjeta-titulo"><i class="fas fa-box-archive" aria-hidden="true"></i>Tal como llegó</p>
+          <p>Todo como texto, sin limpiar. Nunca se pierde una fila y siempre se puede volver a empezar.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Plata</span>
+          <p class="tarjeta-titulo"><i class="fas fa-broom" aria-hidden="true"></i>Limpio y validado</p>
+          <p>Tipos correctos, reglas de calidad aplicadas, cuarentena aparte. Es lo que construiremos en el módulo
+            11.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Oro</span>
+          <p class="tarjeta-titulo"><i class="fas fa-chart-pie" aria-hidden="true"></i>Listo para el negocio</p>
+          <p>Tablas resumidas o seudonimizadas para tableros y analistas: en el bloque 4, <code>ventas_analitica</code>
+            (módulo 17); la tabla resumida la construirás en el taller 2.</p>
+        </div>
+      </div>
+
+      {{CELDA:bronce}}
+      <p>Con todas las columnas como texto, ninguna fila puede fallar al leerse. La validación se traslada al paso
+        siguiente, donde cada problema se trata con una regla explícita.</p>
+    </div>
+  </template>

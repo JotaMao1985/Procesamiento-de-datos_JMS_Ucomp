@@ -1,0 +1,1043 @@
+{
+ "sesion": 2,
+ "generado": "2026-10-03",
+ "versiones": {
+  "python": "3.13.16",
+  "pandas": "2.2.3",
+  "pyspark": "4.0.4",
+  "java": "openjdk version \"21.0.12.1\" 2026-08-18"
+ },
+ "celdas": {
+  "datos": {
+   "texto": "productos.csv :    60 filas\nventas.csv    :  3029 filas\nresenas.csv   :    40 filas\nlogs_web.jsonl:  1500 eventos\n",
+   "salida": null,
+   "banderas": [
+    "generador"
+   ]
+  },
+  "sesion1": {
+   "texto": "df: 2969 ventas limpias · total 44.0 millones de pesos\nventas_limpias.csv listo para Hadoop\n",
+   "salida": null,
+   "banderas": [
+    "formulario"
+   ]
+  },
+  "entorno": {
+   "texto": "Python : 3.13.16\npandas : 2.2.3\nPySpark: 4.0.4\nopenjdk version \"21.0.12.1\" 2026-08-18\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "hadoop_descarga": {
+   "texto": "hadoop-3.5.0.tar.gz: 581 MB\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "hadoop_integridad": {
+   "texto": "SHA-512 publicado: 04ab94496cc00c8b7a28d03f6308eff8 …\nSHA-512 calculado: 04ab94496cc00c8b7a28d03f6308eff8 …\n¿Íntegro? True\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "hadoop_instala": {
+   "texto": "JAVA_HOME   = /usr/lib/jvm/java-21-openjdk-amd64\nHADOOP_HOME = /content/hadoop-3.5.0\nHadoop 3.5.0\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "hdfs_config": {
+   "texto": "<configuration>\n  <property><name>dfs.replication</name><value>1</value></property>\n  <property><name>dfs.namenode.name.dir</name><value>file:///content/hdfs/nombres</value></property>\n  <property><name>dfs.datanode.data.dir</name><value>file:///content/hdfs/bloques</value></property>\n  <property><name>dfs.namenode.fs-limits.min-block-size</name><value>65536</value></property>\n</configuration>\n",
+   "salida": null,
+   "banderas": []
+  },
+  "hdfs_arranque": {
+   "texto": "NameNode formateado\nLive datanodes (1):\nName: 127.0.0.1:9866 (localhost)\n81 Jps\n181 NameNode\n266 DataNode\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "hdfs_subir": {
+   "texto": "312.4 K  312.4 K  /guadua/crudo/logs_web.jsonl\n2.3 K    2.3 K    /guadua/crudo/productos.csv\n192.3 K  192.3 K  /guadua/crudo/ventas.csv\n48.6 K   48.6 K   /guadua/limpio/ventas_limpias.csv\n",
+   "salida": null,
+   "banderas": []
+  },
+  "hdfs_bloques": {
+   "texto": "ventas.csv | 196944 bytes | bloque de 65536 bytes | replicas: 1\nproductos.csv | 2361 bytes | bloque de 134217728 bytes | replicas: 1\nlogs_web.jsonl | 319867 bytes | bloque de 134217728 bytes | replicas: 1\n",
+   "salida": null,
+   "banderas": []
+  },
+  "hdfs_fsck": {
+   "texto": "0. blk_1073741827_1003 len=65536 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DISK]]\n1. blk_1073741828_1004 len=65536 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DISK]]\n2. blk_1073741829_1005 len=65536 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DISK]]\n3. blk_1073741830_1006 len=336 Live_repl=1  [DatanodeInfoWithStorage[127.0.0.1:9866,DISK]]\nStatus: HEALTHY\n Total blocks (validated):\t4 (avg. block size 49236 B)\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "hdfs_permisos": {
+   "texto": "rwxr-x---  root:supergroup  crudo\nrwxr-xr-x  root:supergroup  limpio\n",
+   "salida": null,
+   "banderas": []
+  },
+  "hdfs_leer": {
+   "texto": "id_venta,fecha,ciudad,canal,id_cliente,id_producto,cantidad,precio_unitario,descuento,metodo_pago\nV00001,2025-01-01,Barranquilla,App,C1198,P035,3,7800,0.1,Transferencia\nV00002,2025-01-01,Barranquilla,Tienda,C0182,P011,3,16900,0,Efectivo\n   DIR_COUNT   FILE_COUNT       CONTENT_SIZE PATHNAME\n           3            4            555.6 K /guadua\n",
+   "salida": null,
+   "banderas": []
+  },
+  "mapper_py": {
+   "texto": "Writing mapper.py\n",
+   "salida": null,
+   "banderas": []
+  },
+  "reducer_py": {
+   "texto": "Writing reducer.py\n",
+   "salida": null,
+   "banderas": []
+  },
+  "streaming_job": {
+   "texto": "\t\tMap input records=2970\n\t\tMap output records=2969\n\t\tReduce input groups=7\n\t\tReduce output records=7\n/guadua/resultados/por_ciudad/_SUCCESS\n/guadua/resultados/por_ciudad/part-00000\nBarranquilla\t5863470\nBogotá\t14619650\nBucaramanga\t4331705\nCali\t7013590\nCartagena\t3566865\nMedellín\t8443795\nSin dato\t115415\n",
+   "salida": null,
+   "banderas": []
+  },
+  "streaming_verifica": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Hadoop</th>\n      <th>pandas</th>\n      <th>diferencia</th>\n    </tr>\n    <tr>\n      <th>ciudad</th>\n      <th></th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Barranquilla</th>\n      <td>5863470</td>\n      <td>5863470</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>Bogotá</th>\n      <td>14619650</td>\n      <td>14619650</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>Bucaramanga</th>\n      <td>4331705</td>\n      <td>4331705</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>Cali</th>\n      <td>7013590</td>\n      <td>7013590</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>Cartagena</th>\n      <td>3566865</td>\n      <td>3566865</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>Medellín</th>\n      <td>8443795</td>\n      <td>8443795</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>Sin dato</th>\n      <td>115415</td>\n      <td>115415</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "streaming_partes": {
+   "texto": "/guadua/limpio/partes/parte-1.csv\n/guadua/limpio/partes/parte-2.csv\n/guadua/limpio/partes/parte-3.csv\n/guadua/limpio/partes/parte-4.csv\n",
+   "salida": null,
+   "banderas": []
+  },
+  "streaming_combiner": {
+   "texto": "== sin_combiner\nnumber of splits:4\n\t\tMap output records=2969\n\t\tCombine output records=0\n\t\tReduce shuffle bytes=55709\n\t\tReduce input records=2969\n== con_combiner\nnumber of splits:4\n\t\tMap output records=2969\n\t\tCombine output records=28\n\t\tReduce shuffle bytes=582\n\t\tReduce input records=28\n== mismo resultado con y sin combiner\n",
+   "salida": null,
+   "banderas": []
+  },
+  "streaming_reducers": {
+   "texto": "== part-00000\nBogotá\t14619650\nCali\t7013590\nMedellín\t8443795\n== part-00001\nBarranquilla\t5863470\nBucaramanga\t4331705\nCartagena\t3566865\nSin dato\t115415\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sol_mapper_conteo": {
+   "texto": "Writing mapper_conteo.py\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "sol_conteo_ciudad": {
+   "texto": "Barranquilla\t381\nBogotá\t1019\nBucaramanga\t297\nCali\t436\nCartagena\t255\nMedellín\t570\nSin dato\t11\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "spark_sesion": {
+   "texto": "Spark 4.0.4 · núcleos disponibles: 2\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "rdd_particiones": {
+   "texto": "Particiones: 4\n[[1, 2], [3, 4, 5], [6, 7], [8, 9, 10]]\n",
+   "salida": null,
+   "banderas": []
+  },
+  "rdd_conteo": {
+   "texto": "Palabras distintas: 209\n",
+   "salida": {
+    "tipo": "texto",
+    "texto": "[('el', 32), ('y', 23), ('la', 21), ('en', 20), ('de', 12), ('muy', 9), ('llegó', 8), ('app', 7)]"
+   },
+   "banderas": []
+  },
+  "rdd_verifica": {
+   "texto": "",
+   "salida": {
+    "tipo": "texto",
+    "texto": "True"
+   },
+   "banderas": []
+  },
+  "perezosa": {
+   "texto": "PipelinedRDD · aún sin ejecutar\nReseñas de más de 60 caracteres: 32\n['EXCELENTE SERVICIO Y EXCELENTE CALIDAD. SEGUIRÉ COMPRANDO EN CARTAGENA.']\n",
+   "salida": null,
+   "banderas": []
+  },
+  "linaje": {
+   "texto": "(4) PythonRDD[9] at collect at rdd_verifica:5 []\n |  MapPartitionsRDD[6] at mapPartitions at PythonRDD.scala:169 []\n |  ShuffledRDD[5] at partitionBy at NativeMethodAccessorImpl.java:0 []\n +-(4) PairwiseRDD[4] at reduceByKey at rdd_conteo:8 []\n    |  PythonRDD[3] at reduceByKey at rdd_conteo:8 []\n    |  ParallelCollectionRDD[2] at readRDDFromFile at PythonRDD.scala:298 []\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "df_crudo": {
+   "texto": "root\n |-- id_venta: string (nullable = true)\n |-- fecha: string (nullable = true)\n |-- ciudad: string (nullable = true)\n |-- canal: string (nullable = true)\n |-- id_cliente: string (nullable = true)\n |-- id_producto: string (nullable = true)\n |-- cantidad: integer (nullable = true)\n |-- precio_unitario: string (nullable = true)\n |-- descuento: double (nullable = true)\n |-- metodo_pago: string (nullable = true)\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "df_mostrar": {
+   "texto": "+--------+----------+------------+------+----------+-----------+--------+---------------+---------+-----------------+\n|id_venta|     fecha|      ciudad| canal|id_cliente|id_producto|cantidad|precio_unitario|descuento|      metodo_pago|\n+--------+----------+------------+------+----------+-----------+--------+---------------+---------+-----------------+\n|  V00001|2025-01-01|Barranquilla|   App|     C1198|       P035|       3|           7800|      0.1|    Transferencia|\n|  V00002|2025-01-01|Barranquilla|Tienda|     C0182|       P011|       3|          16900|      0.0|         Efectivo|\n|  V00003|2025-01-01|    Medellín|   Web|     C0014|       P034|       2|           5900|      0.0|          Tarjeta|\n|  V00004|2025-01-01|      Bogotá|   App|     C0662|       P026|       1|          11800|      0.0|Billetera digital|\n|  V00005|01/01/2025|      Bogotá|Tienda|      NULL|       P035|       1|           7800|     0.05|          Tarjeta|\n+--------+----------+------------+------+----------+-----------+--------+---------------+---------+-----------------+\nonly showing top 5 rows\n",
+   "salida": null,
+   "banderas": []
+  },
+  "df_canal": {
+   "texto": "+------+-----+\n| canal|count|\n+------+-----+\n|Tienda| 1322|\n|   App|  916|\n|   Web|  702|\n|tienda|   24|\n|TIENDA|   20|\n|   APP|   16|\n|   app|   12|\n|   WEB|   11|\n|  web |    6|\n+------+-----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "df_sql": {
+   "texto": "+------------+-----+\n|      ciudad|filas|\n+------------+-----+\n|      Bogotá|  969|\n|    Medellín|  547|\n|        Cali|  413|\n|Barranquilla|  360|\n| Bucaramanga|  282|\n|   Cartagena|  249|\n| Bogotá D.C.|   19|\n|      bogota|   18|\n+------------+-----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "df_hdfs": {
+   "texto": "Filas leídas desde HDFS: 3029\nParticiones en Spark: 1\n",
+   "salida": null,
+   "banderas": []
+  },
+  "esquema_estricto": {
+   "texto": "Filas que no cumplen el esquema: 74\n+--------+---------------+------------------------------------------------------------------+\n|id_venta|precio_unitario|_corrupt_record                                                   |\n+--------+---------------+------------------------------------------------------------------+\n|V00049  |NULL           |V00049,2025-01-04,Cali,App,C0360,P016,3,$3.100,0,Billetera digital|\n|V00212  |NULL           |V00212,2025-01-14,Bogotá,Web,C0169,P017,1,$4.900,0.05,Tarjeta     |\n|V00231  |NULL           |V00231,2025-01-16,Bogotá,Web,C0127,P013,3,$1.800,0.1,Tarjeta      |\n+--------+---------------+------------------------------------------------------------------+\nonly showing top 3 rows\n",
+   "salida": null,
+   "banderas": []
+  },
+  "modos": {
+   "texto": "PERMISSIVE    → 3029 filas · 74 precios nulos\nDROPMALFORMED → 2955 filas · 0 precios nulos\nFAILFAST      → ERROR [MALFORMED_RECORD_IN_PARSING.WITHOUT_SUGGESTION] Malformed records are detected in record parsing\nDROPMALFORMED → 3029 filas, sin cache()\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bronce": {
+   "texto": "Filas en bronce: 3029\nroot\n |-- id_venta: string (nullable = true)\n |-- fecha: string (nullable = true)\n |-- ciudad: string (nullable = true)\n |-- canal: string (nullable = true)\n |-- id_cliente: string (nullable = true)\n |-- id_producto: string (nullable = true)\n |-- cantidad: string (nullable = true)\n |-- precio_unitario: string (nullable = true)\n |-- descuento: string (nullable = true)\n |-- metodo_pago: string (nullable = true)\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_duplicados": {
+   "texto": "Filas: 3029 → 3000 · duplicadas: 29\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_texto": {
+   "texto": "Grafías sin regla: 0\n+------+-----+\n| canal|count|\n+------+-----+\n|   App|  938|\n|Tienda| 1349|\n|   Web|  713|\n+------+-----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_ansi": {
+   "texto": "[CANNOT_PARSE_TIMESTAMP] Text '18/04/2025' could not be parsed at index 0. Use `try_to_timestamp` to tolerate invalid input string and return NULL instead.\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_precios": {
+   "texto": "Precios sin convertir: 0\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_fechas": {
+   "texto": "Fechas sin interpretar: 0\n+----------+----------+\n|     desde|     hasta|\n+----------+----------+\n|2025-01-01|2025-06-30|\n+----------+----------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_reglas": {
+   "texto": "Filas válidas: 2969 · en cuarentena: 31\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_completitud": {
+   "texto": "+--------+-----+------+-----+----------+-----------+--------+---------------+---------+-----------+-----+\n|id_venta|fecha|ciudad|canal|id_cliente|id_producto|cantidad|precio_unitario|descuento|metodo_pago|total|\n+--------+-----+------+-----+----------+-----------+--------+---------------+---------+-----------+-----+\n|       0|    0|     0|    0|         0|          0|       0|              0|        0|          0|    0|\n+--------+-----+------+-----+----------+-----------+--------+---------------+---------+-----------+-----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_coherencia": {
+   "texto": "Filas · Spark: 2969 · pandas: 2969\n¿Las mismas ventas? True\nMayor diferencia por ciudad (pesos): 0.0\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_union": {
+   "texto": "Ventas sin categoría: 0\n+--------+----------+------------+---------+-------+\n|id_venta|     fecha|      ciudad|categoria|  total|\n+--------+----------+------------+---------+-------+\n|  V00001|2025-01-01|Barranquilla|     Aseo|21060.0|\n|  V00002|2025-01-01|Barranquilla| Despensa|50700.0|\n|  V00003|2025-01-01|    Medellín|     Aseo|11800.0|\n|  V00004|2025-01-01|      Bogotá|  Frescos|11800.0|\n+--------+----------+------------+---------+-------+\nonly showing top 4 rows\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_ciudad": {
+   "texto": "+------------+------+--------+---------------+\n|      ciudad|ventas|millones|ticket_promedio|\n+------------+------+--------+---------------+\n|      Bogotá|  1019|    14.6|          14347|\n|    Medellín|   570|     8.4|          14814|\n|        Cali|   436|     7.0|          16086|\n|Barranquilla|   381|     5.9|          15390|\n| Bucaramanga|   297|     4.3|          14585|\n|   Cartagena|   255|     3.6|          13988|\n|    Sin dato|    11|     0.1|          10492|\n+------------+------+--------+---------------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_ventana": {
+   "texto": "+----------------+-----------------------+--------+------+\n|categoria       |nombre                 |unidades|puesto|\n+----------------+-----------------------+--------+------+\n|Aseo            |Desinfectante 500 ml   |122     |1     |\n|Aseo            |Toallas de cocina x 3  |115     |2     |\n|Bebidas         |Kumis 1 L              |222     |1     |\n|Bebidas         |Yogur bebible 1 L      |196     |2     |\n|Cuidado personal|Cepillo dental         |101     |1     |\n|Cuidado personal|Jabón de baño x 3      |86      |2     |\n|Despensa        |Panela 500 g           |196     |1     |\n|Despensa        |Pasta spaghetti 500 g  |184     |2     |\n|Frescos         |Plátano verde kg       |188     |1     |\n|Frescos         |Cebolla cabezona kg    |173     |2     |\n|Hogar           |Platos desechables x 20|71      |1     |\n|Hogar           |Velas x 6              |64      |2     |\n+----------------+-----------------------+--------+------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sp_pivote": {
+   "texto": "+----------------+------+---+---+\n|       categoria|Tienda|Web|App|\n+----------------+------+---+---+\n|            Aseo|   3.3|1.8|2.4|\n|         Bebidas|   3.4|1.8|2.4|\n|Cuidado personal|   2.6|1.6|1.8|\n|        Despensa|   4.9|2.5|3.2|\n|         Frescos|   3.5|1.8|2.1|\n|           Hogar|   2.0|1.5|1.3|\n+----------------+------+---+---+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sol_ticket": {
+   "texto": "+-------+------+-----+-----+\n|    mes|Tienda|  Web|  App|\n+-------+------+-----+-----+\n|2025-01| 14253|17319|14788|\n|2025-02| 15350|13829|15135|\n|2025-03| 14927|14341|13211|\n|2025-04| 14295|16404|14489|\n|2025-05| 14818|15223|15091|\n|2025-06| 15216|16355|13384|\n+-------+------+-----+-----+\n\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "logs_esquema": {
+   "texto": "Eventos: 1500\nroot\n |-- ciudad: string (nullable = true)\n |-- consulta: string (nullable = true)\n |-- dispositivo: struct (nullable = true)\n |    |-- so: string (nullable = true)\n |    |-- tipo: string (nullable = true)\n |-- duracion_ms: long (nullable = true)\n |-- evento: string (nullable = true)\n |-- id_cliente: string (nullable = true)\n |-- id_producto: string (nullable = true)\n |-- pago: struct (nullable = true)\n |    |-- aprobado: boolean (nullable = true)\n |    |-- medio: string (nullable = true)\n |-- sesion: string (nullable = true)\n |-- ts: string (nullable = true)\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "logs_campos": {
+   "texto": "+------+--------+-----------+-----------+------+----------+-----------+----+------+----+\n|ciudad|consulta|dispositivo|duracion_ms|evento|id_cliente|id_producto|pago|sesion|  ts|\n+------+--------+-----------+-----------+------+----------+-----------+----+------+----+\n|  1500|     390|       1500|       1500|  1500|      1062|       1110| 126|  1500|1500|\n+------+--------+-----------+-----------+------+----------+-----------+----+------+----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "logs_anidados": {
+   "texto": "+-----------+------+------------+---------------+-----+\n|dispositivo|buscar|ver_producto|agregar_carrito|pagar|\n+-----------+------+------------+---------------+-----+\n| escritorio|   162|         261|            115|   48|\n|      movil|   228|         428|            180|   78|\n+-----------+------+------------+---------------+-----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "logs_pagos": {
+   "texto": "+-----------------+--------+-------------+\n|            medio|intentos|pct_aprobados|\n+-----------------+--------+-------------+\n|          Tarjeta|      46|         93.5|\n|Billetera digital|      40|         95.0|\n|    Transferencia|      40|         87.5|\n+-----------------+--------+-------------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "logs_aplanar": {
+   "texto": "+-------------------+-------+---------------+-----------+----------+-----------+--------+-----------+-----------------+----------+-------------+-----------+\n|            momento| sesion|         evento|     ciudad|id_cliente|id_producto|consulta|dispositivo|sistema_operativo|medio_pago|pago_aprobado|duracion_ms|\n+-------------------+-------+---------------+-----------+----------+-----------+--------+-----------+-----------------+----------+-------------+-----------+\n|2025-06-01 00:24:21|s-3334f|agregar_carrito|Bucaramanga|     C0377|       P010|    NULL|      movil|              ios|      NULL|         NULL|        403|\n|2025-06-01 00:28:34|s-315ae|         buscar|     Bogotá|     C0920|       NULL|   arroz|      movil|          android|      NULL|         NULL|       3136|\n|2025-06-01 00:51:53|s-4d5bd|   ver_producto|     Bogotá|     C0191|       P045|    NULL|      movil|              ios|      NULL|         NULL|       2046|\n+-------------------+-------+---------------+-----------+----------+-----------+--------+-----------+-----------------+----------+-------------+-----------+\nonly showing top 3 rows\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sol_consultas": {
+   "texto": "+----------+-----+----------+-----+\n|  consulta|movil|escritorio|total|\n+----------+-----+----------+-----+\n|     pilas|   26|        22|   48|\n|      cafe|   28|        19|   47|\n|     leche|   23|        23|   46|\n|detergente|   28|        17|   45|\n|    huevos|   24|        21|   45|\n+----------+-----+----------+-----+\nonly showing top 5 rows\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "bd_crear": {
+   "texto": "+---------+\n|namespace|\n+---------+\n|  default|\n|   guadua|\n+---------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bd_ddl": {
+   "texto": "+------------+---------+------------------+\n|col_name    |data_type|comment           |\n+------------+---------+------------------+\n|id_producto |string   |Llave del producto|\n|nombre      |string   |NULL              |\n|categoria   |string   |NULL              |\n|precio_lista|int      |Pesos colombianos |\n+------------+---------+------------------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bd_externa": {
+   "texto": "+-----+\n|filas|\n+-----+\n| 3029|\n+-----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bd_insertar": {
+   "texto": "+----------------+---------+------+------+\n|       categoria|productos|minimo|maximo|\n+----------------+---------+------+------+\n|            Aseo|       10|  3700| 21900|\n|         Bebidas|       10|  1800|  8200|\n|Cuidado personal|        9|  4800| 32900|\n|        Despensa|       12|  1900| 16900|\n|         Frescos|       10|  2800| 17900|\n|           Hogar|        9|  2500| 59900|\n+----------------+---------+------+------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bd_ventas": {
+   "texto": "+-------+------+\n|    mes|ventas|\n+-------+------+\n|2025-01|   480|\n|2025-02|   432|\n|2025-03|   561|\n|2025-04|   514|\n|2025-05|   484|\n|2025-06|   498|\n+-------+------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bd_archivos": {
+   "texto": "_SUCCESS\nmes=2025-01\nmes=2025-02\nmes=2025-03\nmes=2025-04\nmes=2025-05\nmes=2025-06\n196K\tdatos/ventas.csv\n104K\tspark-warehouse/guadua.db/ventas\n",
+   "salida": null,
+   "banderas": [
+    "variable"
+   ]
+  },
+  "bd_resto": {
+   "texto": "cuarentena     MANAGED      31 filas\neventos_web    MANAGED    1500 filas\nproductos      MANAGED      60 filas\nventas         MANAGED    2969 filas\nventas_bronce  EXTERNAL   3029 filas\n",
+   "salida": null,
+   "banderas": []
+  },
+  "bd_idempotencia": {
+   "texto": "dos cargas con append    → 120 filas\nuna carga con overwrite  → 60 filas\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sql_ciudad": {
+   "texto": "+------------+------+--------+---------------+\n|      ciudad|ventas|millones|ticket_promedio|\n+------------+------+--------+---------------+\n|      Bogotá|  1019|    14.6|          14347|\n|    Medellín|   570|     8.4|          14814|\n|        Cali|   436|     7.0|          16086|\n|Barranquilla|   381|     5.9|          15390|\n| Bucaramanga|   297|     4.3|          14585|\n|   Cartagena|   255|     3.6|          13988|\n|    Sin dato|    11|     0.1|          10492|\n+------------+------+--------+---------------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sql_categoria": {
+   "texto": "+----------------+--------+----+\n|       categoria|millones| pct|\n+----------------+--------+----+\n|        Despensa|    10.6|24.0|\n|         Bebidas|     7.6|17.4|\n|            Aseo|     7.5|17.0|\n|         Frescos|     7.5|17.0|\n|Cuidado personal|     6.1|13.8|\n|           Hogar|     4.8|10.8|\n+----------------+--------+----+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sql_app": {
+   "texto": "+-------+-------+\n|    mes|pct_app|\n+-------+-------+\n|2025-01|   23.0|\n|2025-02|   29.1|\n|2025-03|   24.8|\n|2025-04|   33.1|\n|2025-05|   35.1|\n|2025-06|   35.9|\n+-------+-------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sql_acumulado": {
+   "texto": "+------+-------+--------+---------+\n| canal|    mes|millones|acumulado|\n+------+-------+--------+---------+\n|   App|2025-01|    1.66|     1.66|\n|   App|2025-02|    1.88|     3.53|\n|   App|2025-03|    1.99|     5.53|\n|   App|2025-04|    2.54|     8.06|\n|   App|2025-05|    2.55|    10.61|\n|   App|2025-06|    2.64|    13.25|\n|Tienda|2025-01|    3.81|     3.81|\n|Tienda|2025-02|    3.13|     6.94|\n|Tienda|2025-03|     4.0|    10.94|\n|Tienda|2025-04|    3.02|    13.95|\n|Tienda|2025-05|    3.02|    16.98|\n|Tienda|2025-06|    2.78|    19.76|\n|   Web|2025-01|    1.75|     1.75|\n|   Web|2025-02|    1.44|     3.19|\n|   Web|2025-03|    2.04|     5.22|\n|   Web|2025-04|     2.1|     7.32|\n|   Web|2025-05|    1.69|     9.01|\n|   Web|2025-06|    1.93|    10.94|\n+------+-------+--------+---------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sql_explain": {
+   "texto": "Location: InMemoryFileIndex(1 paths)[file:/content/spark-warehouse/guadua.db/ventas/mes=2025-06]\nPartitionFilters: [isnotnull(mes), (mes = 2025-06)]\nReadSchema: struct<ciudad:string,total:double>\n",
+   "salida": null,
+   "banderas": []
+  },
+  "sol_sql_pago": {
+   "texto": "+-----------------+------+---------------+\n|      metodo_pago|ventas|ticket_promedio|\n+-----------------+------+---------------+\n|Billetera digital|   444|          14390|\n|          Tarjeta|   361|          14264|\n|    Transferencia|   115|          14111|\n|         Sin dato|     8|          11125|\n+-----------------+------+---------------+\n\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "sol_sql_eventos": {
+   "texto": "+-----------------+-----+-------------+\n|sistema_operativo|pagos|pct_aprobados|\n+-----------------+-----+-------------+\n|              ios|   45|         93.3|\n|          android|   33|         93.9|\n|            macos|   18|         94.4|\n|            linux|   15|         80.0|\n|          windows|   15|         93.3|\n+-----------------+-----+-------------+\n\n",
+   "salida": null,
+   "banderas": [
+    "solucion"
+   ]
+  },
+  "ctl_seguridad": {
+   "texto": "+--------+-------+------------+----------------+-------+\n|id_venta|    mes|      ciudad|         cliente|  total|\n+--------+-------+------------+----------------+-------+\n|  V00001|2025-01|Barranquilla|5793038ac5f5378e|21060.0|\n|  V00002|2025-01|Barranquilla|2f54d9d7ff709f7f|50700.0|\n|  V00003|2025-01|    Medellín|6fe971e9e0312b17|11800.0|\n|  V00004|2025-01|      Bogotá|01a6f5c7a2f8743b|11800.0|\n+--------+-------+------------+----------------+-------+\nonly showing top 4 rows\n+-------------------+-----------------------+\n|clientes_originales|clientes_seudonimizados|\n+-------------------+-----------------------+\n|               1009|                   1009|\n+-------------------+-----------------------+\n\n",
+   "salida": null,
+   "banderas": []
+  },
+  "ctl_coherencia": {
+   "texto": "✔ id_venta repetido: 0\n✔ venta sin producto en el catálogo: 0\n✔ cantidad fuera de [1, 50]: 0\n✔ canal desconocido: 0\n✔ vacíos en columnas clave: 0\n✔ filas sin destino (distintas en bronce − plata − cuarentena): 0\n",
+   "salida": null,
+   "banderas": []
+  },
+  "ctl_conciliacion": {
+   "texto": "",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>pandas (sesión 1)</th>\n      <th>Hadoop Streaming</th>\n      <th>Spark DataFrame</th>\n      <th>Spark SQL</th>\n    </tr>\n    <tr>\n      <th>ciudad</th>\n      <th></th>\n      <th></th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Barranquilla</th>\n      <td>5.863</td>\n      <td>5.863</td>\n      <td>5.863</td>\n      <td>5.863</td>\n    </tr>\n    <tr>\n      <th>Bogotá</th>\n      <td>14.620</td>\n      <td>14.620</td>\n      <td>14.620</td>\n      <td>14.620</td>\n    </tr>\n    <tr>\n      <th>Bucaramanga</th>\n      <td>4.332</td>\n      <td>4.332</td>\n      <td>4.332</td>\n      <td>4.332</td>\n    </tr>\n    <tr>\n      <th>Cali</th>\n      <td>7.014</td>\n      <td>7.014</td>\n      <td>7.014</td>\n      <td>7.014</td>\n    </tr>\n    <tr>\n      <th>Cartagena</th>\n      <td>3.567</td>\n      <td>3.567</td>\n      <td>3.567</td>\n      <td>3.567</td>\n    </tr>\n    <tr>\n      <th>Medellín</th>\n      <td>8.444</td>\n      <td>8.444</td>\n      <td>8.444</td>\n      <td>8.444</td>\n    </tr>\n    <tr>\n      <th>Sin dato</th>\n      <td>0.115</td>\n      <td>0.115</td>\n      <td>0.115</td>\n      <td>0.115</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": []
+  },
+  "ctl_correlacion": {
+   "texto": "precio unitario vs. cantidad: -0.28\nmes vs. participación de la app: 0.89\nvistas vs. unidades vendidas en web y app (junio): -0.06\n",
+   "salida": null,
+   "banderas": []
+  },
+  "ctl_formatos": {
+   "texto": "CSV, todo el archivo              :  196944 bytes\nParquet, las 11 columnas          :   53582 bytes\nParquet, ciudad y total de junio  :    2180 bytes\n",
+   "salida": {
+    "tipo": "tabla",
+    "html": "<table class=\"dataframe tabla-salida\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>bytes en Parquet</th>\n    </tr>\n    <tr>\n      <th>columna</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>id_venta</th>\n      <td>12158</td>\n    </tr>\n    <tr>\n      <th>id_cliente</th>\n      <td>11828</td>\n    </tr>\n    <tr>\n      <th>total</th>\n      <td>10746</td>\n    </tr>\n    <tr>\n      <th>id_producto</th>\n      <td>4062</td>\n    </tr>\n    <tr>\n      <th>precio_unitario</th>\n      <td>3918</td>\n    </tr>\n    <tr>\n      <th>fecha</th>\n      <td>2980</td>\n    </tr>\n    <tr>\n      <th>ciudad</th>\n      <td>1958</td>\n    </tr>\n    <tr>\n      <th>metodo_pago</th>\n      <td>1885</td>\n    </tr>\n    <tr>\n      <th>cantidad</th>\n      <td>1627</td>\n    </tr>\n    <tr>\n      <th>descuento</th>\n      <td>1211</td>\n    </tr>\n    <tr>\n      <th>canal</th>\n      <td>1209</td>\n    </tr>\n  </tbody>\n</table>"
+   },
+   "banderas": [
+    "variable"
+   ]
+  },
+  "cifras": {
+   "texto": "",
+   "salida": null,
+   "banderas": [
+    "privada"
+   ]
+  },
+  "apagar": {
+   "texto": "Servicios detenidos\n",
+   "salida": null,
+   "banderas": []
+  }
+ },
+ "cifras": {
+  "filas_crudas": "3.029",
+  "filas_limpias": "2.969",
+  "total_millones": "44,0",
+  "duplicados": "29",
+  "cuarentena": "31",
+  "bytes_ventas": "196.944",
+  "bytes_ventas_x3": "590.832",
+  "version_hadoop": "3.5.0",
+  "kb_ventas": "192,3",
+  "bloques_ventas": "4",
+  "ultimo_bloque": "336",
+  "map_input": "2.970",
+  "map_output": "2.969",
+  "reduce_grupos": "7",
+  "splits_partes": "4",
+  "combine_output": "28",
+  "shuffle_sin": "55.709",
+  "shuffle_con": "582",
+  "shuffle_ahorro_pct": "99,0",
+  "palabras_distintas": "209",
+  "corruptos": "74",
+  "dropmalformed": "2.955",
+  "eventos": "1.500",
+  "eventos_con_cliente": "1.062",
+  "pct_eventos_cliente": "70,8",
+  "eventos_pago": "126",
+  "medio_mas_rechazo": "transferencia",
+  "pct_pagos_aprobados": "92,1",
+  "corr_precio": "−0,28",
+  "corr_app": "0,89",
+  "corr_vistas": "−0,06",
+  "bytes_csv": "196.944",
+  "bytes_parquet": "53.582",
+  "pct_parquet": "27,2",
+  "bytes_junio_2col": "2.180",
+  "pct_junio_2col": "1,1",
+  "app_ene": "23,0",
+  "app_jun": "35,9",
+  "nucleos": "2",
+  "particiones_hdfs": "1",
+  "pagos_sin_cliente": "39",
+  "productos": "60",
+  "columnas_parquet": "11"
+ },
+ "simuladores": {
+  "embudo": [
+   {
+    "tipo": "escritorio",
+    "so": "linux",
+    "evento": "agregar_carrito",
+    "n": 35
+   },
+   {
+    "tipo": "escritorio",
+    "so": "linux",
+    "evento": "buscar",
+    "n": 53
+   },
+   {
+    "tipo": "escritorio",
+    "so": "linux",
+    "evento": "pagar",
+    "n": 15
+   },
+   {
+    "tipo": "escritorio",
+    "so": "linux",
+    "evento": "ver_producto",
+    "n": 80
+   },
+   {
+    "tipo": "escritorio",
+    "so": "macos",
+    "evento": "agregar_carrito",
+    "n": 36
+   },
+   {
+    "tipo": "escritorio",
+    "so": "macos",
+    "evento": "buscar",
+    "n": 44
+   },
+   {
+    "tipo": "escritorio",
+    "so": "macos",
+    "evento": "pagar",
+    "n": 18
+   },
+   {
+    "tipo": "escritorio",
+    "so": "macos",
+    "evento": "ver_producto",
+    "n": 94
+   },
+   {
+    "tipo": "escritorio",
+    "so": "windows",
+    "evento": "agregar_carrito",
+    "n": 44
+   },
+   {
+    "tipo": "escritorio",
+    "so": "windows",
+    "evento": "buscar",
+    "n": 65
+   },
+   {
+    "tipo": "escritorio",
+    "so": "windows",
+    "evento": "pagar",
+    "n": 15
+   },
+   {
+    "tipo": "escritorio",
+    "so": "windows",
+    "evento": "ver_producto",
+    "n": 87
+   },
+   {
+    "tipo": "movil",
+    "so": "android",
+    "evento": "agregar_carrito",
+    "n": 96
+   },
+   {
+    "tipo": "movil",
+    "so": "android",
+    "evento": "buscar",
+    "n": 125
+   },
+   {
+    "tipo": "movil",
+    "so": "android",
+    "evento": "pagar",
+    "n": 33
+   },
+   {
+    "tipo": "movil",
+    "so": "android",
+    "evento": "ver_producto",
+    "n": 220
+   },
+   {
+    "tipo": "movil",
+    "so": "ios",
+    "evento": "agregar_carrito",
+    "n": 84
+   },
+   {
+    "tipo": "movil",
+    "so": "ios",
+    "evento": "buscar",
+    "n": 103
+   },
+   {
+    "tipo": "movil",
+    "so": "ios",
+    "evento": "pagar",
+    "n": 45
+   },
+   {
+    "tipo": "movil",
+    "so": "ios",
+    "evento": "ver_producto",
+    "n": 208
+   }
+  ],
+  "pagos": [
+   {
+    "tipo": "escritorio",
+    "so": "linux",
+    "aprobado": false,
+    "n": 3
+   },
+   {
+    "tipo": "escritorio",
+    "so": "linux",
+    "aprobado": true,
+    "n": 12
+   },
+   {
+    "tipo": "escritorio",
+    "so": "macos",
+    "aprobado": false,
+    "n": 1
+   },
+   {
+    "tipo": "escritorio",
+    "so": "macos",
+    "aprobado": true,
+    "n": 17
+   },
+   {
+    "tipo": "escritorio",
+    "so": "windows",
+    "aprobado": false,
+    "n": 1
+   },
+   {
+    "tipo": "escritorio",
+    "so": "windows",
+    "aprobado": true,
+    "n": 14
+   },
+   {
+    "tipo": "movil",
+    "so": "android",
+    "aprobado": false,
+    "n": 2
+   },
+   {
+    "tipo": "movil",
+    "so": "android",
+    "aprobado": true,
+    "n": 31
+   },
+   {
+    "tipo": "movil",
+    "so": "ios",
+    "aprobado": false,
+    "n": 3
+   },
+   {
+    "tipo": "movil",
+    "so": "ios",
+    "aprobado": true,
+    "n": 42
+   }
+  ],
+  "formatos": {
+   "csv_bytes": 196944,
+   "parquet": [
+    {
+     "mes": "2025-01",
+     "columna": "canal",
+     "bytes": 182
+    },
+    {
+     "mes": "2025-01",
+     "columna": "cantidad",
+     "bytes": 264
+    },
+    {
+     "mes": "2025-01",
+     "columna": "ciudad",
+     "bytes": 320
+    },
+    {
+     "mes": "2025-01",
+     "columna": "descuento",
+     "bytes": 197
+    },
+    {
+     "mes": "2025-01",
+     "columna": "fecha",
+     "bytes": 488
+    },
+    {
+     "mes": "2025-01",
+     "columna": "id_cliente",
+     "bytes": 1798
+    },
+    {
+     "mes": "2025-01",
+     "columna": "id_producto",
+     "bytes": 667
+    },
+    {
+     "mes": "2025-01",
+     "columna": "id_venta",
+     "bytes": 1942
+    },
+    {
+     "mes": "2025-01",
+     "columna": "metodo_pago",
+     "bytes": 307
+    },
+    {
+     "mes": "2025-01",
+     "columna": "precio_unitario",
+     "bytes": 641
+    },
+    {
+     "mes": "2025-01",
+     "columna": "total",
+     "bytes": 1706
+    },
+    {
+     "mes": "2025-02",
+     "columna": "canal",
+     "bytes": 185
+    },
+    {
+     "mes": "2025-02",
+     "columna": "cantidad",
+     "bytes": 246
+    },
+    {
+     "mes": "2025-02",
+     "columna": "ciudad",
+     "bytes": 301
+    },
+    {
+     "mes": "2025-02",
+     "columna": "descuento",
+     "bytes": 187
+    },
+    {
+     "mes": "2025-02",
+     "columna": "fecha",
+     "bytes": 446
+    },
+    {
+     "mes": "2025-02",
+     "columna": "id_cliente",
+     "bytes": 1820
+    },
+    {
+     "mes": "2025-02",
+     "columna": "id_producto",
+     "bytes": 631
+    },
+    {
+     "mes": "2025-02",
+     "columna": "id_venta",
+     "bytes": 1720
+    },
+    {
+     "mes": "2025-02",
+     "columna": "metodo_pago",
+     "bytes": 289
+    },
+    {
+     "mes": "2025-02",
+     "columna": "precio_unitario",
+     "bytes": 604
+    },
+    {
+     "mes": "2025-02",
+     "columna": "total",
+     "bytes": 1585
+    },
+    {
+     "mes": "2025-03",
+     "columna": "canal",
+     "bytes": 218
+    },
+    {
+     "mes": "2025-03",
+     "columna": "cantidad",
+     "bytes": 297
+    },
+    {
+     "mes": "2025-03",
+     "columna": "ciudad",
+     "bytes": 351
+    },
+    {
+     "mes": "2025-03",
+     "columna": "descuento",
+     "bytes": 218
+    },
+    {
+     "mes": "2025-03",
+     "columna": "fecha",
+     "bytes": 544
+    },
+    {
+     "mes": "2025-03",
+     "columna": "id_cliente",
+     "bytes": 2162
+    },
+    {
+     "mes": "2025-03",
+     "columna": "id_producto",
+     "bytes": 732
+    },
+    {
+     "mes": "2025-03",
+     "columna": "id_venta",
+     "bytes": 2424
+    },
+    {
+     "mes": "2025-03",
+     "columna": "metodo_pago",
+     "bytes": 341
+    },
+    {
+     "mes": "2025-03",
+     "columna": "precio_unitario",
+     "bytes": 704
+    },
+    {
+     "mes": "2025-03",
+     "columna": "total",
+     "bytes": 1944
+    },
+    {
+     "mes": "2025-04",
+     "columna": "canal",
+     "bytes": 212
+    },
+    {
+     "mes": "2025-04",
+     "columna": "cantidad",
+     "bytes": 280
+    },
+    {
+     "mes": "2025-04",
+     "columna": "ciudad",
+     "bytes": 334
+    },
+    {
+     "mes": "2025-04",
+     "columna": "descuento",
+     "bytes": 208
+    },
+    {
+     "mes": "2025-04",
+     "columna": "fecha",
+     "bytes": 510
+    },
+    {
+     "mes": "2025-04",
+     "columna": "id_cliente",
+     "bytes": 2031
+    },
+    {
+     "mes": "2025-04",
+     "columna": "id_producto",
+     "bytes": 690
+    },
+    {
+     "mes": "2025-04",
+     "columna": "id_venta",
+     "bytes": 2109
+    },
+    {
+     "mes": "2025-04",
+     "columna": "metodo_pago",
+     "bytes": 322
+    },
+    {
+     "mes": "2025-04",
+     "columna": "precio_unitario",
+     "bytes": 671
+    },
+    {
+     "mes": "2025-04",
+     "columna": "total",
+     "bytes": 1847
+    },
+    {
+     "mes": "2025-05",
+     "columna": "canal",
+     "bytes": 206
+    },
+    {
+     "mes": "2025-05",
+     "columna": "cantidad",
+     "bytes": 267
+    },
+    {
+     "mes": "2025-05",
+     "columna": "ciudad",
+     "bytes": 323
+    },
+    {
+     "mes": "2025-05",
+     "columna": "descuento",
+     "bytes": 199
+    },
+    {
+     "mes": "2025-05",
+     "columna": "fecha",
+     "bytes": 493
+    },
+    {
+     "mes": "2025-05",
+     "columna": "id_cliente",
+     "bytes": 1997
+    },
+    {
+     "mes": "2025-05",
+     "columna": "id_producto",
+     "bytes": 666
+    },
+    {
+     "mes": "2025-05",
+     "columna": "id_venta",
+     "bytes": 1949
+    },
+    {
+     "mes": "2025-05",
+     "columna": "metodo_pago",
+     "bytes": 310
+    },
+    {
+     "mes": "2025-05",
+     "columna": "precio_unitario",
+     "bytes": 643
+    },
+    {
+     "mes": "2025-05",
+     "columna": "total",
+     "bytes": 1813
+    },
+    {
+     "mes": "2025-06",
+     "columna": "canal",
+     "bytes": 206
+    },
+    {
+     "mes": "2025-06",
+     "columna": "cantidad",
+     "bytes": 273
+    },
+    {
+     "mes": "2025-06",
+     "columna": "ciudad",
+     "bytes": 329
+    },
+    {
+     "mes": "2025-06",
+     "columna": "descuento",
+     "bytes": 202
+    },
+    {
+     "mes": "2025-06",
+     "columna": "fecha",
+     "bytes": 499
+    },
+    {
+     "mes": "2025-06",
+     "columna": "id_cliente",
+     "bytes": 2020
+    },
+    {
+     "mes": "2025-06",
+     "columna": "id_producto",
+     "bytes": 676
+    },
+    {
+     "mes": "2025-06",
+     "columna": "id_venta",
+     "bytes": 2014
+    },
+    {
+     "mes": "2025-06",
+     "columna": "metodo_pago",
+     "bytes": 316
+    },
+    {
+     "mes": "2025-06",
+     "columna": "precio_unitario",
+     "bytes": 655
+    },
+    {
+     "mes": "2025-06",
+     "columna": "total",
+     "bytes": 1851
+    }
+   ],
+   "columnas": [
+    "id_venta",
+    "fecha",
+    "ciudad",
+    "canal",
+    "id_cliente",
+    "id_producto",
+    "cantidad",
+    "precio_unitario",
+    "descuento",
+    "metodo_pago",
+    "total"
+   ]
+  },
+  "combiner": {
+   "sin_combiner": {
+    "map_output": 2969,
+    "combine_output": 0,
+    "reduce_input": 2969,
+    "shuffle_bytes": 55709
+   },
+   "con_combiner": {
+    "map_output": 2969,
+    "combine_output": 28,
+    "reduce_input": 28,
+    "shuffle_bytes": 582
+   }
+  }
+ }
+}

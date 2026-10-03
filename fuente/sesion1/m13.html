@@ -1,0 +1,196 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 13 · Transformar y resumir                  (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-13">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 13 · Bloque 3 · Tema 3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Transformar y resumir
+          <span class="text-gray-500 font-normal text-2xl">/ Transform &amp; aggregate</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Derivar columnas, unir tablas y resumir con
+              <code>groupby</code> y tablas dinámicas para responder las preguntas de la gerencia.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Con la tabla limpia, el procesamiento propiamente dicho son tres movimientos: <strong>derivar</strong>
+        columnas nuevas a partir de las que hay, <strong>unir</strong> con otras tablas para traer contexto y
+        <strong>resumir</strong> por grupos.</p>
+
+      <h3>Derivar: el total de cada venta</h3>
+      {{CELDA:derivadas}}
+      <p>Las operaciones entre columnas se hacen fila a fila sin escribir ningún ciclo: pandas multiplica las tres
+        columnas completas a la vez. El accesor <code>.dt</code> da acceso a las partes de una fecha:
+        <code>strftime("%Y-%m")</code> la vuelve el texto <code>2025-01</code>, útil para agrupar por mes, y
+        <code>dayofweek</code> da el día como número (0 = lunes), que el diccionario <code>dict(enumerate(DIAS))</code>
+        —<code>{0: "lunes", 1: "martes", …}</code>— traduce.</p>
+
+      <h3>Unir: traer el nombre y la categoría del catálogo</h3>
+      {{CELDA:union}}
+      <p><code>merge</code> es el <code>JOIN</code> de SQL. Dos detalles de control: <code>how="left"</code> conserva
+        todas las ventas aunque un producto no esté en el catálogo (y el conteo de vacíos lo delataría), y
+        <code>validate="many_to_one"</code> hace que pandas se detenga con error si el catálogo tuviera un producto
+        repetido, que multiplicaría las ventas en silencio.</p>
+
+      <h3>Resumir: dividir, aplicar, combinar</h3>
+      <p>Casi todo resumen sigue el mismo patrón, que Hadley Wickham (2011) llamó <em>split–apply–combine</em>:
+        <strong>dividir</strong> las filas en grupos según una clave, <strong>aplicar</strong> un cálculo a cada grupo
+        y <strong>combinar</strong> los resultados en una tabla.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 640 210" width="100%" style="max-width:660px;" role="img"
+          aria-labelledby="sac-titulo sac-desc">
+          <title id="sac-titulo">Patrón dividir, aplicar, combinar</title>
+          <desc id="sac-desc">Una tabla de ventas con ciudades mezcladas se divide en un grupo por ciudad, a cada grupo
+            se le suma el total y los resultados se combinan en una tabla con una fila por ciudad.</desc>
+          <defs>
+            <marker id="sac-flecha" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6 z" fill="#64748b" />
+            </marker>
+          </defs>
+          <g font-size="12" font-weight="700" fill="#691E7A" text-anchor="middle">
+            <text x="75" y="20">Tabla</text>
+            <text x="250" y="20">Dividir</text>
+            <text x="420" y="20">Aplicar: sum()</text>
+            <text x="575" y="20">Combinar</text>
+          </g>
+          <g font-family="Fira Code, monospace" font-size="11">
+            <rect x="15" y="32" width="120" height="160" rx="8" fill="#fff" stroke="#cbd5e1" />
+            <text x="27" y="56" fill="#691E7A">Cali    12</text>
+            <text x="27" y="80" fill="#B84A00">Bogotá  30</text>
+            <text x="27" y="104" fill="#691E7A">Cali     8</text>
+            <text x="27" y="128" fill="#566B7F">Medellín 9</text>
+            <text x="27" y="152" fill="#B84A00">Bogotá  25</text>
+            <text x="27" y="176" fill="#566B7F">Medellín 6</text>
+            <rect x="190" y="32" width="120" height="44" rx="8" fill="#FFF1E6" stroke="#F46201" />
+            <text x="202" y="52" fill="#1F2933">Bogotá  30</text>
+            <text x="202" y="68" fill="#1F2933">Bogotá  25</text>
+            <rect x="190" y="90" width="120" height="44" rx="8" fill="#F3E9F5" stroke="#691E7A" />
+            <text x="202" y="110" fill="#1F2933">Cali    12</text>
+            <text x="202" y="126" fill="#1F2933">Cali     8</text>
+            <rect x="190" y="148" width="120" height="44" rx="8" fill="#E9EEF2" stroke="#566B7F" />
+            <text x="202" y="168" fill="#1F2933">Medellín 9</text>
+            <text x="202" y="184" fill="#1F2933">Medellín 6</text>
+            <rect x="365" y="38" width="110" height="32" rx="8" fill="#FFF1E6" stroke="#F46201" />
+            <text x="380" y="59" fill="#1F2933">Bogotá  55</text>
+            <rect x="365" y="96" width="110" height="32" rx="8" fill="#F3E9F5" stroke="#691E7A" />
+            <text x="380" y="117" fill="#1F2933">Cali    20</text>
+            <rect x="365" y="154" width="110" height="32" rx="8" fill="#E9EEF2" stroke="#566B7F" />
+            <text x="380" y="175" fill="#1F2933">Medellín 15</text>
+            <rect x="520" y="62" width="110" height="100" rx="8" fill="#fff" stroke="#691E7A" />
+            <text x="532" y="90" fill="#1F2933">Bogotá  55</text>
+            <text x="532" y="116" fill="#1F2933">Cali    20</text>
+            <text x="532" y="142" fill="#1F2933">Medellín 15</text>
+          </g>
+          <g stroke="#64748b" stroke-width="1.4" fill="none" marker-end="url(#sac-flecha)">
+            <line x1="137" y1="80" x2="187" y2="56" />
+            <line x1="137" y1="110" x2="187" y2="112" />
+            <line x1="137" y1="150" x2="187" y2="168" />
+            <line x1="312" y1="54" x2="362" y2="54" />
+            <line x1="312" y1="112" x2="362" y2="112" />
+            <line x1="312" y1="170" x2="362" y2="170" />
+            <line x1="477" y1="54" x2="517" y2="85" />
+            <line x1="477" y1="112" x2="517" y2="112" />
+            <line x1="477" y1="170" x2="517" y2="139" />
+          </g>
+        </svg>
+        <p class="leyenda-diagrama">¿Te suena? Es MapReduce (módulo 9): dividir por clave es lo que hacen el
+          <em>map</em>, que asigna a cada registro su clave, y el <em>shuffle</em>, que junta los de la misma clave;
+          aplicar a cada grupo es el <em>reduce</em>. El <code>groupby</code> de pandas es un MapReduce en una sola
+          máquina.</p>
+      </div>
+
+      {{CELDA:por_ciudad}}
+      <p>Con <code>agg</code> se piden varios resúmenes a la vez, cada uno con su nombre. {{CIFRA:ciudad_top}} vende
+        {{CIFRA:ciudad_top_millones}} millones de pesos, el {{CIFRA:ciudad_top_pct}} % del total de
+        {{CIFRA:total_millones}} millones del semestre.</p>
+
+      <h3>Dos dimensiones a la vez: la tabla dinámica</h3>
+      {{CELDA:pivote}}
+      <p><code>pivot_table</code> es la tabla dinámica de Excel en una línea: filas por categoría, columnas por canal,
+        valores sumados, y <code>margins=True</code> agrega los totales.</p>
+
+      <h3>La pregunta de la app</h3>
+      {{CELDA:app_mes}}
+      <p><code>crosstab</code> con <code>normalize="index"</code> convierte cada fila en porcentajes que suman 100.
+        La respuesta a la tercera pregunta de la gerencia es <strong>sí</strong>: la app pasó del {{CIFRA:app_ene}} % de
+        las ventas en enero al {{CIFRA:app_jun}} % en junio, y lo hizo quitándole terreno sobre todo a la tienda
+        física.</p>
+
+      <div class="warning">
+        <p style="margin-bottom:0;"><strong>Información no es causa.</strong> Que la app crezca no dice <em>por
+            qué</em> crece: puede ser una campaña, un cambio de hábitos o que las tiendas abrieron menos horas. Pasar
+          de la información al conocimiento (módulo 2) exige más datos y más preguntas, y con frecuencia, las palabras
+          de los propios clientes.</p>
+      </div>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicios</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>¿Qué día de la semana tiene el mayor
+            ticket promedio (total promedio por venta)?</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m13-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m13-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m13-e1-pista" hidden>
+            <p style="margin:0;">La columna <code>dia_semana</code> ya existe. Agrupa por ella, toma la columna
+              <code>total</code> y pide su <code>mean()</code>; ordena de mayor a menor.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m13-e1-sol" hidden>
+            {{CELDA:sol_dia}}
+            <p><strong>El lunes, pero por poco: todos los días rondan el mismo ticket promedio.</strong></p>
+            <p style="margin-bottom:0;">Las diferencias entre días son pequeñas —todos rondan el mismo valor— y con
+              tres mil ventas pueden ser puro azar. Antes de concluir algo como «los lunes se compra más caro», habría
+              que ver si la diferencia es mayor que la variación esperable: eso es estadística, no solo
+              procesamiento.</p>
+          </div>
+        </div>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">2.</span>¿Qué categoría vende más por la app,
+            en millones de pesos?</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m13-e2-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m13-e2-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m13-e2-pista" hidden>
+            <p style="margin:0;">Primero filtra: <code>df[df["canal"] == "App"]</code>. Después agrupa por
+              categoría, suma el <code>total</code> y divide entre <code>1e6</code>. Al final, compara tu resultado con la
+              columna <code>App</code> de la tabla dinámica.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m13-e2-sol" hidden>
+            {{CELDA:sol_app_categoria}}
+            <p><strong>Despensa.</strong></p>
+            <p style="margin-bottom:0;">Coincide con la columna <code>App</code> de la tabla dinámica: dos caminos, el
+              mismo resultado. Esa coincidencia es en sí misma un pequeño control de coherencia.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Lo logrado en el bloque 3.</strong> Las {{CIFRA:filas_crudas}} filas crudas
+          son ahora {{CIFRA:filas_limpias}} ventas limpias y trazables, y ya respondimos tres preguntas de la gerencia:
+          el consolidado es confiable después de limpiarlo, {{CIFRA:ciudad_top}} aporta el {{CIFRA:ciudad_top_pct}} % de
+          los {{CIFRA:total_millones}} millones del semestre y la app pasó del {{CIFRA:app_ene}} % al
+          {{CIFRA:app_jun}} % de las ventas. Después del break veremos que el <code>groupby</code> que usamos es, por
+          dentro, un MapReduce.</p>
+      </div>
+    </div>
+  </template>

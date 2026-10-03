@@ -1,0 +1,79 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 12 · Agregar, unir y ventanas               (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-12">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 12 · Bloque 3 · Tema 5.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Agregar, unir y ventanas
+          <span class="text-gray-500 font-normal text-2xl">/ Joins, aggregations and windows</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Unir las ventas con el catálogo, resumirlas por grupos
+              y usar funciones de ventana para clasificar dentro de cada grupo.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Unir con el catálogo: el join de difusión</h3>
+      <p>Para unir dos tablas por una llave, Spark normalmente tiene que reunir en el mismo ejecutor las filas que
+        comparten llave: un shuffle de las dos tablas. Pero si una de ellas es pequeña, como el catálogo de
+        {{CIFRA:productos}} productos, es más barato <strong>difundirla</strong>: mandar una copia completa a cada
+        ejecutor y unir ahí mismo, sin mover la tabla grande. Spark lo hace por su cuenta cuando estima que una tabla
+        pesa menos de 10 MB (<code>spark.sql.autoBroadcastJoinThreshold</code>); <code>F.broadcast</code> lo pide de
+        forma explícita y deja la intención escrita en el código.</p>
+      {{CELDA:sp_union}}
+
+      <h3>Dividir, aplicar, combinar</h3>
+      {{CELDA:sp_ciudad}}
+      <p>La tabla de la sesión 1, ahora calculada por Spark. Detrás de este <code>groupBy</code> hay un MapReduce:
+        sumas parciales en cada partición, un shuffle por ciudad y sumas finales.</p>
+
+      <h3>Funciones de ventana</h3>
+      <p>Un <code>groupBy</code> colapsa cada grupo en una fila. Una <strong>ventana</strong> calcula algo
+        <em>dentro</em> de cada grupo pero conserva las filas: un ranking, un acumulado, la diferencia con el mes
+        anterior. Aquí, los dos productos más vendidos de cada categoría:</p>
+      {{CELDA:sp_ventana}}
+      <p><code>partitionBy("categoria")</code> define los grupos; <code>orderBy</code>, el orden dentro de cada uno; y
+        <code>row_number()</code> numera. El segundo criterio de orden, <code>"nombre"</code>, desempata: sin él, dos
+        productos con las mismas unidades podrían cambiar de puesto entre una ejecución y otra.</p>
+
+      <h3>Tabla dinámica</h3>
+      {{CELDA:sp_pivote}}
+      <p>Pasarle a <code>pivot</code> la lista de valores (<code>["Tienda", "Web", "App"]</code>) fija el orden de las
+        columnas y le ahorra a Spark un recorrido de los datos para descubrirlos.</p>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Construye una tabla con el
+            <strong>ticket promedio</strong> (valor medio de una venta) por mes y canal. ¿Hay algún canal que tenga
+            siempre el ticket más alto? (Si no alcanza el tiempo en clase, queda para el trabajo independiente.)</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m12-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m12-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="s2m12-e1-pista" hidden>
+            <p style="margin:0;">Es la tabla dinámica de arriba con otras filas (<code>mes</code>) y otra agregación
+              (<code>F.avg</code> en lugar de <code>F.sum</code>).</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="s2m12-e1-sol" hidden>
+            {{CELDA:sol_ticket}}
+            <p style="margin-bottom:0;">No. La web tiene el ticket más alto en la mayoría de los meses y la tienda en los
+              demás; la app no encabeza ninguno, y su ticket de junio es menor que el de enero. Las diferencias son de
+              unos pocos miles de pesos. Lo que crece en la app es el <em>número</em> de ventas, no su valor promedio:
+              distinguir volumen de valor es clave antes de concluir que «la app vende más».</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

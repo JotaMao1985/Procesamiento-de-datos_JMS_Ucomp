@@ -1,0 +1,108 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 11 · Cargar e inspeccionar                  (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-11">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 11 · Bloque 3 · Tema 3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Cargar e inspeccionar
+          <span class="text-gray-500 font-normal text-2xl">/ Load &amp; profile</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Cargar el consolidado de ventas y diagnosticar su
+              calidad con cinco instrucciones, antes de cambiar un solo valor.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>La primera regla del procesamiento: <strong>antes de limpiar, mirar</strong>. Cinco instrucciones de pandas
+        bastan para levantar el inventario de problemas de casi cualquier tabla. Ejecútalas en orden en tu notebook.</p>
+
+      <h3>1. Cargar y ver las primeras filas</h3>
+      {{CELDA:cargar}}
+      <p><code>read_csv</code> convierte el archivo en un DataFrame; <code>shape</code> dice que tiene
+        {{CIFRA:filas_crudas}} filas y {{CIFRA:columnas}} columnas. Ya en las cinco primeras filas aparecen dos problemas:
+        la venta <code>V00005</code> trae la fecha como <code>01/01/2025</code> y las demás como
+        <code>2025-01-01</code>. Y hay un <code>NaN</code> —el vacío de pandas— en <code>id_cliente</code>.</p>
+
+      <h3>2. Tipos de cada columna y valores no vacíos</h3>
+      {{CELDA:info}}
+      <p>Dos alarmas. <code>precio_unitario</code> debería ser un número y pandas lo leyó como <code>object</code>
+        (texto): eso pasa cuando <em>al menos un</em> valor de la columna no se puede leer como número. Y la columna
+        <code>Non-Null Count</code> muestra que <code>ciudad</code>, <code>id_cliente</code>,
+        <code>descuento</code> y <code>metodo_pago</code> tienen vacíos.</p>
+
+      <h3>3. Resumen numérico</h3>
+      {{CELDA:describe}}
+      <p><code>describe</code> solo resume las columnas numéricas: por eso no aparece el precio. Mira los extremos
+        de <code>cantidad</code>: el mínimo es {{CIFRA:cantidad_min}} y el máximo {{CIFRA:cantidad_max}}. Nadie compra
+        {{CIFRA:cantidad_min}} unidades, y {{CIFRA:cantidad_max}} unidades de un producto en una tienda de barrio huele a error de digitación.</p>
+
+      <h3>4. Frecuencias de una columna de texto</h3>
+      {{CELDA:conteos}}
+      <p>Deberían ser seis ciudades y hay <strong>{{CIFRA:grafias_ciudad}} grafías</strong>. Algunas diferencias son
+        invisibles: «Barranquilla» aparece dos veces en la lista porque una de ellas lleva un espacio al final.</p>
+
+      <h3>5. Vacíos por columna</h3>
+      {{CELDA:nulos}}
+
+      <div>
+        <h3>El inventario de problemas</h3>
+        <p>Algunas cifras de este inventario —filas repetidas, grafías del canal, precios con «$» y fechas
+          dd/mm/aaaa— no salen de las cinco instrucciones anteriores: las mide el módulo 12, paso a paso.</p>
+        <table>
+          <caption class="sr-only">Hallazgos de la inspección y dimensión de calidad afectada</caption>
+          <thead>
+            <tr>
+              <th scope="col">Hallazgo</th>
+              <th scope="col">Cuánto</th>
+              <th scope="col">Dimensión de calidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Filas repetidas</td><td>{{CIFRA:duplicados}}</td><td>Unicidad</td></tr>
+            <tr><td>Ciudades escritas de varias formas</td><td>{{CIFRA:grafias_ciudad}} grafías para 6 ciudades</td><td>Consistencia</td></tr>
+            <tr><td>Canales escritos de varias formas</td><td>{{CIFRA:grafias_canal}} grafías para 3 canales</td><td>Consistencia</td></tr>
+            <tr><td>Precios guardados como texto</td><td>{{CIFRA:precios_texto}} con «$» y punto de miles: por ellos toda la columna se lee como texto</td><td>Validez</td></tr>
+            <tr><td>Fechas en dos formatos</td><td>{{CIFRA:fechas_dma_crudas}} en dd/mm/aaaa y el resto en aaaa-mm-dd</td><td>Validez</td></tr>
+            <tr><td>Cantidades negativas, cero o absurdas</td><td>de {{CIFRA:cantidad_min}} a {{CIFRA:cantidad_max}}</td><td>Exactitud</td></tr>
+            <tr><td>Vacíos en cliente, descuento, ciudad y pago</td><td>{{CIFRA:nulos_cliente}}, {{CIFRA:nulos_descuento}}, {{CIFRA:nulos_ciudad}} y {{CIFRA:nulos_pago}}</td><td>Completitud</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>¿Cuántos clientes distintos hay en
+            el archivo y qué porcentaje de las ventas no tiene cliente?</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m11-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m11-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m11-e1-pista" hidden>
+            <p style="margin:0;">Una Series tiene el método <code>nunique()</code>, que cuenta valores distintos sin
+              contar los vacíos. Y <code>isna()</code> devuelve verdadero/falso: el promedio de una columna de
+              verdaderos y falsos es la proporción de verdaderos.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m11-e1-sol" hidden>
+            <p><strong>{{CIFRA:clientes_distintos}} clientes distintos; {{CIFRA:pct_nulos_cliente}} % de las ventas sin
+                cliente.</strong></p>
+            {{CELDA:sol_clientes}}
+            <p style="margin-bottom:0;">El truco de <code>isna().mean()</code> sirve para cualquier columna: da la
+              proporción de vacíos sin tener que contar y dividir. ¿Es grave ese {{CIFRA:pct_nulos_cliente}} %? Depende
+              de <em>por qué</em> faltan: lo averiguamos en el módulo 12.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

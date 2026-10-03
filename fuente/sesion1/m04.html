@@ -1,0 +1,275 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 4 · Las seis etapas del procesamiento       (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-4">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 4 · Bloque 1 · Tema 1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 25 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Las seis etapas del
+          procesamiento de datos <span class="text-gray-500 font-normal text-2xl">/ The data processing cycle</span>
+        </h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Recorrer el ciclo de procesamiento con el caso
+              Guadua, identificando en cada etapa qué puede fallar en la calidad y qué control de seguridad
+              corresponde (CR1).</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Todo procesamiento de datos, desde una hoja de cálculo hasta un clúster de mil máquinas, recorre las mismas
+        seis etapas. Lo que cambia con el volumen son las herramientas, no la lógica. Y es un <strong>ciclo</strong>:
+        lo que se aprende al final suele obligar a volver al principio con mejores preguntas o mejores datos.</p>
+
+      <div class="ciclo" data-ciclo="etapas">
+        <ol class="ciclo-etapas" role="tablist" aria-label="Seis etapas del procesamiento de datos">
+          <li class="ciclo-etapa" role="presentation">
+            <button type="button" class="ciclo-boton" role="tab" aria-selected="true" aria-controls="etapa-1"
+              tabindex="0">
+              <span class="ciclo-numero">Etapa 1</span>
+              <span class="ciclo-titulo">Recopilación</span>
+              <span class="ciclo-resumen">Capturar de las fuentes</span>
+            </button>
+          </li>
+          <li class="ciclo-etapa" role="presentation">
+            <button type="button" class="ciclo-boton" role="tab" aria-selected="false" aria-controls="etapa-2"
+              tabindex="-1">
+              <span class="ciclo-numero">Etapa 2</span>
+              <span class="ciclo-titulo">Preparación</span>
+              <span class="ciclo-resumen">Limpiar y validar</span>
+            </button>
+          </li>
+          <li class="ciclo-etapa" role="presentation">
+            <button type="button" class="ciclo-boton" role="tab" aria-selected="false" aria-controls="etapa-3"
+              tabindex="-1">
+              <span class="ciclo-numero">Etapa 3</span>
+              <span class="ciclo-titulo">Introducción</span>
+              <span class="ciclo-resumen">Cargar al sistema</span>
+            </button>
+          </li>
+          <li class="ciclo-etapa" role="presentation">
+            <button type="button" class="ciclo-boton" role="tab" aria-selected="false" aria-controls="etapa-4"
+              tabindex="-1">
+              <span class="ciclo-numero">Etapa 4</span>
+              <span class="ciclo-titulo">Procesamiento</span>
+              <span class="ciclo-resumen">Transformar y analizar</span>
+            </button>
+          </li>
+          <li class="ciclo-etapa" role="presentation">
+            <button type="button" class="ciclo-boton" role="tab" aria-selected="false" aria-controls="etapa-5"
+              tabindex="-1">
+              <span class="ciclo-numero">Etapa 5</span>
+              <span class="ciclo-titulo">Interpretación</span>
+              <span class="ciclo-resumen">Comunicar resultados</span>
+            </button>
+          </li>
+          <li class="ciclo-etapa" role="presentation">
+            <button type="button" class="ciclo-boton" role="tab" aria-selected="false" aria-controls="etapa-6"
+              tabindex="-1">
+              <span class="ciclo-numero">Etapa 6</span>
+              <span class="ciclo-titulo">Almacenamiento</span>
+              <span class="ciclo-resumen">Guardar y gobernar</span>
+            </button>
+          </li>
+        </ol>
+        <p class="ciclo-retorno">Recorre las etapas con clic o con las flechas del teclado; la última alimenta otra
+          vez a la primera. En «Con qué» aparecen herramientas que veremos en el bloque 2 (HDFS, Hive, Kafka, Spark):
+          por ahora basta con ubicarlas en su etapa.</p>
+
+        <div class="ciclo-panel" id="etapa-1" role="tabpanel">
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Qué ocurre</span>
+            <p>Se capturan los datos donde nacen: cajas registradoras, formularios web, la app, sensores, encuestas.
+              Se decide <em>qué</em> se captura y con qué frecuencia.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">En el caso Guadua</span>
+            <p>Tres exportes —cajas de las tiendas, plataforma web y app— que se juntan en <code>ventas.csv</code>.
+              Cada sistema escribe la ciudad y el canal a su manera.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Riesgo de calidad</span>
+            <p>Fuentes con formatos distintos, campos que no se capturan, registros que se envían dos veces.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Control de seguridad</span>
+            <p>Recoger solo lo necesario para la finalidad (minimización) y con autorización del titular cuando hay
+              datos personales.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Con qué</span>
+            <p>Exportes CSV, APIs, formularios; a escala, herramientas de ingesta como Kafka (módulos 8 y 9).</p>
+          </div>
+          <div class="ciclo-campo ciclo-vuelta"><span class="ciclo-etiqueta">Qué te devuelve aquí</span>
+            <p>Un análisis que no puede responder la pregunta porque falta una variable: hay que capturarla.</p>
+          </div>
+        </div>
+
+        <div class="ciclo-panel" id="etapa-2" role="tabpanel" hidden>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Qué ocurre</span>
+            <p>Se limpian y validan los datos: duplicados, formatos, vacíos, valores imposibles, categorías escritas
+              de varias formas. Es la etapa que más tiempo consume en un proyecto real.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">En el caso Guadua</span>
+            <p>{{CIFRA:duplicados}} ventas cargadas dos veces, {{CIFRA:grafias_ciudad}} formas distintas de escribir seis
+              ciudades, precios guardados como texto, fechas en dos formatos. Lo resolvemos en el módulo 12.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Riesgo de calidad</span>
+            <p>Borrar registros válidos al limpiar, o «corregir» un dato inventando un valor.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Control de seguridad</span>
+            <p>Trazabilidad: cada regla de limpieza documentada y los registros descartados apartados en
+              <em>cuarentena</em>, nunca borrados sin rastro.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Con qué</span>
+            <p>pandas (<code>drop_duplicates</code>, <code>to_numeric</code>, <code>to_datetime</code>); a escala,
+              Spark.</p>
+          </div>
+          <div class="ciclo-campo ciclo-vuelta"><span class="ciclo-etiqueta">Qué te devuelve atrás</span>
+            <p>Si el error nace en la captura (un sistema que siempre escribe «B/quilla»), se corrige la fuente, no
+              solo el archivo: vuelta a la etapa 1.</p>
+          </div>
+        </div>
+
+        <div class="ciclo-panel" id="etapa-3" role="tabpanel" hidden>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Qué ocurre</span>
+            <p>Los datos preparados se introducen en el sistema que los procesará, en un formato que la máquina
+              entiende: tipos correctos, codificación de texto, esquema de la tabla.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">En el caso Guadua</span>
+            <p>Leer el CSV con pandas y comprobar que <code>precio_unitario</code> sea número y <code>fecha</code> sea
+              fecha; en la sesión 2, subirlo a HDFS y a una tabla de Spark.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Riesgo de calidad</span>
+            <p>Tipos mal inferidos (un número leído como texto), tildes rotas por la codificación, columnas
+              corridas.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Control de seguridad</span>
+            <p>Control de acceso a la plataforma (quién puede cargar) y cifrado de los datos en tránsito.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Con qué</span>
+            <p><code>pd.read_csv</code>, esquemas explícitos; <code>hdfs dfs -put</code>, tablas de Hive o Spark.</p>
+          </div>
+          <div class="ciclo-campo ciclo-vuelta"><span class="ciclo-etiqueta">Qué te devuelve atrás</span>
+            <p>Si el esquema no encaja, falta preparación: vuelta a la etapa 2.</p>
+          </div>
+        </div>
+
+        <div class="ciclo-panel" id="etapa-4" role="tabpanel" hidden>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Qué ocurre</span>
+            <p>Se transforman y analizan los datos: cálculos, uniones con otras tablas, agregaciones, modelos. Aquí
+              se produce la información.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">En el caso Guadua</span>
+            <p>Total por venta, ventas por ciudad y canal, participación de la app por mes; el mismo resumen con
+              MapReduce.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Riesgo de calidad</span>
+            <p>Lógica equivocada: doble conteo en una unión, un promedio de promedios, un filtro que deja fuera un
+              grupo.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Control de seguridad</span>
+            <p>Verificación cruzada de resultados por dos caminos y análisis sobre identificadores seudonimizados
+              (<code>C0182</code>, no el nombre ni la cédula).</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Con qué</span>
+            <p>pandas (<code>groupby</code>, <code>merge</code>, <code>pivot_table</code>), MapReduce, Spark.</p>
+          </div>
+          <div class="ciclo-campo ciclo-vuelta"><span class="ciclo-etiqueta">Qué te devuelve atrás</span>
+            <p>Un resultado incoherente con lo que se sabe del negocio suele delatar un problema de preparación.</p>
+          </div>
+        </div>
+
+        <div class="ciclo-panel" id="etapa-5" role="tabpanel" hidden>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Qué ocurre</span>
+            <p>Los resultados se presentan de forma que alguien pueda decidir: tablas, gráficos, tableros, un
+              informe.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">En el caso Guadua</span>
+            <p>Mostrar a la gerencia que la app pasó del {{CIFRA:app_ene}} % al {{CIFRA:app_jun}} % de las ventas entre
+              enero y junio, y qué tan confiable es esa cifra.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Riesgo de calidad</span>
+            <p>Malinterpretar: confundir correlación con causa, comparar periodos que no son comparables, ocultar la
+              incertidumbre.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Control de seguridad</span>
+            <p>Publicar solo agregados; roles de acceso a los tableros; nunca un listado de clientes en un informe
+              de gerencia.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Con qué</span>
+            <p>Tablas dinámicas, gráficos, herramientas de inteligencia de negocios (BI).</p>
+          </div>
+          <div class="ciclo-campo ciclo-vuelta"><span class="ciclo-etiqueta">Qué te devuelve atrás</span>
+            <p>Toda buena respuesta abre preguntas nuevas, y esas piden nuevos datos: vuelta a la etapa 1.</p>
+          </div>
+        </div>
+
+        <div class="ciclo-panel" id="etapa-6" role="tabpanel" hidden>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Qué ocurre</span>
+            <p>Se guardan los datos y los resultados para usarlos después, con respaldo, versiones y reglas de
+              retención.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">En el caso Guadua</span>
+            <p>Guardar la tabla limpia, la cuarentena y el reporte de calidad, para que el próximo semestre se
+              compare contra la misma base.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Riesgo de calidad</span>
+            <p>Versiones contradictorias del «mismo» archivo, pérdida por falta de respaldo.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Control de seguridad</span>
+            <p>Copias de respaldo, cifrado en reposo y conservación solo mientras dure la finalidad para la que se
+              recogieron los datos.</p>
+          </div>
+          <div class="ciclo-campo"><span class="ciclo-etiqueta">Con qué</span>
+            <p>CSV o Parquet, bases de datos, HDFS, almacenamiento en la nube.</p>
+          </div>
+          <div class="ciclo-campo ciclo-vuelta"><span class="ciclo-etiqueta">Qué te devuelve atrás</span>
+            <p>Lo almacenado es la entrada del siguiente ciclo de recopilación: el ciclo se cierra.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>ETL y ELT: el orden importa</h3>
+      <p>Cuando las etapas se automatizan para alimentar un repositorio central, se habla de procesos
+        <strong>ETL</strong> (<em>extract, transform, load</em>) o <strong>ELT</strong>. La diferencia es dónde se
+        transforma.</p>
+      <table>
+        <caption class="sr-only">Comparación entre ETL y ELT</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">ETL</th>
+            <th scope="col">ELT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Orden</strong></td><td>Extraer → transformar → cargar</td><td>Extraer → cargar → transformar</td></tr>
+          <tr><td><strong>Dónde se transforma</strong></td><td>En un servidor intermedio, antes de guardar</td><td>Dentro de la plataforma de destino: un lago de datos (<em>data lake</em>) procesado con Spark, o una bodega de datos (<em>data warehouse</em>) en la nube</td></tr>
+          <tr><td><strong>Qué se guarda</strong></td><td>Solo el dato ya limpio</td><td>El dato crudo y sus versiones transformadas</td></tr>
+          <tr><td><strong>Cuándo conviene</strong></td><td>Volúmenes moderados, esquemas estables</td><td>Grandes volúmenes y fuentes variadas: el entorno Big Data</td></tr>
+          <tr><td><strong>Datos personales</strong></td><td>Se pueden seudonimizar o enmascarar antes de llegar al repositorio</td><td>El crudo queda guardado con sus datos personales: exige más control de acceso y cifrado</td></tr>
+        </tbody>
+      </table>
+
+      <p>Ojo con el orden: para limpiar con pandas primero hay que leer el archivo, así que en la práctica la
+        preparación y la introducción se entrelazan (en el bloque 3 leeremos <code>ventas.csv</code> tal como llega y
+        lo limpiaremos después). El ciclo dice <em>qué</em> se hace en cada etapa, no el orden exacto de los
+        comandos; ELT, de hecho, invierte ese orden a propósito.</p>
+
+      <div class="warning">
+        <h4><i class="fas fa-scale-balanced mr-2" aria-hidden="true"></i>El componente legal: Ley 1581 de 2012</h4>
+        <p>En Colombia el tratamiento de datos personales se rige por la <strong>Ley Estatutaria 1581 de
+            2012</strong>, que desarrolla el derecho de <em>habeas data</em> (artículo 15 de la Constitución), y por su
+          reglamentación, hoy compilada en el Decreto 1074 de 2015. Sus ocho principios (artículo 4) aplican en las
+          seis etapas; los que más pesan al procesar datos son <strong>finalidad</strong> (se usa el dato solo para lo que se autorizó),
+          <strong>libertad</strong> (autorización previa del titular), <strong>veracidad o calidad</strong> (la
+          información debe ser veraz, completa, exacta y actualizada: la calidad del dato también es una obligación
+          legal), <strong>acceso y circulación restringida</strong>, <strong>seguridad</strong> y
+          <strong>confidencialidad</strong>. Los otros dos son legalidad y transparencia.</p>
+        <p style="margin-bottom:0;">Por eso en el caso el cliente aparece como <code>C0182</code> y no con su nombre o
+          cédula: el análisis de ventas no necesita saber quién es la persona. Seudonimizar desde la recopilación
+          protege todas las etapas siguientes, no solo la publicación. Ojo: un dato seudonimizado sigue siendo dato
+          personal mientras exista la tabla que liga <code>C0182</code> con la persona; esa tabla se guarda aparte y
+          con acceso restringido.</p>
+      </div>
+    </div>
+  </template>

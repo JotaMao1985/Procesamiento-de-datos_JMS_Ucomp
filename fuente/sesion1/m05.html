@@ -1,0 +1,113 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 5 · Actividad y primera celda en Colab      (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-5">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 5 · Bloque 1 · Actividad</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">El caso, etapa por etapa, y tu
+          entorno en Colab <span class="text-gray-500 font-normal text-2xl">/ Hands-on</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Aplicar el ciclo de procesamiento al caso y dejar
+              listo el entorno de trabajo en Google Colab para los bloques 3 y 4.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio en parejas (5 min)</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Asigna cada actividad del caso
+            Guadua a su etapa del ciclo y propón, para cada una, un control de seguridad.</p>
+          <ol type="a" style="margin-bottom:0.5rem;">
+            <li>Se calcula el total vendido por ciudad y canal.</li>
+            <li>La gerente pide a cada tienda exportar las ventas del semestre desde su caja.</li>
+            <li>Se guardan la tabla limpia y el reporte de calidad en una carpeta con respaldo.</li>
+            <li>Se descubre que «Bogotá D.C.», «bogota» y « Bogotá» son la misma ciudad.</li>
+            <li>Se presenta a la junta un gráfico de la participación de la app por mes.</li>
+            <li>Se lee el consolidado con pandas indicando que el precio es un número.</li>
+          </ol>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m5-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m5-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m5-e1-pista" hidden>
+            <p style="margin:0;">Hay exactamente una actividad por etapa. Para distinguir
+              <em>preparación</em> de <em>introducción</em>, pregúntate si la acción cambia el contenido del dato
+              (preparar) o solo lo pone en el sistema con el tipo correcto (introducir).</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m5-e1-sol" hidden>
+            <table>
+              <caption class="sr-only">Solución: actividad, etapa y control</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Actividad</th>
+                  <th scope="col">Etapa</th>
+                  <th scope="col">Un control posible</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>b · exportar desde las cajas</td><td>1 · Recopilación</td><td>Exportar solo las columnas necesarias; nada de nombres ni cédulas.</td></tr>
+                <tr><td>d · unificar «Bogotá»</td><td>2 · Preparación</td><td>Documentar la regla de estandarización y contar cuántas filas cambió.</td></tr>
+                <tr><td>f · leer con pandas</td><td>3 · Introducción</td><td>Validar el esquema al cargar y restringir quién puede cargar.</td></tr>
+                <tr><td>a · total por ciudad</td><td>4 · Procesamiento</td><td>Verificar el total por un segundo camino (módulo 16).</td></tr>
+                <tr><td>e · gráfico para la junta</td><td>5 · Interpretación</td><td>Mostrar solo agregados y declarar la calidad de la cifra.</td></tr>
+                <tr><td>c · guardar con respaldo</td><td>6 · Almacenamiento</td><td>Respaldo, cifrado y una política de cuánto tiempo se guarda.</td></tr>
+              </tbody>
+            </table>
+            <p style="margin-bottom:0;">Los controles admiten muchas respuestas correctas. Lo que importa es que cada
+              uno proteja el dato <em>en esa etapa</em>: un respaldo no sirve de nada en la recopilación, y la
+              minimización ya llega tarde en el almacenamiento.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Tu entorno de trabajo: Google Colab</h3>
+      <p>Colab es un servicio en la nube que ejecuta notebooks de Python sin instalar nada; solo hace falta una cuenta
+        de Google. En el módulo 7 lo ubicaremos en la pila de responsabilidad: es un caso de frontera entre SaaS y
+        PaaS. Si no alcanzas a dejarlo listo en clase, hazlo en el break: lo necesitarás desde el bloque 3.</p>
+      <ol>
+        <li>Descarga el notebook de la sesión con el botón de abajo.</li>
+        <li>Entra a <a href="https://colab.research.google.com" target="_blank" rel="noopener"
+            class="text-primary underline">colab.research.google.com</a> → <strong>Subir</strong> (o Archivo → Subir
+          notebook) y elige el archivo.</li>
+        <li>Ejecuta la primera celda, <strong>«Crea los datos del caso»</strong>: genera los cuatro archivos en la
+          carpeta <code>datos/</code> de tu sesión de Colab.</li>
+        <li>Ejecuta las dos celdas siguientes y compara tu salida con la de este material.</li>
+      </ol>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <button type="button" class="uc-button" data-descargar="notebook"><i class="fas fa-book mr-2"
+            aria-hidden="true"></i>Descargar notebook (.ipynb)</button>
+      </div>
+
+      {{CELDA:datos}}
+
+      <p>La segunda celda confirma qué versiones de Python y pandas tienes. No te preocupes si no coinciden con las de
+        abajo: todo el código de la sesión funciona con pandas 2.2 o posterior.</p>
+
+      {{CELDA:entorno}}
+
+      <p>Y la tercera muestra las primeras líneas de <code>ventas.csv</code> tal como están en el disco. El signo
+        <code>!</code> le dice a Colab que esa línea es un comando de la terminal, no Python.</p>
+
+      {{CELDA:crudo}}
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Cada sesión de Colab es temporal.</strong> Si cierras la pestaña o pasas
+          un rato sin usarla, se borran los archivos y las variables. Como el bloque 2 no usa Colab, lo más probable es
+          que al volver del break largo ya no estén. No pasa nada: ve a la celda en la que ibas y usa <strong>Entorno
+          de ejecución → Ejecutar anteriores</strong>. Los datos se generan idénticos, porque el generador usa una
+          semilla fija.</p>
+      </div>
+    </div>
+  </template>

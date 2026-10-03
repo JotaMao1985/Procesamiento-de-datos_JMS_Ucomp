@@ -1,0 +1,90 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 8 · Ecosistema Hadoop                       (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-8">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 8 · Bloque 2 · Tema 2.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Ecosistema Hadoop: HDFS,
+          YARN y compañía <span class="text-gray-500 font-normal text-2xl">/ The Hadoop ecosystem</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Reconocer los componentes del ecosistema Hadoop y el
+              problema que resuelve cada uno, y entender cómo HDFS guarda un archivo enorme de forma que sobreviva a la
+              caída de una máquina.</p>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Apache Hadoop</strong> es un marco de software libre para almacenar y procesar grandes volúmenes de
+        datos en clústeres de computadores comunes. Nació a mediados de los 2000 a partir de dos artículos de Google
+        —el sistema de archivos GFS (2003) y el modelo MapReduce (2004)— y se basa en dos ideas: <strong>repartir</strong>
+        los datos entre muchas máquinas y <strong>llevar el cómputo hasta los datos</strong>, en vez de mover
+        terabytes por la red.</p>
+
+      <div class="definition">
+        <h4><i class="fas fa-cubes mr-2" aria-hidden="true"></i>El núcleo de Hadoop</h4>
+        <ul style="margin-bottom:0;">
+          <li><strong>HDFS</strong> (<em>Hadoop Distributed File System</em>): almacena archivos partidos en bloques
+            replicados entre los nodos.</li>
+          <li><strong>YARN</strong> (<em>Yet Another Resource Negotiator</em>): reparte la CPU y la memoria del
+            clúster entre las aplicaciones que se ejecutan.</li>
+          <li><strong>MapReduce</strong>: el modelo de programación para procesar en paralelo los datos de HDFS
+            (módulo 9).</li>
+        </ul>
+      </div>
+
+      <h3>El ecosistema por capas</h3>
+      <p>Alrededor del núcleo creció un ecosistema de herramientas, cada una para un problema. Pulsa cualquier pieza
+        para ver qué hace y dónde aparecería en el caso Guadua.</p>
+
+      <div class="simulador" data-simulador="ecosistema">
+        <h4><i class="fas fa-sitemap" aria-hidden="true"></i> Piezas del ecosistema</h4>
+        <p class="simulador-intro">En morado lleno, las tres piezas del núcleo. Las demás se instalan según la
+          necesidad.</p>
+        <div class="ecosistema"></div>
+        <div class="eco-detalle" role="status" aria-live="polite"></div>
+      </div>
+
+      <h3>Cómo guarda HDFS un archivo</h3>
+      <p>HDFS parte cada archivo en <strong>bloques</strong> de tamaño fijo —128 MB por defecto— y guarda cada bloque
+        en varios nodos distintos: es el <strong>factor de replicación</strong>, 3 por defecto. Un nodo especial, el
+        <strong>NameNode</strong>, lleva el índice: qué bloques forman cada archivo y en qué nodos está cada copia.
+        Los demás, los <strong>DataNodes</strong>, guardan los bloques.</p>
+
+      <div class="formula">
+        $$\text{bloques} = \left\lceil \frac{\text{tamaño del archivo}}{\text{tamaño de bloque}} \right\rceil
+        \qquad \text{espacio usado} = \text{tamaño del archivo} \times \text{réplicas}$$
+      </div>
+
+      <div class="simulador" data-simulador="hdfs">
+        <h4><i class="fas fa-hard-drive" aria-hidden="true"></i> Un archivo en HDFS</h4>
+        <p class="simulador-intro">Cada cuadrito de color es una copia de un bloque. <strong>Pulsa un nodo para
+            apagarlo</strong> (y otra vez para encenderlo) y mira si el archivo sigue completo. Prueba con replicación
+          1 y con dos nodos caídos. Para que el patrón se vea, el simulador pone las copias en nodos consecutivos; HDFS
+          real las reparte entre nodos y racks distintos.</p>
+        <div class="simulador-controles"></div>
+        <div class="simulador-lectura"></div>
+        <div class="hdfs-nodos"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Por qué replicar en lugar de usar discos más confiables.</strong> En un
+          clúster de mil máquinas comunes, que alguna falle no es una posibilidad sino la rutina de cada semana. HDFS
+          asume el fallo: cuando un DataNode deja de reportarse, el NameNode ordena copiar sus bloques desde las réplicas
+          sobrevivientes hasta recuperar el factor de replicación. El precio es espacio: con replicación 3, guardar
+          1 TB ocupa 3 TB. La excepción es el propio NameNode: si cae, nadie sabe dónde está cada bloque. Por eso en
+          producción se configura un segundo NameNode en espera (alta disponibilidad) que toma el relevo.</p>
+      </div>
+
+      <h3>YARN: el que reparte la máquina</h3>
+      <p>Un clúster lo comparten muchos trabajos a la vez: un trabajo (<em>job</em>) de MapReduce que resume las ventas, una consulta de
+        Hive, una aplicación de Spark. <strong>YARN</strong> decide cuánta CPU y memoria recibe cada uno. Su
+        <strong>ResourceManager</strong> conoce los recursos libres del clúster, y un <strong>NodeManager</strong> en
+        cada nodo lanza los <em>contenedores</em> donde corren las tareas, preferiblemente en el mismo nodo donde HDFS
+        tiene el bloque que la tarea va a leer.</p>
+    </div>
+  </template>

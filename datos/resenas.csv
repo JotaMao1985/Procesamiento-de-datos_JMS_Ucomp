@@ -1,0 +1,41 @@
+id_resena,fecha,ciudad,canal,id_producto,calificacion,texto
+R040,2025-01-02,Cartagena,Tienda,P020,5,Excelente servicio y excelente calidad. Seguiré comprando en Cartagena.
+R035,2025-01-04,Bucaramanga,Tienda,P012,3,La tienda de Bucaramanga es pequeña y a veces no hay todo lo del catálogo.
+R019,2025-01-05,Bogotá,Web,P049,1,Cancelaron mi pedido sin avisar y el reembolso tardó una semana.
+R024,2025-01-11,Bucaramanga,Web,P060,5,Siempre encuentro lo que necesito y a buen precio. La mejor opción del barrio.
+R031,2025-01-11,Cali,App,P041,2,Demasiada demora en el domicilio y el repartidor no encontraba la dirección.
+R025,2025-01-16,Cali,App,P005,1,"El servicio al cliente es terrible, nadie resuelve nada por el chat."
+R036,2025-01-18,Bucaramanga,App,P034,5,"Entrega rápida, todo bien empacado y frío. Muy recomendado."
+R010,2025-01-24,Cali,App,P025,4,Buena variedad de productos de aseo y descuentos interesantes en la app.
+R028,2025-01-26,Barranquilla,Tienda,P036,5,"Muy buena atención en Barranquilla, rápidos en caja y muy amables."
+R002,2025-02-07,Cali,App,P022,4,"Buenos precios y buena calidad, pero la app se demora en cargar el carrito."
+R016,2025-02-14,Medellín,App,P039,5,Pedí a las ocho de la mañana y a las diez ya tenía todo en casa. Muy bien.
+R032,2025-02-20,Cali,App,P032,5,Calidad excelente y precios justos. La app funciona perfecto.
+R011,2025-02-21,Bogotá,App,P021,1,Llegó el huevo roto y el pollo sin refrigerar. No vuelvo a pedir frescos.
+R017,2025-02-27,Cali,Web,P057,3,Regular. La calidad del café ha bajado y el precio subió.
+R030,2025-03-01,Cartagena,Web,P002,4,"Las ofertas de los martes son muy buenas, compro el mercado completo."
+R014,2025-03-09,Cartagena,Web,P020,4,"Me gusta pagar con billetera digital, es rápido. Faltan más promociones."
+R012,2025-03-10,Bucaramanga,Tienda,P060,5,"Rápido, económico y sin complicaciones. Recomendado."
+R039,2025-03-14,Barranquilla,Web,P023,3,"El pago con transferencia tardó en confirmarse, pero al final llegó todo."
+R018,2025-03-18,Cali,Tienda,P054,4,La tienda de Cali siempre está limpia y ordenada. Buen surtido.
+R020,2025-03-24,Cali,App,P027,5,Excelente calidad en carnes y quesos. El domicilio fue puntual.
+R013,2025-03-27,Cali,Web,P059,3,"El domicilio llegó bien, pero el empaque venía golpeado."
+R015,2025-03-27,Medellín,App,P045,2,El precio en la app no coincidía con el precio en la tienda.
+R026,2025-04-04,Cali,Web,P026,4,La compra por la web fue fácil y el pago con tarjeta funcionó sin problema.
+R005,2025-04-09,Bogotá,Web,P023,1,Pésima experiencia: cobraron dos veces el pago y nadie responde en el chat.
+R001,2025-04-10,Barranquilla,Web,P059,5,La entrega fue muy rápida y el pedido llegó completo. Excelente servicio.
+R029,2025-04-30,Medellín,Web,P048,3,"Normal. Nada especial, pero cumple."
+R034,2025-05-16,Cali,App,P004,4,Buen precio en productos de despensa. El arroz y el aceite siempre en oferta.
+R003,2025-05-17,Cartagena,App,P048,2,El pedido llegó tarde y faltaba un producto. Tuve que llamar dos veces.
+R008,2025-05-18,Medellín,Tienda,P048,5,"Excelente atención en la tienda de Medellín, el personal es muy amable."
+R023,2025-05-18,Medellín,App,P025,3,Productos buenos pero la entrega es lenta los fines de semana.
+R009,2025-05-19,Bucaramanga,Web,P020,2,La página web se cae al momento de pagar. Perdí el carrito dos veces.
+R021,2025-05-26,Cali,App,P046,2,La app no me deja aplicar el cupón de descuento. Muy frustrante.
+R038,2025-05-26,Medellín,App,P009,4,Me gusta que en la app se ve el estado del pedido en tiempo real.
+R027,2025-05-29,Medellín,App,P025,2,El producto llegó vencido. Revisen las fechas antes de enviar.
+R033,2025-06-01,Barranquilla,App,P012,1,Me llegó un pedido equivocado y no me dejaron devolverlo.
+R037,2025-06-01,Bogotá,Web,P006,2,Cobran el domicilio muy caro para pedidos pequeños.
+R022,2025-06-19,Bucaramanga,App,P021,4,"Buena experiencia en general, aunque el pedido llegó un poco tarde."
+R007,2025-06-24,Cartagena,Tienda,P039,3,Precios normales. La tienda es amplia pero las filas en caja son largas.
+R004,2025-06-25,Cali,App,P056,5,"Me encanta comprar por la app, es fácil y el domicilio siempre llega a tiempo."
+R006,2025-06-25,Bogotá,Web,P036,4,Los frescos llegaron en buen estado. El aguacate estaba perfecto.

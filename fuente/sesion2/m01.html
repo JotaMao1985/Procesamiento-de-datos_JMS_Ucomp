@@ -1,0 +1,139 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 1 · Bienvenida y retorno al caso            (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-1">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 1 · Bloque 1</span><span class="chip-tiempo"><i class="far fa-clock"
+              aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Bienvenida y retorno al caso
+          <span class="text-gray-500 font-normal text-2xl">/ Welcome back</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Retomar el caso donde lo dejamos, conocer la ruta de hoy
+              y dejar el notebook de Colab listo para trabajar.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>En la sesión 1 limpiamos las ventas de <em>Tiendas Guadua</em> con pandas y escribimos un
+        <code>mapper.py</code> y un <code>reducer.py</code> que se comunicaban por texto. Funcionó en una sola máquina.
+        Hoy damos el salto que prometimos: <strong>los mismos programas en Hadoop</strong>, sobre un sistema de archivos
+        distribuido, y después <strong>Spark</strong>, el motor que reemplazó a MapReduce en la mayoría de las
+        empresas. Terminaremos con una <strong>base de datos</strong> consultable con SQL y con los controles que la
+        hacen confiable.</p>
+
+      <div class="definition">
+        <h4><i class="fas fa-briefcase mr-2" aria-hidden="true"></i>El encargo de la gerencia para hoy</h4>
+        <ul style="margin-bottom:0;">
+          <li>«Si mañana los datos fueran mil veces más, ¿el mismo proceso seguiría funcionando?» Es la quinta pregunta
+            de la sesión 1: la responden los bloques 1 a 3.</li>
+          <li>«Queremos que cualquier analista consulte las ventas con SQL, sin pedirle el notebook a nadie y sin ver
+            quién es cada cliente.» Bloque 4.</li>
+          <li>«Antes de publicar una cifra, demuéstrennos que es correcta.» Módulo 17.</li>
+        </ul>
+      </div>
+
+      <h3>Dónde quedamos</h3>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Calidad</span>
+          <p class="tarjeta-titulo"><i class="fas fa-broom" aria-hidden="true"></i>{{CIFRA:filas_crudas}} →
+            {{CIFRA:filas_limpias}} filas</p>
+          <p>Seis pasos de limpieza, cada uno ligado a una dimensión de calidad: {{CIFRA:duplicados}} duplicados fuera,
+            ciudades y canales unificados, precios y fechas convertidos, {{CIFRA:cuarentena}} filas en cuarentena.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Información</span>
+          <p class="tarjeta-titulo"><i class="fas fa-chart-column" aria-hidden="true"></i>{{CIFRA:total_millones}}
+            millones de pesos</p>
+          <p>Ventas del primer semestre por ciudad, canal y categoría. La app pasó del {{CIFRA:app_ene}} % de las
+            ventas en enero al {{CIFRA:app_jun}} % en junio.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">MapReduce</span>
+          <p class="tarjeta-titulo"><i class="fas fa-shuffle" aria-hidden="true"></i>Tres caminos, un resultado</p>
+          <p><code>groupby</code>, MapReduce en memoria y la tubería <code>mapper | sort | reducer</code> dieron los
+            mismos totales. Hoy añadiremos dos caminos más: Hadoop y Spark.</p>
+        </div>
+      </div>
+
+      <div class="quiz" data-quiz="retorno">
+        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Calentamiento: cuatro preguntas de la sesión 1</h4>
+        <p class="text-sm" style="margin-bottom:0;">No se califican. Sirven para activar lo que usaremos hoy.</p>
+        <div class="quiz-progreso" role="presentation">
+          <div class="quiz-progreso-barra"></div>
+        </div>
+        <div class="quiz-preguntas"></div>
+        <div class="quiz-resumen" role="status" hidden></div>
+        <div class="quiz-marcador">
+          <span class="quiz-conteo"></span>
+          <button type="button" class="quiz-reiniciar">Reiniciar</button>
+        </div>
+      </div>
+
+      <h3>Los criterios, hoy</h3>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">CR1</span>
+          <p class="tarjeta-titulo"><i class="fas fa-shield-halved" aria-hidden="true"></i>Seguridad en la
+            transformación</p>
+          <p>Verificar la integridad del software que se descarga (módulo 2), permisos en HDFS (módulo 3) y
+            seudonimizar clientes antes de entregar datos a analistas (módulo 17).</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">CR2</span>
+          <p class="tarjeta-titulo"><i class="fas fa-object-group" aria-hidden="true"></i>Integrar lo cuantitativo y
+            lo cualitativo</p>
+          <p>Hoy, integrar fuentes: unir las ventas (estructuradas) con el comportamiento de los clientes en la web
+            (semiestructurado) por una llave común, y medir si se relacionan (módulos 13 y 17). Lo cualitativo de las
+            reseñas vuelve en la sesión 3, con el análisis de sentimientos.</p>
+        </div>
+        <div class="tarjeta destacada">
+          <span class="tarjeta-etiqueta">CR3 · el centro de hoy</span>
+          <p class="tarjeta-titulo"><i class="fas fa-database" aria-hidden="true"></i>Bases de datos con
+            controles</p>
+          <p>Crear la base de datos del caso con Spark y establecer en ella controles de seguridad, eficiencia,
+            coherencia y correlación (bloque 4).</p>
+        </div>
+      </div>
+
+      <h3>La agenda de hoy</h3>
+      <p>Cuatro bloques de 75 minutos, con breaks de 15, 30 y 15 minutos. Escribe la hora de inicio en la agenda: la
+        agenda, la barra lateral y el reloj del modo presentación se ajustan a la hora real.</p>
+      <div class="agenda" data-agenda></div>
+
+      <h3>Antes de empezar: el notebook</h3>
+      <p>Descarga el notebook de hoy, ábrelo en Google Colab (<strong>Archivo → Subir notebook</strong>) y ejecuta las
+        tres primeras celdas. La primera crea los datos del caso, idénticos a los de la sesión 1; la segunda repite la
+        limpieza de la sesión 1 para que partamos del mismo punto, aunque no tengas tu notebook anterior; la tercera
+        muestra las versiones. Enseguida ejecuta también la primera celda del módulo 2, <code>hadoop_descarga</code>:
+        baja Hadoop, tarda uno o dos minutos, y la dejamos trabajando mientras hacemos el calentamiento.</p>
+      <div class="flex flex-wrap gap-3 mb-6">
+        <button type="button" class="uc-button" data-descargar="notebook"><i class="fas fa-download mr-2"
+            aria-hidden="true"></i>Notebook de la sesión 2</button>
+        <button type="button" class="uc-button" data-descargar="logs"><i class="fas fa-download mr-2"
+            aria-hidden="true"></i>logs_web.jsonl</button>
+      </div>
+
+      {{CELDA:datos}}
+      {{CELDA:sesion1}}
+      {{CELDA:entorno}}
+
+      <div class="note">
+        <h4><i class="fas fa-circle-info mr-2" aria-hidden="true"></i>Tres cosas que conviene saber de Colab hoy</h4>
+        <ul style="margin-bottom:0;">
+          <li><strong>Colab ya trae Java y PySpark.</strong> Hadoop no: lo instalaremos en el módulo 2 (una descarga
+            de unos 580 MB que Colab hace en uno o dos minutos).</li>
+          <li><strong>El orden importa.</strong> Hadoop y Spark guardan estado entre celdas: si te saltas una, las
+            siguientes fallan.</li>
+          <li><strong>Si Colab se reinicia</strong> —por ejemplo, tras un rato sin uso durante un break—, ve a la celda
+            en la que ibas y usa <strong>Entorno de ejecución → Ejecutar anteriores</strong>. Si la máquina se recicló,
+            eso repite también la descarga de Hadoop y vuelve a crear HDFS: cuenta con tres o cuatro minutos. El
+            módulo 2 tiene una tabla para cuando algo falla.</li>
+        </ul>
+      </div>
+    </div>
+  </template>

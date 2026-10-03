@@ -1,0 +1,3030 @@
+id_venta,fecha,ciudad,canal,id_cliente,id_producto,cantidad,precio_unitario,descuento,metodo_pago
+V00001,2025-01-01,Barranquilla,App,C1198,P035,3,7800,0.1,Transferencia
+V00002,2025-01-01,Barranquilla,Tienda,C0182,P011,3,16900,0,Efectivo
+V00003,2025-01-01,Medellín,Web,C0014,P034,2,5900,0,Tarjeta
+V00004,2025-01-01,Bogotá,App,C0662,P026,1,11800,0,Billetera digital
+V00005,01/01/2025,Bogotá,Tienda,,P035,1,7800,0.05,Tarjeta
+V00006,2025-01-01,Medellín,App,C0075,P005,1,4600,0.05,Transferencia
+V00007,2025-01-01,Bogotá,Tienda,,P038,1,9600,0.05,Tarjeta
+V00008,01/01/2025,Cali,App,C0770,P004,1,11900,0,Billetera digital
+V00009,2025-01-01,Bogotá,App,C1414,P057,2,2500,0,Tarjeta
+V00010,2025-01-01,Medellín,Tienda,,P041,2,6200,0,Tarjeta
+V00011,2025-01-02,Bogotá,Web,C0123,P033,1,14500,0,Tarjeta
+V00012,2025-01-02,Bogotá,Web,C0148,P004,1,11900,0.05,Tarjeta
+V00013,2025-01-02,Bogotá,Web,C0198,P007,1,3400,0,Tarjeta
+V00014,2025-01-02,Medellín,Web,C0969,P001,3,4900,0,Tarjeta
+V00015,2025-01-02,Medellín,App,C0297,P029,3,4200,0.1,Tarjeta
+V00016,2025-01-02,Barranquilla,Tienda,C0373,P041,2,6200,0,Tarjeta
+V00017,02/01/2025,Cartagena,Web,C0735,P047,6,4800,0,Tarjeta
+V00018,2025-01-02,Bogotá,Tienda,C0009,P021,2,2500,0,Tarjeta
+V00019,2025-01-02,Bogotá,Tienda,,P019,3,8200,0,Tarjeta
+V00020,2025-01-02,Cali,app,C0063,P033,1,14500,0,Billetera digital
+V00021,2025-01-03,Bogotá,Tienda,C1180,P024,1,13900,0,Billetera digital
+V00022,2025-01-03,Bogotá,Tienda,C0014,P029,2,4200,0,Tarjeta
+V00023,2025-01-03,Cartagena,Tienda,,P053,1,12900,0,Billetera digital
+V00024,2025-01-03,Barranquilla,Web,C1369,P017,6,4900,0,Transferencia
+V00025,2025-01-03,Barranquilla,Web,C0295,P010,4,3200,0,Tarjeta
+V00026,2025-01-03,Bogotá,Tienda,,P002,3,3900,0,Tarjeta
+V00027,2025-01-03,Bogotá,Tienda,C0472,P044,4,6300,,Efectivo
+V00028,2025-01-03,Medellín,Web,C0055,P042,3,8900,0,Tarjeta
+V00029,2025-01-03,Barranquilla,Tienda,,P035,1,7800,0,Efectivo
+V00030,2025-01-03,Medellín,App,C0483,P029,6,4200,0.15,Billetera digital
+V00031,2025-01-03,Bogotá,App,C0294,P007,2,3400,0,Tarjeta
+V00032,2025-01-03,Bogotá,App,C0987,P003,3,6800,0,Transferencia
+V00033,2025-01-03,Medellín,Tienda,C0366,P019,2,8200,0,Efectivo
+V00034,2025-01-03,Bogotá,App,C0001,P010,3,3200,0.1,Billetera digital
+V00035,03/01/2025,Bogotá,Tienda,C0090,P021,3,2500,0,Efectivo
+V00035,03/01/2025,Bogotá,Tienda,C0090,P021,3,2500,0,Efectivo
+V00036,2025-01-03,Bogotá,Tienda,C0271,P040,2,3700,0,Tarjeta
+V00037,2025-01-03,Bogota,Tienda,C0011,P033,2,14500,0,Efectivo
+V00038,2025-01-03,Barranquilla,Web,C0051,P017,2,4900,0,Tarjeta
+V00039,03/01/2025,Medellín,Tienda,,P012,1,7500,0,Billetera digital
+V00040,2025-01-03,Cartagena,Tienda,C0987,P033,1,14500,0,Efectivo
+V00041,2025-01-04,Bucaramanga,Web,C1244,P039,2,10900,0.05,Tarjeta
+V00042,2025-01-04,Bogotá,App,C0098,P015,1,6400,0,Tarjeta
+V00043,2025-01-04,Bogotá,Tienda,C0012,P055,1,4300,0.1,Tarjeta
+V00044,2025-01-04,,Tienda,,P032,4,2800,0,Tarjeta
+V00045,2025-01-04,Bucaramanga,Tienda,,P034,5,5900,0,Tarjeta
+V00046,2025-01-04,Cartagena,App,C0975,P022,2,2100,0.15,Billetera digital
+V00047,2025-01-04,Bogotá,Tienda,C0556,P007,4,3400,0,
+V00048,2025-01-04,Bogotá,App,C0036,P038,2,9600,0,Billetera digital
+V00049,2025-01-04,Cali,App,C0360,P016,3,$3.100,0,Billetera digital
+V00050,2025-01-04,Medellín,Tienda,C0010,P025,1,12400,0,Efectivo
+V00051,2025-01-04,Medellín,App,C0001,P056,2,6900,0.05,Transferencia
+V00052,2025-01-04,Medellín,Web,C0639,P018,2,4300,0,Tarjeta
+V00053,2025-01-05,Bucaramanga,Tienda,,P043,1,15900,0,Efectivo
+V00054,2025-01-05,Cartagena,Tienda,C0037,P050,2,7900,0,Tarjeta
+V00055,2025-01-05,Bogotá,App,C0015,P037,2,21900,0.1,Tarjeta
+V00056,2025-01-05,Barranquilla,TIENDA,,P030,2,3300,,Billetera digital
+V00057,2025-01-05,Bogotá,App,C0409,P016,3,3100,0,Billetera digital
+V00058,2025-01-05,Cali,Tienda,,P025,1,12400,0,Efectivo
+V00059,2025-01-05,Cali,Web,C0065,P012,1,7500,0.05,Tarjeta
+V00060,2025-01-05,Bogotá,App,C0023,P022,2,2100,0,Tarjeta
+V00061,2025-01-05,Cartagena,App,C0963,P009,3,6900,0,Billetera digital
+V00062,2025-01-05,Bogotá,Tienda,C0552,P003,3,6800,0.05,Tarjeta
+V00063,2025-01-05,Cartagena,Tienda,C0378,P035,6,7800,0.1,Billetera digital
+V00064,2025-01-05,Medellín,Web,C0256,P037,2,21900,0.1,Transferencia
+V00065,2025-01-05,Medellín,App,C0217,P004,2,11900,0,Billetera digital
+V00066,2025-01-05,Cali,App,C0017,P027,1,3600,0,Billetera digital
+V00067,2025-01-05,Medellín,Tienda,C0079,P018,3,4300,0,Tarjeta
+V00068,2025-01-05,Cartagena,Tienda,,P006,1,1900,0,Tarjeta
+V00069,2025-01-05,Cali,Tienda,,P025,2,12400,0,Tarjeta
+V00070,05/01/2025,Medellín,Tienda,,P058,1,24900,0,Efectivo
+V00071,2025-01-05,Bogotá,Tienda,C1472,P027,5,3600,0.05,Billetera digital
+V00072,2025-01-05,Medellín,Tienda,,P030,1,3300,0.05,Efectivo
+V00073,2025-01-06,Cartagena,Tienda,C0100,P049,1,32900,0.05,Tarjeta
+V00074,2025-01-06,Barranquilla,App,C0099,P036,4,4100,0,Billetera digital
+V00075,2025-01-06,Bogotá,App,C0867,P037,2,21900,0.05,Tarjeta
+V00076,2025-01-06,Bucaramanga,Tienda,C0029,P014,1,5200,0,Tarjeta
+V00077,2025-01-06,Bogotá,App,C0759,P040,2,3700,0,Billetera digital
+V00078,2025-01-06,Cali,Web,C0002,P014,6,5200,0,Billetera digital
+V00079,2025-01-06,Bucaramanga,App,C1367,P039,2,10900,0.15,Tarjeta
+V00080,2025-01-06,Medellín,App,C1277,P004,1,11900,0,Billetera digital
+V00081,2025-01-06,Barranquilla,App,C0962,P045,3,8400,0.05,Tarjeta
+V00082,2025-01-06,Barranquilla,Tienda,C0030,P006,2,1900,0,Efectivo
+V00083,2025-01-06,Barranquilla,App,C0259,P010,2,3200,0.1,Tarjeta
+V00084,2025-01-06,Medellín,Web,C0320,P025,1,12400,0.05,Tarjeta
+V00085,2025-01-06,Cartagena,Web,C0640,P035,1,7800,0.05,Tarjeta
+V00086,2025-01-06,Bogotá,Tienda,C0096,P031,1,3900,0,Tarjeta
+V00087,2025-01-06,Medellín,App,C0149,P049,1,32900,0,Billetera digital
+V00088,2025-01-06,Bucaramanga,Tienda,C0222,P038,5,9600,0.05,Billetera digital
+V00089,2025-01-06,Bogotá,Web,C0024,P051,1,18700,0.05,Tarjeta
+V00090,2025-01-07,Bogotá,Tienda,C0544,P044,1,6300,0.05,Efectivo
+V00091,2025-01-07,Medellín,Tienda,C0101,P017,4,4900,0,Tarjeta
+V00092,2025-01-07,Cali,App,C0379,P049,1,32900,0,Tarjeta
+V00093,2025-01-07,Medellín,Tienda,,P031,4,3900,0.05,Efectivo
+V00094,2025-01-07,Barranquilla,Tienda,,P007,3,3400,0,Efectivo
+V00095,2025-01-07,Medellín,Tienda,C0294,P013,1,1800,0,Tarjeta
+V00096,2025-01-07,Cali,Tienda,,P028,1,2900,0.05,Efectivo
+V00097,2025-01-07,Cartagena,App,C0358,P031,3,3900,0,Billetera digital
+V00098,2025-01-07,Cali,App,C1084,P019,3,8200,0.15,Tarjeta
+V00099,2025-01-07,Bogotá,Web,C0002,P003,-1,6800,0,Tarjeta
+V00100,2025-01-07,Barranquilla,Tienda,,P035,1,7800,0,Tarjeta
+V00101,2025-01-07,Cali,Tienda,,P027,4,3600,0,Efectivo
+V00102,2025-01-07,Bucaramanga,Tienda,,P045,1,8400,0,Billetera digital
+V00103,2025-01-07,Cali ,App,C0221,P009,2,6900,0.05,Tarjeta
+V00104,2025-01-07,B/manga,App,C0291,P010,5,3200,0,Billetera digital
+V00105,2025-01-07,Bucaramanga,Tienda,,P007,2,3400,0,Efectivo
+V00106,2025-01-07,Bogota,App,C0004,P023,2,17900,0.1,Billetera digital
+V00107,2025-01-07,Medellín,App,C0076,P013,4,1800,0,Billetera digital
+V00108,2025-01-07,Medellín,Tienda,,P023,1,17900,0,Efectivo
+V00109,2025-01-08,Bogotá,App,C0002,P052,1,7900,0.05,Billetera digital
+V00110,2025-01-08,Cali,App,C0515,P038,3,9600,0.1,Tarjeta
+V00111,2025-01-08,Bogotá,Tienda,C0104,P027,5,3600,,Tarjeta
+V00112,2025-01-08,Bogotá,Tienda,C0394,P004,1,11900,0,Efectivo
+V00113,2025-01-08,Barranquilla,App,C0565,P012,2,7500,0,Billetera digital
+V00114,2025-01-08,Cali,Tienda,C0796,P040,1,3700,0,Efectivo
+V00115,2025-01-08,Medellín,Web,C0357,P059,1,59900,0.05,Transferencia
+V00116,2025-01-08,Bucaramanga,Tienda,,P015,3,6400,0,Tarjeta
+V00117,2025-01-08,Cali,Tienda,C1300,P025,2,12400,0,Tarjeta
+V00118,2025-01-08,Medellín,Tienda,C0163,P036,1,4100,0,Tarjeta
+V00119,2025-01-08,Bogotá,Web,C0279,P017,4,4900,0,Transferencia
+V00120,2025-01-09,Medellin,App,C0633,P016,2,3100,0.05,Tarjeta
+V00121,2025-01-09,Medellín,Tienda,C0021,P021,2,2500,0,Tarjeta
+V00122,2025-01-09,Bucaramanga,Tienda,,P047,1,4800,0,Tarjeta
+V00123,2025-01-09,Medellín,Tienda,C0035,P041,5,6200,0,Efectivo
+V00124,2025-01-09,Barranquilla,Tienda,,P047,2,4800,0,Tarjeta
+V00125,2025-01-09,Cali,Web,C0292,P003,4,6800,0,Billetera digital
+V00126,2025-01-09,Bucaramanga,Web,C0089,P017,2,4900,0.15,Transferencia
+V00127,2025-01-09,Barranquilla,Tienda,C0531,P039,1,10900,0,Efectivo
+V00128,2025-01-09,Medellín,Tienda,C0430,P049,2,32900,0,Billetera digital
+V00129,2025-01-09,Barranquilla,Web,C0227,P060,1,39900,0,Tarjeta
+V00130,2025-01-09,Medellín,App,C0130,P015,3,6400,0,Billetera digital
+V00131,2025-01-09,Cali,Tienda,,P036,2,4100,0,Efectivo
+V00132,2025-01-09,Cartagena,Web,C0010,P021,3,2500,0,Tarjeta
+V00133,2025-01-09,Bogotá,Tienda,C0174,P043,1,15900,0,Tarjeta
+V00134,2025-01-09,Bogotá,App,C0103,P020,5,7400,0,Tarjeta
+V00135,09/01/2025,Bogotá,Tienda,,P021,1,2500,0,Billetera digital
+V00136,2025-01-09,Bogotá,Tienda,C0001,P024,3,13900,0,Efectivo
+V00137,2025-01-09,Cali,App,C0234,P008,1,3800,0.05,Billetera digital
+V00138,2025-01-10,Bogotá,Tienda,,P011,1,16900,0,Billetera digital
+V00139,2025-01-10,Bogotá,Tienda,C0073,P054,2,5400,0,Tarjeta
+V00140,2025-01-10,Medellín,Web,C0891,P022,2,2100,0,Tarjeta
+V00141,2025-01-10,Bogotá,Tienda,C0588,P003,2,6800,0,Tarjeta
+V00142,2025-01-10,Barranquilla,Tienda,,P028,1,2900,0,Tarjeta
+V00143,2025-01-10,Barranquilla,App,C0041,P020,1,7400,0.1,Tarjeta
+V00144,2025-01-10,Medellín,Web,C0207,P022,2,2100,0,Transferencia
+V00145,2025-01-10,Bogotá,Tienda,C0046,P014,1,5200,0,Tarjeta
+V00146,2025-01-11,Bucaramanga,Web,C0237,P054,120,5400,0.05,Tarjeta
+V00147,2025-01-11,Medellín,Tienda,,P020,6,7400,0,Billetera digital
+V00148,2025-01-11,Bogotá,Tienda,,P022,1,2100,0,Billetera digital
+V00149,2025-01-11,Medellín,Tienda,,P046,1,13200,0,Tarjeta
+V00150,2025-01-11,Bogotá,Tienda,,P023,1,17900,0.05,Efectivo
+V00151,2025-01-11,Cali,Tienda,,P052,1,7900,0.1,Efectivo
+V00152,2025-01-11,B/quilla,Tienda,,P002,2,3900,0,Tarjeta
+V00153,2025-01-11,Bogotá,Tienda,C0103,P017,6,4900,0.05,Billetera digital
+V00154,2025-01-11,Bogotá,App,C0076,P005,2,4600,0,Transferencia
+V00155,2025-01-11,Bogotá,tienda,C0150,P012,1,7500,0,Tarjeta
+V00156,2025-01-11,Barranquilla,Web,C0723,P026,1,11800,0,Tarjeta
+V00157,2025-01-11,Bogotá,Tienda,C0853,P022,2,2100,0,Tarjeta
+V00158,2025-01-11,Medellín,tienda,C0783,P045,2,8400,0.05,Tarjeta
+V00159,2025-01-11,Bogotá,Web,C0402,P057,6,2500,0.15,Tarjeta
+V00160,2025-01-11,Bogotá,App,C0067,P020,3,7400,0.15,Tarjeta
+V00161,2025-01-11,Bogotá,Tienda,C0015,P015,1,6400,0.05,Tarjeta
+V00162,2025-01-11,Bogotá,Tienda,C0130,P020,4,7400,0,Tarjeta
+V00163,2025-01-11,Bogotá,Tienda,,P007,2,3400,0,Tarjeta
+V00164,2025-01-12,Bogotá,Tienda,C1478,P003,4,6800,0,Efectivo
+V00165,2025-01-12,Bogota,Tienda,,P005,2,4600,0.1,Tarjeta
+V00166,2025-01-12,Bogotá,Web,C1286,P031,1,3900,0,Transferencia
+V00167,2025-01-12,Barranquilla,Tienda,C0250,P050,3,7900,0,Tarjeta
+V00168,2025-01-12,Barranquilla,Tienda,,P011,1,16900,0,Tarjeta
+V00169,2025-01-12,Cali,Tienda,,P039,1,10900,0.05,Tarjeta
+V00170,2025-01-12,Cali,App,C0115,P020,2,7400,0,Billetera digital
+V00171,2025-01-12,Barranquilla,App,C0535,P006,5,1900,,Billetera digital
+V00172,2025-01-12,Bogotá,App,C1434,P052,4,7900,0,Transferencia
+V00173,2025-01-12,Bogotá,Web,C1471,P011,1,16900,0,Transferencia
+V00174,2025-01-12,Medellín,Tienda,C0738,P012,1,7500,0,Billetera digital
+V00175,2025-01-12,Medellín,Web,C1374,P001,-2,4900,0,Transferencia
+V00176,2025-01-12,Bogotá,Web,C0783,P024,1,13900,0,Tarjeta
+V00177,2025-01-12,BOGOTÁ,Web,C0020,P024,3,13900,0.05,Transferencia
+V00178,2025-01-12,Medellín,Web,C0881,P021,2,2500,0.05,Transferencia
+V00179,2025-01-12,Cali,Tienda,C0605,P035,1,7800,0,Billetera digital
+V00180,2025-01-12,Cali,Web,C0106,P035,3,7800,0,Billetera digital
+V00181,2025-01-13,Medellín,Web,C0139,P006,2,1900,0,Tarjeta
+V00182,2025-01-13,Cartagena,Tienda,,P021,1,2500,0.05,Billetera digital
+V00183,2025-01-13,Cali,App,C0096,P035,6,7800,0,Transferencia
+V00184,2025-01-13,Barranquilla,Tienda,C0004,P027,1,3600,0,Billetera digital
+V00185,2025-01-13,Bogotá,Web,C0311,P030,3,3300,0.15,Tarjeta
+V00186,2025-01-13,Bogotá,Tienda,C0498,P032,3,2800,0,Tarjeta
+V00187,2025-01-13,Medellín,Web,C0003,P006,1,1900,0,Tarjeta
+V00188,2025-01-13,Bucaramanga,App,C0064,P016,2,3100,0,Tarjeta
+V00189,2025-01-13,Bogotá,Tienda,C0821,P024,2,13900,0,Efectivo
+V00190,2025-01-13,Medellín,Tienda,C0080,P021,1,2500,0,Billetera digital
+V00191,2025-01-13,Medellín,Tienda,,P048,1,16400,0,Tarjeta
+V00192,2025-01-13,Bogotá,Tienda,C0202,P031,2,3900,0,Efectivo
+V00193,2025-01-13,Cali,App,C0609,P033,1,14500,0.1,Tarjeta
+V00194,2025-01-13,Bogotá,Tienda,,P011,1,16900,0,Tarjeta
+V00195,2025-01-13,Medellín,App,C0026,P033,1,14500,0,Tarjeta
+V00196,2025-01-14,Barranquilla,Tienda,C0184,P024,1,13900,0,Tarjeta
+V00197,2025-01-14,Medellín,App,C0200,P019,2,8200,0,Tarjeta
+V00198,2025-01-14,Barranquilla,Tienda,C0535,P039,1,10900,0,Efectivo
+V00199,2025-01-14,Bucaramanga,Web,C1343,P027,3,3600,0.1,Transferencia
+V00200,2025-01-14,Barranquilla,Tienda,C0005,P007,2,3400,0.1,Efectivo
+V00201,2025-01-14,Cali,Tienda,C1474,P016,2,3100,0,Tarjeta
+V00202,2025-01-14,Cartagena,Web,C0006,P033,1,14500,0.05,Transferencia
+V00203,2025-01-14,Medellín,Web,C0691,P012,3,7500,0.1,Transferencia
+V00204,2025-01-14,Bogotá,Tienda,C0913,P016,1,3100,0,Tarjeta
+V00205,2025-01-14,Bogotá,Tienda,,P045,2,8400,0,Tarjeta
+V00206,2025-01-14,Medellín,Tienda,,P012,2,7500,0,Billetera digital
+V00207,2025-01-14,Bogotá,Web,C0024,P027,3,3600,0.05,Tarjeta
+V00208,2025-01-14,Bogotá,Tienda,C0392,P030,6,3300,0,Tarjeta
+V00209,2025-01-14,Medellín,App,C0401,P038,4,9600,0,Tarjeta
+V00210,2025-01-14,Cartagena,Web,C1401,P009,1,6900,0.1,Tarjeta
+V00211,2025-01-14,Bogotá,tienda,C0117,P051,1,18700,0,Tarjeta
+V00212,2025-01-14,Bogotá,Web,C0169,P017,1,$4.900,0.05,Tarjeta
+V00213,2025-01-14,Barranquilla ,App,C0625,P012,1,7500,0,Billetera digital
+V00214,2025-01-15,Barranquilla,App,C0667,P011,1,16900,0.05,Tarjeta
+V00215,2025-01-15,Bogota,Tienda,,P041,2,6200,0,Tarjeta
+V00216,2025-01-15,Barranquilla,Web,C0609,P006,2,1900,0,Tarjeta
+V00217,2025-01-15,Bogotá,Tienda,C0322,P043,1,15900,0,Billetera digital
+V00218,2025-01-15,Medellín,Tienda,C0003,P044,1,6300,0,Billetera digital
+V00219,2025-01-15,Medellín,Web,C0131,P042,3,8900,0.05,Tarjeta
+V00220,2025-01-15,Medellín,Tienda,,P016,2,3100,0,Efectivo
+V00221,2025-01-15,Bogotá,Tienda,,P031,1,3900,0,Tarjeta
+V00222,2025-01-15,Medellín,App,C0313,P010,1,3200,0.05,Transferencia
+V00223,2025-01-15,Cali,App,C0999,P007,6,3400,0.05,Billetera digital
+V00224,2025-01-15,Bogotá,Tienda,C0397,P032,1,2800,0,Tarjeta
+V00225,2025-01-15,barranquilla,Web,C0062,P054,3,5400,0,Tarjeta
+V00226,2025-01-15,Bucaramanga,Tienda,C1278,P002,1,3900,0,Tarjeta
+V00227,2025-01-15,Bogotá,Web,C0592,P022,2,2100,0,Billetera digital
+V00228,2025-01-16,Bogotá,Tienda,,P001,2,4900,0,Tarjeta
+V00229,2025-01-16,Bogotá,Web,C0123,P012,6,7500,0.05,Tarjeta
+V00230,2025-01-16,Cartagena,Tienda,C0654,P006,1,1900,0,Billetera digital
+V00231,2025-01-16,Bogotá,Web,C0127,P013,3,$1.800,0.1,Tarjeta
+V00232,2025-01-16,Bucaramanga,Tienda,C0009,P018,1,4300,0,Tarjeta
+V00233,2025-01-16,Cali,Tienda,C0005,P007,2,3400,0,Tarjeta
+V00234,2025-01-16,Bogotá,App,C0771,P031,5,3900,0,Billetera digital
+V00235,2025-01-16,Cartagena,Tienda,,P025,1,12400,0,Efectivo
+V00236,2025-01-17,Bogotá,Tienda,,P001,6,4900,,Efectivo
+V00237,2025-01-17,Barranquilla,Tienda,,P002,2,3900,0,Tarjeta
+V00238,2025-01-17,Cartagena,Web,C0690,P020,5,7400,0.05,Tarjeta
+V00239,2025-01-17,Cartagena,Tienda,,P020,1,7400,0,Tarjeta
+V00240,2025-01-17,Cali,Web,C0800,P001,2,4900,0,Tarjeta
+V00241,2025-01-17,Bogotá,Web,C0631,P059,2,59900,0,Transferencia
+V00242,17/01/2025,BOGOTÁ,App,C0420,P021,1,2500,0.05,Tarjeta
+V00243,2025-01-17,Cali,Tienda,,P041,1,6200,0,Efectivo
+V00244,17/01/2025,Cali,App,C0005,P045,2,8400,0,Tarjeta
+V00245,2025-01-17,Bucaramanga,Web,C0033,P009,3,6900,0,Transferencia
+V00246,2025-01-17,Medellín,App,C0001,P011,1,16900,0,Billetera digital
+V00247,2025-01-17,Bogotá,Tienda,C0048,P023,1,17900,0,Tarjeta
+V00248,2025-01-17,Medellín,Tienda,C0087,P032,2,2800,0,Efectivo
+V00249,2025-01-17,Bogotá,Web,C0012,P019,4,8200,0.05,Tarjeta
+V00250,2025-01-17,Medellín,Web,C0975,P042,5,8900,0,Transferencia
+V00251,2025-01-18,Bogotá,App,C0014,P010,2,3200,0.15,Billetera digital
+V00252,2025-01-18,Bogotá,Tienda,C0067,P055,4,4300,0,Efectivo
+V00253,2025-01-18,Barranquilla,Tienda,,P029,1,4200,0,Tarjeta
+V00254,2025-01-18,Bogotá,Tienda,,P033,2,14500,0,Billetera digital
+V00255,2025-01-18,Bucaramanga,Tienda,C0003,P038,4,9600,0,Tarjeta
+V00256,2025-01-18,Barranquilla,Tienda,C0840,P047,2,4800,0,Tarjeta
+V00257,2025-01-18,Bogotá,App,C1378,P024,1,13900,0.15,Billetera digital
+V00258,2025-01-18,Cartagena,App,C0438,P003,6,6800,0,Tarjeta
+V00259,2025-01-18,Barranquilla,App,C0097,P004,1,11900,0,Transferencia
+V00260,2025-01-18,Medellín,Tienda,,P020,4,7400,0.05,Billetera digital
+V00261,2025-01-18,Cali,Tienda,,P017,4,4900,0,Billetera digital
+V00262,2025-01-18,Cartagena,App,C0013,P021,1,2500,0.15,Billetera digital
+V00263,2025-01-18,Medellín,Tienda,C0108,P021,2,2500,0,Efectivo
+V00264,18/01/2025,Bogotá,App,C1397,P015,5,6400,0.05,Billetera digital
+V00265,18/01/2025,Barranquilla,Tienda,C0397,P060,1,39900,0,Billetera digital
+V00266,2025-01-18,Bucaramanga,App,C0311,P007,1,3400,0.05,Tarjeta
+V00267,2025-01-18,Medellín,Web,C0021,P009,1,6900,0.05,Tarjeta
+V00268,2025-01-18,Barranquilla,Web,C0005,P047,1,4800,0,Transferencia
+V00269,2025-01-18,Bucaramanga,Tienda,C0953,P025,2,12400,0,Tarjeta
+V00270,2025-01-18,Cali,Tienda,,P034,3,5900,0,Tarjeta
+V00271,2025-01-18,Medellín,Tienda,,P002,3,3900,0,Tarjeta
+V00272,2025-01-18,,Tienda,C0020,P028,6,2900,0,Billetera digital
+V00273,2025-01-18,Cali,Tienda,C0001,P017,2,4900,0,Tarjeta
+V00274,2025-01-19,Medellín,App,C0049,P056,4,6900,0,Tarjeta
+V00275,19/01/2025,Bucaramanga,Tienda,C0771,P002,6,3900,0,Billetera digital
+V00276,2025-01-19,Bucaramanga,Tienda,,P039,1,10900,0,Efectivo
+V00277,2025-01-19,Bogotá,Web,C0324,P015,1,6400,0.15,Tarjeta
+V00278,2025-01-19,Medellín,Tienda,,P010,2,3200,0,Tarjeta
+V00279,2025-01-19,Cali,Tienda,C1090,P018,5,4300,0,Tarjeta
+V00280,2025-01-19,Medellín,Tienda,,P001,2,4900,0,Tarjeta
+V00281,2025-01-19,Cartagena,tienda,C0252,P040,3,3700,0,Efectivo
+V00282,2025-01-19,Bogotá,Web,C0484,P012,2,7500,0,Tarjeta
+V00283,2025-01-19,Bogotá,Tienda,C0117,P023,1,17900,0,Billetera digital
+V00284,2025-01-19,Bogotá,Tienda,C0129,P010,1,3200,0,Efectivo
+V00285,2025-01-19,Bogotá,Web,C0021,P016,1,3100,0,Billetera digital
+V00286,2025-01-19,Cartagena,Tienda,,P042,4,8900,0.1,Efectivo
+V00287,2025-01-19,Bogotá,Tienda,C0030,P001,3,4900,0,Billetera digital
+V00288,2025-01-19,Bogotá,Tienda,,P056,1,6900,0.05,Tarjeta
+V00289,2025-01-19,Cartagena,App,C0126,P028,2,2900,0.05,Billetera digital
+V00290,2025-01-19,Bogotá,App,C0225,P019,6,8200,0.15,Billetera digital
+V00291,2025-01-19,Bogotá,Tienda,,P009,2,6900,0,Efectivo
+V00292,2025-01-19,Medellín,Tienda,C0006,P010,1,3200,0,Tarjeta
+V00293,2025-01-20,Cali,Tienda,,P037,1,21900,0.05,Billetera digital
+V00294,2025-01-20,Medellín,App,C0156,P008,2,3800,0.05,Tarjeta
+V00295,2025-01-20,Cali,Tienda,,P010,2,3200,0,Efectivo
+V00296,2025-01-20,Cartagena,APP,C0345,P035,4,7800,0,Billetera digital
+V00297,2025-01-20,Bogotá,App,C0575,P006,2,1900,0,Tarjeta
+V00298,2025-01-20,Barranquilla,App,C0509,P030,3,3300,0.1,Billetera digital
+V00299,2025-01-20,Medellín,Web,C0929,P008,5,3800,0.1,Transferencia
+V00300,2025-01-20,Bogotá,Tienda,C0003,P055,4,4300,0,Efectivo
+V00301,2025-01-20,Cartagena,App,C1320,P016,3,3100,0,Tarjeta
+V00302,2025-01-20,Bogotá,Tienda,,P012,3,7500,0,Efectivo
+V00303,2025-01-20,Bogotá,Tienda,,P056,6,6900,0,Billetera digital
+V00304,2025-01-20,Bogotá,Tienda,,P017,3,4900,0.1,Billetera digital
+V00305,2025-01-20,Bogotá,Web,C0002,P010,5,3200,0,Tarjeta
+V00306,2025-01-20,Bogotá,Tienda,,P022,1,2100,0.1,Efectivo
+V00307,2025-01-20,Medellín,App,C0063,P006,2,1900,0.1,Billetera digital
+V00308,2025-01-20,Medellín,Tienda,,P010,1,3200,0,Billetera digital
+V00309,2025-01-20,Bogotá,Tienda,C1043,P031,4,3900,0.05,Efectivo
+V00310,2025-01-20,Medellín,Tienda,,P042,2,8900,0,Tarjeta
+V00311,2025-01-21,Barranquilla,Tienda,C0006,P031,1,3900,0,Billetera digital
+V00312,2025-01-21,Cartagena,Tienda,C1326,P016,1,3100,0,Efectivo
+V00313,2025-01-21,Barranquilla,Web,C1332,P031,1,3900,0.05,Tarjeta
+V00313,2025-01-21,Barranquilla,Web,C1332,P031,1,3900,0.05,Tarjeta
+V00314,2025-01-21,Cartagena,App,C0732,P006,4,1900,0,Tarjeta
+V00315,2025-01-21,Bogotá,Tienda,C0981,P051,1,18700,0,Efectivo
+V00316,2025-01-21,Bogotá,tienda,C0133,P016,1,3100,0,Billetera digital
+V00317,2025-01-21,Cali,Tienda,C0006,P021,3,2500,0,Tarjeta
+V00318,2025-01-21,Bucaramanga,Web,C1462,P042,1,8900,0,Tarjeta
+V00319,2025-01-21,Cali,Tienda,C0227,P030,4,3300,0,Efectivo
+V00320,2025-01-21,medellín,Tienda,C0134,P003,1,6800,0,Efectivo
+V00321,2025-01-21,Cali,Web,C0047,P037,1,21900,0,Transferencia
+V00322,2025-01-21,Bogotá,Tienda,,P025,1,12400,0,Efectivo
+V00323,2025-01-21,Bucaramanga,Tienda,C0923,P003,2,6800,0,Efectivo
+V00324,2025-01-22,Bogotá,App,C1491,P060,1,39900,0,Tarjeta
+V00325,2025-01-22,Bucaramanga,Web,C0835,P019,1,8200,0.05,Tarjeta
+V00326,2025-01-22,Cartagena,Tienda,C0017,P056,2,6900,0,Tarjeta
+V00327,2025-01-22,Medellín,Tienda,,P015,3,6400,0,Billetera digital
+V00328,2025-01-22,Barranquilla,Tienda,C1096,P003,2,6800,0,Tarjeta
+V00329,2025-01-22,Bogotá,App,C0861,P030,3,3300,0,Billetera digital
+V00330,2025-01-22,Cartagena,Tienda,,P027,2,3600,0,Billetera digital
+V00331,22/01/2025,Bogotá,TIENDA,C0197,P006,3,1900,0,Tarjeta
+V00332,2025-01-22,Cartagena,Web,C0051,P005,4,4600,0,Billetera digital
+V00333,22/01/2025,Medellín,App,C0028,P013,2,1800,0,Tarjeta
+V00334,2025-01-22,Barranquilla,Web,C0691,P010,6,3200,0,Transferencia
+V00335,2025-01-22,Bogotá,Tienda,C0036,P027,1,3600,0,Tarjeta
+V00336,2025-01-22,Cali,Web,C0219,P040,1,3700,0,Tarjeta
+V00337,2025-01-22,Bogotá,Tienda,C1403,P004,2,11900,0.05,Efectivo
+V00338,2025-01-22,Medellín,Tienda,,P016,1,3100,0,
+V00339,2025-01-22,Bogotá,Tienda,C0161,P009,6,6900,0,Tarjeta
+V00340,2025-01-22,Barranquilla,Tienda,C0719,P001,2,4900,0,Tarjeta
+V00341,2025-01-22,Cali,App,C0594,P056,1,6900,0,Transferencia
+V00342,2025-01-23,Cali,Web,C0010,P024,2,13900,0.05,Transferencia
+V00343,2025-01-23,Cali,Web,C0009,P013,2,1800,0.05,Tarjeta
+V00344,2025-01-23,Barranquilla ,Tienda,C0471,P021,1,2500,0,Tarjeta
+V00345,2025-01-23,Bogotá,App,C0768,P018,1,4300,0.15,Tarjeta
+V00346,2025-01-23,Barranquilla,App,C0491,P031,1,3900,0,Billetera digital
+V00347,2025-01-23,Medellín,Web,C0105,P023,2,17900,0,Transferencia
+V00348,2025-01-23,Cali,App,C0748,P036,4,4100,0.1,Transferencia
+V00349,2025-01-23,Barranquilla,Tienda,C0462,P029,1,4200,0,Efectivo
+V00350,2025-01-23,Bogotá,Web,C0085,P048,1,16400,0.05,Tarjeta
+V00351,2025-01-23,Barranquilla,App,C0741,P019,2,8200,0.1,Tarjeta
+V00352,2025-01-23,Bogotá,Tienda,,P011,1,16900,0,Tarjeta
+V00353,24/01/2025,Barranquilla,Tienda,C0627,P028,1,2900,0.1,Billetera digital
+V00354,2025-01-24,Cali,App,C0023,P009,6,6900,0,Billetera digital
+V00355,2025-01-24,Medellín,Tienda,,P022,3,2100,0,Tarjeta
+V00356,2025-01-24,Cali,Web,C1048,P059,1,59900,0,Transferencia
+V00357,2025-01-24,Bogotá,Tienda,C0054,P018,1,4300,0,Tarjeta
+V00358,24/01/2025,Barranquilla,Tienda,C0475,P040,3,3700,0,Efectivo
+V00359,2025-01-24,Cali,Tienda,,P042,2,8900,0,Tarjeta
+V00360,2025-01-24,Medellín,App,C0047,P025,1,12400,0,Transferencia
+V00361,2025-01-24,Medellín,Web,C1336,P060,-3,39900,0.1,Billetera digital
+V00362,2025-01-24,Barranquilla,App,C0245,P007,4,3400,0,Tarjeta
+V00363,2025-01-24,Cartagena,Tienda,,P022,1,2100,0,Efectivo
+V00364,2025-01-24,Cali,Tienda,,P008,2,3800,0,Efectivo
+V00365,2025-01-24,Bucaramanga,App,C1070,P005,2,4600,0,Billetera digital
+V00366,2025-01-24,bogota,Tienda,C0663,P019,1,8200,0,Efectivo
+V00367,2025-01-24,Barranquilla,Web,C0663,P005,1,4600,0.15,Billetera digital
+V00368,2025-01-24,Barranquilla,Tienda,C0005,P037,2,21900,0,Tarjeta
+V00369,2025-01-24,Cali,Tienda,,P005,3,4600,0,Efectivo
+V00370,2025-01-24,Barranquilla,Web,C0020,P038,1,9600,0.05,Tarjeta
+V00371,2025-01-24,Bogotá,Web,C0275,P009,4,6900,0,Tarjeta
+V00372,2025-01-24,Medellín,Tienda,C1113,P003,1,6800,0,Billetera digital
+V00373,2025-01-24,Bucaramanga,App,C1231,P038,1,9600,0.05,Billetera digital
+V00374,2025-01-24,Cali,Tienda,,P020,3,7400,0,Tarjeta
+V00375,2025-01-24,Bucaramanga,App,C0156,P058,1,24900,0,Transferencia
+V00376,2025-01-24,Bogotá,Tienda,,P050,2,7900,0.05,Billetera digital
+V00377,2025-01-24,Medellín,Tienda,C1133,P044,3,6300,0.05,Tarjeta
+V00378,2025-01-24,Bogotá,App,C0002,P030,2,3300,0,Tarjeta
+V00379,2025-01-24,Medellín,Web,C1137,P011,2,16900,0,Transferencia
+V00380,2025-01-25,Medellín,Tienda,,P018,5,4300,0,Efectivo
+V00381,2025-01-25,Cali,Web,C0286,P009,3,6900,0,Tarjeta
+V00382,2025-01-25,Barranquilla,Tienda,C0025,P004,3,11900,0,Tarjeta
+V00383,2025-01-25,Bucaramanga,Tienda,C0558,P032,4,2800,0,Tarjeta
+V00384,2025-01-25,Bogotá,Tienda,C0014,P011,1,16900,0,Efectivo
+V00385,2025-01-25,Bogotá,Tienda,C0123,P027,3,3600,0,Billetera digital
+V00386,2025-01-25,Cartagena,Tienda,,P025,2,12400,0,Tarjeta
+V00387,2025-01-25,Bucaramanga,Web,C0158,P010,2,$3.200,0.05,Tarjeta
+V00388,2025-01-25,Bogotá,Tienda,C0212,P008,3,$3.800,0,Billetera digital
+V00389,2025-01-25,Medellín,Tienda,,P002,1,3900,0,Efectivo
+V00390,2025-01-25,Medellín,Tienda,C0127,P043,3,15900,0,Efectivo
+V00391,2025-01-25,Bucaramanga,Tienda,C0088,P036,6,4100,0,Billetera digital
+V00392,2025-01-25,Bogotá,TIENDA,,P035,6,7800,,Efectivo
+V00393,25/01/2025,Bogotá,App,C0006,P056,3,6900,0,Billetera digital
+V00394,2025-01-25,Bogotá,Web,C0004,P042,3,8900,0,Tarjeta
+V00395,2025-01-25,Cali,Tienda,C0286,P046,1,13200,0,Tarjeta
+V00396,2025-01-25,bogota,Web,C0132,P046,1,13200,0.15,Transferencia
+V00397,2025-01-25,Cartagena,Tienda,C1249,P020,3,7400,0,Tarjeta
+V00398,2025-01-25,Bogotá,App,C0515,P002,4,3900,0.1,Tarjeta
+V00399,2025-01-25,Cali,Tienda,,P002,1,3900,0,Efectivo
+V00400,2025-01-25,Medellín,Tienda,C0139,P044,3,6300,0,Efectivo
+V00401,2025-01-26,Barranquilla,Tienda,C0056,P002,5,3900,0.05,Tarjeta
+V00402,2025-01-26,Cali,Tienda,C0498,P047,3,4800,0,Efectivo
+V00403,2025-01-26,Cartagena,Tienda,C0003,P003,2,6800,0.05,Billetera digital
+V00404,2025-01-26,Bucaramanga,Tienda,C0143,P007,1,3400,0,Efectivo
+V00405,2025-01-26,Bucaramanga,Web,C0124,P054,5,5400,0.05,Tarjeta
+V00406,2025-01-26,Cali,App,C0049,P006,2,1900,0,Tarjeta
+V00407,2025-01-26,Cartagena,Tienda,C0567,P014,1,5200,0,Efectivo
+V00408,2025-01-26,Bucaramanga,Tienda,C0687,P032,4,$2.800,0,Efectivo
+V00409,2025-01-26,Cartagena,Web,C0018,P014,2,5200,0.1,Transferencia
+V00410,26/01/2025,Cali,Tienda,,P044,3,6300,0,
+V00411,2025-01-26,Cali,Tienda,C0918,P056,3,6900,0,Tarjeta
+V00412,2025-01-26,Medellín,Web,C0043,P034,2,5900,0,Tarjeta
+V00413,2025-01-26,Cartagena,Tienda,C0001,P044,3,6300,0,Efectivo
+V00414,2025-01-26,Medellín,App,C0882,P008,2,3800,0,Billetera digital
+V00415,2025-01-26,Bucaramanga,Tienda,C0541,P049,1,32900,0,Tarjeta
+V00416,2025-01-26,Medellín,Tienda,C0554,P050,2,7900,0.1,Efectivo
+V00417,2025-01-26,Bucaramanga,Tienda,C0725,P011,3,16900,0,Efectivo
+V00418,2025-01-26,CALI,Web,C0943,P042,5,8900,0,Transferencia
+V00419,2025-01-26,Cartagena,App,C0162,P013,2,1800,0,Tarjeta
+V00420,2025-01-26,Cali,Tienda,,P007,2,3400,0,Efectivo
+V00421,2025-01-26,Medellín,Web,C0022,P004,1,11900,0.15,Transferencia
+V00422,2025-01-26,Medellín,Tienda,,P025,1,12400,0,Efectivo
+V00423,2025-01-27,Cali,Tienda,C0031,P027,1,3600,0.1,Tarjeta
+V00424,2025-01-27,Cartagena,Tienda,C0161,P003,2,6800,0.1,Efectivo
+V00425,27/01/2025,Medellín,Tienda,C0018,P011,2,16900,0,Tarjeta
+V00426,2025-01-27,Medellín,Web,C0266,P009,1,6900,0,Transferencia
+V00427,2025-01-27,Medellín,Tienda,C0271,P038,2,9600,0,Efectivo
+V00428,2025-01-27,Barranquilla,App,C0939,P046,1,13200,0,Billetera digital
+V00429,2025-01-27,Cali,Tienda,C0019,P056,1,6900,0,Billetera digital
+V00430,2025-01-27,Cali,tienda,C0328,P030,5,3300,0,Efectivo
+V00431,2025-01-27,CALI,Tienda,C0503,P002,2,3900,0,Efectivo
+V00432,2025-01-27,Bucaramanga,Tienda,C0021,P030,2,3300,0.05,Billetera digital
+V00433,2025-01-27,Bogotá,Web,C0397,P008,2,3800,0,Tarjeta
+V00434,2025-01-27,Bucaramanga,Web,C1459,P001,5,4900,0,Tarjeta
+V00435,2025-01-27,Bogotá,App,C0917,P038,1,9600,0.05,Billetera digital
+V00436,2025-01-28,Bucaramanga,App,C0182,P002,1,3900,0,Billetera digital
+V00437,2025-01-28,MEDELLIN,Tienda,C0248,P033,2,14500,0,Tarjeta
+V00438,2025-01-28,Cartagena,Tienda,C0084,P041,2,6200,0,Tarjeta
+V00439,2025-01-28,Bogotá,Tienda,,P022,2,2100,0,Tarjeta
+V00440,28/01/2025,Bogotá,App,C0686,P007,2,3400,0,Tarjeta
+V00441,2025-01-28,barranquilla,Tienda,,P013,3,1800,0,Billetera digital
+V00442,2025-01-28,Bogotá,Tienda,C0640,P014,4,5200,0,Billetera digital
+V00443,2025-01-28,Cali,Tienda,,P007,2,3400,,Billetera digital
+V00444,2025-01-28,Bucaramanga,App,C0005,P027,1,3600,0,Transferencia
+V00445,2025-01-28,Bogotá,Tienda,,P005,1,4600,0,Tarjeta
+V00446,2025-01-29,Medellín,Web,C0084,P053,2,12900,0.1,Transferencia
+V00447,2025-01-29,Barranquilla,Tienda,,P044,3,6300,0,Efectivo
+V00448,2025-01-29,Cali,Tienda,,P014,3,5200,0,Tarjeta
+V00449,2025-01-29,Bucaramanga,Web,C0886,P012,1,7500,0,Transferencia
+V00450,2025-01-29,Barranquilla,Tienda,C0993,P001,5,4900,0,Efectivo
+V00451,2025-01-29,Medellín,Tienda,C0003,P031,2,3900,0,Efectivo
+V00452,2025-01-29,Bogotá,Tienda,C0031,P010,1,3200,0,Billetera digital
+V00453,2025-01-29,Cartagena,Tienda,,P023,1,17900,0.05,Billetera digital
+V00454,2025-01-29,Cartagena,Web,C0030,P007,2,3400,0,Tarjeta
+V00455,2025-01-29,Medellín,Tienda,C0378,P011,1,16900,0.1,Tarjeta
+V00456,2025-01-30,Bogotá,Tienda,C0352,P007,3,3400,0,Tarjeta
+V00457,2025-01-30,Medellín,App,C0442,P045,2,8400,0.05,Tarjeta
+V00458,2025-01-30,Bogotá,Tienda,C0633,P008,6,3800,0,Tarjeta
+V00459,2025-01-30,Bogotá,Tienda,,P008,1,3800,0,Efectivo
+V00460,2025-01-30,Bucaramanga,Tienda,C0236,P024,1,13900,0,Billetera digital
+V00461,2025-01-30,Medellín,Tienda,C0177,P032,2,2800,,Efectivo
+V00462,2025-01-30,Bucaramanga,Tienda,C0159,P031,1,3900,0,Tarjeta
+V00463,2025-01-30,Cali,App,C1033,P060,1,39900,0,Tarjeta
+V00464,2025-01-30,Bogotá,Tienda,C0039,P024,1,13900,0,Tarjeta
+V00464,2025-01-30,Bogotá,Tienda,C0039,P024,1,13900,0,Tarjeta
+V00465,2025-01-30,Bogotá,Web,C0570,P004,1,11900,0,Tarjeta
+V00466,2025-01-30,Barranquilla,Tienda,,P005,2,4600,0,Efectivo
+V00467,2025-01-30,Bucaramanga,Tienda,C0193,P027,4,3600,0,Tarjeta
+V00468,2025-01-30,Bogotá,App,C1095,P019,330,8200,0,Billetera digital
+V00469,2025-01-30,Bucaramanga,Tienda,C0984,P019,3,8200,0,Efectivo
+V00470,2025-01-30,Cali,Web,C0040,P009,2,6900,0.05,Billetera digital
+V00471,2025-01-30,Cali,Tienda,,P007,1,3400,0,Tarjeta
+V00472,2025-01-30,cartagena,App,C0376,P039,1,10900,0.15,Tarjeta
+V00473,2025-01-30,Bogotá,App,C1253,P022,1,2100,0.1,Tarjeta
+V00474,2025-01-31,Medellín,Web,C0003,P008,5,3800,0.15,Tarjeta
+V00474,2025-01-31,Medellín,Web,C0003,P008,5,3800,0.15,Tarjeta
+V00475,2025-01-31,Bucaramanga,Web,C1194,P056,1,6900,0,Transferencia
+V00476,2025-01-31,Medellín,Web,C0146,P034,4,5900,0.05,Tarjeta
+V00477,2025-01-31,Bogotá,Web,C0002,P035,3,7800,0.05,Tarjeta
+V00478,2025-01-31,Cali,Tienda,C0586,P009,2,6900,0.1,Tarjeta
+V00479,2025-01-31,Bogotá,Tienda,C0022,P050,4,7900,0.05,Billetera digital
+V00480,2025-01-31,Cartagena,Tienda,C0063,P020,3,7400,0,Billetera digital
+V00481,2025-01-31,medellín,Web,C0001,P021,1,2500,0,Tarjeta
+V00482,2025-01-31,Bogotá,Tienda,C0003,P027,3,3600,0,Tarjeta
+V00483,2025-01-31,Bogotá,Web,C0741,P013,3,1800,0.1,Tarjeta
+V00484,2025-01-31,Cartagena,App,C0006,P027,2,3600,0.1,Transferencia
+V00484,2025-01-31,Cartagena,App,C0006,P027,2,3600,0.1,Transferencia
+V00485,2025-01-31,Bogotá D.C.,App,C0129,P006,3,1900,0,Tarjeta
+V00486,2025-02-01,Cali,App,C0007,P050,1,7900,0.1,Tarjeta
+V00487,2025-02-01,Medellín,Web,C0007,P033,2,14500,0,Tarjeta
+V00488,2025-02-01,Barranquilla,App,C1246,P004,2,11900,0,Tarjeta
+V00489,2025-02-01,Bogotá,App,C0502,P018,1,4300,0.1,Billetera digital
+V00490,2025-02-01,Barranquilla,Tienda,C0974,P028,1,2900,0,Tarjeta
+V00491,2025-02-01,Bogotá,Web,C1307,P016,2,3100,0,Tarjeta
+V00492,2025-02-01,Cartagena,Web,C1499,P052,1,7900,0.05,Tarjeta
+V00493,2025-02-01,Cartagena,Tienda,C0496,P001,3,4900,0,Tarjeta
+V00494,2025-02-01,Bogotá D.C.,Web,C0014,P039,3,10900,0.05,Tarjeta
+V00495,2025-02-01,Bucaramanga,App,C1356,P023,1,17900,0.05,Tarjeta
+V00496,2025-02-01,Bucaramanga,Tienda,C0116,P032,3,2800,0,Tarjeta
+V00497,2025-02-01,Bogotá,Tienda,,P041,3,6200,0,Tarjeta
+V00498,2025-02-01,Bogotá,Tienda,C0050,P039,2,10900,0,Efectivo
+V00499,2025-02-01,Barranquilla,Tienda,,P059,2,59900,0,Tarjeta
+V00500,2025-02-01,Cartagena,Tienda,C0022,P012,1,7500,0,Billetera digital
+V00501,2025-02-02,Medellín,Web,C0400,P003,1,6800,0,Tarjeta
+V00502,2025-02-02,Bogotá,Tienda,C0164,P049,2,32900,0,
+V00503,2025-02-02,Bucaramanga,App,C0559,P016,4,3100,0,Tarjeta
+V00504,2025-02-02,Medellín,Web,C0080,P018,2,4300,0,Transferencia
+V00505,2025-02-02,Medellín,Web,C0594,P005,1,4600,0.1,Tarjeta
+V00506,2025-02-02,Cartagena,App,C0142,P004,1,11900,0,Tarjeta
+V00507,2025-02-02,Barranquilla,App,C0550,P029,1,4200,0,Tarjeta
+V00507,2025-02-02,Barranquilla,App,C0550,P029,1,4200,0,Tarjeta
+V00508,2025-02-02,Cali,App,C0010,P048,1,16400,0.1,Billetera digital
+V00509,2025-02-02,Bucaramanga,App,C0463,P008,3,3800,0,Tarjeta
+V00510,2025-02-02,Medellín,Web,C0548,P002,1,$3.900,0.05,Tarjeta
+V00511,2025-02-02,Medellín,Web,C0220,P033,1,14500,0,Tarjeta
+V00512,02/02/2025,Bucaramanga,Web,C0234,P009,3,6900,0.05,Tarjeta
+V00513,2025-02-02,Bogotá,App,C1326,P018,5,4300,0.05,Billetera digital
+V00514,2025-02-02,,Tienda,C0443,P038,1,9600,0.05,Efectivo
+V00515,2025-02-02,Barranquilla,App,C0909,P009,4,6900,0.05,Billetera digital
+V00516,2025-02-02,Barranquilla,Tienda,C0863,P009,6,6900,0,Efectivo
+V00517,2025-02-02,Bucaramanga,App,C0334,P057,3,2500,0,Billetera digital
+V00518,2025-02-02,Bogotá,Web,C0800,P034,5,5900,0.1,Tarjeta
+V00519,2025-02-02,Bogotá,Tienda,,P015,1,6400,0,Billetera digital
+V00520,2025-02-02,Bogotá,Tienda,C0019,P025,2,12400,0,Tarjeta
+V00521,2025-02-02,Medellín,Web,C0208,P026,1,11800,0,Tarjeta
+V00522,2025-02-02,Bucaramanga,App,C0354,P025,1,12400,0.1,Tarjeta
+V00523,2025-02-02,Cali,App,C1425,P056,2,6900,0,Billetera digital
+V00524,02/02/2025,MEDELLIN,Web,C0108,P034,1,5900,0.1,Transferencia
+V00525,2025-02-02,Bogotá,App,C0179,P010,3,3200,0.05,Billetera digital
+V00526,2025-02-02,Bogotá,Tienda,C0193,P021,1,2500,0,Efectivo
+V00527,2025-02-02,Bogotá,App,C0819,P038,2,9600,0,Transferencia
+V00528,2025-02-02,Bogotá,Web,C0039,P053,1,12900,0.15,Tarjeta
+V00529,2025-02-02,Cali,App,C0598,P028,2,2900,0.15,Billetera digital
+V00530,2025-02-02,Cali,Tienda,C0968,P003,3,6800,0,Efectivo
+V00531,2025-02-02,Cartagena,App,C0015,P045,3,8400,0.15,Billetera digital
+V00532,2025-02-02,Barranquilla,Tienda,C0005,P026,2,11800,0,Tarjeta
+V00533,2025-02-03,Medellín,App,C0271,P005,2,4600,0,Tarjeta
+V00534,2025-02-03,Bogotá,TIENDA,C0157,P039,1,10900,0,Efectivo
+V00535,2025-02-03,Cartagena,Tienda,C1253,P021,4,2500,0,Efectivo
+V00536,2025-02-03,B/manga,Tienda,,P023,1,17900,0,Billetera digital
+V00537,2025-02-03,Medellín,Tienda,C0278,P028,2,2900,0,Tarjeta
+V00538,2025-02-03,Medellín,Tienda,C0239,P002,5,3900,0,Tarjeta
+V00539,03/02/2025,Bogotá,Tienda,,P024,1,$13.900,0,Efectivo
+V00540,2025-02-03,Medellín,Web,C0020,P015,2,6400,0.1,Tarjeta
+V00541,2025-02-03,Bogotá,Web,C1080,P016,-2,3100,0,Tarjeta
+V00542,2025-02-03,Barranquilla,Tienda,,P006,4,1900,0,Efectivo
+V00543,2025-02-04,Cali,Tienda,C0447,P011,2,16900,0,Billetera digital
+V00543,2025-02-04,Cali,Tienda,C0447,P011,2,16900,0,Billetera digital
+V00544,2025-02-04,Medellín,Tienda,,P051,2,18700,0,Billetera digital
+V00545,2025-02-04,Bogotá,Web,C0835,P020,3,7400,0,Transferencia
+V00546,2025-02-04,Bogotá,Tienda,C0003,P007,3,3400,0,Efectivo
+V00547,2025-02-04,Bogotá,App,C0480,P049,1,32900,0,Tarjeta
+V00548,2025-02-04,Medellín,App,C0205,P018,3,4300,0,Billetera digital
+V00549,04/02/2025,Medellín,App,C0040,P048,1,16400,0,Tarjeta
+V00550,2025-02-04,Cali,App,C0238,P010,1,3200,0.05,Billetera digital
+V00551,2025-02-04,Bucaramanga,Web,C0439,P047,6,4800,0,Transferencia
+V00552,2025-02-04,Medellín,Web,C0635,P026,1,11800,0,Transferencia
+V00553,2025-02-04,Medellín,Tienda,C0031,P009,1,6900,0,Efectivo
+V00554,2025-02-04,bucaramanga,App,C1153,P001,2,4900,0,Tarjeta
+V00555,2025-02-04,Cali,App,C0972,P011,1,16900,0.1,Billetera digital
+V00556,2025-02-04,Barranquilla,Tienda,C0190,P024,1,13900,0,Efectivo
+V00557,2025-02-04,Bogotá,Tienda,,P047,2,$4.800,0,Efectivo
+V00558,2025-02-04,Medellín,App,C0136,P012,3,7500,0,Tarjeta
+V00559,2025-02-05,Medellin,Tienda,C0050,P018,4,4300,0,Tarjeta
+V00560,2025-02-05,Medellín,Tienda,C0066,P004,1,11900,0,Tarjeta
+V00561,2025-02-05,Bucaramanga,Tienda,,P025,2,12400,0.1,Efectivo
+V00562,2025-02-05,Medellín,App,C1393,P025,1,12400,0.05,Tarjeta
+V00563,2025-02-05,Bucaramanga,Tienda,C0046,P031,2,3900,0,Tarjeta
+V00564,2025-02-05,Bogotá,App,C0284,P036,2,4100,0.15,Tarjeta
+V00565,2025-02-05,Bucaramanga,Tienda,C0112,P012,1,7500,,Tarjeta
+V00566,2025-02-05,Bucaramanga,Tienda,,P006,3,1900,0,Billetera digital
+V00567,2025-02-05,Cali,Web,C0148,P023,1,17900,0.05,Transferencia
+V00568,2025-02-05,Cali,TIENDA,C0077,P038,4,9600,0,Efectivo
+V00568,2025-02-05,Cali,TIENDA,C0077,P038,4,9600,0,Efectivo
+V00569,2025-02-05,Bucaramanga,App,C0577,P035,2,7800,0.05,Billetera digital
+V00570,2025-02-06,Cartagena,Web,C0734,P018,3,4300,0,Billetera digital
+V00571,2025-02-06,Bucaramanga,Tienda,C0030,P002,4,3900,0,Tarjeta
+V00572,2025-02-06,Bucaramanga,Tienda,C0799,P012,1,7500,0,Efectivo
+V00573,2025-02-06,Barranquilla,Tienda,C0141,P018,2,4300,0,Tarjeta
+V00574,2025-02-06,Bucaramanga,Tienda,C0049,P026,1,11800,0,Tarjeta
+V00575,2025-02-06,Bogotá,tienda,C0209,P002,4,3900,0.05,Tarjeta
+V00576,2025-02-06,Cali,Tienda,C1269,P021,6,2500,0,Tarjeta
+V00577,2025-02-06,Bogotá,App,C0215,P012,3,7500,0,Tarjeta
+V00578,2025-02-06,Bogotá,Web,C0471,P032,1,2800,0,Transferencia
+V00579,2025-02-06,Bogotá,Tienda,,P010,1,3200,0,Billetera digital
+V00580,2025-02-06,Cali,Tienda,C0235,P021,2,2500,0,Efectivo
+V00581,2025-02-06,Barranquilla,Tienda,C0276,P003,2,6800,0,Efectivo
+V00582,2025-02-06,Bogotá,App,C1383,P017,2,4900,0.05,Transferencia
+V00583,2025-02-06,Medellín,Tienda,,P021,5,2500,0,Tarjeta
+V00584,2025-02-06,Medellín,Tienda,,P007,6,3400,0,Efectivo
+V00585,2025-02-06,Bogotá,Tienda,C0128,P034,2,5900,,Efectivo
+V00586,2025-02-06,Bogotá,Tienda,C0004,P019,-3,8200,0,Efectivo
+V00587,2025-02-06,Cali,Tienda,,P003,6,6800,0.1,Tarjeta
+V00588,2025-02-07,Bogotá,Tienda,C0319,P033,1,14500,0,Tarjeta
+V00589,2025-02-07,Barranquilla,Web,C0867,P058,2,24900,0,Tarjeta
+V00590,2025-02-07,Bogotá,Web,C1129,P007,1,3400,0,Tarjeta
+V00591,07/02/2025,Bucaramanga,Web,C0445,P030,1,3300,0.05,Tarjeta
+V00592,2025-02-07,Barranquilla,Web,C1477,P010,1,3200,0.1,Billetera digital
+V00593,2025-02-07,Cali,Tienda,C0279,P044,1,6300,0.05,Tarjeta
+V00594,2025-02-07,Cali,Tienda,C0083,P023,2,17900,,Tarjeta
+V00595,2025-02-07,Bogotá,Tienda,C0116,P002,2,3900,0,Billetera digital
+V00596,2025-02-07,Bogotá,Web,C0811,P013,3,1800,0,Tarjeta
+V00597,2025-02-07,Bogotá D.C.,App,C1420,P020,3,7400,0.15,Billetera digital
+V00598,2025-02-07,Medellín,App,C0184,P024,2,13900,0.1,Billetera digital
+V00599,2025-02-07,cali,Tienda,C0085,P030,6,3300,0,Billetera digital
+V00600,2025-02-07,Bogotá,Web,C0008,P011,1,$16.900,0,Transferencia
+V00601,2025-02-07,Barranquilla,App,C0041,P021,1,2500,0,Tarjeta
+V00602,2025-02-07,Bucaramanga,App,C0696,P051,1,18700,0,Billetera digital
+V00603,2025-02-08,Medellín,Tienda,C0449,P006,2,1900,0.05,Efectivo
+V00604,2025-02-08,Bogotá,Tienda,,P056,3,6900,0,Tarjeta
+V00605,2025-02-08,Bogotá,Tienda,C0144,P059,1,59900,0,Tarjeta
+V00606,2025-02-08,Bogotá,Tienda,C0462,P011,1,16900,0,Efectivo
+V00607,2025-02-08,Medellín,Tienda,,P002,3,$3.900,0,Tarjeta
+V00608,2025-02-08,Bogotá,Web,C0012,P030,4,3300,0.15,Transferencia
+V00609,2025-02-08,Medellín,Web,C0004,P032,1,2800,0,Billetera digital
+V00610,2025-02-08,Medellín,Tienda,C0185,P029,1,4200,0,Efectivo
+V00611,2025-02-08,Cartagena,App,C0021,P002,1,3900,0.1,Tarjeta
+V00612,2025-02-08,Cartagena,Tienda,C0114,P003,5,6800,0,Efectivo
+V00613,2025-02-09,Cartagena,Tienda,C0037,P013,1,1800,0,Billetera digital
+V00614,2025-02-09,Bogotá,Tienda,,P014,2,5200,0,Efectivo
+V00615,2025-02-09,Barranquilla,Tienda,C0038,P033,1,14500,0,Efectivo
+V00616,2025-02-09,barranquilla,App,C0002,P007,3,$3.400,,Billetera digital
+V00617,2025-02-09,Medellín,Tienda,C1208,P003,2,6800,0,Tarjeta
+V00618,2025-02-09,Medellín,Tienda,C1121,P010,4,3200,0.05,Billetera digital
+V00619,2025-02-09,Barranquilla,Web,C0036,P028,3,2900,0.1,Tarjeta
+V00620,2025-02-09,Bogotá,App,C0247,P013,4,1800,0,Billetera digital
+V00621,2025-02-09,Cali,Tienda,C0462,P029,5,4200,0,Tarjeta
+V00622,2025-02-09,Cartagena,TIENDA,,P025,2,12400,0,Efectivo
+V00623,2025-02-09,Bucaramanga,Web,C0504,P001,2,4900,0,Transferencia
+V00624,2025-02-09,Cali,App,C0926,P010,4,3200,0.1,Transferencia
+V00625,2025-02-09,Cali,App,C0191,P050,1,7900,0.05,Billetera digital
+V00626,2025-02-09,Bogotá,Tienda,C0221,P030,2,3300,0,Efectivo
+V00627,2025-02-09,Bogotá,App,C0202,P020,2,7400,0.15,Billetera digital
+V00628,2025-02-09,Bogotá,App,C1298,P032,1,2800,0,Billetera digital
+V00629,2025-02-09,,App,C0565,P040,1,3700,0,Tarjeta
+V00630,2025-02-10,Barranquilla,Tienda,C0367,P030,6,3300,0,Tarjeta
+V00631,2025-02-10,Barranquilla,App,C0052,P003,2,6800,0.05,Billetera digital
+V00632,2025-02-10,Cali,Web,C0064,P050,3,7900,0,Billetera digital
+V00633,2025-02-10,Bogotá,App,C0557,P028,2,2900,0,Billetera digital
+V00634,2025-02-10,Bogotá,Web,C0205,P001,1,4900,0,Tarjeta
+V00635,2025-02-10,Bogotá,App,C0090,P016,1,3100,0.05,Billetera digital
+V00636,2025-02-10,Bogotá,App,C0133,P003,2,6800,0.1,Billetera digital
+V00637,2025-02-10,Bogotá,Tienda,C0218,P011,1,16900,0,Billetera digital
+V00638,2025-02-10,Barranquilla,Tienda,,P026,1,$11.800,0,Tarjeta
+V00639,2025-02-10,Medellín,Tienda,,P003,6,6800,0,Efectivo
+V00640,2025-02-10,Medellín,Tienda,,P024,1,13900,0,Efectivo
+V00641,2025-02-10,Bogotá,Tienda,,P035,2,7800,0,Tarjeta
+V00642,2025-02-11,Bogotá,Tienda,,P005,4,4600,0,Efectivo
+V00643,2025-02-11,Medellín,Tienda,C0077,P027,1,3600,0,Billetera digital
+V00644,2025-02-11,Bogotá,APP,C0027,P018,4,4300,0,Billetera digital
+V00645,2025-02-11,Barranquilla ,Web,C1416,P028,6,2900,0.05,Tarjeta
+V00646,2025-02-11,Medellín,Tienda,,P018,1,4300,0,Efectivo
+V00647,2025-02-11,Medellín,App,C0180,P029,3,4200,0,Tarjeta
+V00648,2025-02-11,Bogotá,App,C0077,P027,1,3600,0.05,Tarjeta
+V00649,11/02/2025,Barranquilla,Tienda,,P010,1,3200,0,Efectivo
+V00650,2025-02-11,Bogotá,Tienda,C0253,P043,1,15900,0.1,Tarjeta
+V00651,2025-02-11,Cali,Tienda,C0007,P018,3,4300,0.1,Tarjeta
+V00652,2025-02-11,Medellín,Tienda,,P029,3,4200,0,Billetera digital
+V00653,2025-02-11,Barranquilla,Web,C1101,P038,4,$9.600,0.05,Tarjeta
+V00654,2025-02-11,Barranquilla,Web,C0023,P018,4,4300,0,Transferencia
+V00655,2025-02-11,Barranquilla,Tienda,C0020,P027,6,3600,0,Efectivo
+V00656,2025-02-11,Bogotá,App,C1064,P054,1,5400,0,Tarjeta
+V00657,2025-02-11,Cali,Web,C0365,P003,3,6800,0.05,Billetera digital
+V00658,2025-02-11,Cali,App,C0560,P025,1,12400,0.05,Billetera digital
+V00659,2025-02-11,Bogotá,Web,C0539,P015,1,6400,0,Tarjeta
+V00660,2025-02-11,Bogotá,Tienda,,P045,1,8400,0,Tarjeta
+V00661,2025-02-11,Medellín,Web,C1107,P009,3,6900,0,Tarjeta
+V00662,2025-02-11,Cali,Tienda,C0687,P005,3,4600,0,Tarjeta
+V00663,2025-02-11,Bucaramanga,Web,C0058,P003,2,6800,0.05,Tarjeta
+V00664,2025-02-11,Bogotá,Web,C1301,P028,2,2900,0,Tarjeta
+V00665,11/02/2025,Medellín,Tienda,,P010,3,3200,0,Billetera digital
+V00666,2025-02-11,Medellín,App,C0022,P033,1,14500,0.05,Billetera digital
+V00667,2025-02-11,Bucaramanga,Tienda,,P048,1,16400,0,Tarjeta
+V00668,2025-02-12,Bogotá,Tienda,C0747,P011,1,16900,0,Billetera digital
+V00669,2025-02-12,Cartagena,Tienda,C0503,P002,4,3900,0,Tarjeta
+V00670,2025-02-12,Cali,Tienda,C0375,P016,3,3100,0,Tarjeta
+V00671,2025-02-12,Bogotá,Tienda,C0389,P025,1,12400,0,Tarjeta
+V00672,2025-02-12,Bogotá,Tienda,C0006,P008,4,3800,0,Tarjeta
+V00673,2025-02-12,Barranquilla,Tienda,,P025,1,12400,0,
+V00674,2025-02-12,Cali,Tienda,,P001,1,4900,0,Tarjeta
+V00675,2025-02-12,Medellín,Tienda,,P042,3,8900,0,Tarjeta
+V00676,2025-02-12,Barranquilla,Tienda,,P027,2,3600,0,Tarjeta
+V00677,2025-02-12,Bogotá,App,C0022,P003,1,6800,0,Tarjeta
+V00678,2025-02-12,Bogotá,Tienda,,P002,2,$3.900,0,Billetera digital
+V00679,2025-02-12,Bogotá,App,C0298,P022,1,2100,0,Tarjeta
+V00680,2025-02-12,Bogotá,Web,C1327,P011,3,16900,0,Transferencia
+V00681,12/02/2025,Bogotá,Tienda,C0266,P011,2,16900,0,Efectivo
+V00682,2025-02-12,Medellin,App,C0151,P036,2,4100,0,Billetera digital
+V00683,2025-02-13,Bogotá,Tienda,,P008,3,3800,0,Tarjeta
+V00684,2025-02-13,Bogotá,App,C0202,P033,1,14500,0.05,Billetera digital
+V00685,2025-02-13,Bogotá,Tienda,C0127,P046,1,13200,0.1,Billetera digital
+V00686,2025-02-13,Medellín,App,C0043,P044,1,6300,0,Billetera digital
+V00687,2025-02-13,Cali,App,C1017,P031,2,3900,0.1,Billetera digital
+V00688,2025-02-13,Bogotá,Tienda,C0026,P037,1,21900,0,Tarjeta
+V00689,2025-02-13,Bogotá,Tienda,C1319,P037,1,21900,0,Tarjeta
+V00690,2025-02-13,Cartagena,App,C0002,P034,4,5900,0,Transferencia
+V00691,2025-02-13,Barranquilla,App,C0043,P004,1,11900,0,Tarjeta
+V00692,2025-02-13,Medellin,Tienda,,P029,3,4200,0,Efectivo
+V00693,2025-02-13,Bogotá,Web,C0695,P001,1,4900,0.15,Tarjeta
+V00694,2025-02-14,Bogotá,App,C0084,P005,3,4600,,Billetera digital
+V00695,2025-02-14,Medellín,Tienda,,P041,3,6200,0,Tarjeta
+V00696,2025-02-14,Barranquilla,Web,C0697,P025,2,12400,0,Tarjeta
+V00697,2025-02-14,Bogotá,App,C1466,P039,1,10900,0.1,Tarjeta
+V00698,2025-02-14,Medellín,Web,C0728,P011,2,16900,0,Tarjeta
+V00699,2025-02-14,Cartagena,Tienda,,P038,2,9600,0,Efectivo
+V00700,2025-02-14,Barranquilla,Web,C0186,P043,1,15900,0.15,Tarjeta
+V00701,2025-02-14,Bogotá D.C.,Web,C0100,P003,5,6800,,Tarjeta
+V00702,2025-02-14,Bogotá,Web,C1119,P009,1,6900,0.1,Tarjeta
+V00703,2025-02-14,Bogotá,Web,C0045,P017,3,4900,0.05,Tarjeta
+V00704,2025-02-14,bogota,Tienda,,P019,1,8200,0,Tarjeta
+V00705,2025-02-15,Bogotá,Tienda,C0667,P030,2,3300,0,Tarjeta
+V00706,2025-02-15,Cali,App,C0002,P013,6,1800,0,Billetera digital
+V00707,2025-02-15,Bogotá,Tienda,C0203,P039,1,10900,0,Tarjeta
+V00708,2025-02-15,Bogotá,APP,C0048,P007,3,$3.400,0.05,Billetera digital
+V00709,2025-02-15,Bogotá,tienda,C0798,P026,1,11800,0,Billetera digital
+V00710,15/02/2025,Cartagena,Tienda,C0013,P055,-2,4300,0,Efectivo
+V00711,15/02/2025,Medellín,App,C0260,P023,1,17900,0,Tarjeta
+V00712,2025-02-15,Barranquilla,App,C0041,P042,2,8900,0,Billetera digital
+V00713,2025-02-15,Medellín,App,C1233,P044,2,6300,0,Billetera digital
+V00714,2025-02-15,Bogotá,App,C0210,P016,1,3100,0.1,Billetera digital
+V00715,2025-02-15,Cartagena,Web,C0007,P040,6,3700,0,Tarjeta
+V00716,2025-02-15,Bogotá,Web,C0678,P046,1,13200,0.05,Tarjeta
+V00717,2025-02-15,Bogotá,Web,C0073,P031,4,3900,0.15,Tarjeta
+V00718,2025-02-16,bucaramanga,Tienda,,P044,2,6300,0,Tarjeta
+V00719,2025-02-16,Cali,Web,C1498,P008,2,3800,0,Tarjeta
+V00720,2025-02-16,Bucaramanga,Web,C0010,P009,2,6900,0,Tarjeta
+V00721,16/02/2025,Bogotá,App,C0394,P030,6,3300,0,Tarjeta
+V00722,2025-02-16,Medellín,Tienda,C0493,P033,2,14500,0,Efectivo
+V00723,2025-02-16,Medellín,Tienda,C0005,P006,2,1900,0,Billetera digital
+V00724,2025-02-16,Cartagena,Tienda,C1101,P025,1,12400,0.1,Tarjeta
+V00725,2025-02-16,Bogotá,App,C0004,P024,1,13900,0,
+V00726,2025-02-16,Medellín,App,C0058,P006,6,1900,0.05,Billetera digital
+V00727,2025-02-16,Bucaramanga,Tienda,C1241,P017,1,4900,0,Tarjeta
+V00728,2025-02-16,Medellín,Web,C0878,P031,6,3900,0,Transferencia
+V00729,2025-02-16,Bogotá,App,C0319,P016,1,3100,0,Tarjeta
+V00730,2025-02-16,Medellín,Tienda,,P040,2,3700,0,Efectivo
+V00731,2025-02-16,Medellín,App,C0002,P019,4,8200,0.1,Tarjeta
+V00732,2025-02-17,Bucaramanga,App,C0488,P003,4,6800,0.05,Tarjeta
+V00733,2025-02-17,Barranquilla,Tienda,,P043,1,15900,0,Efectivo
+V00734,2025-02-17,Cartagena,Tienda,C1398,P019,2,8200,0,Tarjeta
+V00735,2025-02-17,Bogotá,App,C0129,P049,1,32900,0,Billetera digital
+V00736,2025-02-17,Cali,Tienda,C1386,P024,1,13900,0.1,Efectivo
+V00737,2025-02-17,Medellín,Tienda,C1186,P017,1,4900,0,Efectivo
+V00738,2025-02-17,Medellín,Web,C0585,P040,1,3700,0.05,Tarjeta
+V00739,17/02/2025,Bogotá,Web,C0368,P006,2,1900,0,Tarjeta
+V00740,2025-02-17,Bogotá,Web,C0005,P036,2,4100,0.05,Transferencia
+V00741,2025-02-17,Bucaramanga,App,C0081,P001,2,4900,0.05,Tarjeta
+V00742,2025-02-18,Bogotá,Tienda,C0469,P056,5,6900,0,Tarjeta
+V00743,2025-02-18,Medellín,Tienda,,P046,1,13200,0.1,Billetera digital
+V00744,2025-02-18,Bogotá,Tienda,C0696,P023,1,17900,0.05,Tarjeta
+V00745,2025-02-18,MEDELLIN,Web,C0202,P028,2,2900,0.15,Tarjeta
+V00746,2025-02-18,Medellín,Tienda,C1022,P039,2,10900,0.1,Efectivo
+V00747,2025-02-18,Bogotá,App,C0017,P047,5,4800,0.1,Billetera digital
+V00748,2025-02-18,Barranquilla,Tienda,,P003,2,6800,0,Efectivo
+V00749,2025-02-18,Bucaramanga,App,C0088,P026,1,11800,0.05,Billetera digital
+V00750,2025-02-18,Bogotá,Tienda,C0069,P032,2,2800,0,Tarjeta
+V00751,2025-02-18,Bogotá,App,C0040,P028,6,2900,0,Transferencia
+V00752,2025-02-18,Medellín,App,C1206,P057,2,2500,0.05,Billetera digital
+V00753,2025-02-18,Bogotá,Web,C0372,P004,1,11900,0.1,Transferencia
+V00754,2025-02-18,Bogotá,Web,C1007,P031,4,3900,0,Tarjeta
+V00755,2025-02-18,Barranquilla,Tienda,C0040,P009,2,6900,0,Efectivo
+V00756,2025-02-18,Cartagena,Tienda,,P016,2,3100,0.05,Tarjeta
+V00757,2025-02-18,Bogotá,Tienda,C0563,P023,1,17900,0,Billetera digital
+V00758,2025-02-19,Barranquilla,App,C0067,P019,2,8200,0,Tarjeta
+V00759,2025-02-19,bogota,Tienda,C0837,P025,1,12400,0,Efectivo
+V00760,2025-02-19,Barranquilla,Web,C0759,P035,3,7800,0,Tarjeta
+V00761,2025-02-19,Cartagena,Tienda,,P047,1,4800,0,Efectivo
+V00762,2025-02-19,Bucaramanga,Web,C0002,P030,1,3300,0,Tarjeta
+V00763,2025-02-19,Barranquilla,App,C0329,P010,1,3200,0,Billetera digital
+V00764,2025-02-19,Bucaramanga,App,C1012,P021,1,2500,0.05,Billetera digital
+V00765,2025-02-19,Bogotá,Web,C0091,P026,3,11800,0,Tarjeta
+V00766,2025-02-19,Barranquilla,Web,C0366,P034,1,5900,0.15,Tarjeta
+V00767,2025-02-19,Medellín,Web,C1366,P023,1,17900,0,Transferencia
+V00768,2025-02-19,Bogotá,Tienda,C0276,P019,1,8200,0,Billetera digital
+V00769,2025-02-19,Medellín,Web,C0005,P025,1,12400,0.15,Transferencia
+V00770,2025-02-19,Bucaramanga,Web,C0342,P060,1,39900,0,Tarjeta
+V00771,19/02/2025,Bogotá,Web,C1291,P015,2,6400,0.15,Billetera digital
+V00772,2025-02-19,Bogotá,App,C0230,P012,6,7500,0,Billetera digital
+V00773,2025-02-19,Bogotá,App,C1329,P040,-1,3700,0,Billetera digital
+V00774,2025-02-19,Bogota,Web,C0020,P004,1,11900,0,Transferencia
+V00775,2025-02-19,Cali,Tienda,C0044,P005,1,4600,0.05,Efectivo
+V00776,2025-02-20,Bogotá,App,C1055,P028,1,$2.900,0,Transferencia
+V00777,2025-02-20,Cartagena,Tienda,,P014,2,5200,0,Efectivo
+V00778,2025-02-20,Cali,Web,C0629,P001,5,4900,0,Billetera digital
+V00779,2025-02-20,Bogotá,Tienda,,P054,6,5400,0,Tarjeta
+V00780,2025-02-20,Medellín,Tienda,C1063,P027,2,3600,0,Efectivo
+V00781,2025-02-20,Barranquilla,Tienda,C0047,P044,2,6300,0,Tarjeta
+V00782,2025-02-20,Barranquilla,Tienda,C1491,P014,2,5200,0,Efectivo
+V00783,2025-02-20,Bogotá,App,C0006,P015,2,6400,0.05,Tarjeta
+V00784,2025-02-20,Barranquilla,WEB,C0149,P015,4,6400,0,Tarjeta
+V00785,2025-02-20,Medellín,App,C0255,P038,1,9600,0,Tarjeta
+V00786,2025-02-20,Medellín,Tienda,,P013,1,1800,0,Tarjeta
+V00786,2025-02-20,Medellín,Tienda,,P013,1,1800,0,Tarjeta
+V00787,2025-02-20,Bogotá,App,C0001,P038,2,9600,0.05,Transferencia
+V00788,2025-02-20,Bucaramanga,Tienda,C0045,P036,1,4100,0,Billetera digital
+V00789,2025-02-20,Bogotá,App,C0902,P035,4,7800,0.05,Tarjeta
+V00790,2025-02-20,Medellín,Tienda,,P057,2,2500,0.05,Tarjeta
+V00791,2025-02-20,Bogotá,App,C0006,P010,4,3200,0.15,Transferencia
+V00792,2025-02-20,Bogotá,Tienda,C0389,P045,2,8400,0,Tarjeta
+V00793,2025-02-20,Medellín,Tienda,,P018,4,4300,0,Efectivo
+V00794,2025-02-21,Bucaramanga,Web,C0704,P019,1,8200,0,Billetera digital
+V00795,2025-02-21,Barranquilla,App,C0007,P031,1,$3.900,0.15,Billetera digital
+V00796,2025-02-21,Bogotá,Tienda,,P010,3,3200,0,Efectivo
+V00797,2025-02-21,Barranquilla,Web,C0379,P030,3,3300,0,Tarjeta
+V00798,2025-02-21,Bogotá,App,C0099,P024,1,13900,0.15,Billetera digital
+V00799,2025-02-21,Barranquilla,Tienda,C0914,P026,1,11800,0,Tarjeta
+V00800,2025-02-21,Bogotá,App,C1311,P045,5,8400,0.1,Billetera digital
+V00801,2025-02-21,Cali,Tienda,,P041,1,6200,0,Tarjeta
+V00802,2025-02-21,Bogotá,Web,C0005,P011,-2,16900,0.1,Tarjeta
+V00803,2025-02-21,Barranquilla,App,C0415,P032,1,2800,0,Billetera digital
+V00804,2025-02-21,Cali,App,C0198,P008,4,3800,0,Tarjeta
+V00805,2025-02-21,Cali,Tienda,,P031,1,3900,0,Efectivo
+V00806,2025-02-21,Bogotá,Tienda,C1494,P036,4,4100,0,Tarjeta
+V00807,2025-02-21,Bogotá,App,C0264,P007,4,3400,0.1,Billetera digital
+V00808,2025-02-21,Medellín,App,C0746,P004,1,11900,0.05,Tarjeta
+V00809,2025-02-21,Medellín,Tienda,,P047,-3,4800,0,Efectivo
+V00810,2025-02-21,Bogotá,App,C0165,P011,1,16900,0.05,Tarjeta
+V00811,2025-02-21,Medellín,App,C0925,P056,2,6900,0,Billetera digital
+V00812,2025-02-21,Medellín,App,C1265,P059,1,59900,0.05,Billetera digital
+V00813,2025-02-21,Bucaramanga,Tienda,,P031,5,3900,0,Tarjeta
+V00814,2025-02-22,Bogotá,Tienda,C1129,P042,5,8900,0.1,Efectivo
+V00815,2025-02-22,Bogotá,Tienda,C0496,P043,1,15900,0.1,Billetera digital
+V00816,2025-02-22,Medellín,App,C1199,P023,1,17900,0.1,Billetera digital
+V00817,2025-02-22,Cali,Web,C0389,P023,1,17900,0.1,Transferencia
+V00818,2025-02-22,Medellín,Tienda,C0224,P020,2,7400,0,Tarjeta
+V00819,2025-02-22,Barranquilla,Tienda,,P004,1,11900,0,Efectivo
+V00820,2025-02-22,Bucaramanga,web ,C1117,P037,1,21900,0.05,Tarjeta
+V00821,2025-02-22,Bucaramanga,Web,C0360,P040,2,3700,0.15,Tarjeta
+V00822,2025-02-22,Cartagena,Web,C0170,P006,3,1900,0.1,Transferencia
+V00823,2025-02-22,Medellín,Web,C0455,P034,2,5900,0.1,Tarjeta
+V00824,2025-02-22,Bogotá,App,C0674,P004,1,11900,0.05,Billetera digital
+V00825,2025-02-22,Barranquilla,App,C1495,P043,1,15900,0,Tarjeta
+V00826,2025-02-22,Cartagena,Tienda,C0010,P025,1,12400,0,Tarjeta
+V00827,2025-02-22,Bogotá,Web,C0537,P016,3,3100,0.15,Billetera digital
+V00828,2025-02-22,Cali,App,C0028,P058,1,24900,0,Billetera digital
+V00829,2025-02-22,Bogotá,Web,C0656,P046,1,13200,0.15,Tarjeta
+V00830,2025-02-22,Barranquilla,Tienda,C0077,P038,5,9600,0,Tarjeta
+V00831,2025-02-22,Bogotá,Web,C0095,P055,3,4300,0,Tarjeta
+V00832,2025-02-22,Medellín,Tienda,C0032,P051,1,18700,0,Tarjeta
+V00833,2025-02-22,Barranquilla,Tienda,,P026,1,11800,0,Efectivo
+V00834,2025-02-22,Cali,App,C0107,P058,2,24900,0,Billetera digital
+V00835,2025-02-22,Bogotá,Web,C0003,P006,3,1900,0.05,Tarjeta
+V00836,2025-02-22,Barranquilla,App,C0656,P037,1,21900,0,Billetera digital
+V00837,2025-02-22,Bucaramanga,Tienda,,P011,1,16900,0,Efectivo
+V00838,2025-02-22,Bucaramanga,Tienda,C0395,P004,2,11900,0,Efectivo
+V00839,2025-02-23,Bogotá,Tienda,,P057,4,2500,0,Billetera digital
+V00840,2025-02-23,Barranquilla,TIENDA,C0072,P038,2,9600,0,Billetera digital
+V00841,23/02/2025,barranquilla,Tienda,C0469,P032,3,2800,0.05,Tarjeta
+V00842,2025-02-23,Medellín,Tienda,,P042,1,8900,0,Billetera digital
+V00843,2025-02-23,Medellín,App,C0918,P030,3,3300,0.15,Billetera digital
+V00844,2025-02-23,Cali,Tienda,C0037,P009,3,6900,0,Efectivo
+V00845,2025-02-23,Medellín,App,C1304,P048,1,16400,0.1,Billetera digital
+V00846,2025-02-23,Cali,Web,C0005,P006,1,1900,0,Tarjeta
+V00847,2025-02-23,Bogotá,Web,C0273,P030,3,3300,0.1,Tarjeta
+V00848,2025-02-23,Bucaramanga,Web,C0524,P016,1,3100,0.15,Tarjeta
+V00849,2025-02-23,Medellín,App,C1336,P045,3,8400,0.15,Billetera digital
+V00850,2025-02-23,Medellín,Tienda,C0365,P028,4,2900,0,Tarjeta
+V00851,2025-02-23,Bucaramanga,app,C0483,P017,5,4900,0,Tarjeta
+V00852,2025-02-23,Cali,App,C0494,P046,2,13200,0.05,Tarjeta
+V00853,2025-02-24,Medellín,Tienda,C0077,P014,5,5200,0,Efectivo
+V00854,2025-02-24,Barranquilla,App,C0685,P037,3,$21.900,0,Transferencia
+V00855,2025-02-24,Cartagena,Web,C0124,P009,5,6900,0.05,Tarjeta
+V00856,2025-02-24,Cali,Tienda,C0468,P034,5,5900,0.05,Tarjeta
+V00857,2025-02-24, Bogotá,WEB,C0281,P003,1,6800,0.05,Transferencia
+V00858,2025-02-24,Bogotá,Tienda,,P019,2,8200,0.05,Efectivo
+V00859,2025-02-24,Bogotá,Tienda,,P010,2,3200,0,Tarjeta
+V00860,2025-02-24,Medellín,Tienda,C0291,P018,6,4300,0,Billetera digital
+V00861,2025-02-24,Bogotá,App,C0348,P019,6,8200,0,Tarjeta
+V00862,2025-02-24,Bogotá,tienda,,P019,2,8200,0,Billetera digital
+V00863,2025-02-24,Barranquilla,Web,C0071,P028,2,2900,0,Transferencia
+V00864,2025-02-24,Bogotá,Web,C1313,P027,1,3600,0.05,Tarjeta
+V00865,2025-02-24,Bucaramanga,Tienda,,P011,1,16900,0,Efectivo
+V00866,2025-02-24,Bogotá,Tienda,C0187,P030,2,3300,0,Efectivo
+V00867,2025-02-24,Barranquilla,Web,C0002,P017,3,4900,0.1,
+V00868,2025-02-24,Medellín,Tienda,C0666,P004,1,11900,0,Tarjeta
+V00869,2025-02-24,Bogotá,Web,C0001,P016,1,3100,0,Transferencia
+V00870,2025-02-24,Medellín,Tienda,C1011,P037,1,21900,0,Efectivo
+V00871,2025-02-25,Medellín,Tienda,,P004,0,11900,0.05,Tarjeta
+V00872,2025-02-25,Bucaramanga,Tienda,,P052,2,7900,0,Efectivo
+V00873,2025-02-25,Bogotá,Tienda,,P012,-1,7500,0,Efectivo
+V00874,2025-02-25,Cali,Web,C0744,P016,3,3100,0.1,Tarjeta
+V00875,2025-02-25,Bogotá,App,C0969,P011,2,$16.900,0.05,Tarjeta
+V00876,2025-02-25,Bogotá,App,C0306,P048,1,16400,0.05,Tarjeta
+V00877,2025-02-25, Bogotá,App,C0043,P026,1,11800,0.15,Billetera digital
+V00878,2025-02-25,Bogotá,App,C0653,P036,3,4100,0.1,Tarjeta
+V00879,25/02/2025,Bogotá,Tienda,C1404,P009,3,6900,0.1,Efectivo
+V00880,2025-02-25,Bogotá,Tienda,,P024,2,13900,0,Tarjeta
+V00881,2025-02-25,Medellín,Web,C0982,P031,6,3900,0.1,Transferencia
+V00882,2025-02-25,Cartagena,web ,C0294,P007,1,3400,0.15,Tarjeta
+V00883,2025-02-25,Barranquilla,Tienda,,P021,3,2500,0,Billetera digital
+V00884,2025-02-26,Bogotá,Tienda,C0013,P012,1,7500,0,Billetera digital
+V00885,2025-02-26,Bogotá,Tienda,C0585,P045,5,8400,0,Efectivo
+V00886,2025-02-26,Bogotá,Tienda,C0142,P004,1,11900,0,Efectivo
+V00887,2025-02-26,Bogotá,Tienda,C0311,P025,1,12400,0,Efectivo
+V00888,2025-02-26,Cali,Tienda,C0306,P004,1,11900,0.1,Efectivo
+V00889,2025-02-26,Bogotá,Tienda,C0096,P018,1,4300,0,Billetera digital
+V00890,2025-02-26,Medellín,Tienda,C0789,P011,1,16900,0,Billetera digital
+V00891,2025-02-26,Medellín,App,C0913,P049,1,32900,0,Billetera digital
+V00892,2025-02-26,Medellín,Tienda,,P020,1,7400,0,Efectivo
+V00893,2025-02-26,Bogotá,Web,C0021,P040,2,3700,0,Tarjeta
+V00894,2025-02-26,Barranquilla,Tienda,,P007,2,3400,0,Efectivo
+V00895,2025-02-26,Cali,Tienda,C0093,P012,3,7500,0,Billetera digital
+V00896,2025-02-26,Bucaramanga,Tienda,C0866,P003,1,6800,0,Billetera digital
+V00897,2025-02-27,Bucaramanga,Tienda,C0306,P042,2,8900,0,Tarjeta
+V00898,2025-02-27,Bucaramanga,Web,C0237,P038,2,9600,0,Tarjeta
+V00899,2025-02-27,Bogotá,Tienda,C0008,P019,4,8200,0,Billetera digital
+V00900,2025-02-27,Bucaramanga,Tienda,,P033,1,14500,0,Tarjeta
+V00901,2025-02-27,Cali,Tienda,,P033,1,14500,0,Billetera digital
+V00902,2025-02-27,Bucaramanga,Tienda,C0022,P047,1,4800,0,Tarjeta
+V00903,2025-02-27,Cali,Web,C0993,P053,2,12900,0,Transferencia
+V00904,2025-02-27,Bogotá,App,C0121,P027,2,3600,0,Billetera digital
+V00905,2025-02-27,Bogotá,Tienda,,P001,1,4900,0,Efectivo
+V00906,2025-02-27,Barranquilla,tienda,C0053,P025,1,12400,0,Tarjeta
+V00907,2025-02-27,Bogotá,App,C0001,P014,2,5200,0,Transferencia
+V00908,2025-02-28,Cali ,Web,C0909,P024,1,13900,0,Tarjeta
+V00909,2025-02-28,Cali,Tienda,C0965,P009,1,6900,0.05,Efectivo
+V00910,2025-02-28,MEDELLIN,Tienda,C0004,P015,1,6400,0,Tarjeta
+V00911,2025-02-28,Cali,Tienda,C0565,P005,2,4600,0,Tarjeta
+V00912,2025-02-28,Medellín,Tienda,C0998,P021,-3,2500,0,Efectivo
+V00913,2025-02-28,Bogotá D.C.,Tienda,,P027,1,3600,0,Tarjeta
+V00914,2025-02-28,Cali,App,C0016,P051,1,18700,0,Transferencia
+V00915,2025-02-28,Cali,Tienda,,P017,3,4900,0,Tarjeta
+V00916,2025-02-28,Bogotá,Web,C1263,P013,3,1800,0.1,Tarjeta
+V00917,2025-02-28,Bucaramanga,Web,C0838,P029,3,4200,0,Tarjeta
+V00918,2025-02-28,Bogotá,App,C0891,P019,2,8200,0,Billetera digital
+V00919,2025-02-28,Cali,Tienda,C0193,P012,2,7500,0,Efectivo
+V00920,2025-02-28,Bogotá,Web,C1153,P032,1,2800,0,Tarjeta
+V00921,2025-02-28,Bogotá,Tienda,,P055,2,4300,0,Efectivo
+V00922,2025-02-28,Medellín,Tienda,C1085,P027,2,3600,0,Efectivo
+V00923,2025-02-28,Medellín,App,C0259,P011,1,16900,,Tarjeta
+V00924,2025-02-28,Medellín,Tienda,,P009,2,6900,0,Tarjeta
+V00925,2025-02-28,Bogotá,Web,C1002,P019,2,8200,0,Transferencia
+V00926,2025-02-28,Barranquilla,Web,C0628,P010,4,3200,0.1,Tarjeta
+V00927,2025-03-01,Bucaramanga,App,C0435,P020,3,7400,0,Billetera digital
+V00928,01/03/2025,Barranquilla,App,C0196,P023,1,17900,0,Tarjeta
+V00929,01/03/2025,bogota,App,C0673,P028,3,2900,0,Billetera digital
+V00930,2025-03-01,Bogotá,Tienda,C0050,P006,1,1900,0,Efectivo
+V00931,2025-03-01,Medellín,TIENDA,,P011,1,16900,0,Tarjeta
+V00932,2025-03-01,Cali,tienda,C0909,P015,2,6400,0.05,Tarjeta
+V00933,2025-03-01,Cali,Web,C0020,P017,2,4900,0,Tarjeta
+V00934,2025-03-01,Cartagena,Web,C0140,P042,4,8900,0,Billetera digital
+V00935,2025-03-01,Cartagena,Web,C0010,P048,1,16400,0.05,Transferencia
+V00936,2025-03-01,Medellín,Tienda,C0087,P030,1,3300,0,Efectivo
+V00937,2025-03-01,Bogotá,Web,C0611,P028,3,2900,0.1,Tarjeta
+V00938,2025-03-01,Medellín,Web,C0023,P007,1,3400,0,Tarjeta
+V00939,01/03/2025,Medellín,Tienda,C0136,P005,5,4600,0,Efectivo
+V00940,2025-03-01,Bogotá,Tienda,C0216,P027,1,3600,0,Efectivo
+V00941,2025-03-01,Bogotá,App,C0044,P016,4,3100,0,Billetera digital
+V00942,2025-03-01,Medellín,App,C1139,P016,2,3100,0.05,Billetera digital
+V00943,2025-03-01,Cartagena,Tienda,,P009,4,6900,0,Billetera digital
+V00944,2025-03-01,Bogotá,Tienda,C0001,P013,3,1800,0.05,Efectivo
+V00945,2025-03-01,Cartagena,Tienda,,P040,1,3700,0,Billetera digital
+V00946,2025-03-02,Bogotá,Tienda,C0069,P023,1,17900,0.05,Tarjeta
+V00947,2025-03-02,Bogotá,Web,C0013,P018,1,4300,0.1,Tarjeta
+V00948,2025-03-02,Cali,Web,C0004,P032,3,2800,0.05,Tarjeta
+V00949,2025-03-02,Cali,Web,C0024,P040,3,3700,0.1,Tarjeta
+V00950,2025-03-02,Bogota,Tienda,,P011,1,16900,,Efectivo
+V00951,2025-03-02,Bogotá,Tienda,,P018,3,4300,0,Tarjeta
+V00951,2025-03-02,Bogotá,Tienda,,P018,3,4300,0,Tarjeta
+V00952,2025-03-02,Bogotá,Tienda,C0117,P018,4,4300,0,Tarjeta
+V00953,2025-03-02,Bogotá,Web,C0993,P008,1,3800,0,Transferencia
+V00954,2025-03-02,Barranquilla,App,C0355,P035,1,7800,0,Billetera digital
+V00955,2025-03-02,Medellín,Tienda,C0297,P015,3,6400,0.05,Tarjeta
+V00956,2025-03-02,Barranquilla,Tienda,C0527,P025,1,12400,0,Efectivo
+V00957,2025-03-02,Bogotá,Tienda,C0200,P012,2,7500,0,Efectivo
+V00958,2025-03-02,Bogotá,App,C0059,P033,1,14500,,Tarjeta
+V00959,2025-03-02,Barranquilla,Tienda,C1132,P004,2,11900,0,Tarjeta
+V00960,2025-03-02,Bogotá,Tienda,,P010,4,3200,0,Efectivo
+V00961,2025-03-02,Cali,Web,C0220,P005,2,4600,0,Transferencia
+V00962,2025-03-02,Barranquilla,Tienda,C0566,P004,1,11900,0.05,Tarjeta
+V00963,2025-03-02,Medellín,Tienda,C1460,P005,2,4600,0,Tarjeta
+V00964,2025-03-02,Bogotá,Tienda,C0005,P024,1,13900,0,Tarjeta
+V00965,2025-03-02,Bogotá,App,C0786,P020,1,7400,0,Tarjeta
+V00966,2025-03-02,Medellín,App,C0518,P012,1,7500,0,Tarjeta
+V00967,2025-03-02,Bogotá,Tienda,C1328,P028,2,2900,0,Efectivo
+V00968,2025-03-02,Bogotá,Tienda,C0949,P020,4,7400,0,Tarjeta
+V00969,2025-03-02,Medellín,Tienda,,P006,5,1900,0.1,Tarjeta
+V00970,2025-03-02,Barranquilla,Tienda,,P058,1,24900,0,Billetera digital
+V00971,2025-03-02,Bogotá,Tienda,,P018,1,4300,0,Billetera digital
+V00972,2025-03-03,Barranquilla,Tienda,,P005,2,4600,0,Efectivo
+V00973,2025-03-03,Bogotá,Tienda,,P005,3,4600,0.05,Efectivo
+V00974,2025-03-03,Bogotá,Tienda,C0480,P030,1,3300,0.1,Efectivo
+V00974,2025-03-03,Bogotá,Tienda,C0480,P030,1,3300,0.1,Efectivo
+V00975,2025-03-03,Bogotá,Web,C0120,P012,3,7500,0.05,Billetera digital
+V00976,2025-03-03,Cali,Tienda,,P039,2,10900,0.05,Efectivo
+V00977,2025-03-03,Cali,App,C0156,P005,6,4600,0,Billetera digital
+V00978,2025-03-03,Medellín,App,C0001,P012,1,7500,0,Transferencia
+V00979,2025-03-03,Medellín,Web,C0421,P039,1,10900,0,Transferencia
+V00980,2025-03-03,Medellín,Tienda,C1371,P035,1,7800,0,Tarjeta
+V00981,2025-03-03,Bogotá,Web,C0005,P058,2,24900,0,Tarjeta
+V00982,2025-03-03,Bucaramanga,Tienda,C0816,P017,1,4900,0,Tarjeta
+V00983,2025-03-03,Cali,Web,C0048,P052,2,7900,0.05,Billetera digital
+V00984,2025-03-03,Bogotá,Tienda,C0256,P026,1,11800,0.05,Efectivo
+V00985,2025-03-03,Cartagena,Tienda,,P021,2,2500,0,Tarjeta
+V00986,2025-03-03,Bucaramanga,Web,C0075,P004,2,11900,0,Tarjeta
+V00987,2025-03-03,B/manga,Web,C0804,P021,4,2500,0,Transferencia
+V00988,2025-03-03,Medellín,App,C0369,P013,2,1800,0.1,Transferencia
+V00989,2025-03-03,MEDELLIN,App,C0204,P005,2,4600,,Billetera digital
+V00990,2025-03-03,Bogotá,Tienda,,P012,3,7500,0,Tarjeta
+V00991,2025-03-03,BOGOTÁ,App,C0042,P027,1,3600,0,Tarjeta
+V00992,2025-03-03,Cali,Tienda,C0141,P021,3,2500,0,Billetera digital
+V00993,2025-03-03,Bogotá,Web,C1166,P002,2,3900,0.05,Tarjeta
+V00994,2025-03-03,Bogotá,Web,C0055,P004,1,11900,0,Tarjeta
+V00995,2025-03-04,Barranquilla,Tienda,,P046,0,13200,0,Tarjeta
+V00996,2025-03-04,Cartagena,Tienda,C0572,P047,1,4800,0,Tarjeta
+V00997,2025-03-04,Barranquilla,Tienda,,P001,2,4900,0.1,Billetera digital
+V00998,2025-03-04,Bucaramanga,Tienda,C1254,P039,1,10900,0,Tarjeta
+V00998,2025-03-04,Bucaramanga,Tienda,C1254,P039,1,10900,0,Tarjeta
+V00999,2025-03-04,Cartagena de Indias,Web,C0009,P015,3,6400,0,Transferencia
+V01000,2025-03-04,Bogotá,Web,C0001,P014,2,5200,0.15,Transferencia
+V01001,04/03/2025,Cali,App,C0465,P028,2,2900,0.05,Transferencia
+V01002,2025-03-04,Cali,Web,C0392,P002,3,3900,0.05,Tarjeta
+V01003,2025-03-04,Bucaramanga,Tienda,C0030,P017,5,4900,0,Tarjeta
+V01004,2025-03-04, Bogotá,Tienda,,P043,2,15900,0,Tarjeta
+V01005,2025-03-04,Medellín,Tienda,,P058,1,24900,0,Efectivo
+V01006,2025-03-04,Cartagena,Tienda,,P048,2,16400,0,Tarjeta
+V01007,2025-03-04,Bogotá,App,C0041,P031,5,3900,0,Billetera digital
+V01008,2025-03-04,Medellín,Tienda,C0225,P030,4,3300,0.05,Tarjeta
+V01009,2025-03-04,Bogotá,App,C0457,P054,2,5400,0,Billetera digital
+V01010,2025-03-05,Bogotá,Tienda,,P004,1,11900,0,Tarjeta
+V01011,2025-03-05,Cartagena,Web,C1045,P007,1,3400,0,Tarjeta
+V01012,2025-03-05,Barranquilla,App,C0008,P046,1,13200,,Billetera digital
+V01013,2025-03-05,Medellín,Web,C0042,P045,1,8400,0,Tarjeta
+V01014,2025-03-05,Medellín,Web,C1299,P051,1,18700,0.15,Billetera digital
+V01015,2025-03-05,Bogotá,Tienda,,P009,2,6900,0,Efectivo
+V01016,2025-03-05,Cartagena,Web,C0355,P029,1,4200,0.15,Transferencia
+V01017,2025-03-05,Cartagena,Tienda,C0024,P057,1,2500,0.05,Tarjeta
+V01018,2025-03-05,Bogotá,App,C0430,P017,4,4900,0.05,Tarjeta
+V01019,2025-03-05,Cali,Tienda,,P031,1,3900,0,Billetera digital
+V01020,2025-03-05,Medellín,Tienda,C0238,P050,2,7900,0.05,Efectivo
+V01021,2025-03-05,Bucaramanga,Tienda,C0009,P033,1,14500,0,Efectivo
+V01022,2025-03-05,Cali,App,C0003,P025,2,12400,0.05,Billetera digital
+V01023,2025-03-05,Medellín,Tienda,,P008,2,3800,0,Efectivo
+V01024,2025-03-05,Cartagena,Web,C0059,P002,5,3900,0,Tarjeta
+V01025,2025-03-06,Medellín,Web,C0186,P027,3,3600,0,Transferencia
+V01026,2025-03-06,Barranquilla,Tienda,,P032,6,2800,0,Billetera digital
+V01027,2025-03-06,Cartagena,Tienda,C1326,P046,1,13200,0,Efectivo
+V01028,2025-03-06,Bogotá,Web,C0005,P001,2,4900,0,Tarjeta
+V01029,06/03/2025,Bucaramanga,Tienda,C0180,P011,1,16900,0,Efectivo
+V01030,2025-03-06,Medellín,Tienda,C0965,P020,2,7400,0,Efectivo
+V01031,2025-03-06,Medellín,App,C0059,P011,1,16900,0.05,Transferencia
+V01032,2025-03-06,Bogotá,Tienda,,P036,5,4100,0,Efectivo
+V01033,2025-03-06,bucaramanga,App,C0323,P024,1,13900,0.15,Billetera digital
+V01034,2025-03-06,Bogotá D.C.,Web,C0003,P048,1,16400,0,Tarjeta
+V01035,2025-03-06,Medellín,App,C0424,P017,1,4900,0,Tarjeta
+V01036,2025-03-06,Bogotá,Web,C0054,P044,3,6300,0,Billetera digital
+V01037,2025-03-06,Barranquilla,App,C0530,P045,2,8400,0.05,Billetera digital
+V01038,2025-03-06,Medellín,Tienda,,P041,4,6200,0,Tarjeta
+V01039,2025-03-06,Bucaramanga,App,C0081,P005,2,4600,0.1,Transferencia
+V01040,2025-03-06,Barranquilla,Tienda,C0231,P037,1,21900,0,Tarjeta
+V01041,2025-03-06,Medellín,App,C0436,P018,1,4300,,Tarjeta
+V01042,2025-03-06,Cartagena,App,C0776,P044,2,6300,0,Tarjeta
+V01043,2025-03-06,Bogota,Tienda,C1240,P023,1,17900,0,Tarjeta
+V01044,2025-03-06,Barranquilla,Web,C1013,P049,1,32900,0,Billetera digital
+V01045,2025-03-06,Bogotá,App,C0035,P035,1,7800,0,Tarjeta
+V01046,2025-03-06,Bogotá,Web,C0273,P038,2,9600,0.05,Tarjeta
+V01047,2025-03-07,Bucaramanga,Web,C0033,P022,1,2100,0.1,Tarjeta
+V01048,2025-03-07,Cali,Tienda,C0321,P059,2,59900,0,Tarjeta
+V01049,2025-03-07,Cartagena,Tienda,C1475,P008,1,3800,0,Efectivo
+V01050,2025-03-07,Medellín,App,C0812,P030,2,3300,0,Billetera digital
+V01051,2025-03-07,Bogotá,Web,C0639,P003,3,6800,0.05,Tarjeta
+V01052,2025-03-07,Cali,Web,C0005,P019,1,$8.200,0.05,Tarjeta
+V01053,2025-03-07,Medellín,Tienda,C0555,P043,1,$15.900,0,Tarjeta
+V01054,2025-03-07,Bogotá,App,C0278,P004,1,11900,0,Billetera digital
+V01055,2025-03-07,Bogotá,Tienda,C0212,P040,1,3700,0,Tarjeta
+V01056,2025-03-07,Cali,Tienda,C0492,P011,1,16900,0,Billetera digital
+V01057,2025-03-07,Bogotá,App,C0192,P001,2,4900,0,Tarjeta
+V01058,2025-03-07,Cali,Tienda,,P006,2,1900,0,Efectivo
+V01059,2025-03-07,Medellín,Tienda,C0058,P019,2,8200,0,Efectivo
+V01060,2025-03-07,Bogotá,Web,C0579,P009,2,6900,0.15,Tarjeta
+V01061,2025-03-07,Bogotá,App,C0781,P025,2,12400,0,Billetera digital
+V01062,2025-03-07,Cartagena,Web,C0545,P032,1,2800,0,Tarjeta
+V01063,2025-03-07,Bucaramanga,Web,C0040,P044,1,6300,0,Tarjeta
+V01064,2025-03-08,Bogotá,Tienda,,P056,1,6900,0,Billetera digital
+V01065,2025-03-08,Cali,App,C0682,P028,1,2900,0,Billetera digital
+V01066,2025-03-08,Bucaramanga,Web,C0024,P020,3,7400,0.15,Tarjeta
+V01067,2025-03-08,Bogotá,Tienda,,P047,1,4800,0,Efectivo
+V01068,2025-03-08,Barranquilla,Tienda,C0522,P018,1,4300,0,Tarjeta
+V01069,2025-03-08,Cartagena,Web,C0002,P022,2,2100,0.1,Billetera digital
+V01070,2025-03-08,Bucaramanga,App,C0709,P002,3,3900,0,Billetera digital
+V01071,2025-03-08,Barranquilla,Web,C0039,P004,1,11900,0,Tarjeta
+V01072,2025-03-08,Bucaramanga,Tienda,C0156,P001,1,4900,0,Billetera digital
+V01073,2025-03-08,Cali,Tienda,C0138,P060,1,39900,0,Efectivo
+V01074,2025-03-08,Medellín,Tienda,,P010,2,3200,0,Efectivo
+V01075,2025-03-08,Medellín,Web,C0028,P011,1,16900,0.05,Transferencia
+V01076,2025-03-08,cali,Tienda,C0008,P058,1,24900,0,Tarjeta
+V01077,2025-03-08,MEDELLIN,Web,C0003,P016,3,3100,0,Tarjeta
+V01078,2025-03-08,Bogotá,Tienda,C0022,P006,4,1900,0,Efectivo
+V01079,2025-03-08,Cali,App,C0035,P035,3,7800,0,Billetera digital
+V01080,2025-03-08,Barranquilla,Web,C0106,P012,4,7500,0,Tarjeta
+V01081,2025-03-08,Bogotá,Tienda,C0055,P014,1,5200,0,Efectivo
+V01082,2025-03-08,Cali,App,C0883,P015,3,6400,0,Billetera digital
+V01083,2025-03-08,Cartagena,Web,C0073,P018,6,$4.300,0,Transferencia
+V01084,2025-03-08,Bogotá,Tienda,C1271,P011,1,16900,0,Efectivo
+V01085,2025-03-08,Barranquilla,Web,C0322,P007,3,3400,0.05,Tarjeta
+V01086,2025-03-08,Cali,TIENDA,,P042,0,8900,0,Tarjeta
+V01087,2025-03-08,Bucaramanga,Tienda,C0450,P025,1,12400,0,Tarjeta
+V01088,2025-03-08,Medellín,Web,C0522,P018,4,4300,0.05,Tarjeta
+V01089,2025-03-08,Medellín,Tienda,C0690,P009,2,6900,0,Efectivo
+V01090,2025-03-08,Bogotá,Tienda,,P019,1,8200,0,Tarjeta
+V01091,2025-03-09,Bogotá,WEB,C1414,P002,1,3900,0.15,Tarjeta
+V01092,2025-03-09,Cali,App,C0435,P042,2,8900,0.1,Tarjeta
+V01093,09/03/2025,Cali,App,C0019,P024,1,13900,0,Billetera digital
+V01094,09/03/2025,Bogotá,tienda,C0338,P030,3,3300,0,Tarjeta
+V01095,2025-03-09,Bogotá,Tienda,C0533,P007,1,3400,0,Billetera digital
+V01096,2025-03-09,MEDELLIN,App,C0091,P045,6,8400,0.05,Billetera digital
+V01097,2025-03-09,Bogotá,Web,C0060,P032,4,2800,0,Tarjeta
+V01098,2025-03-09,Medellín,Web,C0059,P021,2,2500,0.05,Billetera digital
+V01099,2025-03-09,Cartagena,Tienda,,P027,2,3600,0,Tarjeta
+V01100,2025-03-09,Barranquilla,Tienda,,P052,3,7900,0.1,Tarjeta
+V01101,2025-03-09,Cali,Tienda,,P006,1,1900,0,Efectivo
+V01102,2025-03-09,Bogotá,Tienda,C0038,P002,1,3900,0.1,Efectivo
+V01103,2025-03-09,Bogota,App,C0693,P011,2,16900,0.1,Tarjeta
+V01104,2025-03-09,Bogotá,Tienda,C0012,P009,1,6900,0,Billetera digital
+V01105,2025-03-09,Bogotá,Tienda,,P037,1,21900,,Tarjeta
+V01106,2025-03-09,Bogotá,Tienda,,P016,3,3100,0,Tarjeta
+V01107,2025-03-09,Cali,Tienda,C0715,P042,1,8900,0.05,Efectivo
+V01108,2025-03-09,Bucaramanga,Web,C0001,P015,1,6400,0,Tarjeta
+V01109,2025-03-09,Cali,Tienda,C0586,P008,3,3800,0,Efectivo
+V01110,2025-03-10,Cali,Web,C0407,P026,1,11800,0.05,Transferencia
+V01111,2025-03-10,Bogotá,Tienda,C0444,P045,1,8400,0,Efectivo
+V01112,2025-03-10,Cartagena,Tienda,C0001,P047,2,4800,0,Tarjeta
+V01113,2025-03-10,Bucaramanga,Web,C0091,P039,1,10900,0,Transferencia
+V01114,2025-03-10,barranquilla,Tienda,C0385,P027,1,3600,0,Efectivo
+V01115,2025-03-10, Bogotá,App,C1437,P044,2,6300,0,Tarjeta
+V01116,2025-03-10,Bogotá D.C.,Tienda,C0085,P026,1,11800,0.1,Efectivo
+V01117,2025-03-10,Cartagena,Tienda,,P058,1,24900,0,Tarjeta
+V01118,2025-03-10,B/manga,Web,C0001,P020,6,7400,0.1,Tarjeta
+V01119,2025-03-10,Barranquilla,Web,C0017,P013,2,$1.800,0,Billetera digital
+V01120,2025-03-11,Cali,Web,C0604,P011,1,16900,0,Transferencia
+V01121,2025-03-11,Cali,Web,C0114,P037,1,21900,0.05,Transferencia
+V01122,2025-03-11,Bucaramanga,Tienda,C0193,P022,2,2100,0,Billetera digital
+V01123,2025-03-11,Barranquilla,Web,C0031,P007,1,3400,0,Tarjeta
+V01124,2025-03-11,Cartagena,Tienda,,P013,3,1800,0.05,Tarjeta
+V01125,2025-03-11,Bogotá,App,C0077,P022,3,2100,0,Tarjeta
+V01126,2025-03-11,Cali,App,C0034,P002,1,3900,0,Tarjeta
+V01127,2025-03-11,Barranquilla,App,C1244,P010,3,3200,0,Tarjeta
+V01128,2025-03-11,Cali,Web,C0590,P051,1,18700,0,Tarjeta
+V01129,2025-03-11,Bogotá,Tienda,C0323,P049,1,32900,0,Efectivo
+V01130,2025-03-11,Bucaramanga,Tienda,C1260,P035,2,7800,0,Tarjeta
+V01131,2025-03-11,Barranquilla,Tienda,C1222,P004,1,11900,0,Efectivo
+V01132,2025-03-12,CALI,Tienda,C0095,P018,3,4300,0.05,Tarjeta
+V01133,2025-03-12,Bucaramanga,Tienda,C1182,P058,1,24900,0,Efectivo
+V01134,2025-03-12,Bogotá,Web,C0002,P005,2,4600,0,
+V01135,2025-03-12,Bogotá,Web,C0505,P015,1,6400,0,Tarjeta
+V01136,2025-03-12,Bogotá,Tienda,C0003,P003,5,6800,0,Billetera digital
+V01137,2025-03-12,CALI,App,C0001,P015,5,6400,0.05,Tarjeta
+V01138,2025-03-12,Bogotá,Web,C1193,P049,1,32900,0.05,Tarjeta
+V01139,2025-03-12,Bucaramanga,Web,C0722,P042,4,8900,0.15,Tarjeta
+V01140,2025-03-12,Cartagena,Tienda,C0119,P008,3,3800,0,Efectivo
+V01141,2025-03-12,Cali,Tienda,C0678,P009,1,6900,0,Billetera digital
+V01142,2025-03-12,Bogotá,App,C0001,P051,1,18700,0.15,Billetera digital
+V01143,2025-03-12,Bucaramanga,Web,C0115,P015,1,6400,0,Tarjeta
+V01144,2025-03-12,Bogotá,App,C0008,P007,1,3400,0,Tarjeta
+V01145,2025-03-12,Bogotá,Tienda,C0001,P020,3,7400,0,Efectivo
+V01146,2025-03-13,Cali,App,C0089,P051,1,18700,0.05,Tarjeta
+V01147,2025-03-13,Cali,Tienda,,P001,1,4900,0,Efectivo
+V01148,2025-03-13,Barranquilla,App,C0616,P041,3,6200,0,Billetera digital
+V01149,2025-03-13,Bogotá,Tienda,,P041,1,6200,0,Tarjeta
+V01150,2025-03-13,Bogotá,App,C0967,P029,2,4200,0,Tarjeta
+V01151,2025-03-13,Bogotá,Tienda,C0475,P008,4,3800,0,Tarjeta
+V01152,2025-03-13,Bogotá,Tienda,C0652,P018,3,4300,0,Tarjeta
+V01153,2025-03-13,Cartagena,Tienda,,P060,1,$39.900,0,
+V01154,2025-03-13,Bogotá,Tienda,C0084,P002,2,3900,0,Billetera digital
+V01155,2025-03-13,Cali,App,C0666,P039,1,10900,0,Billetera digital
+V01156,2025-03-13,Barranquilla,App,C0846,P036,3,4100,0,Transferencia
+V01157,2025-03-14,Barranquilla,Tienda,C0517,P040,2,3700,,Efectivo
+V01158,14/03/2025,Bogotá,Tienda,,P019,3,8200,0.1,Tarjeta
+V01159,2025-03-14,Barranquilla,Web,C0232,P048,1,16400,0,Tarjeta
+V01160,2025-03-14,Bogota,Tienda,,P025,1,12400,0,Efectivo
+V01161,2025-03-14,Medellín,Tienda,C0084,P031,5,3900,0,Tarjeta
+V01162,2025-03-14,Bogotá,Tienda,,P012,6,7500,0,Tarjeta
+V01163,2025-03-14,Medellín,Web,C0024,P021,1,2500,0.15,Tarjeta
+V01164,2025-03-14,Barranquilla,Tienda,C0292,P033,1,14500,0,Tarjeta
+V01165,2025-03-14,Bogotá,App,C1220,P052,5,7900,0.15,Tarjeta
+V01166,2025-03-14,Cali,Tienda,,P036,2,4100,0,Billetera digital
+V01167,2025-03-14,Bogotá,App,C0885,P012,5,7500,0,Billetera digital
+V01168,2025-03-14,Cali,Web,C0179,P042,4,8900,0.1,Billetera digital
+V01169,2025-03-14,Bogotá,App,C1013,P020,1,7400,0,Tarjeta
+V01170,2025-03-14,Medellín,Tienda,C1192,P056,1,6900,0,Tarjeta
+V01171,2025-03-14,Bogotá,App,C0821,P050,3,7900,0,Billetera digital
+V01172,2025-03-14,Medellín,Web,C0970,P039,1,10900,,Tarjeta
+V01173,2025-03-14,Bogotá,App,C0755,P034,6,5900,0,Tarjeta
+V01174,2025-03-15,Bogotá,Web,C0234,P030,2,3300,0,Billetera digital
+V01175,2025-03-15,Bogotá,App,C0290,P025,1,12400,0,Billetera digital
+V01176,2025-03-15,Medellín,App,C1084,P008,3,3800,0,Tarjeta
+V01177,2025-03-15,Bogotá,App,C0566,P005,1,4600,0,Billetera digital
+V01178,2025-03-15,Bucaramanga,Tienda,C0722,P023,1,17900,0,Billetera digital
+V01179,2025-03-15,Bogotá,Tienda,C0104,P001,3,4900,0,Efectivo
+V01180,15/03/2025,Cali,Tienda,,P013,3,1800,0,Efectivo
+V01181,15/03/2025,Cali,Tienda,,P020,1,7400,0,Efectivo
+V01182,2025-03-15,Cartagena,Tienda,C0050,P025,2,12400,0,Tarjeta
+V01183,2025-03-15,bucaramanga,App,C0463,P003,2,6800,0,Transferencia
+V01184,2025-03-15,Barranquilla,Tienda,,P055,1,4300,0,Efectivo
+V01185,2025-03-15,Cartagena,App,C0023,P049,1,32900,0,Tarjeta
+V01186,2025-03-15,Barranquilla,Web,C0144,P005,1,4600,0,Tarjeta
+V01187,2025-03-15,Bogotá,Tienda,C0021,P047,3,4800,0,Tarjeta
+V01188,2025-03-15,Cali,Web,C0494,P042,4,8900,0,Billetera digital
+V01189,2025-03-15,Cali,Web,C0012,P010,3,3200,0.15,Transferencia
+V01190,2025-03-15,Cali,Tienda,C0017,P045,3,8400,0,Efectivo
+V01191,2025-03-15,Medellín,Tienda,,P019,4,8200,0,Billetera digital
+V01192,2025-03-15,Bogotá,APP,C0012,P024,1,13900,0.05,Billetera digital
+V01193,2025-03-16,Bogotá,Web,C0632,P017,2,4900,0.05,Billetera digital
+V01194,2025-03-16,Medellín,Tienda,,P008,6,3800,0,Efectivo
+V01195,2025-03-16,Barranquilla,App,C0581,P017,3,$4.900,0.15,Billetera digital
+V01196,2025-03-16,Medellín,Tienda,C0623,P021,1,2500,0,Efectivo
+V01197,2025-03-16,Bogotá,Web,C0029,P023,2,17900,0,Tarjeta
+V01198,2025-03-16,Bogotá,Tienda,C0004,P001,1,4900,0,Tarjeta
+V01199,2025-03-16,Bogotá,Tienda,C0025,P026,1,11800,0,Tarjeta
+V01200,2025-03-16,Bogotá,Tienda,C0184,P039,2,10900,0,Tarjeta
+V01201,2025-03-16,Bogotá,Tienda,,P015,2,6400,0,Efectivo
+V01202,2025-03-16,Bucaramanga,Web,C0584,P020,1,7400,0.1,Tarjeta
+V01203,2025-03-16,Cali,Tienda,,P020,5,$7.400,0,Efectivo
+V01204,2025-03-16,Bogotá,Tienda,,P056,3,6900,,Efectivo
+V01205,2025-03-16,Medellín,App,C0721,P042,3,8900,0,Tarjeta
+V01206,2025-03-16,Bogotá,Web,C0011,P017,1,4900,0,
+V01207,2025-03-16,Medellín,web ,C1244,P030,1,3300,0,Tarjeta
+V01208,2025-03-16,Barranquilla ,Tienda,C0196,P054,5,5400,0,Tarjeta
+V01209,2025-03-16,Bogotá,Web,C0006,P009,1,6900,0.05,Billetera digital
+V01210,2025-03-16,Bogotá,App,C0113,P002,2,3900,0,Billetera digital
+V01211,2025-03-16,Bogotá,Tienda,C1326,P006,3,1900,0,Tarjeta
+V01212,2025-03-16,Bucaramanga,Web,C0021,P014,1,5200,0,Transferencia
+V01213,2025-03-16,Bogotá,Tienda,C0857,P003,2,6800,0,Efectivo
+V01214,2025-03-17,Bogotá,Tienda,C1440,P027,1,3600,0,Tarjeta
+V01215,2025-03-17,Cali,Tienda,C1368,P039,3,10900,0,Efectivo
+V01216,2025-03-17,Cali,App,C0097,P031,3,3900,0,Billetera digital
+V01217,2025-03-17,Medellín,App,C0014,P034,2,5900,0,Tarjeta
+V01218,2025-03-17,Medellín,Tienda,C0768,P038,6,9600,0,Tarjeta
+V01219,2025-03-17,Bogotá,Tienda,,P034,1,5900,0.1,Billetera digital
+V01220,2025-03-17,Cali,Web,C0019,P008,5,3800,0,Tarjeta
+V01221,2025-03-17,Cartagena,Web,C1131,P022,2,2100,0,Transferencia
+V01222,2025-03-17,Cali,Tienda,C1354,P001,1,4900,0,Efectivo
+V01223,2025-03-17,Bogotá,Tienda,C0042,P042,2,8900,0.05,Tarjeta
+V01224,2025-03-17,Bogotá,App,C0235,P027,1,3600,0.05,Tarjeta
+V01225,2025-03-17,Bogotá,App,C0510,P039,1,10900,0.05,Tarjeta
+V01226,2025-03-17,Medellín,App,C0002,P007,3,3400,0,Billetera digital
+V01227,2025-03-17,Bogotá,Tienda,C0680,P042,1,8900,0,Tarjeta
+V01228,2025-03-17,Cali,Tienda,,P008,4,3800,0,Efectivo
+V01229,2025-03-18,Medellín,Web,C1070,P033,3,14500,0,Transferencia
+V01230,2025-03-18,Bogotá,App,C0237,P007,1,3400,0.05,Billetera digital
+V01231,2025-03-18,Bogotá,Tienda,C0001,P021,1,2500,0,Efectivo
+V01232,2025-03-18,Bogotá,Tienda,C0986,P035,1,7800,0.1,Efectivo
+V01233,2025-03-18,Cali,Web,C1095,P015,1,6400,0.05,Tarjeta
+V01234,2025-03-18,Cartagena,Web,C0116,P010,4,3200,0,Tarjeta
+V01235,2025-03-18,Bogotá,APP,C0138,P017,2,$4.900,0.05,Transferencia
+V01236,2025-03-18,Medellín,Tienda,,P025,1,12400,0.05,Efectivo
+V01237,2025-03-18,Cali,App,C0416,P051,1,18700,0,Billetera digital
+V01238,2025-03-18,Medellín,Tienda,,P010,2,3200,0,Tarjeta
+V01239,2025-03-18,MEDELLIN,Tienda,C0054,P019,1,8200,0,Efectivo
+V01240,2025-03-18,Bogotá,Web,C0185,P006,1,1900,0,Tarjeta
+V01241,2025-03-18,MEDELLIN,App,C0262,P023,1,17900,0.15,Billetera digital
+V01242,2025-03-18,Medellín,App,C0039,P029,4,4200,0.1,Billetera digital
+V01243,2025-03-18,Cali,App,C0010,P049,1,32900,0.05,Billetera digital
+V01244,2025-03-18,Cartagena,Web,C0893,P017,1,4900,0.15,Tarjeta
+V01245,2025-03-18,Barranquilla,Tienda,C0120,P018,1,4300,0,Efectivo
+V01246,2025-03-19,Cali,Web,C1115,P023,1,17900,0.1,Tarjeta
+V01246,2025-03-19,Cali,Web,C1115,P023,1,17900,0.1,Tarjeta
+V01247,2025-03-19,Cartagena,Tienda,C0924,P019,1,8200,0,Tarjeta
+V01248,2025-03-19,Cali,Tienda,C0246,P021,4,$2.500,,Billetera digital
+V01249,2025-03-19,Medellín,App,C0937,P044,4,6300,0.05,Tarjeta
+V01250,2025-03-19,Medellín,Web,C0554,P050,1,7900,0,Transferencia
+V01251,2025-03-19,Barranquilla,Tienda,C0079,P057,2,2500,0,Billetera digital
+V01252,2025-03-19,Cartagena,Tienda,C0426,P020,1,7400,0,Tarjeta
+V01253,2025-03-19,Bogotá D.C.,Tienda,C0062,P036,1,4100,0.05,Efectivo
+V01254,2025-03-19,Barranquilla,tienda,C0025,P031,3,3900,0.1,Efectivo
+V01255,2025-03-19,medellín,App,C0285,P017,3,4900,0.15,Billetera digital
+V01256,2025-03-19,Bogotá,App,C0055,P009,4,6900,0.1,Tarjeta
+V01257,2025-03-19,Bogotá,Tienda,C0944,P028,2,2900,0.05,Efectivo
+V01258,2025-03-19,Cali,Tienda,,P033,1,14500,,Efectivo
+V01259,2025-03-19,Medellín,Tienda,,P023,2,17900,0.05,Tarjeta
+V01260,2025-03-19,Bogotá,App,C0025,P031,3,3900,0,Tarjeta
+V01261,2025-03-19,Medellín,Tienda,C0938,P012,3,7500,0,Tarjeta
+V01262,2025-03-19,Bogotá,Tienda,,P022,1,2100,0.05,Tarjeta
+V01263,2025-03-19,Bogotá,Web,C0011,P011,2,16900,0,Transferencia
+V01264,2025-03-20,Barranquilla,Tienda,,P026,1,11800,0,Efectivo
+V01265,2025-03-20,Bogotá,Tienda,C0043,P013,1,1800,0,Efectivo
+V01266,2025-03-20,Bucaramanga,Tienda,C0264,P023,1,17900,0,Efectivo
+V01267,2025-03-20,Medellín,Tienda,C1215,P027,2,3600,0,Billetera digital
+V01268,2025-03-20,Cali,Tienda,,P050,3,7900,0,Tarjeta
+V01269,2025-03-20,Medellín,App,C1051,P025,1,12400,0,Transferencia
+V01270,2025-03-20,bogota,Web,C0496,P011,1,16900,0,Billetera digital
+V01271,2025-03-20,Bogotá,Web,C0620,P011,2,16900,0.1,Tarjeta
+V01272,2025-03-20,Barranquilla,App,C1127,P013,3,1800,0.05,Transferencia
+V01273,2025-03-20,Bucaramanga,Tienda,,P009,1,6900,0,Efectivo
+V01274,2025-03-20,Bogotá,Tienda,,P033,2,14500,0,Billetera digital
+V01275,2025-03-20,Cali,Tienda,,P016,2,3100,0,Tarjeta
+V01276,20/03/2025,CALI,App,C0008,P030,2,3300,0.1,Tarjeta
+V01277,2025-03-20,Bogotá,App,C0830,P045,1,8400,0.15,Billetera digital
+V01278,2025-03-20,Bogotá,Tienda,C0046,P027,5,$3.600,0,Efectivo
+V01279,2025-03-20,Medellín,Web,C0008,P022,2,2100,0,Billetera digital
+V01280,2025-03-21,Cali,App,C0675,P056,5,6900,0,Billetera digital
+V01281,2025-03-21,Medellín,App,C0002,P020,1,7400,0.05,Billetera digital
+V01282,2025-03-21,Barranquilla,Tienda,,P010,4,3200,0,Tarjeta
+V01283,2025-03-21,Bucaramanga,App,C0108,P007,1,$3.400,0,Tarjeta
+V01284,2025-03-21,Bogotá,Web,C0105,P011,1,16900,0,Tarjeta
+V01285,2025-03-21,Medellín,Tienda,C0113,P048,3,16400,0.05,Tarjeta
+V01286,2025-03-21,Bogotá,Tienda,,P009,1,6900,0,Billetera digital
+V01287,2025-03-21,Cali,Web,C0028,P043,1,15900,0,Transferencia
+V01288,2025-03-21,Cali,Tienda,C0001,P054,2,5400,0,Tarjeta
+V01289,2025-03-21,Bogotá,Tienda,C0551,P016,4,3100,0,Tarjeta
+V01290,2025-03-21,Bogotá,Web,C0710,P018,0,4300,0,Tarjeta
+V01291,2025-03-21,Barranquilla,Web,C0017,P031,6,3900,0.1,Transferencia
+V01292,2025-03-21,Bucaramanga,App,C0059,P030,3,3300,0,Billetera digital
+V01293,2025-03-21,Cali,App,C0010,P004,2,11900,0,Billetera digital
+V01294,2025-03-21,Cartagena,App,C0197,P022,3,2100,0,Tarjeta
+V01295,2025-03-21,Cartagena,Tienda,C0455,P011,1,16900,0,Tarjeta
+V01296,2025-03-21,Medellín,tienda,C0026,P017,1,4900,0.05,Billetera digital
+V01297,21/03/2025,Bogotá,tienda,C0506,P020,5,7400,0.05,Tarjeta
+V01298,2025-03-21,Bogotá,Web,C1211,P023,1,17900,0.1,Tarjeta
+V01299,2025-03-21,Bogotá,Tienda,C0078,P014,2,5200,0,Efectivo
+V01300,2025-03-21, Bogotá,App,C0511,P057,2,2500,0,Tarjeta
+V01301,2025-03-21,Medellín,Tienda,,P001,2,4900,0,Tarjeta
+V01302,2025-03-21,Barranquilla,App,C0069,P035,1,$7.800,0,Transferencia
+V01303,2025-03-21,Bogotá,Tienda,C0871,P008,2,3800,0,Efectivo
+V01304,2025-03-21,Medellín,Tienda,C0336,P019,2,8200,0,Efectivo
+V01305,2025-03-21,Medellín,Tienda,,P003,3,6800,0,Tarjeta
+V01306,2025-03-22,Barranquilla,Tienda,,P050,2,7900,0,Efectivo
+V01307,2025-03-22,Cali,Web,C0442,P046,1,13200,0.1,Tarjeta
+V01308,2025-03-22,Bucaramanga,Web,C0557,P038,1,9600,0.15,Transferencia
+V01309,2025-03-22,Bogotá,Tienda,C0273,P025,1,12400,0,Tarjeta
+V01310,2025-03-22,Cali,Web,C0656,P023,1,$17.900,0,Tarjeta
+V01311,2025-03-22,Cartagena,App,C1337,P043,1,15900,0,Tarjeta
+V01312,2025-03-22,Cali,Tienda,,P020,3,7400,0,Tarjeta
+V01313,2025-03-22,Cartagena,Tienda,,P003,1,6800,,Tarjeta
+V01314,2025-03-22,Barranquilla ,App,C0945,P054,6,5400,0,Tarjeta
+V01315,2025-03-22,Barranquilla,Tienda,C0014,P050,1,7900,0,Efectivo
+V01316,2025-03-22,Cartagena,App,C0248,P036,2,4100,0.15,Billetera digital
+V01317,2025-03-22,Barranquilla,Tienda,C1076,P011,1,16900,0.05,Tarjeta
+V01318,2025-03-22,Bogotá,Tienda,,P023,1,17900,0,Efectivo
+V01319,2025-03-22,Bogotá,App,C0845,P041,2,6200,0,Billetera digital
+V01320,2025-03-22,Bogotá,Tienda,C0562,P030,2,3300,0,Efectivo
+V01321,2025-03-22,Bogotá,Tienda,,P038,3,9600,0,Billetera digital
+V01322,2025-03-22,Cartagena,App,C0907,P002,2,3900,0.05,Tarjeta
+V01323,2025-03-22,Bogotá,Tienda,C0012,P007,6,3400,0,Billetera digital
+V01324,2025-03-22,Medellín,Web,C0334,P004,3,11900,0.05,Billetera digital
+V01325,2025-03-22,Cali,Web,C0005,P026,1,11800,0.15,Transferencia
+V01326,2025-03-22,Bogotá,Tienda,,P034,2,5900,0,Efectivo
+V01326,2025-03-22,Bogotá,Tienda,,P034,2,5900,0,Efectivo
+V01327,2025-03-22,Barranquilla,App,C0120,P019,1,8200,0,Billetera digital
+V01328,2025-03-23,Bucaramanga,App,C0137,P036,3,4100,,Billetera digital
+V01329,2025-03-23,Barranquilla,Web,C0417,P030,5,3300,0.05,Tarjeta
+V01330,2025-03-23,Bogotá,Tienda,C0786,P048,2,16400,0,Tarjeta
+V01331,2025-03-23,Cali,Tienda,C0413,P003,1,6800,0,Efectivo
+V01332,2025-03-23,,Tienda,,P030,3,3300,0,Tarjeta
+V01333,2025-03-23,Cartagena,Tienda,,P003,1,6800,0,Efectivo
+V01334,2025-03-23,Cartagena,App,C0507,P043,2,15900,0,Tarjeta
+V01335,2025-03-23,Bogotá,Tienda,C0012,P013,1,1800,0,Efectivo
+V01336,2025-03-23,Bogotá,Web,C1355,P047,4,4800,0.15,Billetera digital
+V01337,2025-03-23,Medellín,App,C0001,P007,1,3400,0,Tarjeta
+V01338,2025-03-23,Medellín,Tienda,,P002,3,3900,0.05,Billetera digital
+V01339,2025-03-23,Medellín,Tienda,C0079,P041,2,6200,0,Billetera digital
+V01340,2025-03-23,Cartagena,Tienda,,P040,2,3700,0,Tarjeta
+V01341,23/03/2025,Bogotá,Tienda,C0153,P006,2,1900,0,Tarjeta
+V01342,2025-03-23,B/quilla,App,C0135,P040,1,3700,0.15,Billetera digital
+V01343,2025-03-23,Medellín,App,C0114,P044,1,6300,0,Tarjeta
+V01344,23/03/2025,Cali,Tienda,C0060,P024,2,13900,0,Efectivo
+V01345,2025-03-23,Bogotá,Tienda,,P033,1,14500,0,Efectivo
+V01346,2025-03-23,Bogotá,App,C0070,P036,2,4100,0,Billetera digital
+V01347,2025-03-23,Bucaramanga,App,C0130,P011,1,16900,0.05,Tarjeta
+V01348,2025-03-23,Bogotá,Tienda,,P032,1,2800,0.05,Tarjeta
+V01349,2025-03-24,Medellín,App,C0159,P001,1,4900,0.05,Tarjeta
+V01350,2025-03-24,Barranquilla,Tienda,,P005,1,4600,0.05,Efectivo
+V01351,2025-03-24,Medellín,App,C0501,P017,1,4900,0,Tarjeta
+V01352,2025-03-24,Bogotá,App,C0935,P038,4,9600,0,Billetera digital
+V01353,2025-03-24,Barranquilla,App,C0016,P018,1,4300,0,Tarjeta
+V01354,2025-03-24,Barranquilla,App,C0143,P048,1,16400,0.05,Tarjeta
+V01355,2025-03-24,Cali,App,C0087,P007,3,3400,0,
+V01356,2025-03-24,Bogotá,Tienda,C0349,P043,3,15900,0,Tarjeta
+V01357,2025-03-24,Bogotá,Web,C0613,P044,3,6300,0,Tarjeta
+V01358,2025-03-24,Medellín,Tienda,C0880,P001,3,4900,0,Tarjeta
+V01359,2025-03-24,Bogotá,App,C0023,P040,3,3700,0,Tarjeta
+V01360,2025-03-24,Bogotá,Web,C0683,P002,3,3900,0.05,Billetera digital
+V01361,2025-03-24,Bogotá,Tienda,C0051,P042,1,8900,0,Efectivo
+V01362,2025-03-25,Bogotá,Tienda,,P004,1,11900,0,Tarjeta
+V01363,2025-03-25,Cartagena,Tienda,,P006,3,1900,0.1,Tarjeta
+V01364,2025-03-25,Bogotá,App,C1362,P034,1,5900,0,Billetera digital
+V01365,2025-03-25,Bogotá,Tienda,,P043,2,15900,0.05,Tarjeta
+V01366,2025-03-25,Barranquilla,Tienda,C0282,P024,1,13900,0,Tarjeta
+V01367,2025-03-25,Barranquilla ,Web,C0351,P047,3,4800,0,Billetera digital
+V01368,2025-03-25,Barranquilla,App,C0029,P018,1,4300,0,Billetera digital
+V01369,2025-03-25,Bucaramanga,Web,C0199,P023,1,17900,0.05,Tarjeta
+V01370,2025-03-25,Cali,Tienda,C0002,P054,4,5400,0,Tarjeta
+V01371,2025-03-25,Bogotá,App,C0084,P010,1,3200,0,Tarjeta
+V01372,2025-03-25,,APP,C0759,P042,1,8900,0.05,Billetera digital
+V01373,2025-03-25,Barranquilla,Web,C0437,P042,2,8900,0,Billetera digital
+V01374,2025-03-25,Bogotá,Tienda,C0001,P025,1,12400,0,Tarjeta
+V01375,2025-03-25,Bucaramanga,Web,C0092,P027,1,3600,0.1,Tarjeta
+V01376,2025-03-25,Medellín,Tienda,,P024,1,13900,0,Efectivo
+V01377,2025-03-25,Bogotá,App,C1230,P010,1,3200,0.1,Billetera digital
+V01378,2025-03-25,Bogotá,Web,C0899,P037,1,21900,0.15,Transferencia
+V01379,2025-03-25,Medellín,Web,C1034,P022,5,2100,0,Billetera digital
+V01380,2025-03-26,Bogotá,Web,C0210,P047,2,4800,0,Tarjeta
+V01381,2025-03-26,Barranquilla,Web,C1003,P037,3,21900,0,Transferencia
+V01382,2025-03-26,Bucaramanga,Tienda,,P048,2,16400,0.1,Tarjeta
+V01383,2025-03-26,CALI,Web,C0001,P009,3,6900,0.05,Tarjeta
+V01384,2025-03-26,Bucaramanga,App,C0489,P026,2,11800,0,Transferencia
+V01385,2025-03-26,Bogotá,Tienda,C0497,P013,2,1800,0,Tarjeta
+V01386,2025-03-26,Bogotá,Tienda,C0001,P012,4,7500,0.05,Efectivo
+V01387,2025-03-26,Barranquilla,Tienda,C0035,P005,4,4600,0,Tarjeta
+V01388,2025-03-26,Bogotá,App,C0214,P013,1,1800,0.1,Tarjeta
+V01389,2025-03-26,Cartagena,Tienda,C1245,P017,2,4900,0,Efectivo
+V01390,2025-03-26,Bogotá,Tienda,C1042,P040,1,3700,0,Tarjeta
+V01391,2025-03-27,Bogotá,Tienda,,P028,2,2900,0.1,Efectivo
+V01392,2025-03-27,Cali,Web,C0595,P023,1,17900,0.1,Transferencia
+V01393,2025-03-27,Medellín,Tienda,C0425,P013,1,1800,0,Billetera digital
+V01394,2025-03-27,Bogotá,Tienda,C0168,P052,2,7900,0,Tarjeta
+V01395,2025-03-27,Bogotá,TIENDA,C0090,P018,5,4300,0,Tarjeta
+V01396,2025-03-27,Bucaramanga,App,C0019,P014,4,5200,0.15,Billetera digital
+V01397,27/03/2025,Cali,Tienda,,P031,2,3900,0,Billetera digital
+V01398,2025-03-27,Bogotá,App,C0194,P005,2,4600,0,Transferencia
+V01399,2025-03-27,Bogotá,App,C0739,P002,3,3900,0.15,Tarjeta
+V01400,2025-03-27,Cali,App,C0062,P005,1,4600,0,Billetera digital
+V01401,2025-03-27,Cartagena,Tienda,C0048,P025,1,12400,0,Efectivo
+V01402,2025-03-27,Barranquilla,App,C0442,P018,1,4300,0.05,Tarjeta
+V01403,2025-03-27,Bogotá,Tienda,C0037,P011,1,16900,0,Tarjeta
+V01404,2025-03-27,Bogotá,Web,C0047,P013,2,1800,0,Transferencia
+V01405,2025-03-27,Cartagena,WEB,C0298,P008,6,3800,0.05,Billetera digital
+V01406,2025-03-27,Medellín,App,C0109,P006,-2,1900,0.05,Transferencia
+V01407,2025-03-27,Cali,Tienda,,P023,3,17900,0,Tarjeta
+V01408,2025-03-27,Cartagena,Tienda,C0165,P051,1,$18.700,0,Tarjeta
+V01409,2025-03-28,Bogotá,Tienda,C1487,P017,2,4900,0.05,Efectivo
+V01410,2025-03-28,Bogotá,Web,C0029,P038,4,9600,0.1,Transferencia
+V01411,2025-03-28,Barranquilla,Web,C0414,P006,2,1900,0,Tarjeta
+V01412,2025-03-28,Bogotá,App,C0055,P013,1,$1.800,0.1,Billetera digital
+V01413,2025-03-28,Bogotá,Tienda,C0488,P002,5,3900,0,Efectivo
+V01414,2025-03-28,Cali,Web,C0962,P052,2,7900,0,Tarjeta
+V01415,2025-03-28,Medellín,App,C0916,P024,1,13900,0,Tarjeta
+V01415,2025-03-28,Medellín,App,C0916,P024,1,13900,0,Tarjeta
+V01416,2025-03-28,Medellín,Web,C0765,P047,1,4800,0.15,Transferencia
+V01417,2025-03-28,Cali,Web,C0066,P016,1,3100,0,Tarjeta
+V01418,2025-03-28,Bogotá,Tienda,,P021,3,2500,,Tarjeta
+V01419,2025-03-28,Cali,Tienda,,P043,1,15900,0,Efectivo
+V01420,2025-03-28,Bogotá,App,C0421,P043,1,15900,0,Tarjeta
+V01421,2025-03-28,Cali,Tienda,C0702,P003,2,6800,0,Efectivo
+V01422,2025-03-29,Barranquilla,Web,C0944,P035,1,7800,0,Billetera digital
+V01423,2025-03-29,Bucaramanga,Web,C0008,P005,2,4600,0,Transferencia
+V01424,2025-03-29,Bogotá,App,C0652,P057,2,2500,0,Billetera digital
+V01425,2025-03-29,Medellín,Web,C0027,P002,1,3900,0,Tarjeta
+V01426,2025-03-29,Bucaramanga,App,C0453,P010,2,3200,0.05,Billetera digital
+V01427,2025-03-29,Cartagena,Tienda,C0001,P048,2,$16.400,0,Tarjeta
+V01428,29/03/2025,Medellín,Tienda,C1347,P006,3,1900,0,Efectivo
+V01429,29/03/2025,Cali,Web,C0901,P017,3,4900,0.1,Tarjeta
+V01430,2025-03-29,Bogotá,Tienda,C0973,P002,1,3900,0,Tarjeta
+V01431,2025-03-29,Bucaramanga,App,C0077,P022,2,2100,0,Billetera digital
+V01432,2025-03-29,Bogotá,Tienda,,P021,1,2500,0,Tarjeta
+V01433,2025-03-29,Bogotá,App,C0070,P025,1,12400,0,Billetera digital
+V01434,2025-03-29,Barranquilla,Web,C0909,P011,1,16900,0,
+V01435,2025-03-29,Barranquilla,Web,C0002,P026,1,11800,0,Tarjeta
+V01436,2025-03-29,Bogotá,tienda,,P004,3,11900,0,Billetera digital
+V01437,2025-03-29,Bogotá,Web,C0047,P054,2,5400,0.05,Tarjeta
+V01438,2025-03-29,Bogotá,Web,C0090,P008,2,3800,0,Transferencia
+V01439,2025-03-29,Medellín,Tienda,C0085,P003,2,6800,0,Billetera digital
+V01440,2025-03-29,Bogotá,Tienda,,P060,1,39900,,Efectivo
+V01441,2025-03-29,Barranquilla ,App,C0355,P005,3,4600,0,Billetera digital
+V01442,2025-03-29,Cali,Web,C0050,P035,2,7800,0,Tarjeta
+V01443,2025-03-29,B/manga,App,C0043,P016,3,3100,0,Tarjeta
+V01444,2025-03-30,MEDELLIN,Tienda,C1044,P037,3,21900,,Billetera digital
+V01445,2025-03-30,Bogotá,Web,C1171,P014,6,5200,0,Tarjeta
+V01446,2025-03-30,Barranquilla,Tienda,,P021,3,2500,0,Efectivo
+V01447,2025-03-30,Bogotá,App,C0396,P010,6,3200,0,Billetera digital
+V01448,2025-03-30,,App,C1101,P039,1,10900,0,Tarjeta
+V01449,2025-03-30,Barranquilla,App,C0836,P003,3,6800,0,Tarjeta
+V01450,2025-03-30,Medellín,App,C0030,P030,3,3300,0.1,Billetera digital
+V01451,2025-03-30,Bogotá,Web,C0119,P044,4,6300,0,Transferencia
+V01452,2025-03-30,Bucaramanga,Web,C0974,P025,1,12400,0,Tarjeta
+V01453,2025-03-30,Cartagena,APP,C0477,P016,1,3100,0.1,Tarjeta
+V01454,2025-03-30,Bogotá,Tienda,C0117,P034,4,5900,0,Tarjeta
+V01455,2025-03-30,Cartagena,Web,C0001,P027,6,3600,0,Tarjeta
+V01456,2025-03-30,Medellín,Tienda,C0463,P045,3,8400,0,Efectivo
+V01457,2025-03-30,Bogotá D.C.,Web,C0621,P015,1,6400,0,Tarjeta
+V01458,2025-03-30,Medellín,Tienda,C1248,P013,1,1800,,Billetera digital
+V01459,2025-03-30,Bogotá,Tienda,C0837,P026,3,11800,0,Billetera digital
+V01460,30/03/2025,Medellín,TIENDA,C0001,P006,3,1900,0.05,Tarjeta
+V01460,30/03/2025,Medellín,TIENDA,C0001,P006,3,1900,0.05,Tarjeta
+V01461,2025-03-30,Barranquilla,Tienda,,P028,5,2900,0,Billetera digital
+V01462,2025-03-30,Barranquilla,App,C0036,P002,1,3900,0,Tarjeta
+V01463,2025-03-30,Barranquilla,Tienda,C0278,P021,4,2500,0,Tarjeta
+V01464,2025-03-30,Barranquilla,Web,C0305,P046,1,13200,0,Tarjeta
+V01465,2025-03-30,Bogotá,Tienda,,P048,2,16400,0,Tarjeta
+V01466,2025-03-30,Medellín,App,C0100,P037,2,21900,0.05,Billetera digital
+V01467,2025-03-30,Barranquilla,Tienda,C0032,P011,2,16900,0,Efectivo
+V01468,2025-03-30,barranquilla,Tienda,,P046,1,13200,0,Billetera digital
+V01469,2025-03-30,Bucaramanga,tienda,C0864,P031,4,3900,0,Billetera digital
+V01470,2025-03-30,Bucaramanga,App,C0098,P047,1,4800,0.05,Tarjeta
+V01471,2025-03-30,Cali,Tienda,,P054,4,5400,0,Efectivo
+V01472,2025-03-30,Barranquilla,Web,C0795,P023,2,17900,0,Tarjeta
+V01473,2025-03-30,Cali,App,C0365,P047,4,4800,0,Transferencia
+V01474,2025-03-30,Medellín,App,C0111,P032,2,$2.800,0,Billetera digital
+V01475,2025-03-30,bogota,Web,C0794,P006,4,1900,0,Transferencia
+V01476,2025-03-30,Barranquilla,Tienda,C0003,P022,2,2100,0,Billetera digital
+V01477,2025-03-31,Bucaramanga,App,C0617,P025,1,12400,0.15,Billetera digital
+V01478,2025-03-31,Barranquilla,Web,C0002,P008,1,3800,0,Transferencia
+V01479,2025-03-31,Bogotá D.C.,Tienda,,P012,1,7500,0,Billetera digital
+V01480,2025-03-31,Barranquilla,App,C1339,P026,2,11800,0.05,Tarjeta
+V01481,31/03/2025,Medellín,Web,C1261,P025,1,12400,0,Tarjeta
+V01482,2025-03-31,Medellín,App,C0087,P009,1,6900,0,Billetera digital
+V01483,2025-03-31,Bogotá,App,C1464,P038,4,9600,0,Transferencia
+V01484,2025-03-31,Bogotá,App,C0295,P026,1,11800,0,Tarjeta
+V01485,2025-03-31,Medellín,Tienda,C1170,P055,1,4300,,Tarjeta
+V01486,2025-03-31,Barranquilla,App,C0326,P011,1,16900,0,Transferencia
+V01487,2025-03-31,Bogotá,Web,C0017,P035,1,7800,0,Transferencia
+V01488,2025-03-31,Barranquilla,Tienda,C0788,P040,6,3700,0.05,Efectivo
+V01489,2025-03-31,Bogotá,Tienda,C1141,P039,1,10900,0,Efectivo
+V01490,2025-03-31,Bogotá,Tienda,C0284,P017,3,4900,0.05,Billetera digital
+V01491,2025-03-31,Bogotá,App,C0136,P029,2,4200,0,Tarjeta
+V01492,2025-04-01,B/quilla,App,C0080,P011,1,16900,0.15,Billetera digital
+V01493,2025-04-01,Bogota,App,C0269,P011,1,16900,0.1,Billetera digital
+V01494,2025-04-01,Barranquilla,App,C0075,P025,1,12400,0,Transferencia
+V01495,2025-04-01,Bucaramanga,Tienda,,P034,5,5900,0,Efectivo
+V01496,2025-04-01,Bogotá,Web,C0599,P019,2,8200,0.05,Transferencia
+V01497,2025-04-01,MEDELLIN,App,C0039,P002,3,3900,0.1,Tarjeta
+V01498,2025-04-01,Cartagena,App,C0321,P010,2,3200,0,Tarjeta
+V01499,01/04/2025,Bogotá,App,C0757,P029,1,4200,0.05,Tarjeta
+V01500,2025-04-01,Cali,Web,C1449,P002,2,3900,0,Tarjeta
+V01501,2025-04-01,Bogotá,Tienda,C1132,P019,1,8200,0,Tarjeta
+V01502,2025-04-01,Cartagena,App,C0016,P011,1,16900,0.15,Billetera digital
+V01503,2025-04-01,Bogotá,App,C0254,P039,1,10900,0.05,Billetera digital
+V01504,2025-04-01,Cali,Tienda,,P049,2,32900,0,Tarjeta
+V01505,2025-04-02,Bogotá,App,C0007,P005,1,4600,0,Transferencia
+V01506,2025-04-02,Medellín,Tienda,,P009,2,6900,0,Efectivo
+V01507,2025-04-02,Bogotá,App,C0045,P013,2,1800,0.1,Billetera digital
+V01508,2025-04-02,Cali,Tienda,C0585,P034,4,5900,0,Efectivo
+V01509,2025-04-02,Barranquilla,Web,C0331,P059,2,59900,0,Tarjeta
+V01510,2025-04-02,Medellín,Tienda,C0695,P053,1,12900,0,Billetera digital
+V01511,02/04/2025,Cali,Web,C0262,P027,1,3600,0,Transferencia
+V01512,2025-04-02,Barranquilla,Tienda,C0001,P036,1,4100,0,Efectivo
+V01513,2025-04-02,Bogotá,Tienda,,P019,1,8200,0,Billetera digital
+V01514,2025-04-02,Cali,Web,C0208,P053,1,12900,0,Billetera digital
+V01515,2025-04-02,Bogotá,Tienda,C0044,P044,6,6300,0.05,Tarjeta
+V01516,2025-04-02,Bogotá,Web,C0130,P010,2,3200,0,Tarjeta
+V01517,2025-04-02,Bogotá,App,C0099,P016,3,3100,0.1,Billetera digital
+V01518,2025-04-02,Cali,App,C0020,P042,6,8900,0.1,Tarjeta
+V01519,2025-04-02,Medellín,App,C0016,P025,1,12400,0,Billetera digital
+V01520,2025-04-02,Barranquilla,Web,C0006,P014,2,5200,0.15,Tarjeta
+V01521,2025-04-02,Bogotá,Tienda,,P045,1,$8.400,0.05,Tarjeta
+V01522,2025-04-02,Medellín,App,C0909,P009,1,6900,0.15,Transferencia
+V01523,2025-04-02,bogota,App,C0992,P051,1,18700,,Billetera digital
+V01524,2025-04-02,Bucaramanga,Tienda,C0001,P015,4,6400,0,Tarjeta
+V01525,2025-04-03,Bogotá,Tienda,C0452,P004,1,11900,0,Efectivo
+V01526,2025-04-03,Barranquilla,Tienda,C0017,P007,2,3400,0.1,Efectivo
+V01527,2025-04-03,Bogotá,App,C0014,P015,3,6400,0,Billetera digital
+V01528,2025-04-03,Barranquilla,App,C0813,P021,2,2500,0.05,Tarjeta
+V01529,2025-04-03,medellín,Web,C0145,P034,5,5900,0,Billetera digital
+V01530,2025-04-03,Bucaramanga,App,C0012,P016,2,3100,0,Tarjeta
+V01531,2025-04-03,Bogotá,Web,C0695,P044,3,6300,0,Transferencia
+V01532,03/04/2025,Bogotá,Tienda,C0465,P036,1,4100,0,Efectivo
+V01533,03/04/2025,Bogotá,Web,C0043,P045,2,8400,0.1,Tarjeta
+V01534,2025-04-03,Bogotá,Web,C0176,P022,2,2100,0,Tarjeta
+V01535,2025-04-03,Medellín,Web,C0429,P037,1,21900,0.1,Tarjeta
+V01536,2025-04-03,Medellín,Web,C0135,P011,1,16900,0,Tarjeta
+V01537,2025-04-03,Cali,Web,C0249,P045,2,8400,0.1,Tarjeta
+V01538,2025-04-03,Bogotá,Tienda,,P009,1,6900,0.1,Efectivo
+V01539,2025-04-03,Bogotá,App,C0022,P013,1,1800,0.15,Tarjeta
+V01540,2025-04-03,Bogotá,Web,C0413,P024,1,13900,0,Tarjeta
+V01541,2025-04-04,Barranquilla,Tienda,,P004,2,11900,,Tarjeta
+V01542,2025-04-04,Bucaramanga,App,C0368,P007,2,3400,,Tarjeta
+V01543,04/04/2025,Bogotá,Tienda,,P020,1,7400,0,Billetera digital
+V01544,2025-04-04,Bogotá,App,C0005,P014,6,5200,0.15,Billetera digital
+V01545,2025-04-04,Bogotá,App,C0280,P019,1,8200,0,Billetera digital
+V01546,2025-04-04,Barranquilla ,App,C0664,P028,6,2900,0,Tarjeta
+V01547,2025-04-04,Medellín,Tienda,,P011,1,16900,0,Efectivo
+V01548,2025-04-04,Medellín,App,C1433,P016,4,3100,0,Billetera digital
+V01549,2025-04-04,Medellín,Web,C0123,P030,2,3300,0,Tarjeta
+V01550,2025-04-04,Cartagena,Web,C0041,P031,1,3900,0,Tarjeta
+V01551,2025-04-04,Bogotá,app,C1191,P027,5,3600,0,Billetera digital
+V01552,2025-04-04,Cartagena,Tienda,,P033,1,14500,0,Tarjeta
+V01553,2025-04-04,Bogotá,Tienda,,P042,2,8900,0,Tarjeta
+V01554,2025-04-04,Bogotá,Tienda,C0901,P017,4,4900,,Billetera digital
+V01555,2025-04-04,cali,Tienda,,P025,1,12400,0,Efectivo
+V01556,2025-04-04,Bogotá,Tienda,C0202,P040,3,3700,0,Tarjeta
+V01557,2025-04-04,Medellín,Web,C1339,P019,1,8200,0,Tarjeta
+V01558,2025-04-05,Bogotá,App,C0004,P036,1,4100,0,Billetera digital
+V01559,2025-04-05,cali,Web,C0845,P030,1,3300,0,Tarjeta
+V01560,2025-04-05,Bucaramanga,Tienda,C0826,P035,5,7800,0,Tarjeta
+V01561,2025-04-05,Medellín,Tienda,C0950,P015,1,6400,0.05,Tarjeta
+V01562,2025-04-05,Cartagena,App,C0001,P041,1,6200,0.1,Transferencia
+V01563,2025-04-05,Medellín,Tienda,,P003,1,6800,0,Tarjeta
+V01564,2025-04-05,BOGOTÁ,Web,C0402,P012,3,7500,0,Tarjeta
+V01565,2025-04-05,Bogotá,Web,C0051,P057,6,2500,0.05,Tarjeta
+V01566,05/04/2025,Bogotá,App,C0808,P024,1,13900,0,Tarjeta
+V01567,2025-04-05,Cali,Tienda,C0048,P009,2,6900,,Tarjeta
+V01568,2025-04-05,Bogotá,Tienda,C0346,P029,6,4200,0,Billetera digital
+V01569,2025-04-05,Bogotá,Tienda,C0077,P014,1,5200,0,Efectivo
+V01570,2025-04-05,Cartagena,Tienda,C0402,P015,1,6400,0,Billetera digital
+V01571,2025-04-05,Bucaramanga,Web,C0288,P014,3,5200,0,Transferencia
+V01572,2025-04-05,Bucaramanga,App,C1285,P043,1,15900,0.05,Tarjeta
+V01573,2025-04-05,Cartagena,Tienda,,P034,1,5900,0,Efectivo
+V01574,2025-04-05,Cali,App,C1204,P050,5,7900,0.1,Transferencia
+V01575,2025-04-05,Bogotá,App,C0179,P028,3,2900,0.05,Tarjeta
+V01576,2025-04-06,Bucaramanga,App,C0188,P035,6,7800,0.1,Billetera digital
+V01577,2025-04-06,Cali,Tienda,C0014,P021,3,2500,0.05,Billetera digital
+V01578,2025-04-06,Bogotá,Tienda,C0165,P023,1,17900,0.05,Billetera digital
+V01579,2025-04-06,Bogotá,App,C1170,P014,3,5200,0.1,Tarjeta
+V01580,2025-04-06,Barranquilla,App,C0511,P038,5,9600,,Tarjeta
+V01581,2025-04-06,Medellín,Web,C0611,P028,1,2900,0,Transferencia
+V01582,2025-04-06,Medellín,Tienda,,P035,1,7800,0,Billetera digital
+V01583,2025-04-06,MEDELLIN,Web,C0006,P014,3,5200,0.05,Tarjeta
+V01584,2025-04-06,Cartagena,App,C0558,P020,6,$7.400,0,Transferencia
+V01585,2025-04-06,Cartagena,Tienda,,P001,1,4900,0.05,Tarjeta
+V01586,2025-04-06,Cali,Tienda,C0001,P019,3,8200,0.05,Efectivo
+V01587,2025-04-06,Barranquilla,Web,C0549,P010,1,3200,0.1,Transferencia
+V01588,2025-04-06,Bogotá,Tienda,C1059,P047,2,4800,0,Tarjeta
+V01589,2025-04-06,Medellín,Tienda,C0249,P030,3,3300,0.1,Efectivo
+V01590,2025-04-06,Medellín,Tienda,,P029,1,4200,0,Tarjeta
+V01591,2025-04-06,Bogotá,Tienda,,P017,2,4900,0,Efectivo
+V01592,2025-04-06,Cartagena,Tienda,C0004,P014,2,5200,0,Tarjeta
+V01593,2025-04-06,Bucaramanga,App,C1427,P057,1,2500,0,Tarjeta
+V01594,2025-04-06,Cali,App,C1106,P019,3,8200,0.1,Tarjeta
+V01595,2025-04-06,Bogotá,Tienda,C1448,P019,1,8200,0,Efectivo
+V01596,2025-04-06,Medellín,Web,C0660,P047,1,4800,0.15,Tarjeta
+V01597,2025-04-06,Medellín,Tienda,C0023,P009,2,6900,0.05,Tarjeta
+V01598,2025-04-06,Cartagena,app,C0328,P022,2,2100,0,Tarjeta
+V01599,2025-04-07,Medellín,App,C0234,P031,2,3900,0.05,Tarjeta
+V01600,07/04/2025,Cartagena,Tienda,,P055,3,4300,0,Billetera digital
+V01601,2025-04-07,Bucaramanga,Web,C0091,P051,1,18700,0,Transferencia
+V01602,2025-04-07,Medellín,Web,C0412,P025,3,12400,0,Transferencia
+V01603,2025-04-07,cali,Tienda,,P017,5,$4.900,0,Billetera digital
+V01604,2025-04-07,Barranquilla,Web,C0173,P060,2,39900,0.05,Tarjeta
+V01605,2025-04-07,Bogotá,App,C0023,P041,4,6200,0.05,Billetera digital
+V01606,2025-04-07,Cartagena,App,C1266,P037,1,21900,0.1,Billetera digital
+V01607,2025-04-07,Bucaramanga,APP,C0121,P017,3,4900,0,Tarjeta
+V01608,2025-04-07,Bogotá,Web,C0213,P018,4,4300,0.1,Tarjeta
+V01609,2025-04-07,Barranquilla,App,C1175,P053,1,12900,0,Tarjeta
+V01610,2025-04-07,Bucaramanga,Tienda,C0659,P036,2,4100,0,Tarjeta
+V01611,2025-04-07,Cali,App,C0264,P044,1,6300,0.1,Billetera digital
+V01612,2025-04-07,Medellin,App,C0020,P040,2,3700,0,Tarjeta
+V01613,2025-04-07,Cartagena,Tienda,C0020,P006,3,1900,0.05,
+V01614,2025-04-07,Bogotá,Web,C0995,P020,1,7400,0,Tarjeta
+V01615,2025-04-07,Cali,Tienda,C0018,P021,4,2500,0,Tarjeta
+V01616,2025-04-07,Medellín,Web,C0015,P046,1,13200,0.15,Tarjeta
+V01617,2025-04-07,bogota,Tienda,C0033,P006,6,1900,0,Efectivo
+V01618,2025-04-07,Medellín,Tienda,C0614,P037,1,21900,0,Tarjeta
+V01619,2025-04-08,Barranquilla,Tienda,,P020,2,7400,0,Tarjeta
+V01620,08/04/2025,Bogotá,Web,C0002,P027,3,3600,0.05,Transferencia
+V01621,2025-04-08,bogota,App,C0152,P001,5,4900,0.1,Tarjeta
+V01622,2025-04-08,Bogotá,Tienda,C0399,P019,4,8200,0.1,Billetera digital
+V01623,2025-04-08,Cartagena,Tienda,C0117,P012,3,7500,0,Tarjeta
+V01624,2025-04-08,Barranquilla,tienda,C0009,P033,1,$14.500,0,Efectivo
+V01625,2025-04-08,bogota,Tienda,,P028,2,2900,0,Billetera digital
+V01626,2025-04-08,Bogotá,Web,C0284,P044,2,6300,0,Transferencia
+V01627,2025-04-08,Bogotá,Tienda,,P022,4,$2.100,0,Billetera digital
+V01628,2025-04-08,Barranquilla,Tienda,,P006,1,1900,0,Efectivo
+V01629,2025-04-08,Bucaramanga,Web,C0010,P020,1,7400,0.15,Tarjeta
+V01630,2025-04-08,Bogotá,Tienda,,P014,4,5200,0,Tarjeta
+V01631,2025-04-08,Bucaramanga,App,C0402,P015,1,6400,0,Billetera digital
+V01632,2025-04-08,bucaramanga,Tienda,C0536,P007,1,3400,0,Tarjeta
+V01633,2025-04-08,Bogotá,Web,C0026,P028,3,2900,0,Tarjeta
+V01634,2025-04-08,Medellín,Web,C1281,P044,5,6300,0.15,Transferencia
+V01635,2025-04-08,Medellín,App,C0009,P020,2,7400,0,Billetera digital
+V01636,2025-04-09,Bucaramanga,Web,C0009,P032,1,2800,0.1,Tarjeta
+V01637,2025-04-09,Bogotá,Tienda,,P019,5,8200,0,Tarjeta
+V01638,2025-04-09,Medellín,Tienda,C0049,P014,3,5200,0,Billetera digital
+V01639,2025-04-09,Bogotá,Tienda,,P020,2,7400,0,Efectivo
+V01640,2025-04-09,Cali,Tienda,C0061,P029,4,4200,0,Tarjeta
+V01641,2025-04-09,Cali,Tienda,,P027,4,3600,0,Tarjeta
+V01642,2025-04-09,Cali,Tienda,,P015,4,6400,0,Efectivo
+V01643,2025-04-09,Bogotá,App,C0136,P032,3,2800,0,Billetera digital
+V01644,2025-04-09,Bucaramanga,Web,C0002,P058,1,24900,0,Transferencia
+V01645,2025-04-09,Cartagena,Tienda,C0016,P009,5,6900,0,Billetera digital
+V01646,2025-04-09,Cali,Tienda,,P025,1,12400,0,Billetera digital
+V01647,2025-04-10,Medellín,Web,C0915,P023,1,17900,0.1,Billetera digital
+V01648,2025-04-10,barranquilla,App,C0052,P032,2,2800,0.1,Billetera digital
+V01649,2025-04-10,Bucaramanga,App,C0916,P033,1,14500,0,Transferencia
+V01650,2025-04-10,Cartagena,Web,C0788,P014,6,5200,0,
+V01651,2025-04-10,Cartagena,Web,C1187,P037,1,21900,0.05,Transferencia
+V01652,2025-04-10,Cali,Tienda,,P001,4,4900,0.05,Tarjeta
+V01653,2025-04-10,CALI,App,C0006,P029,1,4200,0.05,Billetera digital
+V01654,10/04/2025,Bogotá,Web,C0007,P030,1,3300,0.1,Transferencia
+V01655,2025-04-10,Barranquilla,App,C0011,P053,1,12900,0,Transferencia
+V01656,2025-04-10,Bogotá D.C.,App,C0003,P005,2,4600,0.05,Billetera digital
+V01657,2025-04-10,Barranquilla,Web,C0125,P021,1,2500,0.05,Tarjeta
+V01658,2025-04-10,medellín,Tienda,C0074,P018,1,4300,0,Efectivo
+V01659,11/04/2025,Bucaramanga,App,C0783,P038,3,9600,0.05,Tarjeta
+V01660,2025-04-11,Cali,App,C0081,P018,2,4300,0,Billetera digital
+V01661,2025-04-11,Bogotá,Web,C0358,P048,1,16400,0.15,Transferencia
+V01662,2025-04-11,Bogotá,Tienda,C0958,P039,2,10900,0,Billetera digital
+V01663,2025-04-11,Bogotá,App,C0146,P013,1,1800,0,Tarjeta
+V01664,2025-04-11,Cali,Tienda,,P019,4,8200,0,
+V01665,2025-04-11,Medellín,Tienda,C1249,P025,1,12400,0.1,Tarjeta
+V01666,2025-04-11,Cali,Tienda,C0348,P045,2,8400,0,Tarjeta
+V01667,2025-04-11,Cali,App,C0187,P024,1,13900,0.1,Billetera digital
+V01668,2025-04-11,Barranquilla,Web,C1235,P037,1,21900,0.15,Tarjeta
+V01669,2025-04-11,Cali,App,C1167,P003,1,6800,0,Transferencia
+V01670,2025-04-11,Bogotá,Tienda,C0206,P054,1,5400,,Tarjeta
+V01671,2025-04-11,Cali,Web,C0733,P059,1,59900,0.15,Tarjeta
+V01672,2025-04-11,Bucaramanga,Web,C0974,P049,1,32900,0.1,Transferencia
+V01673,2025-04-11,Medellín,Tienda,C0112,P058,1,24900,0,Efectivo
+V01674,2025-04-11,Cali,App,C0160,P036,2,4100,0,Transferencia
+V01675,2025-04-12,Cali,Web,C0003,P037,2,21900,0.05,Transferencia
+V01676,2025-04-12,Bogotá,Web,C0731,P008,2,3800,0,Transferencia
+V01677,2025-04-12,Medellín,App,C0104,P011,2,16900,0,Tarjeta
+V01678,2025-04-12,Bogotá,App,C0357,P048,1,16400,0.1,Billetera digital
+V01679,2025-04-12,bogota,Tienda,,P016,1,3100,0,Efectivo
+V01680,2025-04-12,Bogotá,App,C0682,P027,1,3600,0.05,Tarjeta
+V01681,2025-04-12,Bogotá,Web,C0534,P040,1,3700,0.05,Tarjeta
+V01682,2025-04-12,Medellín,Tienda,C0297,P040,1,3700,0,
+V01683,2025-04-12,Cartagena,Web,C1471,P006,6,1900,0.05,Transferencia
+V01684,2025-04-12,Bogotá,Tienda,,P036,2,4100,0,Tarjeta
+V01685,2025-04-12,Bogotá,Web,C0228,P046,1,13200,0,Transferencia
+V01686,2025-04-12,Bogotá,Tienda,C0905,P039,2,10900,0.05,Billetera digital
+V01687,2025-04-12,Cali,Tienda,,P017,3,4900,0,Billetera digital
+V01688,2025-04-12,Cali,Tienda,,P001,5,4900,0,Tarjeta
+V01689,2025-04-12,Cartagena,Tienda,C0145,P027,3,3600,0,Tarjeta
+V01690,2025-04-12,Bucaramanga,Web,C0030,P011,1,16900,0.1,Tarjeta
+V01691,2025-04-12,Cali,Tienda,,P006,3,1900,0.1,Efectivo
+V01692,2025-04-12,Barranquilla,Web,C0499,P044,1,6300,0.1,Tarjeta
+V01693,12/04/2025,Medellín,Tienda,C0418,P028,1,2900,0,Billetera digital
+V01694,2025-04-12,Cali,Web,C0266,P060,1,39900,0,Tarjeta
+V01695,2025-04-12,Medellín,Tienda,C0023,P027,1,3600,0,Tarjeta
+V01696,2025-04-12,Cartagena,Web,C0016,P048,1,16400,0,Tarjeta
+V01697,2025-04-12,Cali,App,C0216,P020,2,7400,0.15,Billetera digital
+V01698,2025-04-12,Cali,App,C0996,P041,5,6200,0.1,Tarjeta
+V01699,12/04/2025,Bogotá,Tienda,C0080,P022,4,2100,0,Billetera digital
+V01700,2025-04-12,Cali,App,C0057,P024,2,13900,0.1,Billetera digital
+V01701,2025-04-12,Barranquilla,Web,C0039,P010,1,3200,0.1,Tarjeta
+V01702,2025-04-12,cartagena,Web,C0002,P015,6,6400,0,Tarjeta
+V01703,2025-04-13,Bogotá,Web,C0786,P050,3,7900,0,Billetera digital
+V01704,2025-04-13,Bogotá,Web,C0020,P027,4,3600,0.1,Tarjeta
+V01705,2025-04-13,Bogotá,Tienda,,P057,1,2500,0,Tarjeta
+V01706,2025-04-13,Barranquilla,Web,C0245,P006,2,1900,0,Billetera digital
+V01707,2025-04-13,Bucaramanga,Tienda,C0192,P029,2,4200,0,Efectivo
+V01708,2025-04-13,Medellín,Tienda,C1195,P005,1,4600,0,Tarjeta
+V01708,2025-04-13,Medellín,Tienda,C1195,P005,1,4600,0,Tarjeta
+V01709,2025-04-13,Bogotá,App,C0487,P057,3,2500,0,Billetera digital
+V01710,2025-04-13,Bogotá,Tienda,,P041,3,6200,0,Efectivo
+V01711,2025-04-13,Cartagena,App,C0874,P032,2,2800,0,Billetera digital
+V01712,2025-04-13,Bucaramanga,Web,C0002,P032,1,2800,0,Transferencia
+V01713,2025-04-13,Bucaramanga,Web,C0547,P016,5,3100,0,Tarjeta
+V01714,2025-04-13,Cartagena,Tienda,,P055,2,4300,0,Efectivo
+V01715,2025-04-13,Cartagena,App,C0028,P024,1,13900,0.05,Billetera digital
+V01716,2025-04-13,Bogotá,App,C0802,P015,3,6400,0.05,Tarjeta
+V01717,2025-04-13,Bogota,Tienda,C1212,P013,5,1800,0,Efectivo
+V01718,2025-04-13, Bogotá,Tienda,C0219,P008,2,3800,0,Efectivo
+V01719,2025-04-13,Bogotá,Tienda,C1500,P029,2,4200,0,Billetera digital
+V01720,2025-04-14,bucaramanga,Tienda,,P038,2,9600,0,Efectivo
+V01721,2025-04-14,Bogotá,App,C0369,P016,1,3100,0,Transferencia
+V01722,2025-04-14,Bogotá,App,C0232,P029,2,4200,0,Tarjeta
+V01723,2025-04-14,Cartagena,Tienda,C0082,P010,1,3200,0,Efectivo
+V01724,2025-04-14,MEDELLIN,Web,C1021,P011,2,16900,0,Tarjeta
+V01725,2025-04-14,Medellín,Tienda,C0328,P032,2,2800,0,Efectivo
+V01726,2025-04-14,Bogotá,App,C0070,P040,4,3700,0,Billetera digital
+V01727,2025-04-14,Medellín,Tienda,,P033,1,14500,0,Efectivo
+V01728,2025-04-14,Bogotá,Tienda,,P020,1,7400,0,Billetera digital
+V01729,2025-04-14,Bogotá,WEB,C0688,P020,2,7400,0,Tarjeta
+V01730,2025-04-14,B/manga,Web,C0883,P043,1,15900,0,Tarjeta
+V01731,2025-04-14,Bogotá,App,C1426,P004,1,11900,0.1,Tarjeta
+V01731,2025-04-14,Bogotá,App,C1426,P004,1,11900,0.1,Tarjeta
+V01732,2025-04-15,Barranquilla,App,C0044,P015,3,6400,0,Tarjeta
+V01733,2025-04-15,Barranquilla,App,C0163,P039,3,10900,0.05,Billetera digital
+V01734,15/04/2025,Cartagena,Tienda,,P007,4,3400,0,Tarjeta
+V01735,2025-04-15,Barranquilla,Web,C1185,P029,2,4200,0.05,Tarjeta
+V01736,2025-04-15,Bogotá,App,C0046,P003,4,6800,0,Billetera digital
+V01737,2025-04-15,Bogotá,Tienda,C0359,P042,3,8900,0.05,Efectivo
+V01738,2025-04-15,Medellín,APP,C0049,P021,4,2500,0.05,Billetera digital
+V01739,2025-04-15,Bogotá,Web,C0001,P016,1,3100,0,Transferencia
+V01740,2025-04-15,Medellín,App,C1357,P010,2,3200,0.1,Tarjeta
+V01741,2025-04-15,Cali,App,C0895,P039,1,10900,0,Billetera digital
+V01742,2025-04-15,Barranquilla,Tienda,,P019,2,8200,0,Tarjeta
+V01743,2025-04-15,Medellín,Tienda,C1013,P037,2,21900,0.1,Tarjeta
+V01744,2025-04-15,Cali,Tienda,,P042,1,8900,0,Efectivo
+V01745,2025-04-15,Cali,Tienda,C0199,P027,3,3600,0,Efectivo
+V01746,2025-04-15,Bogotá,Web,C0314,P011,1,16900,0.05,Tarjeta
+V01747,2025-04-15,Bucaramanga,App,C0412,P004,2,11900,0.1,Billetera digital
+V01748,2025-04-16,Medellin,App,C0056,P011,1,16900,0.05,Transferencia
+V01749,2025-04-16,Medellín,App,C1221,P026,1,11800,0,Transferencia
+V01750,2025-04-16,Bogotá,App,C0425,P003,1,6800,0.1,Billetera digital
+V01751,2025-04-16,Medellín,Tienda,,P052,2,7900,0,Tarjeta
+V01752,2025-04-16,Medellín,App,C0001,P013,3,1800,,Billetera digital
+V01753,2025-04-16,Barranquilla,Tienda,C0849,P053,1,$12.900,0,Efectivo
+V01754,2025-04-16,Bogotá,Tienda,C0008,P010,1,3200,0.1,Efectivo
+V01755,2025-04-16,Bogotá,App,C1266,P031,1,3900,,Billetera digital
+V01756,2025-04-16,Bogotá,Tienda,,P033,1,14500,0,Efectivo
+V01757,2025-04-16,Bogotá,Tienda,,P039,2,10900,0.1,Tarjeta
+V01758,2025-04-16,Bogotá,App,C0085,P024,1,13900,0,
+V01759,2025-04-16,Cartagena,Tienda,,P043,1,15900,0.1,Tarjeta
+V01760,2025-04-16,Bogotá,Tienda,C1447,P059,1,59900,0,Efectivo
+V01760,2025-04-16,Bogotá,Tienda,C1447,P059,1,59900,0,Efectivo
+V01761,2025-04-16,Medellín,Web,C0068,P012,4,7500,0.15,Tarjeta
+V01762,2025-04-16,Cali,Web,C0331,P027,1,3600,0,Tarjeta
+V01763,2025-04-17,Medellín,App,C0435,P008,4,3800,0,Tarjeta
+V01764,17/04/2025,Barranquilla,Tienda,,P042,0,8900,0,Tarjeta
+V01765,2025-04-17,Cali,App,C0001,P018,1,4300,0.05,Billetera digital
+V01766,2025-04-17,Medellín,Tienda,,P015,1,6400,0,Efectivo
+V01767,2025-04-17,Bogotá,Web,C0008,P027,4,3600,0.05,Tarjeta
+V01768,2025-04-17,Medellín,App,C0769,P006,2,1900,0.05,Tarjeta
+V01769,2025-04-17,Barranquilla,Web,C0816,P040,1,3700,0,Tarjeta
+V01770,2025-04-17,,App,C0046,P028,3,2900,0,Billetera digital
+V01771,2025-04-17,Cartagena,Tienda,C0010,P022,3,2100,0,Tarjeta
+V01772,2025-04-17,Bogotá,App,C1350,P026,2,11800,0.15,Tarjeta
+V01773,2025-04-18,Bogotá,Web,C0048,P005,2,4600,0.1,Tarjeta
+V01774,2025-04-18,Cali,Web,C0608,P023,1,17900,0.15,Tarjeta
+V01775,2025-04-18,bucaramanga,Tienda,,P047,4,4800,0,Billetera digital
+V01776,2025-04-18,Cartagena,App,C0591,P026,1,11800,0.05,Transferencia
+V01777,2025-04-18,Cali,App,C0264,P058,2,24900,0,Transferencia
+V01778,2025-04-18,Medellin,Web,C0038,P027,3,3600,0.1,Billetera digital
+V01779,2025-04-18,Bogotá,TIENDA,,P025,1,12400,0,Billetera digital
+V01780,2025-04-18,Medellín,App,C0067,P011,1,16900,0.1,Transferencia
+V01781,2025-04-18,Bucaramanga,App,C0249,P010,1,3200,0,Tarjeta
+V01782,2025-04-18,Bogotá,Tienda,C0149,P025,1,12400,0.05,Efectivo
+V01783,2025-04-18,Bucaramanga,Tienda,C0420,P011,1,16900,0,Efectivo
+V01784,18/04/2025,Cartagena,Tienda,C0025,P028,2,2900,0,Efectivo
+V01785,2025-04-18,Medellín,Web,C0522,P025,2,12400,0.05,Transferencia
+V01786,2025-04-18,Barranquilla,Tienda,,P058,1,24900,0,Efectivo
+V01787,2025-04-18,Bogotá,Tienda,,P023,1,17900,0,Tarjeta
+V01788,2025-04-19,Bogotá,App,C0258,P019,1,8200,0,Billetera digital
+V01789,2025-04-19,Bogotá,Web,C0125,P047,2,4800,0.05,Tarjeta
+V01790,2025-04-19,medellín,App,C0240,P025,1,12400,0.05,Transferencia
+V01791,2025-04-19,Medellín,Tienda,C0534,P021,1,2500,0,Tarjeta
+V01792,2025-04-19,Barranquilla,Tienda,C0610,P041,1,6200,0,Tarjeta
+V01793,2025-04-19,Medellín,Tienda,,P007,4,$3.400,0,Billetera digital
+V01794,2025-04-19,Bogotá,Web,C1007,P014,3,5200,0.05,Tarjeta
+V01795,2025-04-19,B/manga,Tienda,C0309,P029,3,4200,0,Billetera digital
+V01796,2025-04-19,Medellín,App,C0865,P024,1,13900,0,Tarjeta
+V01797,2025-04-19,Bogotá,Web,C0002,P026,2,11800,0.1,Tarjeta
+V01798,2025-04-19,Bogotá,App,C0035,P012,3,7500,0,Billetera digital
+V01799,2025-04-19,medellín,App,C1394,P020,3,7400,0,Billetera digital
+V01800,19/04/2025,Bogotá,Tienda,C0196,P017,3,4900,0,Tarjeta
+V01801,19/04/2025,Bogotá,Tienda,,P017,1,4900,0,Tarjeta
+V01802,2025-04-19,Medellín,TIENDA,C1099,P028,2,2900,0,Tarjeta
+V01803,2025-04-19,Cali,App,C0010,P018,1,4300,,Tarjeta
+V01804,2025-04-19,Cali,App,C0281,P005,2,4600,0,Billetera digital
+V01805,2025-04-19,Bogotá,Tienda,,P009,3,6900,0,Tarjeta
+V01806,2025-04-19,Bogotá,Tienda,,P038,1,9600,,Efectivo
+V01807,2025-04-19,Bogotá,Web,C0366,P037,1,21900,0.05,Tarjeta
+V01808,19/04/2025,Bogotá,Web,C0023,P027,3,3600,0,Tarjeta
+V01809,2025-04-20,Medellín,App,C0374,P029,3,4200,0.05,Tarjeta
+V01810,2025-04-20,Barranquilla,App,C1217,P031,1,3900,0,Billetera digital
+V01811,2025-04-20,Bogotá,Web,C0211,P032,3,2800,0,Tarjeta
+V01812,2025-04-20,Bucaramanga,Tienda,,P054,1,5400,0,Tarjeta
+V01813,2025-04-20,Cartagena,Web,C0234,P037,1,21900,0,Transferencia
+V01814,2025-04-20,Barranquilla,App,C0972,P007,2,3400,0,Transferencia
+V01815,2025-04-20,Cartagena,WEB,C0314,P051,1,18700,0,Tarjeta
+V01816,2025-04-20,Cali,Tienda,C0348,P008,1,3800,0,Tarjeta
+V01817,2025-04-20,Bogotá,Web,C0123,P049,1,32900,0.1,Transferencia
+V01818,2025-04-20,Cali,App,C0095,P029,2,4200,0,Tarjeta
+V01819,2025-04-20,Medellín,App,C0247,P024,2,13900,0.1,Billetera digital
+V01820,2025-04-20,Cali,App,C0088,P023,2,17900,0.05,Transferencia
+V01821,2025-04-20,Cali,Tienda,C1488,P001,1,4900,0,Tarjeta
+V01822,2025-04-20,Bogotá,Web,C0513,P032,2,2800,0,Tarjeta
+V01823,2025-04-20,Cartagena,Tienda,C0110,P022,2,2100,0,Tarjeta
+V01824,2025-04-20,Bucaramanga,Tienda,,P002,1,3900,0,Tarjeta
+V01825,2025-04-20,Medellín,Tienda,C0013,P006,3,1900,0.1,Billetera digital
+V01826,2025-04-20,Bucaramanga,App,C0617,P003,2,6800,0,Billetera digital
+V01827,2025-04-20,Cartagena,Tienda,C0459,P036,1,4100,0,Efectivo
+V01828,2025-04-20,Bucaramanga,Tienda,C1479,P010,1,3200,0.05,Tarjeta
+V01829,2025-04-20,Cali,Tienda,,P008,3,3800,0,Billetera digital
+V01830,2025-04-20,Barranquilla,Web,C0643,P026,3,11800,0,Tarjeta
+V01831,2025-04-20,Cartagena,App,C0056,P007,3,3400,0,Tarjeta
+V01832,21/04/2025,cartagena,App,C0025,P019,4,8200,0.1,Billetera digital
+V01833,2025-04-21,Cali,Web,C0152,P054,2,5400,0,Tarjeta
+V01834,2025-04-21,Medellín,Tienda,C0422,P027,4,$3.600,0,Efectivo
+V01835,2025-04-21,Barranquilla,Tienda,C0621,P053,1,12900,0.1,Tarjeta
+V01836,2025-04-21,Barranquilla,Tienda,C0447,P031,3,3900,0,Tarjeta
+V01837,2025-04-21,Medellín,App,C1414,P004,2,11900,0,Billetera digital
+V01838,2025-04-21,Barranquilla,App,C0313,P001,3,4900,0.1,Billetera digital
+V01839,2025-04-21,Cartagena,Tienda,,P022,2,2100,0,Tarjeta
+V01840,2025-04-21,Barranquilla,App,C0015,P029,2,4200,0,Transferencia
+V01841,2025-04-21,Medellín,Web,C1301,P030,4,3300,0,Transferencia
+V01842,2025-04-21,Medellín,App,C0276,P002,3,3900,0,Billetera digital
+V01843,2025-04-21,Cartagena,Web,C0712,P032,4,2800,0.15,Tarjeta
+V01844,2025-04-21,Barranquilla,App,C0014,P043,1,15900,0.1,Billetera digital
+V01845,2025-04-21,Cali,Tienda,C1249,P018,2,4300,0,Efectivo
+V01846,2025-04-21,Medellín,App,C0134,P012,3,7500,0,Billetera digital
+V01847,2025-04-21,Bucaramanga,Tienda,C0351,P012,4,7500,0,Efectivo
+V01847,2025-04-21,Bucaramanga,Tienda,C0351,P012,4,7500,0,Efectivo
+V01848,2025-04-21,Cali,App,C1281,P046,1,13200,0.1,Tarjeta
+V01849,2025-04-21,Medellín,Tienda,C0195,P019,3,8200,0,Tarjeta
+V01850,2025-04-21,Barranquilla,App,C0403,P010,2,3200,0,Transferencia
+V01851,2025-04-21,Medellín,app,C0047,P059,2,59900,0,Billetera digital
+V01852,2025-04-22,Barranquilla,Web,C0104,P029,3,4200,0.05,Tarjeta
+V01853,2025-04-22,Bogotá,App,C1278,P020,1,7400,0,Billetera digital
+V01854,2025-04-22,Medellín,Tienda,C0037,P046,1,13200,0,Efectivo
+V01855,2025-04-22,Medellín,Tienda,,P023,1,17900,0,Tarjeta
+V01856,2025-04-22,Medellín,Tienda,,P014,2,5200,0,Billetera digital
+V01857,2025-04-22,Cartagena,Tienda,,P023,2,17900,0.05,Tarjeta
+V01858,2025-04-22,Medellín,App,C0002,P054,4,5400,0.05,Tarjeta
+V01859,2025-04-22,Cali,Tienda,C0010,P015,4,6400,0,Tarjeta
+V01860,2025-04-22,Cali,App,C0279,P030,1,3300,0.1,Billetera digital
+V01861,2025-04-22,Bogotá,Tienda,,P011,1,16900,0,Efectivo
+V01862,2025-04-22,Medellín,App,C1247,P019,1,8200,0,Tarjeta
+V01863,2025-04-22,barranquilla,App,C0373,P019,2,8200,0.1,Tarjeta
+V01864,2025-04-22,Medellín,App,C0001,P023,1,17900,0.05,Tarjeta
+V01865,2025-04-22,Bucaramanga,Tienda,C0265,P006,2,1900,0,Efectivo
+V01866,2025-04-22,Barranquilla,Web,C0076,P030,2,3300,0,Tarjeta
+V01867,2025-04-22,Bogotá,Tienda,,P040,3,3700,0.05,Efectivo
+V01868,2025-04-22,Bogotá,Tienda,,P015,2,6400,0,Billetera digital
+V01869,2025-04-22,Bogotá,App,C0013,P002,3,3900,0,Tarjeta
+V01870,2025-04-22,Cartagena,Tienda,,P009,1,6900,0,Efectivo
+V01871,2025-04-23,Cartagena,Web,C0140,P048,1,16400,0.1,Transferencia
+V01872,2025-04-23,Bogota,APP,C0026,P009,1,6900,0.15,Tarjeta
+V01873,2025-04-23,Medellín,Tienda,C0171,P036,1,4100,0,Efectivo
+V01874,2025-04-23,Bogotá,Tienda,C1297,P027,6,3600,0,Tarjeta
+V01875,2025-04-23,Bogotá,App,C0212,P054,2,5400,0,Billetera digital
+V01876,2025-04-23,Barranquilla,App,C0055,P042,2,8900,0,Billetera digital
+V01877,2025-04-23,Cali,Tienda,,P016,5,$3.100,0,Tarjeta
+V01878,2025-04-23,Bogotá,Web,C0001,P027,2,3600,0.05,Tarjeta
+V01879,2025-04-23,medellín,App,C0117,P008,3,3800,0,
+V01880,2025-04-23,Bogotá,App,C0428,P002,2,3900,0,Tarjeta
+V01881,2025-04-23,Barranquilla,App,C0334,P013,2,1800,0.1,Billetera digital
+V01882,2025-04-23,Medellín,App,C0206,P013,1,1800,0.05,Billetera digital
+V01883,2025-04-23,Medellín,App,C1201,P006,1,1900,0,Tarjeta
+V01884,2025-04-24,Barranquilla,App,C1248,P015,2,6400,0,Billetera digital
+V01885,2025-04-24,Medellín,Web,C0180,P019,4,8200,0.15,Tarjeta
+V01886,2025-04-24,Cartagena de Indias,Tienda,C1129,P003,4,6800,0,Efectivo
+V01887,2025-04-24,Bogotá,App,C0023,P052,2,7900,0,Billetera digital
+V01888,24/04/2025,Barranquilla,Tienda,,P022,1,2100,0.1,Billetera digital
+V01889,2025-04-24,Bogotá,Web,C1302,P038,1,9600,0,Transferencia
+V01890,2025-04-24,Bogotá,Tienda,C0571,P022,2,2100,0,Tarjeta
+V01891,2025-04-24,Barranquilla,Tienda,,P001,6,4900,0,Tarjeta
+V01892,2025-04-24,Bogotá,App,C0120,P051,1,18700,0,Billetera digital
+V01893,2025-04-24,Bogotá,Web,C0244,P009,1,6900,0,Tarjeta
+V01894,2025-04-24,Medellín,Web,C1336,P043,1,15900,0.15,Tarjeta
+V01895,2025-04-24,Medellín,Web,C1107,P035,1,7800,0,Billetera digital
+V01896,2025-04-24,Medellín,Web,C1132,P028,1,2900,0,Tarjeta
+V01897,2025-04-24,Medellín,App,C0372,P040,1,3700,0.1,Tarjeta
+V01898,2025-04-24,Bogotá D.C.,Tienda,C0039,P029,1,4200,0,Billetera digital
+V01899,2025-04-24,Medellín,App,C0122,P022,3,2100,0.1,Tarjeta
+V01900,2025-04-24,Bucaramanga,Tienda,C0444,P023,2,17900,0,Efectivo
+V01901,2025-04-24,Barranquilla,App,C0357,P043,2,15900,0,Transferencia
+V01902,2025-04-25,Bogotá,Web,C1065,P014,5,5200,0.15,Transferencia
+V01903,2025-04-25,Bucaramanga,App,C0150,P026,2,11800,0.1,Tarjeta
+V01904,2025-04-25,Barranquilla,App,C0681,P055,2,4300,0,
+V01905,2025-04-25,Bogotá,App,C0050,P053,0,12900,0.1,Billetera digital
+V01906,2025-04-25,Cali,Tienda,C0070,P012,4,7500,0,Tarjeta
+V01907,2025-04-25,Medellín,Tienda,,P051,1,18700,0,Tarjeta
+V01908,2025-04-25,Cali,App,C0265,P018,5,4300,0,Transferencia
+V01909,2025-04-25,Cali,App,C0215,P022,2,2100,0,Transferencia
+V01910,2025-04-25,Bogotá,Tienda,C0804,P011,1,16900,0,Tarjeta
+V01911,2025-04-25,Bogotá,Tienda,,P011,3,16900,0,Tarjeta
+V01912,2025-04-25,Medellín,Tienda,,P023,2,17900,0,Tarjeta
+V01913,2025-04-25,Bogotá,Tienda,C0120,P055,5,4300,0,Efectivo
+V01914,2025-04-25,Bucaramanga,Web,C0294,P032,4,2800,0.1,Billetera digital
+V01915,2025-04-25,Medellín,Web,C0769,P051,1,18700,0.05,Transferencia
+V01916,2025-04-25,Bogotá,App,C0039,P008,2,3800,0.05,Tarjeta
+V01917,2025-04-25,Cali,Tienda,C0676,P017,3,4900,0,Tarjeta
+V01918,2025-04-25,Barranquilla,Web,C0003,P026,2,11800,0.05,Tarjeta
+V01919,2025-04-25,BOGOTÁ,Web,C0659,P027,1,3600,0.05,Tarjeta
+V01920,2025-04-26,Bogotá,Tienda,,P058,1,24900,0,Efectivo
+V01921,2025-04-26,Medellín,Web,C0224,P024,1,13900,0,Transferencia
+V01922,2025-04-26,Cali,App,C0001,P004,2,11900,0,Billetera digital
+V01923,2025-04-26,Cartagena,Tienda,C0983,P027,3,3600,0,Billetera digital
+V01924,2025-04-26,Barranquilla,Tienda,C0332,P025,1,12400,0,Efectivo
+V01925,2025-04-26,Cartagena,Tienda,C1315,P008,4,3800,0,Tarjeta
+V01926,2025-04-26,Bogotá,Web,C0111,P019,1,8200,0.1,Transferencia
+V01927,2025-04-26,Bogotá,Tienda,C0133,P006,2,1900,,Tarjeta
+V01928,2025-04-26,Bogotá,Tienda,C0096,P047,2,4800,0,Tarjeta
+V01929,2025-04-26,Bucaramanga,Web,C0013,P048,1,16400,0,Tarjeta
+V01930,2025-04-26,Barranquilla,App,C0245,P007,1,3400,0.05,Tarjeta
+V01931,2025-04-26,Bogotá,Web,C0716,P023,2,17900,0,Tarjeta
+V01932,2025-04-26,Bogotá,Web,C0124,P047,3,4800,0,Tarjeta
+V01933,2025-04-26,Bucaramanga,App,C0790,P022,2,2100,0,Billetera digital
+V01934,2025-04-26,Bogotá,Web,C1198,P020,2,7400,0,Tarjeta
+V01935,2025-04-26,Bogotá,Tienda,C0040,P027,2,3600,0,Efectivo
+V01936,2025-04-26,Bogotá,Tienda,C1170,P011,1,16900,0,Billetera digital
+V01937,2025-04-27,Medellín,App,C0142,P020,5,7400,0,Billetera digital
+V01938,2025-04-27,Bogotá,App,C0005,P034,2,5900,,Billetera digital
+V01939,2025-04-27,Cali,Tienda,,P032,2,2800,,Billetera digital
+V01940,2025-04-27,Bogotá,Tienda,C0241,P034,1,5900,0,Billetera digital
+V01941,2025-04-27,Bogotá,App,C0004,P026,1,11800,0,Billetera digital
+V01942,2025-04-27,Bogotá,Tienda,,P007,2,3400,0,Efectivo
+V01943,2025-04-27,Bogotá,Tienda,C0111,P026,1,11800,0,Efectivo
+V01944,2025-04-27,Barranquilla,Tienda,C0425,P011,1,16900,0.05,Efectivo
+V01945,2025-04-27,Bucaramanga,App,C0020,P021,1,2500,0.05,Tarjeta
+V01946,2025-04-27,Medellín,App,C1055,P028,1,2900,0,Billetera digital
+V01947,2025-04-27,Barranquilla,Web,C0642,P040,6,3700,0,
+V01948,2025-04-27,Bogotá,App,C0065,P012,3,7500,0,Billetera digital
+V01949,2025-04-27,Medellín,Tienda,C0921,P024,1,13900,0,Tarjeta
+V01950,2025-04-27,Bogotá,Tienda,,P040,2,3700,0,Tarjeta
+V01951,27/04/2025,Bucaramanga,Tienda,,P025,1,12400,0,Tarjeta
+V01952,2025-04-27,Medellín,App,C0152,P026,2,11800,0.15,Tarjeta
+V01953,2025-04-27,Barranquilla,App,C0089,P037,1,21900,0.05,Billetera digital
+V01954,2025-04-27,Barranquilla,Tienda,C0001,P038,3,9600,0.05,Efectivo
+V01955,2025-04-27,Bogotá,Tienda,,P030,2,3300,0,Efectivo
+V01956,2025-04-27,Bogotá,App,C0755,P035,1,7800,0.05,Billetera digital
+V01957,2025-04-27,Medellín,Web,C0411,P020,4,7400,0,Tarjeta
+V01958,2025-04-27,bucaramanga,Tienda,C0050,P011,3,16900,0,Billetera digital
+V01959,2025-04-27,Bucaramanga,Tienda,C0078,P005,4,4600,0,Efectivo
+V01960,2025-04-27,Barranquilla,Web,C0029,P030,2,3300,0.05,Transferencia
+V01961,2025-04-27,Bogotá,Tienda,C0136,P032,2,2800,0,Efectivo
+V01962,2025-04-28,Bogotá,Tienda,C0405,P057,6,2500,0,Tarjeta
+V01963,2025-04-28,Bucaramanga,Tienda,C0394,P009,2,6900,0,Efectivo
+V01964,2025-04-28,Bucaramanga,Tienda,,P054,1,5400,0.05,Efectivo
+V01965,2025-04-28,CALI,App,C1256,P021,2,2500,0.15,Billetera digital
+V01966,2025-04-28,Bogotá,Tienda,C0121,P017,2,4900,0,Tarjeta
+V01967,2025-04-28,Medellín,Web,C0977,P047,4,4800,0,Tarjeta
+V01968,2025-04-28,BOGOTÁ,App,C1420,P003,5,$6.800,0,Billetera digital
+V01969,2025-04-28,Bogotá,App,C0179,P023,2,17900,0,Tarjeta
+V01970,2025-04-28,Medellín,App,C0089,P007,3,3400,,Tarjeta
+V01971,2025-04-28,Medellin,App,C0133,P040,4,$3.700,0,Billetera digital
+V01972,2025-04-28,Medellín,Web,C0980,P031,2,3900,0.1,Tarjeta
+V01973,2025-04-28,Cartagena,Tienda,,P041,1,6200,0,Efectivo
+V01974,2025-04-28,Medellín,Web,C0741,P011,2,16900,0,Tarjeta
+V01975,2025-04-28,Bogotá,Web,C0065,P047,1,4800,0.1,Tarjeta
+V01976,2025-04-28,Bucaramanga,App,C0026,P030,1,3300,0,Tarjeta
+V01977,2025-04-28,Medellín,WEB,C0836,P011,1,16900,0,Tarjeta
+V01978,2025-04-28,Barranquilla,Tienda,,P033,1,14500,0,Billetera digital
+V01979,2025-04-28,Barranquilla,Tienda,,P042,2,8900,0,Efectivo
+V01980,2025-04-28,Cali,Web,C0016,P060,2,39900,0.1,Tarjeta
+V01981,2025-04-29,Bogotá,app,C1115,P011,1,16900,0.1,Billetera digital
+V01982,2025-04-29,Bogotá,Web,C1061,P045,2,8400,,Tarjeta
+V01983,2025-04-29,Bogotá,Tienda,,P030,4,3300,0,Billetera digital
+V01984,2025-04-29,Bogotá,Tienda,C1177,P002,1,3900,0,Tarjeta
+V01985,2025-04-29,Medellín,App,C0591,P049,1,32900,0,Tarjeta
+V01986,2025-04-29,Bogotá,Tienda,C1266,P020,6,7400,0,Tarjeta
+V01987,2025-04-29,Bogotá,App,C1296,P008,4,3800,0.05,Billetera digital
+V01988,2025-04-29,Bucaramanga,Web,C0931,P024,1,13900,0.1,Tarjeta
+V01989,2025-04-30,Cali,Tienda,,P033,2,14500,0,Billetera digital
+V01990,2025-04-30,Bogotá,App,C0001,P018,1,4300,0,Billetera digital
+V01991,2025-04-30,Bucaramanga,App,C1021,P039,1,10900,0,Billetera digital
+V01992,2025-04-30,Medellin,Tienda,,P051,1,18700,0,Efectivo
+V01993,2025-04-30,Bogotá,Tienda,C1337,P039,1,10900,0,Tarjeta
+V01994,2025-04-30,Bogotá,Web,C0570,P050,2,7900,0,Transferencia
+V01995,2025-04-30,Bogotá,App,C0082,P024,1,13900,0,Billetera digital
+V01996,2025-04-30,Bucaramanga,Tienda,C0632,P039,1,10900,0,Billetera digital
+V01997,2025-04-30,Cali,Tienda,C0266,P010,5,3200,0,Tarjeta
+V01998,2025-04-30,Medellín,TIENDA,C1116,P027,4,3600,0,Efectivo
+V01999,2025-04-30,Barranquilla,Tienda,C1195,P022,3,2100,0,Tarjeta
+V02000,2025-04-30, Bogotá,App,C0003,P011,1,16900,0,Billetera digital
+V02001,2025-04-30,Medellín,Tienda,C0112,P021,2,2500,0,Tarjeta
+V02002,30/04/2025,Bogotá,Web,C0913,P020,2,7400,0.15,Tarjeta
+V02003,2025-04-30,Bogotá,App,C0012,P051,2,18700,0,Billetera digital
+V02004,2025-04-30,Bogotá,App,C0095,P029,1,4200,0,Billetera digital
+V02005,2025-04-30,Bogotá,Web,C0949,P004,1,11900,0.1,Billetera digital
+V02006,2025-04-30,Bogotá,Web,C0623,P021,1,2500,0,Tarjeta
+V02007,2025-04-30,Medellín,App,C0285,P015,3,6400,0.05,Tarjeta
+V02008,2025-05-01,Cali,Tienda,,P049,1,32900,0,Billetera digital
+V02009,2025-05-01,Bogotá,Tienda,C0950,P030,1,3300,0,Billetera digital
+V02010,2025-05-01,Cali,Tienda,,P021,2,2500,0,Billetera digital
+V02011,2025-05-01,Bogotá,App,C0083,P021,2,2500,0,Billetera digital
+V02012,2025-05-01,Barranquilla,Tienda,,P007,2,3400,0,Efectivo
+V02013,2025-05-01,Medellín,Web,C0122,P042,-3,8900,0,Tarjeta
+V02014,2025-05-01,Medellín,Web,C1131,P004,2,11900,0.1,Tarjeta
+V02015,2025-05-01,Bogotá,Web,C0953,P044,2,6300,0.1,Transferencia
+V02016,2025-05-01,Bogotá,Tienda,C0042,P006,2,1900,0,Efectivo
+V02017,2025-05-01,Bogotá D.C.,Tienda,,P049,1,$32.900,0,Efectivo
+V02018,2025-05-01,Cartagena,App,C0813,P039,1,10900,0.1,Billetera digital
+V02019,2025-05-01,Cali,Tienda,C0964,P032,6,2800,0,Efectivo
+V02020,2025-05-01,Medellín,Tienda,C0046,P019,1,8200,0,Billetera digital
+V02021,2025-05-01,Bogotá,App,C1338,P038,2,9600,0,Transferencia
+V02022,01/05/2025,Bogotá,App,C0751,P030,1,3300,0,Billetera digital
+V02023,2025-05-02,Bucaramanga,Tienda,C0852,P048,1,16400,0,Tarjeta
+V02024,2025-05-02,Bucaramanga,Web,C0885,P010,4,3200,0.1,Tarjeta
+V02025,2025-05-02,Bogotá,Web,C0082,P001,1,4900,0.15,Billetera digital
+V02026,2025-05-02,Cali,App,C0038,P004,1,11900,0.1,Transferencia
+V02027,2025-05-02,Medellin,Web,C0822,P015,2,6400,0,Billetera digital
+V02028,2025-05-02,Bucaramanga,Web,C0083,P022,1,2100,0.15,Billetera digital
+V02029,2025-05-02,Barranquilla,Tienda,C0649,P012,2,7500,0,Billetera digital
+V02030,2025-05-02,Bogotá,Tienda,,P023,2,17900,0,Tarjeta
+V02031,02/05/2025,Cartagena,Tienda,C0082,P003,2,6800,0.1,Tarjeta
+V02032,2025-05-02,Cartagena,Web,C0238,P024,1,13900,0,Tarjeta
+V02033,02/05/2025,Medellín,app,C0477,P005,3,4600,0.15,Tarjeta
+V02034,2025-05-03,Bogotá,App,C0728,P003,-1,6800,0,Tarjeta
+V02035,2025-05-03,Bogotá,App,C0027,P046,2,13200,0,Billetera digital
+V02036,2025-05-03,Barranquilla,Tienda,C0327,P047,1,4800,0.05,Tarjeta
+V02037,2025-05-03,Bucaramanga,App,C0019,P012,4,7500,0.15,Billetera digital
+V02038,2025-05-03,Bogotá,Web,C0481,P003,6,6800,0.1,Billetera digital
+V02039,2025-05-03,Cartagena,Tienda,C0543,P015,2,6400,0,Billetera digital
+V02040,2025-05-03,Medellín,Web,C1243,P053,1,12900,0.15,Tarjeta
+V02041,2025-05-03,Bogotá,App,C0038,P038,1,9600,0,Tarjeta
+V02042,2025-05-03,Bogotá,Tienda,,P058,1,24900,0,Efectivo
+V02043,2025-05-03,Bucaramanga,Tienda,,P052,3,7900,0,Tarjeta
+V02044,2025-05-03,Cali,App,C0028,P002,1,3900,0,Tarjeta
+V02045,2025-05-03,Bogotá,App,C0458,P055,1,4300,0.05,Billetera digital
+V02046,2025-05-03,Medellín,Tienda,C0303,P055,3,4300,0,Billetera digital
+V02047,2025-05-03,Cali,Web,C1037,P015,4,6400,0.1,Tarjeta
+V02048,2025-05-03,Medellín,Tienda,,P012,5,7500,0,Billetera digital
+V02049,2025-05-04,Cali,App,C0008,P010,6,3200,0,Tarjeta
+V02050,2025-05-04,Bogotá,Web,C0063,P010,4,3200,0,Tarjeta
+V02051,2025-05-04,Cali,App,C0007,P015,3,6400,0,Tarjeta
+V02052,2025-05-04,Bogotá,Web,C0194,P053,3,12900,0,Tarjeta
+V02053,2025-05-04,Cartagena,Tienda,C0803,P043,2,15900,0,Billetera digital
+V02054,2025-05-04,Bogotá,Tienda,C0070,P030,1,3300,0,Tarjeta
+V02055,2025-05-04,Cartagena,Tienda,,P011,2,16900,0,Efectivo
+V02056,2025-05-04,Barranquilla,Tienda,C0089,P020,1,7400,0,Efectivo
+V02057,2025-05-04,Bogotá,Tienda,C0944,P009,1,6900,0,Efectivo
+V02058,2025-05-04,Barranquilla,Tienda,C0086,P021,4,2500,0,Billetera digital
+V02059,2025-05-04,Cali,Tienda,,P026,1,11800,0,Tarjeta
+V02060,2025-05-04,Barranquilla,Tienda,C0116,P003,4,6800,0,Billetera digital
+V02061,2025-05-04,Bucaramanga,Tienda,C0205,P014,2,5200,0,Efectivo
+V02062,2025-05-04,Medellín,Tienda,,P035,1,7800,0.05,Billetera digital
+V02063,2025-05-04,Barranquilla,App,C0663,P009,1,6900,0,Billetera digital
+V02064,2025-05-04,Bogotá,App,C0129,P015,1,6400,0.05,Billetera digital
+V02065,2025-05-04,Cali,App,C0956,P037,1,21900,0,Tarjeta
+V02066,2025-05-04,Cali,App,C0130,P012,3,7500,0.05,Billetera digital
+V02067,2025-05-04,Bogotá,App,C0046,P042,4,8900,0.15,Transferencia
+V02068,2025-05-04,Barranquilla,Tienda,C0905,P041,1,6200,0,Efectivo
+V02069,2025-05-05,Barranquilla,Tienda,C0288,P049,1,32900,0,Billetera digital
+V02070,2025-05-05,Barranquilla,Web,C1205,P051,2,$18.700,0.05,Tarjeta
+V02071,2025-05-05,Bogotá,App,C0482,P033,2,14500,0.15,Transferencia
+V02072,2025-05-05,Medellín,Web,C0370,P046,2,13200,,Tarjeta
+V02073,2025-05-05,Bucaramanga,Tienda,,P049,1,32900,0.05,Efectivo
+V02074,2025-05-05,Cartagena,Tienda,C0026,P028,3,2900,0.1,Billetera digital
+V02075,2025-05-05,Bucaramanga,Web,C0758,P001,2,4900,0,Transferencia
+V02076,2025-05-05,Medellín,Tienda,,P012,1,7500,0,Efectivo
+V02077,2025-05-05,Bogotá,App,C0156,P027,2,3600,0,Billetera digital
+V02078,2025-05-06,Cartagena,App,C0037,P049,1,32900,0.05,Billetera digital
+V02079,2025-05-06,Cartagena,Tienda,C0533,P032,6,2800,0,Efectivo
+V02080,2025-05-06,Medellín,Web,C0343,P010,4,3200,0.1,Tarjeta
+V02081,2025-05-06,Bucaramanga,App,C1428,P037,1,21900,0.05,Billetera digital
+V02082,2025-05-06,Bucaramanga,Tienda,,P017,4,4900,0,Tarjeta
+V02083,06/05/2025,Medellín,App,C0456,P001,1,$4.900,0,Billetera digital
+V02084,2025-05-06,Bucaramanga,Tienda,,P057,6,2500,0.1,Efectivo
+V02085,2025-05-06,Bogotá,Tienda,,P017,1,4900,0,Tarjeta
+V02086,2025-05-06,Cartagena,Tienda,C0026,P047,3,4800,0,Tarjeta
+V02087,2025-05-06,Cali,Web,C0001,P031,5,3900,0.15,Tarjeta
+V02088,2025-05-06,Cartagena,Tienda,,P032,2,2800,0,Efectivo
+V02089,2025-05-06,Barranquilla,App,C0009,P054,2,5400,0.15,Tarjeta
+V02090,2025-05-06,Cali,App,C1064,P006,5,1900,0,Tarjeta
+V02091,2025-05-06,Bogotá,App,C0269,P007,6,3400,0.05,Billetera digital
+V02092,2025-05-06,Cartagena,Tienda,,P044,1,6300,0,Efectivo
+V02093,2025-05-06,Bogotá,App,C0240,P002,1,3900,0,Tarjeta
+V02094,2025-05-06,Bogotá,Tienda,,P046,3,13200,0.05,Tarjeta
+V02095,2025-05-06,cali,Web,C1454,P052,6,7900,0.05,Tarjeta
+V02096,2025-05-06,Bogotá,Tienda,,P039,1,10900,0,Tarjeta
+V02097,2025-05-07,Cartagena,Tienda,C0077,P034,1,5900,0,Billetera digital
+V02098,2025-05-07,Cali,Tienda,,P008,1,3800,0,Tarjeta
+V02099,2025-05-07,Bogotá,App,C0434,P031,3,3900,0.05,Transferencia
+V02100,2025-05-07,Bogotá,Tienda,C1261,P044,4,6300,0.05,Efectivo
+V02101,2025-05-07,,App,C0010,P006,2,1900,0,Billetera digital
+V02102,2025-05-07,Bogotá,Tienda,C0003,P023,1,$17.900,0.05,Tarjeta
+V02103,2025-05-07,,App,C1356,P001,5,4900,0,Billetera digital
+V02104,2025-05-07,Bogotá,Tienda,C1384,P007,5,3400,0,Tarjeta
+V02105,2025-05-07,Cartagena,Tienda,C0259,P009,1,6900,0,Tarjeta
+V02106,2025-05-07,Bogotá,Tienda,C0354,P055,2,4300,0,Efectivo
+V02107,2025-05-07,Cali,Web,C0001,P018,1,4300,0.05,Transferencia
+V02108,2025-05-07,Medellín,Web,C0122,P047,1,4800,0.1,Transferencia
+V02109,2025-05-07,Bucaramanga,Tienda,C0103,P032,1,2800,0,
+V02110,2025-05-07,Medellin,Web,C0051,P033,1,14500,0,Billetera digital
+V02111,2025-05-07,Bogotá,Web,C0150,P034,4,5900,0,Transferencia
+V02112,2025-05-07,Barranquilla,Web,C0001,P019,2,8200,0.15,Transferencia
+V02113,2025-05-07,Cali,App,C0993,P056,1,6900,0.05,Transferencia
+V02114,2025-05-07,Bogotá,App,C1213,P019,5,8200,0,Billetera digital
+V02115,2025-05-07,Bucaramanga,Tienda,C0489,P019,1,8200,0,Efectivo
+V02116,2025-05-07,Bogotá,Tienda,,P041,1,6200,0,Tarjeta
+V02117,2025-05-07,Barranquilla,App,C1053,P022,5,2100,0,Transferencia
+V02118,2025-05-07,Barranquilla,App,C0013,P015,3,6400,0,Tarjeta
+V02119,2025-05-07,Bogotá,App,C1420,P037,2,21900,0,Billetera digital
+V02120,2025-05-07,Bucaramanga,Web,C0274,P017,3,4900,0.15,Tarjeta
+V02121,2025-05-08,Bogotá,Tienda,C0002,P003,-1,6800,0,Tarjeta
+V02122,2025-05-08,Barranquilla,Tienda,,P031,1,3900,0,Tarjeta
+V02123,2025-05-08,Barranquilla,Web,C0369,P027,3,3600,0,Transferencia
+V02124,2025-05-08,Cartagena,Web,C0016,P039,2,10900,0,Transferencia
+V02125,2025-05-08,Bogotá,App,C0768,P021,6,2500,0.1,Billetera digital
+V02126,2025-05-08,Medellín,App,C0504,P004,1,11900,0,Billetera digital
+V02127,2025-05-08,BOGOTÁ,Web,C0024,P051,1,18700,0,Tarjeta
+V02128,2025-05-08,Cali,APP,C0220,P030,2,3300,0.15,Billetera digital
+V02129,2025-05-08,Barranquilla,App,C0498,P001,4,4900,0,Tarjeta
+V02130,08/05/2025,B/manga,App,C0095,P003,3,6800,0,Tarjeta
+V02131,08/05/2025,Bogotá,App,C0549,P021,1,2500,0.05,Tarjeta
+V02132,2025-05-09,Bogotá,Tienda,,P012,3,7500,0,Tarjeta
+V02133,2025-05-09,Bogotá,Web,C0443,P058,1,24900,0,Transferencia
+V02134,09/05/2025,Cali,Tienda,C0116,P037,3,21900,0,Efectivo
+V02135,2025-05-09,Medellín,Tienda,C0037,P010,3,3200,0.1,Efectivo
+V02136,2025-05-09,bogota,Tienda,C0147,P023,2,17900,0,Tarjeta
+V02137,2025-05-09,Barranquilla,Tienda,C1391,P018,1,4300,0,Tarjeta
+V02138,2025-05-09,Medellín,Tienda,C0412,P021,3,2500,0,Efectivo
+V02139,2025-05-09,Medellín,App,C0105,P055,1,4300,0.05,Billetera digital
+V02140,2025-05-09, Bogotá,Tienda,,P020,1,7400,0,Efectivo
+V02141,2025-05-09,Medellín,App,C0353,P013,1,1800,0,Tarjeta
+V02142,2025-05-09,Bogotá,Tienda,,P013,1,1800,0,Tarjeta
+V02143,2025-05-09,Bogotá,Tienda,C0518,P020,3,7400,0,Billetera digital
+V02144,2025-05-09,Medellín,App,C1105,P031,1,3900,0,Transferencia
+V02145,2025-05-09,Barranquilla,App,C0324,P015,2,6400,0.15,Tarjeta
+V02146,2025-05-09,Medellín,Tienda,C0001,P028,2,2900,0,Efectivo
+V02147,2025-05-09,Cali,App,C0059,P024,1,13900,0.05,Transferencia
+V02148,2025-05-09,Bogotá,App,C1156,P047,3,4800,0,Transferencia
+V02149,2025-05-10,Medellín,Tienda,,P009,5,$6.900,0.05,Efectivo
+V02150,2025-05-10,Barranquilla,Web,C0007,P049,3,32900,0.05,Transferencia
+V02151,2025-05-10,Bogotá,App,C0052,P050,1,7900,0.1,Billetera digital
+V02152,2025-05-10,Barranquilla,App,C0883,P007,2,3400,0.05,Tarjeta
+V02153,2025-05-10,Bucaramanga,Web,C0023,P020,2,7400,0,Tarjeta
+V02154,2025-05-10,Cali,App,C0423,P023,3,17900,0.05,Billetera digital
+V02155,2025-05-10,Cali,Web,C0061,P030,3,3300,0.15,Tarjeta
+V02156,2025-05-10,Bogotá,Tienda,,P023,2,17900,0.1,Tarjeta
+V02157,2025-05-10,Cali,Tienda,C0740,P034,1,5900,0,Tarjeta
+V02158,2025-05-10,Barranquilla,App,C0686,P016,5,3100,0.1,Tarjeta
+V02159,2025-05-10,Cali,Tienda,,P019,1,8200,0,Efectivo
+V02160,2025-05-10,Bogotá,Web,C0004,P014,2,5200,0,Transferencia
+V02161,2025-05-10,Bogotá,App,C0020,P018,2,4300,0.05,Billetera digital
+V02162,2025-05-10,Barranquilla,Tienda,,P047,3,4800,0,Efectivo
+V02163,2025-05-10,Bogotá,Tienda,C0187,P027,1,3600,0,Tarjeta
+V02163,2025-05-10,Bogotá,Tienda,C0187,P027,1,3600,0,Tarjeta
+V02164,2025-05-10,Barranquilla,Web,C0954,P008,1,3800,0.05,Transferencia
+V02165,2025-05-10,Bogotá,WEB,C1308,P011,1,16900,,Tarjeta
+V02166,2025-05-11,Bucaramanga,Web,C1326,P019,2,8200,0.05,Transferencia
+V02167,2025-05-11,Medellín,Web,C0152,P028,1,2900,0,Tarjeta
+V02168,2025-05-11,Medellín,Tienda,,P019,5,8200,0,Billetera digital
+V02169,2025-05-11,Bucaramanga,Web,C0555,P001,1,4900,0,Tarjeta
+V02170,2025-05-11,Bogotá,Tienda,,P038,2,9600,0,Efectivo
+V02171,2025-05-11,Bucaramanga,Tienda,C0536,P051,1,18700,0.05,Efectivo
+V02172,2025-05-11,Bucaramanga,App,C0149,P014,3,5200,0,Billetera digital
+V02173,2025-05-11,barranquilla,Tienda,,P002,4,3900,0,Tarjeta
+V02174,2025-05-11, Bogotá,Tienda,C1033,P016,3,3100,0,Tarjeta
+V02175,2025-05-11,Bogotá,Web,C0643,P030,2,$3.300,0.05,Transferencia
+V02176,2025-05-11,Cartagena,App,C0181,P013,4,1800,0,Billetera digital
+V02177,2025-05-11,Bucaramanga,Tienda,,P048,1,16400,0,Efectivo
+V02178,2025-05-11,Cali,App,C0007,P001,6,4900,0,Billetera digital
+V02179,2025-05-11,Cali,Web,C0100,P008,2,3800,0.1,Tarjeta
+V02180,2025-05-11,Medellín,Tienda,C0847,P022,1,2100,0,Billetera digital
+V02181,2025-05-11,Cali,Tienda,,P038,2,9600,0,Tarjeta
+V02182,2025-05-11,Cali,Tienda,C0375,P016,2,3100,0,Tarjeta
+V02183,2025-05-11,Bogotá,Web,C0579,P016,2,3100,0,Billetera digital
+V02184,2025-05-11,Cartagena,App,C0005,P039,1,10900,0,Billetera digital
+V02185,2025-05-11,Cartagena,App,C0402,P058,1,24900,0.05,Billetera digital
+V02186,2025-05-12,Bogotá,App,C0689,P028,2,2900,0.15,Billetera digital
+V02187,2025-05-12,Cali,Web,C1346,P007,6,3400,0,Transferencia
+V02188,2025-05-12,Cali,Tienda,C0357,P013,1,1800,0,Efectivo
+V02189,2025-05-12,bogota,App,C0660,P020,3,7400,0,Billetera digital
+V02190,2025-05-12,Medellín,App,C0017,P003,2,6800,0,Transferencia
+V02191,2025-05-12,Medellín,App,C0001,P019,5,8200,0,Transferencia
+V02192,2025-05-12,Bogotá,Web,C0203,P019,4,8200,0,Tarjeta
+V02193,2025-05-12,Bogotá,WEB,C0792,P011,1,16900,0,Tarjeta
+V02194,2025-05-12,Bogotá,APP,C0934,P050,2,7900,0.1,Tarjeta
+V02195,2025-05-12,Bogotá,App,C0811,P040,2,3700,0.05,Billetera digital
+V02196,2025-05-12,Cali,Tienda,C1000,P019,1,8200,0,Efectivo
+V02197,2025-05-12,Bogotá,Web,C1193,P022,1,2100,0.15,Tarjeta
+V02198,2025-05-12,Bucaramanga,App,C0487,P030,1,3300,,Tarjeta
+V02199,2025-05-12,Cali,Web,C0625,P042,5,8900,0,Billetera digital
+V02200,2025-05-12,Bogotá,tienda,C0188,P017,1,4900,0,Efectivo
+V02201,2025-05-13,Bogotá,Tienda,C0024,P008,1,3800,0,Efectivo
+V02202,2025-05-13,Bogotá,Tienda,,P035,3,7800,0,Efectivo
+V02203,2025-05-13,Cali,App,C0001,P002,1,3900,0,Billetera digital
+V02204,2025-05-13,Cali,Tienda,C0923,P040,1,3700,0.05,Tarjeta
+V02205,2025-05-13,Bucaramanga,Tienda,,P005,2,4600,0.05,Tarjeta
+V02206,2025-05-13,Medellín,Web,C0008,P043,1,15900,0,Tarjeta
+V02207,2025-05-13,Cartagena de Indias,App,C0203,P003,4,6800,0.05,Tarjeta
+V02208,13/05/2025,Bogotá,Tienda,,P033,2,14500,0,Tarjeta
+V02209,2025-05-13,Bogotá,App,C0041,P009,3,6900,0,Tarjeta
+V02210,2025-05-13,Cali,App,C1470,P046,2,13200,0.1,Billetera digital
+V02211,2025-05-13,Cartagena,Tienda,,P055,2,4300,0.05,Tarjeta
+V02212,2025-05-13,Bogotá,Tienda,C0002,P021,2,2500,0,Efectivo
+V02213,2025-05-13,Cali,Tienda,C0125,P031,2,3900,0,Efectivo
+V02214,2025-05-14,Barranquilla,Tienda,C0011,P014,2,5200,0.05,Tarjeta
+V02215,2025-05-14,Medellín,Tienda,C0286,P014,3,5200,0,Efectivo
+V02216,2025-05-14,Bogotá,Tienda,,P039,1,10900,0,Tarjeta
+V02217,14/05/2025,Cartagena,Web,C0819,P006,2,1900,0.1,Tarjeta
+V02218,2025-05-14,Bogotá,Tienda,C0685,P024,1,13900,,Efectivo
+V02219,14/05/2025,Bucaramanga,App,C0037,P022,4,2100,0,Tarjeta
+V02220,2025-05-14,Bucaramanga,Web,C0698,P045,3,8400,0.1,Tarjeta
+V02221,2025-05-14,Medellín,App,C0514,P018,4,4300,0,Billetera digital
+V02222,2025-05-14,Cartagena,Tienda,,P014,2,5200,0,Tarjeta
+V02223,2025-05-14,Barranquilla,Tienda,C0003,P023,2,17900,0,Efectivo
+V02224,2025-05-14,Barranquilla,Tienda,C0001,P020,4,7400,0,Tarjeta
+V02225,2025-05-14,Medellín,Tienda,,P054,2,5400,0.1,Billetera digital
+V02226,2025-05-14,Medellín,App,C0367,P023,2,17900,0,Tarjeta
+V02227,2025-05-15,Bogotá D.C.,App,C1368,P036,3,4100,0,Billetera digital
+V02228,2025-05-15,Medellín,App,C0014,P009,3,6900,0,Billetera digital
+V02229,2025-05-15,Bogotá,App,C0558,P030,3,3300,0,Tarjeta
+V02230,2025-05-15,Cali,Tienda,C1380,P019,4,8200,0,Billetera digital
+V02231,2025-05-15,Cartagena,Tienda,C0544,P058,1,24900,0,Efectivo
+V02232,2025-05-15,Bucaramanga,App,C1227,P019,1,8200,0,Tarjeta
+V02233,2025-05-15,Bogotá,Tienda,C0363,P004,2,11900,0,Tarjeta
+V02234,2025-05-15,Bogotá,Tienda,C0241,P003,2,6800,0.05,Efectivo
+V02235,2025-05-15,Barranquilla,App,C0034,P060,1,39900,0,Tarjeta
+V02236,2025-05-15,Bogotá,Tienda,C0359,P009,3,6900,0,Tarjeta
+V02237,2025-05-15,Medellín,App,C0915,P007,2,$3.400,0,Transferencia
+V02238,2025-05-15,Bogotá,Web,C0761,P036,3,4100,0.05,Tarjeta
+V02239,2025-05-15,Bogotá,Tienda,,P041,3,6200,0,Efectivo
+V02240,2025-05-15,Bogotá,Tienda,,P042,3,8900,0,Billetera digital
+V02241,2025-05-15,Barranquilla,Web,C0002,P045,1,8400,0,Transferencia
+V02242,2025-05-16,Bucaramanga,App,C0012,P011,1,16900,0,Tarjeta
+V02243,2025-05-16,Medellín,Web,C0500,P039,1,10900,0,Transferencia
+V02244,2025-05-16,Cartagena,App,C1483,P010,2,3200,0,Billetera digital
+V02245,2025-05-16,Barranquilla,Tienda,,P036,2,4100,0,Efectivo
+V02246,2025-05-16,Bogotá,Web,C1217,P016,6,3100,0.1,Transferencia
+V02247,2025-05-16,Bucaramanga,App,C0199,P023,1,17900,0,Billetera digital
+V02248,2025-05-16,Bogotá,Tienda,C0794,P028,4,2900,0,Efectivo
+V02249,2025-05-16,bucaramanga,App,C0090,P025,2,12400,0,Tarjeta
+V02250,2025-05-16,Medellín,App,C0426,P048,1,16400,0,Transferencia
+V02251,2025-05-16,Medellín,App,C1296,P056,4,6900,0.1,Transferencia
+V02252,2025-05-16,Cali,Tienda,,P013,1,1800,0,Efectivo
+V02253,2025-05-16,Cartagena,Web,C0047,P007,1,3400,0.05,Tarjeta
+V02254,2025-05-16,Bucaramanga,Tienda,,P021,1,2500,0,Efectivo
+V02255,2025-05-17,Cali,app,C0068,P044,1,6300,0.15,Transferencia
+V02256,2025-05-17,Cali,App,C0592,P014,2,5200,0,Tarjeta
+V02257,2025-05-17,Cali,App,C0070,P053,1,12900,0.1,Billetera digital
+V02258,2025-05-17,Bogotá,Tienda,C0715,P049,1,$32.900,0,Efectivo
+V02259,2025-05-17,B/quilla,Web,C1047,P021,2,2500,0.05,Tarjeta
+V02260,2025-05-17,Bogotá,App,C0412,P017,1,4900,0,Billetera digital
+V02261,2025-05-17,Cali,Tienda,C1027,P007,6,3400,0,Tarjeta
+V02262,2025-05-17,Cali,Tienda,,P016,2,3100,0,Efectivo
+V02263,2025-05-17,Bogotá,Web,C0028,P029,2,4200,0.15,Tarjeta
+V02264,2025-05-17,Cali,Tienda,,P021,3,2500,0,Tarjeta
+V02265,2025-05-17,Cali,Web,C0015,P002,4,3900,0,Tarjeta
+V02266,2025-05-17,Cartagena,App,C0418,P027,1,3600,0,Billetera digital
+V02267,2025-05-17,Bucaramanga,Tienda,C0073,P029,1,4200,0,Billetera digital
+V02268,2025-05-17,Bogotá,Tienda,C0107,P044,2,6300,0,Billetera digital
+V02269,2025-05-17,Bucaramanga,App,C0008,P011,1,16900,0,Tarjeta
+V02270,2025-05-17,Bogotá,Tienda,C0208,P053,2,12900,0,Tarjeta
+V02271,2025-05-17,Medellín,TIENDA,C0836,P050,3,7900,0,Efectivo
+V02272,2025-05-17,Cartagena,App,C0919,P040,3,3700,0.05,Tarjeta
+V02273,2025-05-18,Cartagena,App,C0897,P051,1,18700,0,Transferencia
+V02274,2025-05-18,Bogotá,Tienda,C0231,P012,3,7500,0,Tarjeta
+V02275,2025-05-18,Bogotá,Tienda,,P022,3,2100,0,Tarjeta
+V02276,2025-05-18,Medellín,App,C1248,P041,2,6200,0.15,Tarjeta
+V02277,2025-05-18,Cartagena,App,C1064,P056,2,6900,0.05,Billetera digital
+V02278,2025-05-18,Medellín,App,C0037,P048,1,16400,0.15,Billetera digital
+V02279,2025-05-18,Barranquilla,Tienda,C0424,P002,2,3900,0,Billetera digital
+V02280,2025-05-18,Medellín,Tienda,C0009,P026,2,11800,0,Efectivo
+V02281,2025-05-18,Barranquilla,Tienda,,P004,1,11900,0,Tarjeta
+V02282,2025-05-18,Bogotá,Web,C1300,P011,2,16900,0.05,Transferencia
+V02283,2025-05-18,Bucaramanga,Web,C0158,P045,2,8400,0.1,Tarjeta
+V02284,2025-05-18,Bucaramanga,Web,C0974,P027,1,3600,0.15,Tarjeta
+V02285,2025-05-18,Cartagena,App,C1145,P010,1,3200,0.05,Tarjeta
+V02286,2025-05-18,Bogotá,Tienda,C0705,P022,2,2100,0,Tarjeta
+V02287,2025-05-18,Cartagena,App,C1037,P049,1,32900,0,Billetera digital
+V02288,2025-05-18,Bogotá,App,C1148,P049,2,32900,0.1,Tarjeta
+V02289,2025-05-18,Bogotá,Web,C0003,P057,2,2500,0,Tarjeta
+V02290,2025-05-18,Bogotá,App,C0198,P031,1,3900,0.05,Billetera digital
+V02291,2025-05-18,Bogotá,App,C1087,P025,1,12400,0,Billetera digital
+V02292,2025-05-19,Bogotá,App,C0001,P031,3,3900,0,Billetera digital
+V02293,2025-05-19,Bucaramanga,Web,C0013,P008,2,3800,0.15,Tarjeta
+V02294,2025-05-19,Cali,App,C0782,P006,1,1900,0.15,Transferencia
+V02295,2025-05-19,Medellín,Tienda,C0013,P024,1,13900,0,Efectivo
+V02296,2025-05-19,Bogotá,Tienda,C0489,P007,2,3400,0,Tarjeta
+V02297,2025-05-19,Cartagena,Tienda,C0069,P033,1,14500,0,Tarjeta
+V02298,2025-05-19,Barranquilla,App,C0180,P051,1,18700,0.1,Billetera digital
+V02299,2025-05-19,Medellín,Tienda,C0021,P021,2,2500,0,Tarjeta
+V02300,2025-05-19,Bucaramanga,Web,C0324,P007,1,3400,0.05,Transferencia
+V02301,2025-05-19,Medellín,App,C0012,P047,4,4800,0,Tarjeta
+V02302,2025-05-19,Barranquilla,App,C0010,P023,3,$17.900,0,Billetera digital
+V02303,2025-05-19,Barranquilla,App,C1313,P019,2,8200,0,Billetera digital
+V02304,2025-05-20,Barranquilla,App,C0062,P056,1,6900,0.1,Billetera digital
+V02305,2025-05-20,Cali,Tienda,C0450,P014,2,5200,0,Billetera digital
+V02306,2025-05-20,Bogotá,App,C1235,P048,1,16400,0.05,Billetera digital
+V02307,2025-05-20,Medellín,Tienda,C0006,P040,4,3700,0,Tarjeta
+V02308,2025-05-20,Medellín,Web,C0977,P033,1,14500,0,
+V02309,2025-05-20,Barranquilla,Tienda,C1320,P031,6,3900,0.05,Tarjeta
+V02310,2025-05-20,Bogotá,Tienda,C0116,P044,2,6300,0,Tarjeta
+V02311,2025-05-20,barranquilla,Tienda,C0013,P015,2,6400,0.05,Efectivo
+V02312,2025-05-20,Bucaramanga,App,C0314,P001,3,4900,0.1,Tarjeta
+V02313,2025-05-20,Bogotá,Web,C0001,P011,1,16900,0,Tarjeta
+V02314,2025-05-20,CALI,App,C0130,P020,1,7400,0.05,Billetera digital
+V02315,2025-05-20,Bucaramanga,web ,C0196,P004,1,11900,0,Billetera digital
+V02316,2025-05-20,Medellín,Tienda,C0320,P029,3,4200,0.05,Tarjeta
+V02317,2025-05-20,Bogotá,Web,C0216,P020,6,7400,0.15,Tarjeta
+V02318,2025-05-21,Cartagena,Web,C0022,P001,4,4900,0.1,Transferencia
+V02319,2025-05-21,Cali,Web,C0152,P026,1,11800,0,Transferencia
+V02320,2025-05-21,Barranquilla,Web,C0152,P032,1,2800,0.05,Tarjeta
+V02321,2025-05-21,Medellín,Tienda,C0056,P024,3,13900,0,Tarjeta
+V02322,2025-05-21,Cartagena,Tienda,,P007,3,3400,0,Efectivo
+V02323,2025-05-21,Bogotá,App,C0341,P010,3,3200,0,Billetera digital
+V02324,2025-05-21,Bucaramanga,Tienda,,P016,1,3100,0,Tarjeta
+V02325,2025-05-21,Cali,Web,C0415,P021,2,2500,0.15,Tarjeta
+V02326,2025-05-21,Cali,App,C0687,P048,1,16400,0,Tarjeta
+V02327,2025-05-21,Bogotá,Tienda,C0005,P058,2,24900,0,Billetera digital
+V02328,2025-05-21,Bogotá,App,C0044,P019,2,8200,0,Billetera digital
+V02329,2025-05-21,Bogotá,Web,C1236,P003,1,6800,0.1,Transferencia
+V02330,2025-05-22,Bogotá,Tienda,C0167,P016,1,3100,0,Billetera digital
+V02331,2025-05-22,CALI,Web,C0140,P016,2,3100,0,Tarjeta
+V02332,2025-05-22,Bogotá,App,C0007,P038,5,9600,0,Billetera digital
+V02333,2025-05-22,Bucaramanga,App,C0350,P003,2,6800,0.05,Billetera digital
+V02334,2025-05-22,Bucaramanga,App,C0366,P051,2,18700,0.05,Tarjeta
+V02335,2025-05-22,Cartagena,App,C0144,P001,2,4900,,Billetera digital
+V02336,2025-05-22,Bogotá,App,C1009,P019,1,8200,0,Billetera digital
+V02337,2025-05-22,Bogotá,Tienda,,P021,3,2500,0,Efectivo
+V02338,2025-05-22,Medellín,App,C0043,P031,4,3900,0.15,Billetera digital
+V02339,2025-05-22,Cali,TIENDA,C0255,P048,1,16400,0,Tarjeta
+V02340,2025-05-22,Cali,Tienda,,P033,1,14500,0,Efectivo
+V02341,2025-05-22,Bogotá,App,C0035,P025,1,12400,0,Billetera digital
+V02342,2025-05-22,Bogotá,Web,C0121,P014,3,5200,0,Transferencia
+V02343,2025-05-22,Bucaramanga,Web,C1180,P011,3,16900,0.1,Transferencia
+V02344,2025-05-22,Bogotá,App,C0034,P015,5,6400,0,Billetera digital
+V02345,2025-05-23,Medellín,App,C0162,P029,2,4200,0,Billetera digital
+V02346,2025-05-23,Medellín,Tienda,,P011,2,16900,0,Efectivo
+V02347,2025-05-23,Bucaramanga,Tienda,,P024,1,13900,0,Efectivo
+V02348,2025-05-23,Bucaramanga,App,C0747,P009,1,6900,0.15,Tarjeta
+V02349,2025-05-23,Medellín,Web,C0066,P020,2,7400,0,Tarjeta
+V02349,2025-05-23,Medellín,Web,C0066,P020,2,7400,0,Tarjeta
+V02350,2025-05-23,MEDELLIN,App,C0223,P018,3,4300,0.05,Transferencia
+V02351,2025-05-23,Bogotá,Tienda,,P031,1,3900,0,Tarjeta
+V02352,2025-05-23,Bogotá,Tienda,C0012,P003,1,6800,0,Tarjeta
+V02353,2025-05-23,Bucaramanga,Tienda,,P018,2,4300,0,Efectivo
+V02354,2025-05-23,Medellín,Web,C0939,P047,1,4800,0.1,Transferencia
+V02355,2025-05-24,Bogotá,App,C0026,P053,1,12900,0.05,Tarjeta
+V02356,2025-05-24,Bucaramanga,Web,C0023,P018,5,4300,0.05,Tarjeta
+V02357,2025-05-24,Bogotá,App,C1325,P041,2,6200,0.1,Billetera digital
+V02358,2025-05-24,Medellín,Tienda,,P031,2,3900,0,Efectivo
+V02359,2025-05-24,Cali,Web,C0013,P007,2,3400,0.1,Transferencia
+V02360,2025-05-24,Bogotá,App,C0752,P032,2,2800,0.1,Billetera digital
+V02361,2025-05-24,Barranquilla,Tienda,C0203,P021,2,2500,0,Efectivo
+V02362,2025-05-24,Medellín,Tienda,C0300,P047,2,4800,0,Tarjeta
+V02363,2025-05-24,Cartagena,App,C1114,P050,5,7900,0,Billetera digital
+V02364,2025-05-24,Bogotá,Web,C0033,P044,2,6300,0,Tarjeta
+V02365,2025-05-24,Medellín,Tienda,,P004,3,11900,0,Billetera digital
+V02366,2025-05-24,Medellín,Web,C0592,P027,1,3600,0,Transferencia
+V02367,2025-05-24,Bucaramanga,Tienda,C0787,P027,2,3600,0.05,Tarjeta
+V02368,2025-05-24,Cali,Tienda,C1010,P025,1,12400,0,Billetera digital
+V02369,2025-05-24,Bogotá,App,C0125,P014,3,5200,0.15,Transferencia
+V02370,2025-05-24,Cartagena,App,C1392,P005,3,4600,0,Billetera digital
+V02371,2025-05-24,Bogotá,App,C0500,P017,3,4900,0,Tarjeta
+V02372,2025-05-24,Barranquilla,Tienda,,P004,1,11900,0.1,Efectivo
+V02373,2025-05-24,Bogotá,App,C0134,P009,2,6900,0.05,Tarjeta
+V02374,2025-05-24,Medellín,Tienda,C0758,P019,2,8200,0,Efectivo
+V02375,2025-05-24,Cali,Web,C0128,P049,1,32900,0.1,Tarjeta
+V02376,2025-05-25,Barranquilla,Tienda,,P023,1,$17.900,0,Tarjeta
+V02377,2025-05-25,Cali,Tienda,,P022,6,2100,0,Tarjeta
+V02378,2025-05-25,Bogotá,Web,C0555,P023,1,17900,0.15,Tarjeta
+V02379,2025-05-25,Barranquilla,Web,C0775,P027,2,3600,0.05,Billetera digital
+V02380,2025-05-25,Cali,App,C0016,P022,4,2100,0,Billetera digital
+V02381,2025-05-25,Bogotá,Tienda,,P049,1,32900,0,Efectivo
+V02382,2025-05-25,Barranquilla,Tienda,,P049,2,32900,0,Efectivo
+V02383,2025-05-25,Cali,Web,C0678,P011,1,16900,0,Billetera digital
+V02384,2025-05-25,Bucaramanga,Web,C0267,P060,2,39900,0.05,Tarjeta
+V02385,2025-05-25,Bogotá,Tienda,C0144,P022,1,2100,0,Billetera digital
+V02386,2025-05-25,Bogotá,App,C0223,P028,2,2900,0.1,Billetera digital
+V02387,2025-05-25,Medellín,Tienda,,P023,3,17900,0,Tarjeta
+V02388,2025-05-25,Bogotá,Tienda,C0945,P009,3,6900,0.1,Tarjeta
+V02389,2025-05-25,Medellín,Web,C0104,P058,1,24900,0,Tarjeta
+V02390,2025-05-25,Medellín,Web,C0318,P019,3,8200,0,Tarjeta
+V02391,2025-05-25,Bogotá,Web,C0023,P056,5,6900,,Tarjeta
+V02392,2025-05-25,Cali,App,C0172,P030,2,3300,0.05,Billetera digital
+V02393,2025-05-25,Barranquilla,Tienda,,P019,1,8200,0.1,Tarjeta
+V02394,2025-05-25,Bogotá,App,C0371,P027,1,3600,0.1,Billetera digital
+V02395,2025-05-25,Bucaramanga,Tienda,C0275,P033,1,14500,0,Efectivo
+V02395,2025-05-25,Bucaramanga,Tienda,C0275,P033,1,14500,0,Efectivo
+V02396,2025-05-25,Medellín,App,C1109,P002,1,3900,0.1,Tarjeta
+V02397,2025-05-25,Bogotá,Tienda,,P009,4,6900,0,Tarjeta
+V02398,2025-05-25,Bogotá,App,C0405,P021,4,2500,0.05,Billetera digital
+V02399,2025-05-25,Bucaramanga,Tienda,C0868,P009,2,6900,0,Efectivo
+V02400,2025-05-26,Cartagena,Web,C0317,P045,3,8400,,Tarjeta
+V02401,2025-05-26,Bogotá,App,C0132,P016,1,3100,0.15,Transferencia
+V02402,2025-05-26,Medellín,Tienda,,P015,2,6400,0,Efectivo
+V02403,2025-05-26,Medellín,Web,C0931,P008,1,3800,,Tarjeta
+V02404,26/05/2025,MEDELLIN,Tienda,C0192,P010,2,3200,0,Tarjeta
+V02405,2025-05-26,Medellín,App,C0016,P040,4,3700,0.1,Tarjeta
+V02406,2025-05-26,Barranquilla,Tienda,,P028,2,2900,0,Tarjeta
+V02407,2025-05-26,Barranquilla,Web,C0088,P014,1,5200,0,Transferencia
+V02408,2025-05-26,Cartagena,Tienda,,P031,1,3900,0.05,Tarjeta
+V02409,2025-05-26,Bogotá,Tienda,C0666,P028,1,2900,0.05,Efectivo
+V02410,26/05/2025,Medellín,App,C1201,P018,3,4300,0,Billetera digital
+V02411,2025-05-26,Cartagena,App,C0193,P045,5,8400,0.05,Tarjeta
+V02412,2025-05-26,Medellín,Tienda,,P008,1,3800,0,Tarjeta
+V02413,2025-05-26,Medellín,App,C0853,P007,2,3400,0,Transferencia
+V02414,2025-05-27,Cali,App,C0173,P003,1,6800,0.1,Billetera digital
+V02415,2025-05-27,Medellín,App,C0031,P038,3,9600,0.05,Billetera digital
+V02416,2025-05-27,Barranquilla,App,C0256,P045,2,8400,0.15,Tarjeta
+V02417,2025-05-27,Bucaramanga,Web,C0916,P014,4,5200,0,Tarjeta
+V02418,2025-05-27,Bogotá,Tienda,C0066,P027,2,3600,,Tarjeta
+V02419,2025-05-27,Cali,App,C0922,P026,1,11800,0.15,Billetera digital
+V02420,2025-05-27,Bogotá,App,C1078,P032,1,2800,0,Billetera digital
+V02421,2025-05-27,Cali,Tienda,C0029,P025,2,$12.400,0,Tarjeta
+V02422,2025-05-27,Medellín,App,C0166,P027,2,3600,0,Tarjeta
+V02423,2025-05-27,Barranquilla,Web,C0757,P007,1,3400,0,Tarjeta
+V02424,2025-05-27,Cartagena,Tienda,C0200,P035,1,7800,0.1,Tarjeta
+V02425,2025-05-27,Cali,Web,C0677,P026,2,11800,0.1,Transferencia
+V02426,2025-05-27,Barranquilla,Tienda,C0087,P004,2,11900,0,Billetera digital
+V02427,2025-05-27,Cartagena,Web,C1145,P022,4,2100,0.15,Tarjeta
+V02427,2025-05-27,Cartagena,Web,C1145,P022,4,2100,0.15,Tarjeta
+V02428,2025-05-27,Barranquilla,Tienda,C1442,P012,3,7500,0,Billetera digital
+V02429,2025-05-27,Medellín,Tienda,,P019,1,8200,0,Tarjeta
+V02430,2025-05-28,Cali,Tienda,,P016,3,3100,0,Efectivo
+V02431,2025-05-28,Cartagena,App,C0350,P019,4,8200,0.15,Billetera digital
+V02432,2025-05-28,Bucaramanga,Tienda,C1417,P031,1,3900,0,Tarjeta
+V02433,2025-05-28,Cali,Tienda,,P003,1,6800,0,Tarjeta
+V02434,2025-05-28,Medellín,Tienda,,P032,1,2800,0,Billetera digital
+V02435,28/05/2025,Bucaramanga,Tienda,C0025,P016,2,3100,0.1,Tarjeta
+V02436,2025-05-28,Cali,Tienda,,P052,3,7900,0,Billetera digital
+V02437,2025-05-28,barranquilla,App,C0593,P045,1,8400,0.05,Tarjeta
+V02438,2025-05-28,Barranquilla,Tienda,,P047,1,4800,0,Tarjeta
+V02439,2025-05-28,Bogotá,App,C0002,P034,1,5900,0,Billetera digital
+V02440,2025-05-28,barranquilla,Tienda,C0492,P021,4,2500,0,Tarjeta
+V02441,2025-05-28,Barranquilla,Tienda,,P030,1,3300,0,Efectivo
+V02442,2025-05-28,Bogotá,App,C0296,P049,-1,32900,0.1,Tarjeta
+V02443,2025-05-28,Bogotá,Tienda,C1007,P010,1,3200,0,Tarjeta
+V02444,2025-05-28,Bucaramanga,Web,C0803,P020,1,7400,0.05,Transferencia
+V02445,28/05/2025,Bogotá,Web,C0557,P053,1,12900,0,Transferencia
+V02446,2025-05-28,Bogotá,Tienda,,P015,1,6400,0,Tarjeta
+V02447,2025-05-28,Bogotá,Web,C0028,P013,2,1800,0.1,Tarjeta
+V02448,2025-05-28,Bogotá,Tienda,,P012,4,7500,0,Tarjeta
+V02449,2025-05-29,B/quilla,App,C0223,P002,3,3900,0,Tarjeta
+V02450,2025-05-29,Cali ,App,C0094,P011,1,16900,0,Tarjeta
+V02451,2025-05-29,Bucaramanga,Tienda,C0011,P041,2,6200,0.1,Tarjeta
+V02452,2025-05-29,Bogotá,Tienda,C0411,P040,3,3700,0.1,Efectivo
+V02453,2025-05-29,Medellín,Web,C0291,P018,2,4300,0.1,Tarjeta
+V02454,2025-05-29,Barranquilla,Web,C0160,P042,4,8900,0,Billetera digital
+V02455,2025-05-29,Bucaramanga,Web,C0193,P047,2,4800,0,Tarjeta
+V02456,2025-05-29,Medellín,App,C0005,P038,3,9600,0.05,Tarjeta
+V02457,2025-05-29,Bogotá,Web,C0130,P013,4,1800,0.05,Tarjeta
+V02458,2025-05-29,Barranquilla,Web,C0558,P039,1,10900,0,Tarjeta
+V02459,2025-05-29,medellín,Tienda,C0018,P033,1,14500,0,Tarjeta
+V02460,2025-05-29,Barranquilla,Web,C0083,P013,4,1800,0,Transferencia
+V02461,2025-05-29,Bogotá,web ,C0357,P013,1,1800,0.05,Transferencia
+V02462,2025-05-29,Barranquilla,Web,C0001,P018,2,4300,0.1,Transferencia
+V02463,2025-05-29,Bogotá,App,C0128,P012,2,7500,0.15,Billetera digital
+V02464,2025-05-29,Medellín,Tienda,,P020,2,7400,0,Billetera digital
+V02465,2025-05-29,Medellín,App,C0050,P020,4,7400,0.15,Tarjeta
+V02466,2025-05-30,Cartagena,Web,C0169,P007,1,3400,0.05,Tarjeta
+V02467,2025-05-30,Bucaramanga,Tienda,C0959,P006,3,1900,0.05,Tarjeta
+V02468,2025-05-30,Cali,App,C0604,P034,1,5900,0,Tarjeta
+V02469,2025-05-30,Bogotá,APP,C0258,P029,1,4200,0,Billetera digital
+V02470,2025-05-30,Medellín,App,C0013,P003,4,6800,0.1,Billetera digital
+V02471,2025-05-30,Medellín,Tienda,C0694,P040,2,3700,0.05,Tarjeta
+V02472,30/05/2025,Cartagena,Web,C0670,P022,1,2100,0,Tarjeta
+V02473,2025-05-30,Bogotá,App,C0005,P033,2,14500,0,Billetera digital
+V02474,2025-05-30,Bogotá,Tienda,,P036,1,4100,0.05,Tarjeta
+V02475,2025-05-30,Cartagena,App,C0365,P012,2,7500,0.05,Billetera digital
+V02476,2025-05-30,Medellín,App,C0795,P037,1,21900,0,Billetera digital
+V02477,2025-05-30,MEDELLIN,Web,C0155,P057,2,2500,0,Billetera digital
+V02478,2025-05-30,Medellín,App,C0967,P045,3,8400,0,Billetera digital
+V02479,2025-05-30,Bogotá,Tienda,,P001,3,4900,0,Tarjeta
+V02480,2025-05-30,Barranquilla,Tienda,,P034,4,5900,0,Billetera digital
+V02481,2025-05-31,Cali,Tienda,,P031,2,3900,0,Efectivo
+V02482,2025-05-31,Medellín,Tienda,C0041,P017,1,4900,0,Efectivo
+V02483,2025-05-31,Bogotá,App,C0308,P016,2,3100,0.05,Tarjeta
+V02484,2025-05-31,Bucaramanga,Tienda,C0187,P029,4,4200,0.05,Efectivo
+V02485,2025-05-31,Cali,App,C0590,P002,2,3900,0.05,Billetera digital
+V02486,2025-05-31,Cali,App,C0830,P032,1,2800,0.05,Tarjeta
+V02487,2025-05-31,Cartagena,App,C0812,P002,2,3900,,
+V02488,2025-05-31,Cali,Tienda,C0030,P013,4,1800,0,Billetera digital
+V02489,2025-05-31,Medellín,App,C0483,P007,3,3400,,Tarjeta
+V02490,2025-05-31,Medellín,Tienda,C0953,P058,1,24900,0,Billetera digital
+V02491,2025-05-31,Bogotá,Web,C0156,P050,1,7900,0.05,Billetera digital
+V02492,2025-05-31,Bogotá,Web,C0014,P050,1,7900,0,Tarjeta
+V02493,2025-05-31,Barranquilla,App,C0246,P048,2,16400,0,Tarjeta
+V02494,2025-05-31,Barranquilla,Tienda,C0835,P058,2,24900,0,Billetera digital
+V02495,2025-05-31,Barranquilla,Tienda,C0278,P056,4,6900,0.1,Billetera digital
+V02496,2025-06-01,Cali,App,C0017,P019,5,8200,0,Tarjeta
+V02497,2025-06-01,Bogotá D.C.,App,C0007,P038,4,9600,0,Tarjeta
+V02498,2025-06-01,Cartagena,Tienda,C0501,P014,4,5200,0,Tarjeta
+V02499,2025-06-01,Medellín,Web,C0655,P035,3,7800,0.1,Tarjeta
+V02500,2025-06-01,Medellín,App,C1415,P023,1,17900,0,Billetera digital
+V02501,2025-06-01,MEDELLIN,Tienda,C0052,P036,2,4100,0,Billetera digital
+V02502,2025-06-01,Barranquilla,Tienda,,P042,5,8900,0,Efectivo
+V02503,2025-06-01,Medellín,Tienda,,P021,3,2500,0,Billetera digital
+V02504,2025-06-01,Cartagena de Indias,Tienda,,P011,1,16900,0,Efectivo
+V02505,2025-06-01,Bogotá,Web,C1127,P018,1,4300,0,Billetera digital
+V02506,2025-06-01,Cartagena,Tienda,C0690,P049,1,32900,0.05,Tarjeta
+V02507,2025-06-01,Bogotá,Web,C0007,P008,3,3800,0.05,Tarjeta
+V02508,2025-06-01,Barranquilla,App,C0915,P015,580,6400,0.05,Billetera digital
+V02509,2025-06-01,Bogotá,Web,C1021,P002,2,3900,0.15,Tarjeta
+V02510,2025-06-01,BOGOTÁ,App,C0101,P008,3,3800,0,Billetera digital
+V02511,2025-06-01,Barranquilla,App,C0263,P029,3,4200,0,Tarjeta
+V02512,2025-06-01,Medellín,Tienda,C1115,P039,1,10900,0,Tarjeta
+V02513,2025-06-01,Medellín,Web,C0094,P049,2,32900,0.15,Tarjeta
+V02514,2025-06-01,Medellín,App,C0673,P023,1,17900,0,Billetera digital
+V02515,2025-06-01,Bucaramanga,Web,C0643,P020,2,7400,0,Tarjeta
+V02516,2025-06-01,Cartagena de Indias,Web,C0139,P027,2,3600,0.15,Billetera digital
+V02517,2025-06-02,Barranquilla,Tienda,,P038,2,9600,0,Efectivo
+V02518,2025-06-02,Medellín,App,C0007,P020,5,7400,0,Billetera digital
+V02519,2025-06-02,Cali,Web,C0104,P009,1,6900,0,Tarjeta
+V02520,2025-06-02,Barranquilla,Web,C0089,P019,3,8200,0.05,Billetera digital
+V02521,2025-06-02,Bogotá,App,C0743,P014,5,5200,0,Tarjeta
+V02522,2025-06-02,Medellín,App,C0805,P058,1,24900,0,Transferencia
+V02523,2025-06-02,Barranquilla,App,C0044,P049,2,32900,0,Tarjeta
+V02524,2025-06-02,Bogotá,Tienda,C0026,P011,1,16900,0.05,Tarjeta
+V02525,2025-06-02,Medellín,Tienda,C0564,P030,5,3300,0,Billetera digital
+V02526,2025-06-02,Bucaramanga,App,C0159,P025,3,12400,0.15,Tarjeta
+V02527,2025-06-02,Cartagena,Web,C0117,P023,1,17900,0.05,Tarjeta
+V02528,2025-06-02,Cartagena,Tienda,,P017,2,4900,0,Billetera digital
+V02529,2025-06-02,cali,App,C0009,P046,1,13200,0,Transferencia
+V02530,2025-06-02,Bogotá,App,C0205,P022,6,2100,0.1,Billetera digital
+V02531,2025-06-02,Bogota,Web,C1255,P046,1,13200,0,Tarjeta
+V02532,2025-06-03,Bogotá,Tienda,C0129,P020,1,7400,0,Efectivo
+V02533,2025-06-03,Medellín,Web,C0084,P016,1,3100,0,Transferencia
+V02534,2025-06-03,Barranquilla,App,C0041,P040,3,3700,0,Transferencia
+V02535,2025-06-03,Bogotá,App,C1299,P052,-3,7900,0.05,Billetera digital
+V02536,2025-06-03,Bogotá,Tienda,C0265,P014,4,5200,0,Tarjeta
+V02537,2025-06-03,Medellín,Web,C0396,P008,4,3800,0,Tarjeta
+V02538,2025-06-03,Cali,Tienda,C1277,P029,2,4200,0,Tarjeta
+V02539,2025-06-03,Barranquilla,App,C0252,P010,2,3200,0,Billetera digital
+V02540,2025-06-03,Cartagena,Tienda,,P052,3,$7.900,0,Efectivo
+V02541,2025-06-03,Barranquilla,Tienda,C0111,P015,2,6400,,Tarjeta
+V02542,2025-06-03,Bogotá,Tienda,,P020,4,7400,0,Efectivo
+V02543,2025-06-03,Medellín,App,C0154,P039,1,10900,0.15,Billetera digital
+V02544,2025-06-03,Bogotá,app,C0299,P019,4,8200,0.05,Transferencia
+V02545,2025-06-03,Medellín,App,C0836,P021,2,$2.500,0.05,Billetera digital
+V02546,2025-06-04,Cali,Tienda,,P016,3,3100,0,Tarjeta
+V02547,2025-06-04,Cartagena,Tienda,C1453,P003,1,6800,0,Efectivo
+V02548,2025-06-04,Bucaramanga,Web,C0064,P025,3,12400,0,Tarjeta
+V02549,2025-06-04,Cartagena,Tienda,,P012,2,7500,0,Efectivo
+V02550,2025-06-04,CALI,App,C0894,P030,1,3300,0.15,Billetera digital
+V02551,2025-06-04,Medellín,Tienda,,P011,1,16900,0,Efectivo
+V02552,2025-06-04,Bucaramanga,Web,C0442,P048,3,16400,0.1,Tarjeta
+V02553,2025-06-05,Cali ,Web,C0002,P051,3,18700,0.05,Billetera digital
+V02554,2025-06-05,Medellín,App,C0066,P010,2,3200,0.15,Tarjeta
+V02555,05/06/2025,Medellín,Web,C1421,P018,1,4300,0,Tarjeta
+V02556,2025-06-05,Cartagena,Web,C1160,P023,2,17900,0,Transferencia
+V02557,2025-06-05,Bogotá,App,C0001,P013,4,1800,0,Billetera digital
+V02558,05/06/2025,Bogotá,APP,C0022,P026,1,11800,0,Tarjeta
+V02559,2025-06-05,Bogotá,Tienda,C0170,P011,1,16900,0,Tarjeta
+V02560,05/06/2025,Bogotá,Tienda,C0331,P041,4,6200,0,Tarjeta
+V02561,2025-06-05,Bogotá D.C.,Web,C0013,P016,1,3100,0.05,Transferencia
+V02562,2025-06-05,Cartagena,Tienda,,P008,2,3800,0,Tarjeta
+V02563,2025-06-05,Bucaramanga,Web,C0544,P041,1,6200,0.1,Transferencia
+V02564,2025-06-05,Bogotá,Tienda,C0558,P028,6,2900,0,Efectivo
+V02565,2025-06-06,Barranquilla,Tienda,,P016,3,3100,0,Efectivo
+V02566,2025-06-06,Cali,App,C0263,P046,1,13200,0.1,Tarjeta
+V02567,2025-06-06,Medellín,Tienda,C0374,P031,2,3900,0,Efectivo
+V02568,2025-06-06,Bogotá,App,C0231,P010,2,3200,0,Billetera digital
+V02569,2025-06-06,Bogotá,App,C0077,P037,1,21900,0,Tarjeta
+V02570,2025-06-06,Bogotá,Tienda,C0007,P031,3,3900,0,Tarjeta
+V02571,2025-06-06,Bogotá,Web,C0979,P018,2,4300,0,Billetera digital
+V02572,2025-06-06,Bogotá,Web,C0204,P020,2,7400,0,Tarjeta
+V02573,2025-06-06,Barranquilla,Tienda,,P013,1,1800,0,Efectivo
+V02574,2025-06-06,Cartagena,Web,C0577,P009,3,6900,0,Tarjeta
+V02575,2025-06-06,Cali,App,C0001,P032,5,2800,0.05,Billetera digital
+V02576,2025-06-06,Barranquilla,Web,C0338,P020,1,7400,0.1,Tarjeta
+V02577,2025-06-06,Medellín,App,C0791,P009,1,6900,0.1,Tarjeta
+V02578,2025-06-06,Bogotá,Web,C0010,P021,1,2500,0.15,Tarjeta
+V02579,2025-06-06,Bogotá,Tienda,,P024,1,13900,0.05,Tarjeta
+V02580,07/06/2025,Cali,Web,C0078,P048,1,16400,0,Billetera digital
+V02581,2025-06-07,Bogotá,App,C0004,P011,1,16900,0,Tarjeta
+V02582,2025-06-07,Medellín,Tienda,,P019,5,8200,0,Tarjeta
+V02583,2025-06-07,Bogotá,Tienda,,P036,5,4100,0,Billetera digital
+V02584,07/06/2025,Cali,App,C0069,P017,1,4900,0,Tarjeta
+V02585,2025-06-07,Cali,Tienda,,P055,2,4300,0,Efectivo
+V02586,2025-06-07,Bogotá,Tienda,,P017,2,4900,0,Tarjeta
+V02587,2025-06-07,Cali,Web,C0648,P021,1,2500,0.1,Tarjeta
+V02588,2025-06-07,Bogotá,App,C0861,P022,2,2100,0.05,Billetera digital
+V02589,2025-06-07,Cartagena,Tienda,C1125,P033,1,14500,0.05,Tarjeta
+V02590,2025-06-07,Medellin,App,C0050,P024,1,13900,0.1,Tarjeta
+V02591,2025-06-07,Cartagena,App,C0007,P036,1,4100,0.05,Billetera digital
+V02592,2025-06-07,Bogotá,Tienda,C1240,P021,2,2500,0,Tarjeta
+V02593,2025-06-07,Medellín,Tienda,,P045,3,8400,0,Tarjeta
+V02594,2025-06-07,Barranquilla,Tienda,C0035,P022,3,2100,0,Efectivo
+V02595,07/06/2025,cali,Tienda,,P019,6,8200,0,Tarjeta
+V02596,2025-06-07,Cali,Web,C0724,P022,4,2100,0,Tarjeta
+V02597,2025-06-07,Medellín,Tienda,,P046,2,13200,0,Billetera digital
+V02598,2025-06-07,Bogotá D.C.,App,C0240,P008,1,3800,0.15,Transferencia
+V02599,2025-06-07,Bucaramanga,App,C0008,P007,1,3400,0,Tarjeta
+V02600,2025-06-07,Bogotá,Tienda,,P032,1,2800,0,Tarjeta
+V02601,2025-06-07,Bogotá,App,C1372,P010,4,3200,0,Billetera digital
+V02602,2025-06-07,Bogotá,App,C0108,P050,4,7900,0,Billetera digital
+V02602,2025-06-07,Bogotá,App,C0108,P050,4,7900,0,Billetera digital
+V02603,2025-06-08,Medellín,App,C0837,P006,3,1900,0,Billetera digital
+V02604,2025-06-08,Cali,Tienda,C0112,P033,1,14500,0,Tarjeta
+V02605,2025-06-08,Medellín,Tienda,,P007,3,3400,,Tarjeta
+V02606,2025-06-08,Bogotá,App,C0002,P024,1,13900,0,Billetera digital
+V02607,2025-06-08,Cartagena,App,C0016,P005,1,4600,0,Billetera digital
+V02608,2025-06-08,bogota,App,C0007,P010,3,3200,0,Tarjeta
+V02609,2025-06-08,Bogotá,Web,C0166,P017,2,4900,0,Tarjeta
+V02610,2025-06-08,Bucaramanga,App,C0103,P055,5,4300,0,Tarjeta
+V02611,2025-06-08,Medellín,Tienda,C1002,P004,1,11900,0,Billetera digital
+V02612,2025-06-08,Bogotá,Tienda,,P008,1,3800,0,Efectivo
+V02613,2025-06-08,Bogotá,App,C0004,P008,2,3800,0,Tarjeta
+V02614,2025-06-08,Cali,App,C0113,P010,3,3200,,Billetera digital
+V02615,2025-06-08,barranquilla,App,C0026,P007,1,3400,0,Tarjeta
+V02616,08/06/2025,Bogotá,Tienda,,P010,1,3200,0,Efectivo
+V02617,2025-06-08,Bogotá,App,C0246,P012,2,7500,0,Tarjeta
+V02618,2025-06-08,Bogotá,App,C0244,P022,1,2100,0.1,Transferencia
+V02619,2025-06-08,Cali,App,C0001,P040,4,3700,0,Billetera digital
+V02620,2025-06-08,Bogotá,Tienda,C1127,P041,-2,6200,0,Efectivo
+V02621,2025-06-09,Barranquilla,Tienda,C0268,P010,2,3200,0,Tarjeta
+V02622,2025-06-09,Medellín,Web,C0233,P003,1,6800,0,Tarjeta
+V02623,2025-06-09,Barranquilla,Tienda,,P032,2,2800,0,Efectivo
+V02624,2025-06-09,Bucaramanga,Web,C1308,P002,2,3900,0,Tarjeta
+V02625,2025-06-09,Cali,Tienda,C0003,P031,1,3900,0,Efectivo
+V02626,2025-06-09,Barranquilla,App,C0383,P015,4,6400,0,Tarjeta
+V02627,2025-06-09,Medellín,Tienda,,P007,1,3400,0,Tarjeta
+V02628,2025-06-09,Cali,Tienda,C0131,P010,1,$3.200,0,Billetera digital
+V02629,2025-06-09,Bogotá,App,C0229,P027,3,3600,0,Billetera digital
+V02630,2025-06-09,Cartagena,Tienda,C0029,P001,1,4900,0,Tarjeta
+V02631,2025-06-09,Medellín,Tienda,C0167,P029,5,4200,0,Efectivo
+V02632,2025-06-09,Bogotá,Web,C1418,P010,2,3200,0,Tarjeta
+V02633,2025-06-09,Cali,App,C0327,P025,1,12400,0,Billetera digital
+V02634,2025-06-09,Bucaramanga,Tienda,C0098,P057,1,2500,0,Efectivo
+V02635,2025-06-09,Barranquilla,tienda,,P022,1,2100,0.05,Tarjeta
+V02636,2025-06-09,Cartagena,tienda,,P032,2,2800,0,Tarjeta
+V02637,2025-06-09,Medellín,Tienda,,P041,1,6200,0,Tarjeta
+V02638,2025-06-09,Barranquilla,Web,C0001,P042,2,8900,0.05,Billetera digital
+V02639,2025-06-10,Barranquilla,Tienda,C0626,P031,2,3900,0,Tarjeta
+V02640,2025-06-10,Cali,Web,C0747,P002,2,3900,0.05,Tarjeta
+V02641,2025-06-10,Cali,Tienda,,P059,2,59900,0,Tarjeta
+V02642,2025-06-10,Cartagena,App,C1331,P018,3,4300,0,Billetera digital
+V02643,2025-06-10,Cartagena,Web,C0006,P058,1,24900,0.15,Tarjeta
+V02644,2025-06-10,Medellín,App,C1204,P001,1,4900,0,Tarjeta
+V02645,2025-06-10,Bogotá,Tienda,C0001,P001,2,4900,0,Tarjeta
+V02646,2025-06-10,Bucaramanga,App,C1042,P014,2,5200,0,Tarjeta
+V02647,2025-06-10,,Web,C0296,P018,2,$4.300,0.1,Transferencia
+V02648,2025-06-10,Medellín,App,C1327,P002,3,3900,0,Tarjeta
+V02649,2025-06-10,Bucaramanga,Web,C0184,P039,2,10900,0,Tarjeta
+V02650,2025-06-11,Barranquilla,Tienda,C0063,P049,1,32900,0,Efectivo
+V02651,2025-06-11,Cartagena,App,C0252,P016,2,3100,0.15,Billetera digital
+V02652,2025-06-11,Barranquilla,Tienda,,P025,3,12400,0,Efectivo
+V02653,2025-06-11,Bogotá,App,C0026,P004,1,11900,0.15,Billetera digital
+V02654,2025-06-11,Medellín,Tienda,C0419,P041,6,6200,0,Tarjeta
+V02655,2025-06-11,Bogotá,App,C0012,P017,1,4900,0,Billetera digital
+V02656,2025-06-11,Medellín,Tienda,,P011,1,16900,0,Efectivo
+V02657,2025-06-11,Bucaramanga,Web,C1262,P023,1,17900,0,Transferencia
+V02658,2025-06-11,Bogotá,Tienda,C0134,P031,2,3900,0,Tarjeta
+V02659,2025-06-11,Barranquilla,Web,C0281,P029,4,4200,0,Tarjeta
+V02660,2025-06-11,Bogotá,Web,C1260,P023,2,17900,0,Tarjeta
+V02661,2025-06-11,Cali,Web,C0067,P021,1,2500,0.05,Tarjeta
+V02662,2025-06-11,Barranquilla,Web,C0515,P041,3,6200,0,Transferencia
+V02663,2025-06-11,Bogotá,Tienda,,P030,2,3300,0.05,Tarjeta
+V02664,2025-06-12,Bogotá,App,C0301,P026,1,11800,0,Billetera digital
+V02665,2025-06-12,Bogotá,App,C0601,P027,2,3600,0,Transferencia
+V02666,2025-06-12,Bogotá,tienda,,P003,1,6800,0,Tarjeta
+V02667,2025-06-12,Cali,Tienda,,P003,2,6800,0,Tarjeta
+V02668,2025-06-12,Barranquilla,Tienda,C0166,P022,2,2100,0,Efectivo
+V02669,2025-06-12,Medellín,Tienda,C0532,P028,1,2900,0,Efectivo
+V02670,2025-06-12,Medellín,Tienda,,P022,4,2100,0,Billetera digital
+V02671,2025-06-12,Bogotá,Tienda,C0981,P002,3,3900,0,Tarjeta
+V02672,2025-06-12,Medellín,Web,C1164,P022,2,2100,0,Transferencia
+V02673,2025-06-12,Barranquilla,App,C0007,P008,2,$3.800,,
+V02674,2025-06-12,Bogotá,Web,C0175,P032,3,2800,0,Tarjeta
+V02675,2025-06-12,Bogotá,App,C1123,P027,2,3600,0.05,Billetera digital
+V02676,2025-06-13,Bogotá,App,C0656,P040,1,3700,0.15,Tarjeta
+V02677,2025-06-13,Bogotá,App,C0008,P022,1,2100,0,Tarjeta
+V02678,2025-06-13,Bogotá,Tienda,,P048,1,16400,0,Tarjeta
+V02679,2025-06-13,Bogotá,Tienda,,P023,1,17900,0,Tarjeta
+V02680,2025-06-13,Bogotá,Tienda,C0081,P049,1,32900,0.1,Efectivo
+V02681,2025-06-13,Cartagena,App,C0020,P010,5,3200,0,Tarjeta
+V02682,13/06/2025,Cali,Web,C0245,P029,1,4200,0.05,Tarjeta
+V02683,2025-06-13,Bogotá,Web,C0650,P049,2,32900,0.05,Tarjeta
+V02684,2025-06-13,Barranquilla,Web,C0013,P031,5,3900,,Tarjeta
+V02685,2025-06-13,Bogotá,App,C0439,P004,1,11900,0.15,Billetera digital
+V02686,2025-06-13,Bogotá,Tienda,,P023,1,17900,0.05,
+V02687,2025-06-13,Bogotá,Tienda,,P022,2,2100,0,Tarjeta
+V02688,2025-06-13,Medellín,App,C0665,P003,3,6800,0.05,Billetera digital
+V02689,2025-06-13,Bogotá,Web,C0030,P017,1,4900,0,Tarjeta
+V02690,2025-06-13,Bogotá,Tienda,C1370,P055,1,4300,0,Tarjeta
+V02691,2025-06-13,Cali,tienda,C0783,P056,1,6900,0,Tarjeta
+V02692,2025-06-13,Barranquilla,Tienda,,P053,-2,12900,0,Tarjeta
+V02693,2025-06-14,Barranquilla,Tienda,C0288,P018,3,4300,0,Efectivo
+V02694,2025-06-14,Cali,App,C0329,P039,1,10900,0.1,Billetera digital
+V02695,2025-06-14,Bogotá,Tienda,C0104,P043,1,15900,0,Billetera digital
+V02696,2025-06-14,Bogotá,Tienda,,P024,1,13900,0,Efectivo
+V02697,2025-06-14,Medellín,Tienda,,P030,2,$3.300,0,Efectivo
+V02698,2025-06-14,Medellín,Web,C0161,P015,1,6400,0,
+V02699,2025-06-14,Bogotá,Tienda,C0064,P017,4,4900,0,Efectivo
+V02700,2025-06-14,Bucaramanga,App,C0042,P058,2,24900,0,Tarjeta
+V02701,2025-06-14,Cali,App,C0397,P021,3,2500,0,Billetera digital
+V02702,2025-06-14,Bogotá,Web,C1483,P021,1,2500,0,Tarjeta
+V02703,2025-06-14,Bogotá,App,C0005,P054,2,5400,0.1,Tarjeta
+V02704,2025-06-14,Bucaramanga,App,C0342,P052,2,7900,0.05,Tarjeta
+V02705,2025-06-14,Medellín,Web,C0853,P020,5,7400,0.15,Billetera digital
+V02706,2025-06-14,Bogotá,App,C1301,P007,3,3400,0,Billetera digital
+V02707,2025-06-14,Medellín,Web,C0848,P056,5,6900,0,Transferencia
+V02708,2025-06-14,Cali,App,C0803,P037,3,21900,0,Billetera digital
+V02709,2025-06-15,Bucaramanga,App,C0631,P021,2,2500,0,Transferencia
+V02710,2025-06-15,Bogotá,App,C0018,P010,2,3200,0,Billetera digital
+V02711,2025-06-15,bucaramanga,App,C0589,P012,2,7500,0.1,Billetera digital
+V02712,2025-06-15,Bogotá,App,C0158,P026,3,11800,0,Billetera digital
+V02713,2025-06-15,Barranquilla,Web,C0644,P060,1,39900,0,Tarjeta
+V02714,2025-06-15,Cali,Tienda,C0479,P005,4,4600,0.1,Efectivo
+V02715,2025-06-15,Bogotá,Tienda,C1059,P058,3,24900,0,Tarjeta
+V02716,2025-06-15,Bogotá,Tienda,,P030,2,3300,0,Billetera digital
+V02717,2025-06-15,Cartagena,Tienda,C0304,P019,2,8200,0,Tarjeta
+V02718,2025-06-15,Barranquilla,App,C0015,P029,1,4200,0.05,Billetera digital
+V02719,2025-06-15,Barranquilla,App,C0088,P021,2,2500,,Tarjeta
+V02720,2025-06-15,Barranquilla,App,C0002,P023,1,17900,0.1,Billetera digital
+V02721,2025-06-15,Bogotá,Tienda,,P028,1,2900,0,Efectivo
+V02722,2025-06-15,Cali,App,C0251,P054,1,5400,0,Transferencia
+V02723,2025-06-15,Bogotá,App,C0619,P006,1,1900,0.05,Billetera digital
+V02724,2025-06-15,Bogotá,Tienda,,P042,1,8900,0.05,Tarjeta
+V02725,2025-06-15,Cartagena,App,C1083,P014,1,5200,0.05,Transferencia
+V02726,2025-06-15,Bucaramanga,Tienda,,P050,1,7900,0,Efectivo
+V02727,2025-06-15,Bogotá,Web,C0123,P024,1,13900,0,Tarjeta
+V02728,2025-06-15,Barranquilla,App,C0002,P028,1,2900,0.1,Billetera digital
+V02729,2025-06-15,Cali,Tienda,C0903,P047,2,4800,0,Tarjeta
+V02730,2025-06-15,Bogotá,App,C0648,P017,2,4900,0.15,Tarjeta
+V02731,2025-06-15,Bucaramanga,Tienda,C0577,P011,1,16900,0,Tarjeta
+V02732,2025-06-15,Cali,Web,C0045,P012,1,7500,0,Tarjeta
+V02733,2025-06-15,Bogotá,Web,C0043,P006,1,1900,0,Tarjeta
+V02734,2025-06-16,Cali,App,C0152,P022,2,2100,0.15,Transferencia
+V02735,2025-06-16,Cali,App,C0371,P002,6,3900,0.1,Billetera digital
+V02736,2025-06-16,Bucaramanga,Tienda,C0893,P020,5,7400,0,Tarjeta
+V02737,2025-06-16,B/manga,App,C0544,P027,6,3600,0,Billetera digital
+V02738,2025-06-16,Bogotá,App,C0671,P052,1,7900,0,Billetera digital
+V02739,2025-06-16,Bogotá,Web,C0958,P005,4,4600,0,Tarjeta
+V02740,2025-06-16,Cali ,Tienda,C0012,P022,5,2100,0,Efectivo
+V02741,2025-06-16,Cartagena,App,C1472,P037,3,21900,0.15,Billetera digital
+V02742,2025-06-16,Bogotá,Tienda,,P014,2,5200,0,Tarjeta
+V02743,2025-06-16,Bogotá,Web,C0999,P050,1,7900,0.05,Tarjeta
+V02744,2025-06-16,Medellín,App,C0844,P021,2,2500,0.05,Billetera digital
+V02745,2025-06-16,Medellín,Web,C0549,P001,2,4900,0.1,
+V02746,16/06/2025,Medellín,Web,C0570,P018,2,4300,0.15,Tarjeta
+V02747,2025-06-16,Bucaramanga,Tienda,C1190,P010,3,3200,0,Tarjeta
+V02748,2025-06-16,Bogotá,APP,C0705,P015,2,6400,0.15,Tarjeta
+V02749,2025-06-17,Cartagena,Tienda,,P013,2,1800,,Efectivo
+V02750,2025-06-17,Cali,Tienda,C0157,P015,2,6400,0,Tarjeta
+V02751,2025-06-17,BOGOTÁ,Tienda,,P048,2,16400,0,Billetera digital
+V02752,2025-06-17,Barranquilla,APP,C0247,P022,4,2100,0.15,Tarjeta
+V02753,2025-06-17,Bogotá,App,C0715,P001,3,4900,0.05,Tarjeta
+V02754,2025-06-17,Barranquilla,App,C1371,P034,3,5900,0.05,Tarjeta
+V02755,2025-06-17,Barranquilla,App,C0980,P059,1,59900,0,Tarjeta
+V02756,17/06/2025,Bucaramanga,Tienda,,P011,1,16900,0,Tarjeta
+V02757,2025-06-17,Medellín,App,C1289,P051,1,18700,0,Tarjeta
+V02758,2025-06-17,Cali,Tienda,,P058,1,24900,0,Billetera digital
+V02759,2025-06-17,Medellín,tienda,,P006,2,1900,0,Efectivo
+V02760,2025-06-17,cali,Tienda,C0053,P022,6,2100,0,Billetera digital
+V02761,2025-06-17,Cali,Web,C0441,P005,3,4600,0,Tarjeta
+V02762,2025-06-17,Bogotá,App,C0029,P019,1,8200,0,Billetera digital
+V02763,2025-06-17,Cali,Tienda,C0194,P030,1,3300,0,Efectivo
+V02764,2025-06-17,Cartagena,App,C0955,P028,2,$2.900,0,Transferencia
+V02765,2025-06-17,Medellín,Tienda,,P022,2,$2.100,0,Tarjeta
+V02766,2025-06-17,Barranquilla,App,C0002,P010,1,3200,0,Billetera digital
+V02767,2025-06-17,Bogotá,App,C0046,P030,3,3300,0,Billetera digital
+V02768,2025-06-18,Barranquilla,Web,C0475,P021,1,2500,0.15,Tarjeta
+V02769,2025-06-18,Bucaramanga,App,C1174,P012,2,7500,0,Billetera digital
+V02770,2025-06-18,Cartagena,Tienda,C0327,P037,1,21900,0,Tarjeta
+V02771,2025-06-18,Bogotá,Tienda,C0776,P014,3,5200,0.05,Tarjeta
+V02772,2025-06-18,Bogotá,Tienda,C0019,P017,3,4900,0,Efectivo
+V02773,2025-06-18,Medellín,Tienda,C0175,P008,3,3800,0,Tarjeta
+V02774,2025-06-18,Bogotá,Tienda,C0031,P004,1,11900,0,Tarjeta
+V02775,2025-06-18,Cali,App,C0240,P009,5,6900,0.15,Billetera digital
+V02776,2025-06-18,Bogotá,Tienda,C0041,P015,1,6400,0,Efectivo
+V02777,2025-06-18,Barranquilla,App,C0142,P013,3,1800,0,Tarjeta
+V02778,2025-06-18,Bogotá,Tienda,C0015,P029,4,4200,,Efectivo
+V02779,2025-06-18,Bogotá,web ,C0814,P015,4,6400,0.05,Tarjeta
+V02780,2025-06-18,Bogotá,App,C1376,P005,1,4600,0,Billetera digital
+V02781,2025-06-19,Bogotá,App,C0356,P041,2,6200,0,Tarjeta
+V02782,2025-06-19,Bogota,Tienda,,P040,3,3700,0,Efectivo
+V02783,2025-06-19,Cartagena,Tienda,,P020,1,7400,0,Efectivo
+V02784,2025-06-19,Medellín,Tienda,C0047,P011,2,16900,0,Efectivo
+V02785,2025-06-19,Barranquilla,Tienda,C0315,P015,4,6400,0,Tarjeta
+V02786,2025-06-19,Bogotá,App,C0062,P039,2,10900,0,Tarjeta
+V02787,2025-06-19,Bucaramanga,App,C1015,P039,1,10900,0.05,Tarjeta
+V02788,2025-06-19,Bogotá,Web,C0117,P054,3,5400,0,Tarjeta
+V02789,2025-06-19,Bogotá,App,C1213,P045,2,8400,0,Tarjeta
+V02790,2025-06-19,Bucaramanga,Web,C0003,P009,2,6900,0,Tarjeta
+V02791,2025-06-19,Medellín,app,C0048,P016,3,3100,0,Billetera digital
+V02792,19/06/2025,Bogotá,Web,C0542,P011,2,$16.900,0,Tarjeta
+V02793,19/06/2025,Bogotá,Tienda,C0353,P010,1,3200,0,Tarjeta
+V02794,2025-06-19, Bogotá,Web,C0131,P002,1,3900,0,Billetera digital
+V02795,2025-06-19,Medellín,App,C1054,P033,1,14500,0,Tarjeta
+V02796,2025-06-19,Cali,App,C0551,P013,6,1800,0.15,Tarjeta
+V02797,2025-06-20,Bogotá,App,C0501,P021,4,2500,0,Billetera digital
+V02798,2025-06-20,bogota,Web,C0543,P024,1,13900,0,Tarjeta
+V02799,2025-06-20,Bogotá,App,C0009,P020,1,7400,0.15,Tarjeta
+V02800,2025-06-20,barranquilla,Tienda,,P022,3,2100,0,Efectivo
+V02801,2025-06-20,Bogotá,Tienda,C0178,P058,1,24900,0,Tarjeta
+V02802,2025-06-20,Bogotá,Tienda,,P027,1,3600,0,Efectivo
+V02803,2025-06-20,Bogotá,App,C0020,P058,1,24900,0.05,Tarjeta
+V02804,2025-06-20,Medellín,Tienda,,P020,5,7400,,Tarjeta
+V02805,2025-06-20,Cali,TIENDA,C0003,P037,1,21900,0,Efectivo
+V02806,2025-06-20,Cali,app,C0816,P021,3,2500,0.1,Transferencia
+V02807,2025-06-20,Bogotá,Web,C0244,P042,4,8900,0,Transferencia
+V02808,2025-06-20,Bogotá,App,C0010,P013,3,1800,0.1,Transferencia
+V02809,2025-06-20,Cartagena,App,C0618,P007,3,3400,0,Transferencia
+V02810,2025-06-20,Bogotá,Web,C0130,P045,2,8400,0.05,Transferencia
+V02811,2025-06-20,Bogotá,Tienda,C0010,P023,1,17900,0,Efectivo
+V02812,2025-06-20,medellín,App,C1105,P028,2,2900,0.1,Billetera digital
+V02813,2025-06-20,Bogotá D.C.,App,C0157,P022,4,2100,0,Billetera digital
+V02814,2025-06-20,Cali,Tienda,,P020,3,7400,0,Billetera digital
+V02815,2025-06-21,Bogotá,Tienda,,P033,1,14500,0,Efectivo
+V02816,2025-06-21,Medellín,App,C1228,P011,1,16900,0.05,Tarjeta
+V02817,2025-06-21,Bogotá,App,C0061,P006,4,1900,0.1,Transferencia
+V02818,2025-06-21,Bogotá,App,C1336,P030,1,3300,0,Transferencia
+V02819,2025-06-21,Cartagena,Web,C0072,P004,1,11900,0,Tarjeta
+V02820,2025-06-21,Bogotá,Web,C0471,P042,6,8900,0.1,Tarjeta
+V02821,2025-06-21,Medellín,Tienda,,P009,1,6900,0,Efectivo
+V02822,2025-06-21,Medellín,Web,C1410,P042,2,8900,0.05,Tarjeta
+V02823,2025-06-21,Medellín,Tienda,,P052,1,7900,0,Tarjeta
+V02824,2025-06-21,Medellín,Tienda,C0549,P007,3,3400,0,Efectivo
+V02825,2025-06-21,Medellín,Tienda,C0490,P023,1,17900,0,Tarjeta
+V02826,2025-06-21,Cartagena,App,C0714,P001,2,4900,0,Tarjeta
+V02827,2025-06-21,Cali,Tienda,C0347,P020,1,7400,0,Tarjeta
+V02828,2025-06-21,Medellín,Tienda,,P017,2,4900,0,Efectivo
+V02829,2025-06-21,Medellín,App,C0492,P031,1,3900,0.1,Billetera digital
+V02830,2025-06-21,Cali,Tienda,,P049,1,32900,0,Efectivo
+V02831,2025-06-21,Medellín,Tienda,C0017,P002,3,3900,0,Tarjeta
+V02831,2025-06-21,Medellín,Tienda,C0017,P002,3,3900,0,Tarjeta
+V02832,2025-06-21,Cartagena,App,C0060,P032,1,2800,0,Tarjeta
+V02833,2025-06-21,Medellín,Tienda,C1225,P016,2,3100,0,Tarjeta
+V02834,2025-06-21,Cartagena,Tienda,C0772,P027,6,3600,0,Tarjeta
+V02835,2025-06-21,Medellín,App,C0205,P057,2,2500,0,Billetera digital
+V02836,2025-06-21,Medellín,App,C1416,P027,4,3600,0,Billetera digital
+V02837,2025-06-22,Barranquilla,Web,C0210,P006,2,1900,0,Tarjeta
+V02838,2025-06-22,Medellín,Tienda,,P018,2,4300,0,Tarjeta
+V02839,2025-06-22,Cali,Tienda,,P030,3,3300,0,Tarjeta
+V02839,2025-06-22,Cali,Tienda,,P030,3,3300,0,Tarjeta
+V02840,2025-06-22,Bucaramanga,Tienda,,P012,6,7500,0.1,Tarjeta
+V02841,2025-06-22,Bucaramanga,Web,C0056,P027,3,3600,0,Transferencia
+V02842,2025-06-22,Barranquilla,App,C0159,P051,1,18700,0.1,Billetera digital
+V02843,2025-06-22,Bucaramanga,App,C0234,P008,2,3800,0,Billetera digital
+V02844,2025-06-22,Bogotá,App,C0366,P052,4,7900,0,Tarjeta
+V02845,2025-06-22,Medellín,Tienda,C0023,P011,2,16900,0,Tarjeta
+V02846,2025-06-22,Bucaramanga,Web,C0776,P020,3,7400,0,Transferencia
+V02847,2025-06-22,Cali,Web,C0739,P026,2,11800,0.15,Transferencia
+V02848,2025-06-22,Barranquilla,App,C0321,P034,1,5900,0,Transferencia
+V02849,2025-06-22,Bogotá,App,C0007,P021,1,2500,0.1,Billetera digital
+V02850,2025-06-22,Bogotá,App,C0007,P030,6,3300,0.1,Tarjeta
+V02851,2025-06-22,Cartagena,Tienda,,P016,1,3100,0,Tarjeta
+V02852,2025-06-22,Bucaramanga,App,C0002,P021,6,$2.500,0.15,Tarjeta
+V02853,2025-06-22,Bogotá,Tienda,,P035,2,7800,0,Billetera digital
+V02854,2025-06-22,Bogotá,Web,C0720,P024,1,13900,0,Tarjeta
+V02855,2025-06-22,Cali,App,C0038,P004,2,11900,0,Transferencia
+V02856,2025-06-22,Bogotá,Web,C0271,P013,4,1800,0,Tarjeta
+V02857,2025-06-22,Bogotá,App,C0607,P020,3,7400,0.1,Transferencia
+V02858,2025-06-23,Bogotá D.C.,App,C0394,P035,2,7800,0,Transferencia
+V02859,2025-06-23,Bogotá,App,C0248,P057,4,2500,0.05,Tarjeta
+V02860,2025-06-23,Cali,App,C1164,P025,2,12400,0,Billetera digital
+V02861,2025-06-23,Medellín,App,C0962,P040,2,3700,0.1,Tarjeta
+V02862,2025-06-23,Medellin,Web,C1182,P031,6,3900,0.05,Tarjeta
+V02863,2025-06-23,Cartagena,App,C0174,P045,1,8400,0,Transferencia
+V02864,2025-06-23,Bogotá,App,C0401,P016,3,3100,0,Tarjeta
+V02865,2025-06-23,Cartagena,Tienda,,P043,1,15900,0,Billetera digital
+V02866,2025-06-23,Barranquilla,Web,C0550,P011,2,16900,0,Tarjeta
+V02867,2025-06-23,Medellín,WEB,C0070,P059,1,59900,0.15,Tarjeta
+V02868,2025-06-23,Bucaramanga,Tienda,C0382,P055,1,4300,0,Efectivo
+V02869,2025-06-23,Bogotá,Tienda,,P037,2,21900,0,Billetera digital
+V02870,2025-06-23,Bucaramanga,Web,C0078,P014,1,$5.200,0,Transferencia
+V02871,2025-06-23,Bucaramanga,Web,C1153,P036,3,4100,0,Tarjeta
+V02872,2025-06-23,Barranquilla,App,C0001,P015,3,6400,0,Billetera digital
+V02873,2025-06-23,bogota,Web,C0020,P018,1,4300,0.15,Tarjeta
+V02874,2025-06-23,Barranquilla,Tienda,,P010,4,3200,0,Tarjeta
+V02875,2025-06-23,Bogotá,Web,C0289,P049,1,32900,0,Tarjeta
+V02876,2025-06-23,Cali,App,C0055,P019,4,8200,0,Transferencia
+V02877,2025-06-23, Bogotá,Tienda,,P045,1,8400,0,Efectivo
+V02878,2025-06-24,Bucaramanga,TIENDA,C0158,P046,2,13200,0,Tarjeta
+V02879,2025-06-24,Cali,App,C0113,P004,1,11900,0.05,Tarjeta
+V02880,2025-06-24,Medellín,Tienda,C0001,P001,4,4900,0,Tarjeta
+V02881,2025-06-24,Bucaramanga,App,C0001,P009,1,6900,0,Tarjeta
+V02882,2025-06-24,Barranquilla,Web,C0314,P022,2,2100,0.1,Tarjeta
+V02883,2025-06-24,Medellín,App,C0018,P026,1,11800,0.05,Tarjeta
+V02884,2025-06-24,Bogotá,App,C0029,P037,1,21900,0.05,Billetera digital
+V02885,2025-06-24,Cali,App,C1498,P016,1,3100,0.15,Tarjeta
+V02886,2025-06-24,Bogotá,Tienda,,P005,1,4600,0.05,Billetera digital
+V02887,2025-06-24,Barranquilla,Tienda,C0072,P031,3,3900,0,Efectivo
+V02888,2025-06-24,Medellín,Web,C0674,P021,2,2500,0,Tarjeta
+V02889,2025-06-24,Cali,App,C0330,P020,2,$7.400,0,Billetera digital
+V02890,2025-06-24,Cali,Web,C0759,P007,2,3400,0.05,Transferencia
+V02891,2025-06-24,Bogotá,App,C0860,P029,5,4200,0,Tarjeta
+V02892,2025-06-24,Cali,Tienda,C0227,P001,2,4900,0,Tarjeta
+V02893,2025-06-24,Cartagena,App,C0911,P032,2,2800,0.1,Billetera digital
+V02894,2025-06-24,Bogotá,App,C0072,P058,2,24900,0.05,Tarjeta
+V02895,2025-06-24,Bucaramanga,App,C0645,P003,2,6800,0,Tarjeta
+V02896,2025-06-25,Bogotá,App,C0085,P022,2,2100,0,Tarjeta
+V02897,2025-06-25,Cali,Web,C0924,P036,3,4100,0.15,Tarjeta
+V02898,2025-06-25,Cali,App,C0837,P034,3,5900,0,Tarjeta
+V02899,2025-06-25,Cali,Tienda,C0230,P037,2,21900,0,Billetera digital
+V02900,2025-06-25,Cartagena,Web,C0313,P026,1,11800,0,Transferencia
+V02901,2025-06-25,Cali,App,C1398,P005,2,4600,0,Billetera digital
+V02902,2025-06-25,Bogotá,App,C0268,P012,2,$7.500,0,Transferencia
+V02903,2025-06-25,Cali,WEB,C0351,P015,3,6400,0,Transferencia
+V02904,2025-06-25,Medellín,Web,C1149,P026,2,11800,0,
+V02905,2025-06-25,B/quilla,Web,C0085,P048,-1,16400,0,Transferencia
+V02906,2025-06-25,Medellín,App,C0542,P006,1,1900,0,Transferencia
+V02907,2025-06-25,Medellín,Web,C0264,P003,4,6800,0,Transferencia
+V02907,2025-06-25,Medellín,Web,C0264,P003,4,6800,0,Transferencia
+V02908,2025-06-25,Bogotá,App,C1023,P040,1,$3.700,0,Billetera digital
+V02909,2025-06-26,Medellín,App,C0361,P018,-1,4300,0,Tarjeta
+V02910,2025-06-26,Bogotá,App,C1180,P013,1,1800,0.1,Tarjeta
+V02911,2025-06-26,Bogotá,Web,C1497,P035,2,7800,0.05,Tarjeta
+V02912,2025-06-26,Bogotá,Web,C0005,P020,6,7400,0,Tarjeta
+V02913,2025-06-26,Medellín,App,C1166,P005,2,4600,0.1,Billetera digital
+V02914,2025-06-26,Bogotá,Web,C0566,P039,1,10900,0,Tarjeta
+V02915,2025-06-26,bogota,App,C0280,P016,1,3100,0,Tarjeta
+V02916,2025-06-26,Cali,Web,C0600,P034,3,5900,0,Transferencia
+V02917,2025-06-26,Bogotá,Tienda,C0494,P050,1,7900,0,Billetera digital
+V02918,2025-06-26,BOGOTÁ,Tienda,C0337,P023,2,17900,0,Tarjeta
+V02919,2025-06-26,Barranquilla,App,C0005,P009,1,6900,0.05,Tarjeta
+V02920,26/06/2025,Medellín,Web,C0077,P038,3,9600,0,Billetera digital
+V02921,2025-06-26,Cali,Tienda,C0037,P010,3,3200,0,Billetera digital
+V02922,2025-06-26,Medellín,Tienda,C0172,P004,1,11900,0,Efectivo
+V02923,2025-06-26,Cali,Tienda,,P031,3,3900,0,Efectivo
+V02924,2025-06-26,Cali,Web,C0432,P013,2,1800,0.05,Tarjeta
+V02925,2025-06-26,Medellín,Tienda,C1057,P028,2,2900,,Tarjeta
+V02926,2025-06-26,Bogotá,App,C0987,P020,1,7400,0,Transferencia
+V02927,2025-06-27,Cali,Web,C0443,P020,3,7400,0.1,Tarjeta
+V02928,2025-06-27,Bogotá,Tienda,,P020,4,7400,0,Tarjeta
+V02929,2025-06-27,Bogotá,Web,C0003,P012,1,7500,0,Tarjeta
+V02930,2025-06-27,Bogotá,App,C0457,P002,4,3900,0,
+V02931,2025-06-27,Bogotá,Tienda,C0001,P018,4,4300,0,Tarjeta
+V02932,2025-06-27,Bogotá,Web,C0052,P003,3,6800,0,Billetera digital
+V02933,2025-06-27,Cali,Tienda,C0525,P041,2,6200,0,Efectivo
+V02934,2025-06-27,Bucaramanga,Tienda,,P055,1,4300,0.05,Tarjeta
+V02935,2025-06-27,BOGOTÁ,Web,C1368,P034,1,5900,0,Transferencia
+V02936,2025-06-27,Bogotá,App,C0093,P047,1,4800,0.05,Tarjeta
+V02937,2025-06-27,Medellín,App,C0193,P031,4,3900,0,Billetera digital
+V02938,2025-06-27,B/quilla,Tienda,C0764,P003,2,6800,0,Billetera digital
+V02939,2025-06-27,Bogotá,App,C0009,P007,3,$3.400,0.15,Billetera digital
+V02940,2025-06-27,Bucaramanga,Tienda,,P011,3,16900,0,Tarjeta
+V02941,2025-06-27,Bogotá,App,C0318,P001,1,4900,0.15,Tarjeta
+V02942,2025-06-27,Medellín,App,C1493,P036,1,4100,0.15,Tarjeta
+V02943,2025-06-27,Cartagena,Tienda,C0219,P011,1,16900,0,Billetera digital
+V02944,2025-06-28,Cali,App,C0015,P056,2,6900,,Tarjeta
+V02945,2025-06-28,Bucaramanga,Web,C0454,P013,2,1800,0,Transferencia
+V02946,2025-06-28,Medellín,Tienda,,P032,2,2800,0,Tarjeta
+V02947,28/06/2025,Bogotá,Tienda,C0009,P021,2,2500,0,Tarjeta
+V02948,2025-06-28,Bucaramanga,App,C0194,P019,2,8200,0.05,Billetera digital
+V02949,2025-06-28,Cali,Tienda,,P001,3,4900,0.05,Efectivo
+V02950,2025-06-28,Cartagena de Indias,Tienda,,P050,2,7900,0,Tarjeta
+V02951,2025-06-28,Bogotá,Web,C0023,P047,6,4800,0.1,Transferencia
+V02952,2025-06-28,Cartagena,App,C1201,P027,2,3600,0.15,Billetera digital
+V02953,2025-06-28,Barranquilla,App,C0035,P010,1,3200,0,Billetera digital
+V02954,2025-06-28,Bucaramanga,Web,C0002,P005,5,4600,0.15,Tarjeta
+V02955,2025-06-28,Cali ,App,C0004,P003,1,6800,,Tarjeta
+V02956,2025-06-28,Medellín,App,C0083,P001,1,4900,0,Tarjeta
+V02957,2025-06-28,Medellín,Web,C0685,P023,2,17900,0.05,Transferencia
+V02958,2025-06-28,Bogotá,Tienda,C0907,P054,1,5400,0,Tarjeta
+V02959,2025-06-28,Bogotá,Tienda,,P024,1,13900,0,Tarjeta
+V02960,2025-06-28,Medellín,App,C0016,P014,0,5200,0.1,Billetera digital
+V02961,2025-06-28,Bogotá,Web,C0002,P012,3,7500,0.05,Tarjeta
+V02962,2025-06-28,Cali,Tienda,C0006,P043,1,15900,0,Efectivo
+V02963,2025-06-28,Medellín,Tienda,,P035,1,7800,0,Tarjeta
+V02964,2025-06-28,Cartagena,Web,C0003,P035,1,7800,0,Transferencia
+V02965,2025-06-28,Cali,App,C0061,P034,3,5900,0,Tarjeta
+V02966,2025-06-28,Cali ,Tienda,C0753,P032,2,2800,0,Tarjeta
+V02967,2025-06-28,Bucaramanga,Tienda,,P030,5,3300,0,Efectivo
+V02968,2025-06-28,Cali,App,C0008,P026,1,11800,0.05,Tarjeta
+V02969,2025-06-28,Bogotá,Web,C0084,P013,3,1800,0,Billetera digital
+V02970,2025-06-28,Bogotá,app,C0167,P008,3,3800,0,Billetera digital
+V02971,2025-06-28,Cartagena,Tienda,,P022,4,2100,0.05,Efectivo
+V02972,2025-06-28,Medellín,Web,C0046,P025,1,12400,0,Transferencia
+V02973,2025-06-29,Medellín,Web,C0525,P008,1,3800,0,Tarjeta
+V02974,2025-06-29,Cali,App,C1254,P007,5,3400,0,Tarjeta
+V02975,2025-06-29,Cartagena,Web,C0846,P004,3,11900,0,Transferencia
+V02976,2025-06-29,Cali,App,C1310,P041,4,6200,0,Tarjeta
+V02977,2025-06-29,Bogotá,Web,C0079,P005,2,4600,0.15,Tarjeta
+V02978,2025-06-29,Bogotá,App,C0833,P036,3,4100,0,Tarjeta
+V02979,2025-06-29,Bogotá,Web,C0868,P026,1,11800,0.15,Transferencia
+V02980,2025-06-29,Barranquilla,App,C0253,P014,3,5200,0.05,Billetera digital
+V02981,2025-06-29,Cali,Web,C0184,P024,1,13900,0.05,Transferencia
+V02982,2025-06-29,cali,App,C1021,P014,1,5200,0,Transferencia
+V02983,2025-06-29,Medellín,App,C1111,P017,3,4900,0,Tarjeta
+V02984,2025-06-29,Bogotá,Tienda,C0064,P013,2,1800,0,Tarjeta
+V02985,2025-06-29,Cali,App,C0456,P008,4,3800,0,Billetera digital
+V02986,2025-06-30,Medellín,App,C0123,P004,2,11900,0.05,Billetera digital
+V02987,2025-06-30,Barranquilla,Tienda,C0017,P010,3,3200,0,Billetera digital
+V02988,2025-06-30,Barranquilla,Tienda,,P040,1,3700,0,Efectivo
+V02989,2025-06-30,Barranquilla,Web,C0847,P011,1,16900,0.05,Transferencia
+V02990,2025-06-30,Medellín,App,C1238,P002,2,3900,0,Tarjeta
+V02991,2025-06-30,Bogotá,App,C0074,P014,1,5200,0,Billetera digital
+V02992,2025-06-30,Barranquilla,App,C0186,P059,1,59900,0,Billetera digital
+V02992,2025-06-30,Barranquilla,App,C0186,P059,1,59900,0,Billetera digital
+V02993,2025-06-30,Bogotá,App,C0724,P012,5,7500,0.05,Tarjeta
+V02994,2025-06-30,Bogotá,App,C0435,P002,5,3900,0.15,Tarjeta
+V02995,2025-06-30,Bucaramanga,Tienda,C0252,P007,2,3400,0,Efectivo
+V02996,2025-06-30,Bucaramanga,App,C0031,P024,1,13900,0,Billetera digital
+V02997,2025-06-30,Cali,Tienda,,P053,2,12900,0,Tarjeta
+V02998,2025-06-30,Cali,Tienda,C1191,P031,3,3900,0,Efectivo
+V02999,2025-06-30,Barranquilla,App,C0152,P016,1,3100,0.1,Billetera digital
+V03000,2025-06-30,Cali,App,C0528,P040,1,3700,0.05,Billetera digital

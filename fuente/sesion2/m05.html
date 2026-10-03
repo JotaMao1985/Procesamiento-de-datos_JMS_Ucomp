@@ -1,0 +1,81 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 5 · Lo que Hadoop resolvió y lo que no      (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-5">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 5 · Bloque 1 · Tema 4.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Lo que Hadoop resolvió y lo
+          que no <span class="text-gray-500 font-normal text-2xl">/ Why Spark?</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Valorar los aportes y los límites de MapReduce, y
+              entender por qué la industria pasó a Spark sin abandonar HDFS ni YARN.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Acabamos de ver Hadoop funcionando. Antes de pasar a Spark, conviene ser justos con lo que logró y claros con
+        lo que le costaba.</p>
+
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Lo que resolvió</span>
+          <p class="tarjeta-titulo"><i class="fas fa-circle-check" aria-hidden="true"></i>Escalar con máquinas
+            comunes</p>
+          <ul>
+            <li>Procesar petabytes repartiendo el trabajo en miles de computadores baratos.</li>
+            <li>Llevar el cálculo a donde están los datos (<em>localidad</em>), en lugar de mover los datos.</li>
+            <li>Tolerar fallos: si un nodo cae, sus tareas se repiten en otro y los bloques tienen réplicas.</li>
+          </ul>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Lo que le costaba</span>
+          <p class="tarjeta-titulo"><i class="fas fa-hourglass-half" aria-hidden="true"></i>Disco, disco y más
+            disco</p>
+          <ul>
+            <li>Cada job lee su entrada de HDFS y escribe su salida en HDFS, con réplicas. Un análisis de diez pasos son
+              diez jobs y diez viajes al disco.</li>
+            <li>Pensado para lotes: arrancar un job toma segundos, así que no sirve para consultas interactivas.</li>
+            <li>Mucho código para poco: hasta un <code>JOIN</code> exige escribir y encadenar mappers y reducers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>El peor caso son los algoritmos <strong>iterativos</strong>, que recorren los mismos datos una y otra vez:
+        casi todo el aprendizaje automático (entrenar un modelo es repetir pasadas hasta converger) y los algoritmos
+        sobre grafos. Con MapReduce, cada pasada vuelve a leer y a escribir todo en disco. La idea de Spark fue
+        sencilla: <strong>leer una vez y mantener los datos en memoria</strong> entre pasos, cuando se le pide con
+        <code>cache()</code> (módulo 8).</p>
+
+      <div class="simulador" data-simulador="iterativo">
+        <h4><i class="fas fa-rotate" aria-hidden="true"></i> Un análisis iterativo: MapReduce frente a Spark</h4>
+        <p class="simulador-intro">Un modelo simplificado, no una medición. MapReduce: cada pasada es un job que lee
+          los datos de disco y paga unos segundos de arranque; entre una pasada y la siguiente escribe el resultado
+          intermedio en HDFS, con 3 réplicas. Spark: lee del disco una vez y repite las pasadas en memoria; si los datos
+          no caben en la memoria del clúster, la parte que no cabe se vuelve a leer de disco en cada pasada.</p>
+        <div class="simulador-controles"></div>
+        <div class="grafico-wrapper" style="height:280px;">
+          <canvas aria-label="Tiempo total frente al número de pasadas, para MapReduce y para Spark" role="img"></canvas>
+        </div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="note">
+        <p><strong>Qué mirar en el simulador.</strong> Con una sola pasada, la diferencia es modesta: ambos tienen que
+          leer del disco. Con diez o veinte pasadas, MapReduce crece en línea recta y Spark casi no se mueve. Ahora baja
+          la memoria del clúster por debajo del tamaño de los datos: Spark pierde buena parte de su ventaja, porque
+          vuelve a leer de disco lo que no cabe.</p>
+        <p style="margin-bottom:0;">Por eso Spark no «es más rápido» siempre: es más rápido cuando reutiliza datos que
+          caben en memoria.</p>
+      </div>
+
+      <h3>Spark no reemplazó a Hadoop: reemplazó a MapReduce</h3>
+      <p>Spark se ejecuta sobre <strong>YARN</strong> (o sobre Kubernetes) y lee y escribe en <strong>HDFS</strong>
+        (o en el almacenamiento de objetos de la nube). Lo que cambió fue el motor de procesamiento. En el módulo 9 lo
+        comprobaremos: Spark leerá el <code>ventas.csv</code> que acabamos de subir a nuestro HDFS.</p>
+    </div>
+  </template>

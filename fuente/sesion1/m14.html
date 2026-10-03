@@ -1,0 +1,91 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 14 · Pensar en map, filter y reduce         (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-14">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 14 · Bloque 4 · Tema 4.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Pensar en map, filter y
+          reduce <span class="text-gray-500 font-normal text-2xl">/ Functional thinking</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Expresar una transformación como una función aplicada a
+              cada elemento de una colección, y entender por qué ese estilo es el que permite repartir el trabajo
+              entre muchas máquinas.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Los nombres <em>map</em> y <em>reduce</em> no los inventó Google: vienen de la programación funcional, y
+        Python los trae de serie. Antes de distribuir nada, conviene ver la misma operación —agregar el 19 % de IVA a
+        una lista de precios— escrita de tres formas.</p>
+
+      <div class="code-tabs">
+        <div class="code-tabs-nav" role="tablist" aria-label="Tres formas de transformar una lista">
+          <button type="button" class="code-tab-btn active" data-lang="bucle" role="tab" aria-selected="true">Bucle
+            for</button>
+          <button type="button" class="code-tab-btn" data-lang="map" role="tab" aria-selected="false">map +
+            lambda</button>
+          <button type="button" class="code-tab-btn" data-lang="comprension" role="tab"
+            aria-selected="false">Comprensión</button>
+        </div>
+        <div class="code-tab-panel" data-lang="bucle">
+          {{CELDA:bucle_for}}
+        </div>
+        <div class="code-tab-panel" data-lang="map" hidden>
+          {{CELDA:con_map}}
+        </div>
+        <div class="code-tab-panel" data-lang="comprension" hidden>
+          {{CELDA:comprension}}
+        </div>
+      </div>
+
+      <p>Las tres dan lo mismo. La diferencia está en lo que <em>dicen</em>: el bucle describe <strong>cómo</strong>
+        —crea una lista vacía, recorre, agrega—; <code>map</code> y la comprensión describen <strong>qué</strong>:
+        «aplica esta función a cada elemento». Y si solo se dice qué, el sistema queda libre de decidir cómo: en qué
+        orden, en cuántos núcleos, en cuántas máquinas.</p>
+
+      <table>
+        <caption class="sr-only">Las tres operaciones funcionales básicas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Operación</th>
+            <th scope="col">Qué hace</th>
+            <th scope="col">Forma</th>
+            <th scope="col">En MapReduce y Spark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>map</code></td><td>Transforma cada elemento</td><td>n elementos → n elementos</td><td>La fase map; <code>map</code> de Spark</td></tr>
+          <tr><td><code>filter</code></td><td>Se queda con los que cumplen una condición</td><td>n elementos → hasta n</td><td>Un map que emite el registro solo si cumple la condición (si no, no emite nada); <code>filter</code> de Spark</td></tr>
+          <tr><td><code>reduce</code></td><td>Combina todos en uno, de a dos</td><td>n elementos → 1</td><td>La fase reduce, por clave; <code>reduceByKey</code> de Spark</td></tr>
+        </tbody>
+      </table>
+
+      {{CELDA:filter_reduce}}
+
+      <p><code>reduce</code> recibe una función de <em>dos</em> argumentos —lo acumulado y el siguiente— y la aplica
+        hasta agotar la lista, partiendo de un valor inicial (aquí, 0). La suma es el caso más simple; el máximo, el
+        conteo o la unión de conjuntos funcionan igual.</p>
+
+      <div class="definition">
+        <h4><i class="fas fa-key mr-2" aria-hidden="true"></i>Por qué esto permite distribuir</h4>
+        <p style="margin-bottom:0;">Una función que solo mira su entrada y no modifica nada afuera —sin «efectos
+          secundarios»— da el mismo resultado sin importar en qué máquina, en qué momento ni en qué orden se ejecute.
+          Por eso el sistema puede mandar cada bloque de datos a un nodo distinto con la misma función
+          <code>map</code>. Y si la operación de <code>reduce</code> es <strong>asociativa</strong> y
+          <strong>conmutativa</strong>, como la suma, los resultados parciales se pueden combinar en cualquier orden:
+          eso es lo que hace posible el <em>combiner</em>.</p>
+      </div>
+
+      <div class="warning">
+        <p style="margin-bottom:0;"><strong>No toda operación se reduce en partes.</strong> La suma sí: sumar parciales
+          da la suma total. El promedio no: el promedio de los promedios de dos bloques de distinto tamaño no es el
+          promedio total. Para promediar con MapReduce se reducen por separado la suma y el conteo, y se divide al
+          final.</p>
+      </div>
+    </div>
+  </template>

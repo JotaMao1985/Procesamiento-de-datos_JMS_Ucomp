@@ -1,0 +1,248 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 17 · Cierre                                 (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-17">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 17 · Bloque 4 · Cierre</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Cierre: autoevaluación,
+          taller y lecturas <span class="text-gray-500 font-normal text-2xl">/ Wrap-up</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Consolidar las ideas de la sesión, comprobar lo
+              aprendido y dejar claro el trabajo independiente antes de la sesión 2.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>La sesión en seis ideas</h3>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-stairs" aria-hidden="true"></i>1 · Del dato a la decisión</p>
+          <p>Procesar es convertir datos en información confiable; sin calidad, todo lo que se construye encima —informes, tableros, modelos— hereda el error.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-rotate" aria-hidden="true"></i>2 · Un ciclo de seis etapas</p>
+          <p>Recopilar, preparar, introducir, procesar, interpretar y almacenar, con un control de seguridad en
+            cada una.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-cloud" aria-hidden="true"></i>3 · Escalar hacia los lados</p>
+          <p>Cuando el dato no cabe, se reparte entre muchas máquinas; la nube las alquila por horas.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-hard-drive" aria-hidden="true"></i>4 · HDFS replica</p>
+          <p>Bloques de 128 MB copiados en varios nodos: el fallo de una máquina es rutina, no catástrofe.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-broom" aria-hidden="true"></i>5 · Limpiar con reglas y verificar</p>
+          <p>Cada paso responde a una dimensión de calidad, se documenta y se mide antes y después; y cada resultado
+            se contrasta por un segundo camino.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-shuffle" aria-hidden="true"></i>6 · groupby = MapReduce</p>
+          <p>Dividir por clave, aplicar y combinar: la misma lógica en una máquina o en mil.</p>
+        </div>
+      </div>
+
+      <h3>Lo que ya podemos responder a la gerencia</h3>
+      <table>
+        <caption class="sr-only">Respuestas de la sesión 1 a las preguntas de la gerencia</caption>
+        <thead>
+          <tr><th scope="col">Pregunta</th><th scope="col">Respuesta de hoy</th><th scope="col">Módulo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>¿Podemos confiar en el consolidado?</td><td>Sí, una vez limpio: se conservan {{CIFRA:filas_limpias}} de {{CIFRA:filas_crudas}} filas ({{CIFRA:pct_filas_conservadas}} %), y las {{CIFRA:fuera_rango}} con cantidades imposibles quedan en cuarentena para revisión.</td><td>12</td></tr>
+          <tr><td>¿Cuánto vendimos por ciudad, canal y categoría?</td><td>{{CIFRA:total_millones}} millones de pesos en el semestre; {{CIFRA:ciudad_top}} aporta {{CIFRA:ciudad_top_millones}} millones ({{CIFRA:ciudad_top_pct}} %). Canal y categoría, en la tabla dinámica.</td><td>13</td></tr>
+          <tr><td>¿La app gana terreno?</td><td>Sí: pasó del {{CIFRA:app_ene}} % de las ventas en enero al {{CIFRA:app_jun}} % en junio, sobre todo a costa de la tienda física.</td><td>13</td></tr>
+          <tr><td>¿Qué dicen los clientes?</td><td>Lo que más se repite es la entrega («{{CIFRA:palabra_util_top}}», «pedido», «domicilio»); en las reseñas de 1 o 2 estrellas aparecen además la atención por chat, fallas de la app y la web, y cobros.</td><td>15</td></tr>
+          <tr><td>¿Y si los datos fueran mil veces más?</td><td>La misma lógica, escrita como mapper y reducer que hablan por texto, corre igual en un clúster: lo haremos en Hadoop en la sesión 2.</td><td>16</td></tr>
+        </tbody>
+      </table>
+
+      <div class="quiz" data-quiz="cierre">
+        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Autoevaluación de la sesión</h4>
+        <p class="text-sm" style="margin-bottom:0;">Diez preguntas de los cuatro bloques. En clase resolveremos las cinco
+          primeras; las otras cinco, en casa antes de empezar el taller. Al final verás qué módulos conviene
+          repasar.</p>
+        <div class="quiz-progreso" role="presentation">
+          <div class="quiz-progreso-barra"></div>
+        </div>
+        <div class="quiz-preguntas"></div>
+        <div class="quiz-resumen" role="status" hidden></div>
+        <div class="quiz-marcador">
+          <span class="quiz-conteo"></span>
+          <button type="button" class="quiz-reiniciar">Reiniciar</button>
+        </div>
+      </div>
+
+      <h3>Taller 1 · Trabajo independiente</h3>
+      <div class="exercise">
+        <h4><i class="fas fa-clipboard-list mr-2" aria-hidden="true"></i>Informe de calidad y primer procesamiento del
+          caso Guadua</h4>
+        <p>En grupos de hasta tres personas, continúen en el notebook de la sesión y entreguen en el espacio del curso
+          <strong>el notebook ejecutado de principio a fin</strong> (<code>.ipynb</code> con sus salidas) y <strong>un
+            informe de dos páginas</strong> para la gerencia de Tiendas Guadua (PDF), más un anexo técnico sin límite
+          de extensión con el esquema y la bitácora. Plazo de entrega: la fecha que fije el docente, con margen antes de
+          la sesión 2 para la coevaluación.</p>
+        <ol style="margin-bottom:0.5rem;">
+          <li><strong>Etapas y seguridad.</strong> Un esquema de las seis etapas del procesamiento aplicado al caso,
+            con al menos un control de seguridad por etapa y su justificación frente a la Ley 1581 de 2012.</li>
+          <li><strong>Bitácora de limpieza.</strong> Una tabla con cada regla aplicada, la dimensión de calidad que
+            atiende, cuántas filas afectó y por qué se tomó esa decisión; para cada vacío, expliquen por qué falta.
+            Incluyan el reporte de calidad antes y después.</li>
+          <li><strong>Tres preguntas de negocio con pandas:</strong> (a) la combinación ciudad–categoría con mayor
+            venta; (b) la evolución mensual del ticket promedio por canal; (c) los cinco productos más vendidos en
+            unidades.</li>
+          <li><strong>MapReduce verificado.</strong> El total vendido por categoría con MapReduce en Python (con
+            combiner) y su verificación contra <code>groupby</code>; y la misma cuenta con <code>mapper.py</code> y
+            <code>reducer.py</code> en la tubería de Streaming, a partir de un archivo <code>categoria,total</code>
+            (ajusten la línea del mapper que salta el encabezado). Para comparar en el código, guarden la salida de la
+            tubería (<code>… | python3 reducer.py &gt; por_categoria.tsv</code>) y léanla con
+            <code>pd.read_csv("por_categoria.tsv", sep="\t", names=["categoria", "total"])</code>.</li>
+          <li><strong>Lo que dicen los clientes.</strong> Palabras más frecuentes —sin palabras vacías— en reseñas
+            positivas (4 o 5) y negativas (1 o 2), y una conclusión que <em>integre</em> ese hallazgo con las cifras
+            de ventas. Reto opcional: contar pares de palabras consecutivas (bigramas).</li>
+        </ol>
+        <p class="text-sm" style="margin-bottom:0;">Coevaluación: entre la entrega y la sesión 2, cada grupo califica con
+          esta rúbrica el trabajo que le asigne el docente y deja un comentario por criterio. Antes de empezar, revisen
+          la rúbrica en clase y propongan ajustes: los criterios se acuerdan con el grupo. El docente informa cuánto
+          pesan la coevaluación y su propia calificación en la nota.</p>
+      </div>
+
+      <div class="rubrica" data-rubrica="taller-1"></div>
+
+      <h3>Glosario de la sesión</h3>
+      <p>Los siete primeros términos vienen del glosario del syllabus; los demás siguen el orden en que aparecen en la
+        sesión. Entre paréntesis, el equivalente en inglés.</p>
+      <table>
+        <caption class="sr-only">Glosario de la sesión</caption>
+        <thead>
+          <tr>
+            <th scope="col">Término</th>
+            <th scope="col">Significado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Inconsistencia</strong> (<em>inconsistency</em>)</td><td>Incompatibilidad numérica o lógica entre los valores de dos o más datos.</td></tr>
+          <tr><td><strong>Indicador estadístico</strong> (<em>statistical indicator</em>)</td><td>Variable cuantitativa cuyos valores se interpretan frente a valores de referencia teóricos o empíricos. El syllabus lo llama «identificador estadístico».</td></tr>
+          <tr><td><strong>Información estadística</strong> (<em>statistical information</em>)</td><td>Conjunto de datos estadísticos referidos a un objeto de conocimiento.</td></tr>
+          <tr><td><strong>Levantamiento</strong> (<em>data collection</em>)</td><td>Periodo en que se capturan los datos de interés para su procesamiento; en una encuesta, el trabajo de campo.</td></tr>
+          <tr><td><strong>Marco legal</strong> (<em>legal framework</em>)</td><td>Leyes, decretos, políticas y normas que respaldan el tratamiento de los datos. En Colombia, la Ley Estatutaria 1581 de 2012 y su reglamentación, compilada en el Decreto 1074 de 2015.</td></tr>
+          <tr><td><strong>Intervalo y nivel de confianza</strong> (<em>confidence interval, level</em>)</td><td>Rango de valores donde se espera que esté un parámetro, y la probabilidad con que el procedimiento lo acierta (usualmente 95 %).</td></tr>
+          <tr><td><strong>Parámetro</strong> (<em>parameter</em>)</td><td>Valor que describe a la población o al proceso; en el syllabus, el dato que el procesamiento obtiene según las necesidades de la organización.</td></tr>
+          <tr><td><strong>Dato, información, conocimiento</strong> (<em>data, information, knowledge</em>)</td><td>Registro de un hecho, sin interpretación / datos procesados y puestos en contexto (qué, cuánto, dónde) / patrones que explican o anticipan (por qué, qué sigue). Son los escalones de la pirámide DIKW.</td></tr>
+          <tr><td><strong>Dato estructurado, semiestructurado, no estructurado</strong> (<em>structured, semi-structured, unstructured data</em>)</td><td>Con un esquema fijo que todas las filas cumplen / cada registro nombra sus campos, que pueden faltar o anidarse (JSON) / sin estructura que leer directamente (texto libre).</td></tr>
+          <tr><td><strong>ETL / ELT</strong> (<em>extract, transform, load</em>)</td><td>Extraer, transformar y cargar; o extraer, cargar y transformar dentro del repositorio.</td></tr>
+          <tr><td><strong>Lago de datos</strong> (<em>data lake</em>)</td><td>Repositorio que guarda los datos crudos en su formato original, junto con sus versiones transformadas; es el destino típico de ELT.</td></tr>
+          <tr><td><strong>Dato personal</strong> (<em>personal data</em>)</td><td>Cualquier información vinculada o que pueda asociarse a una o varias personas naturales determinadas o determinables (Ley 1581 de 2012, art. 3).</td></tr>
+          <tr><td><strong>Responsable / encargado del tratamiento</strong> (<em>controller / processor</em>)</td><td>Quien decide sobre la base de datos y su tratamiento / quien trata los datos por cuenta del responsable, como un proveedor de nube (Ley 1581 de 2012, art. 3).</td></tr>
+          <tr><td><strong>Minimización</strong> (<em>data minimisation</em>)</td><td>Recoger solo los datos pertinentes y adecuados para la finalidad (Decreto 1074 de 2015, art. 2.2.2.25.2.1).</td></tr>
+          <tr><td><strong>Seudonimización / anonimización</strong> (<em>pseudonymisation / anonymisation</em>)</td><td>Reemplazar el identificador por un código que solo se revierte con información guardada aparte —el dato sigue siendo personal— / transformar los datos para que la persona ya no sea identificable.</td></tr>
+          <tr><td><strong>Escalado vertical / horizontal</strong> (<em>scale up / scale out</em>)</td><td>Usar una máquina más grande / repartir el trabajo entre muchas máquinas comunes, los nodos de un clúster.</td></tr>
+          <tr><td><strong>Elasticidad rápida</strong> (<em>rapid elasticity</em>)</td><td>Capacidad de la nube de crecer o decrecer en recursos según la demanda; una de las cinco características esenciales del NIST.</td></tr>
+          <tr><td><strong>IaaS, PaaS, SaaS</strong></td><td>Infraestructura, plataforma o software como servicio: hasta qué capa administra el proveedor.</td></tr>
+          <tr><td><strong>HDFS</strong> (<em>Hadoop Distributed File System</em>)</td><td>Sistema de archivos distribuido de Hadoop: bloques replicados entre DataNodes, con un índice en el NameNode.</td></tr>
+          <tr><td><strong>Bloque</strong> (<em>block</em>)</td><td>Trozo de tamaño fijo —128 MB por defecto— en que HDFS parte cada archivo; es la unidad que se replica.</td></tr>
+          <tr><td><strong>Factor de replicación</strong> (<em>replication factor</em>)</td><td>Número de copias de cada bloque en HDFS; 3 por defecto.</td></tr>
+          <tr><td><strong>YARN</strong> (<em>Yet Another Resource Negotiator</em>)</td><td>Gestor de recursos de Hadoop: reparte CPU y memoria entre las aplicaciones.</td></tr>
+          <tr><td><strong>Job / tarea</strong> (<em>job / task</em>)</td><td>Un trabajo completo enviado al clúster, como un MapReduce / cada una de las piezas en que se divide —tareas map y reduce—, que corren en paralelo en distintos nodos.</td></tr>
+          <tr><td><strong>Split de entrada</strong> (<em>input split</em>)</td><td>Fragmento de la entrada que procesa una tarea map; normalmente coincide con un bloque de HDFS.</td></tr>
+          <tr><td><strong>Mapper / reducer</strong></td><td>Funciones del programador en MapReduce: emitir pares clave–valor; resumir los valores de cada clave.</td></tr>
+          <tr><td><strong>Combiner</strong></td><td>Reducción local, opcional, de la salida de cada mapper para enviar menos pares por la red. Hadoop puede ejecutarlo cero, una o varias veces: solo sirve para operaciones asociativas y conmutativas, como la suma.</td></tr>
+          <tr><td><strong>Shuffle</strong> (<em>shuffle and sort</em>)</td><td>Fase en que los pares viajan por la red y se agrupan y ordenan por clave.</td></tr>
+          <tr><td><strong>Partición</strong> (<em>partition</em>)</td><td>En MapReduce, el grupo de claves que recibe un mismo reducer: por defecto, hash(clave) mod R. En la sesión 2 la palabra tiene otros dos sentidos.</td></tr>
+          <tr><td><strong>Series / DataFrame</strong></td><td>En pandas, una columna de valores con su índice / una tabla de columnas con nombre, todas del mismo largo.</td></tr>
+          <tr><td><strong>Calidad del dato</strong> (<em>data quality</em>)</td><td>Grado en que el dato sirve para su uso. DAMA UK (2013) la mide en seis dimensiones: unicidad, consistencia, validez, exactitud, completitud y oportunidad.</td></tr>
+          <tr><td><strong>Cuarentena</strong> (<em>quarantine</em>)</td><td>Tabla donde se apartan, sin borrarlos, los registros que violan una regla, para revisión.</td></tr>
+          <tr><td><strong>Dividir, aplicar, combinar</strong> (<em>split–apply–combine</em>)</td><td>Patrón de resumen por grupos (Wickham, 2011): dividir por clave, aplicar un cálculo a cada grupo y combinar los resultados; es lo que hacen <code>groupby</code> y MapReduce.</td></tr>
+          <tr><td><strong>Palabras vacías</strong> (<em>stopwords</em>)</td><td>Palabras muy frecuentes y sin contenido propio (artículos, preposiciones) que se descartan al analizar texto.</td></tr>
+          <tr><td><strong>Sesgo de datos</strong> (<em>data skew</em>)</td><td>Reparto desigual del trabajo: una clave muy frecuente sobrecarga al reducer que la recibe.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="references">
+        <h3><i class="fas fa-book-open mr-2" aria-hidden="true"></i>Lecturas de esta sesión</h3>
+        <p class="text-sm" style="margin-bottom:0.5rem;">Complementan la bibliografía del syllabus (al pie de la
+          página). Las <strong>lecturas guía</strong> conviene hacerlas antes del taller 1; las demás son para
+          profundizar. Cada una indica qué leer, para qué módulo, idioma y acceso.</p>
+        <p class="text-sm" style="margin:0 0 0.25rem;"><strong>Lecturas guía</strong></p>
+        <ul>
+          <li>McKinney, W. (2022). <em>Python for data analysis: Data wrangling with pandas, NumPy, and Jupyter</em>
+            (3.ª ed.). O'Reilly Media. <strong>Capítulos 7 y 10</strong>: limpieza y agregación por grupos (módulos 12
+            y 13); si nunca has usado pandas, empieza por el 5, y el 6 y el 8 sirven para cargar y unir datos. En
+            inglés, acceso abierto en
+            <a href="https://wesmckinney.com/book/" target="_blank" rel="noopener"
+              class="text-primary underline">wesmckinney.com/book</a>. Traducción al español de esta edición:
+            <em>Python para análisis de datos</em> (Anaya Multimedia, 2023), de pago.</li>
+          <li>Ley 1581 de 2012, por la cual se dictan disposiciones generales para la protección de datos personales.
+            17 de octubre de 2012. <em>Diario Oficial</em> 48587. <strong>Artículos 3, 4 y 26</strong>: definiciones,
+            principios y transferencias (módulos 4 y 7). Su reglamentación está compilada en el Decreto 1074 de 2015,
+            Parte 2, Título 2, Capítulo 25; ver los <strong>artículos 2.2.2.25.2.1</strong> (recolección) y
+            <strong>2.2.2.25.5.1 y 2.2.2.25.5.2</strong> (transmisión internacional). En español, acceso abierto:
+            <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_blank"
+              rel="noopener" class="text-primary underline">Ley 1581 de 2012</a> ·
+            <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=76608" target="_blank"
+              rel="noopener" class="text-primary underline">Decreto 1074 de 2015</a>.</li>
+          <li>Mell, P. y Grance, T. (2011). <em>The NIST definition of cloud computing</em> (NIST Special Publication
+            800-145). National Institute of Standards and Technology.
+            <a href="https://doi.org/10.6028/NIST.SP.800-145" target="_blank" rel="noopener"
+              class="text-primary underline">https://doi.org/10.6028/NIST.SP.800-145</a>. Siete páginas; la
+            definición ocupa las páginas 2 y 3 (módulo 7). En inglés, acceso abierto.</li>
+          <li>Government Data Quality Hub. (2020). <em>The Government Data Quality Framework</em>. GOV.UK.
+            <a href="https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework"
+              target="_blank" rel="noopener" class="text-primary underline">Marco de calidad de datos del Gobierno
+              británico</a>. La sección de dimensiones de calidad, basada en DAMA UK (2013) y el DAMA-DMBOK (módulo
+            12). En inglés, acceso abierto.</li>
+          <li>Dean, J. y Ghemawat, S. (2008). MapReduce: Simplified data processing on large clusters.
+            <em>Communications of the ACM, 51</em>(1), 107–113.
+            <a href="https://doi.org/10.1145/1327452.1327492" target="_blank" rel="noopener"
+              class="text-primary underline">https://doi.org/10.1145/1327452.1327492</a>. <strong>Secciones 2 y
+              3</strong>: el modelo y su ejecución (módulos 9, 15 y 16). Es la versión en revista del artículo de 2004
+            que cita el módulo 9. En inglés, acceso abierto.</li>
+        </ul>
+        <p class="text-sm" style="margin:0.75rem 0 0.25rem;"><strong>Para profundizar</strong></p>
+        <ul style="margin-bottom:0;">
+          <li>White, T. (2015). <em>Hadoop: The definitive guide</em> (4.ª ed.). O'Reilly Media. <strong>Capítulos 1 a
+              4</strong>: Hadoop, MapReduce, HDFS y YARN (módulos 6, 8 y 9). En inglés, de pago. Describe Hadoop 2: los
+            conceptos siguen vigentes; algunos detalles de configuración, no.</li>
+          <li>Apache Software Foundation. (2026). <em>HDFS architecture</em> (Apache Hadoop 3.5.0).
+            <a href="https://hadoop.apache.org/docs/r3.5.0/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html"
+              target="_blank" rel="noopener" class="text-primary underline">Documentación oficial de HDFS, versión
+              3.5.0</a>: NameNode, DataNodes y replicación (módulo 8). En inglés, acceso abierto.</li>
+          <li>Caballero Muñoz-Reja, I., Gómez Carretero, A. I., Gualo Cejudo, F., Merino García, J., Rivas García, B. y
+            Piattini Velthuis, M. G. (2018). <em>Calidad de datos</em>. Ra-Ma. Dimensiones de calidad y la norma ISO/IEC
+            25012 (módulo 12). En español; consulta su disponibilidad en la biblioteca de UCompensar.</li>
+          <li>Wickham, H. (2011). The split-apply-combine strategy for data analysis. <em>Journal of Statistical
+              Software, 40</em>(1), 1–29.
+            <a href="https://doi.org/10.18637/jss.v040.i01" target="_blank" rel="noopener"
+              class="text-primary underline">https://doi.org/10.18637/jss.v040.i01</a>. El patrón
+            dividir–aplicar–combinar del módulo 13. En inglés, acceso abierto.</li>
+          <li>Superintendencia de Industria y Comercio. (2015). <em>Guía para la implementación del principio de
+              responsabilidad demostrada (accountability)</em>.
+            <a href="https://www.sic.gov.co/sites/default/files/files/Publicaciones/Guia-Accountability.pdf"
+              target="_blank" rel="noopener" class="text-primary underline">sic.gov.co</a>. Cómo demuestra una
+            organización que cumple la Ley 1581 (CR1). En español, acceso abierto.</li>
+          <li>Del syllabus, como puente a las sesiones 2 y 3: Kroenke, D. M. (1996). <em>Procesamiento de bases de
+              datos: fundamentos, diseño e instrumentación</em> (M. Á. Martínez Sarmiento y G. Sánchez García,
+            trads.). Prentice-Hall Hispanoamericana; y Borda, P., Dabenigno, V., Freidin, B. y Güelman, M. (2017).
+            <em>Estrategias para el análisis de datos cualitativos</em>. Instituto de Investigaciones Gino Germani,
+            Universidad de Buenos Aires. Datos de acceso al pie de la página.</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <h4><i class="fas fa-forward mr-2" aria-hidden="true"></i>En la sesión 2</h4>
+        <p style="margin-bottom:0;">Subiremos los datos de Guadua a HDFS y ejecutaremos el <code>mapper.py</code> y el
+          <code>reducer.py</code> de hoy con Hadoop Streaming. Después pasaremos a <strong>Spark</strong>: el mismo
+          procesamiento, en memoria y con DataFrames que recuerdan a los de pandas, aunque con su propia sintaxis;
+          repetiremos en Spark la limpieza de hoy, leeremos los logs JSON de la web y crearemos una base de datos
+          consultable con Spark SQL. No tienes que guardar archivos de hoy para la sesión 2: su notebook repite la
+          limpieza en sus primeras celdas. El taller se entrega antes de esa sesión, y el curso cierra en la sesión 3
+          con la sustentación del caso.</p>
+      </div>
+    </div>
+  </template>

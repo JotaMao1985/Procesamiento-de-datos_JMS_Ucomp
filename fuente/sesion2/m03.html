@@ -1,0 +1,174 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 3 · HDFS en la práctica                     (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-3">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 3 · Bloque 1 · Tema 4.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">HDFS en la práctica
+          <span class="text-gray-500 font-normal text-2xl">/ HDFS hands-on</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Poner en marcha HDFS, cargar los datos del caso, ver
+              con órdenes reales los bloques y las réplicas que en la sesión 1 vimos en un simulador, y aplicar un
+              primer control de acceso con permisos.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Recordemos la arquitectura de la sesión 1: el <strong>NameNode</strong> guarda el índice —qué archivos hay,
+        en qué bloques se parten y en qué DataNode está cada bloque— y los <strong>DataNodes</strong> guardan los
+        bloques. Hoy los tendremos de verdad, como dos procesos de Java en la máquina de Colab.</p>
+
+      <h3>Configurar: dos archivos XML</h3>
+      <p>Hadoop se configura con archivos XML de pares nombre → valor. <code>core-site.xml</code> dice dónde está el
+        sistema de archivos (<code>hdfs://localhost:9000</code>: el NameNode, en esta misma máquina). En
+        <code>hdfs-site.xml</code> van las reglas de HDFS:</p>
+      {{CELDA:hdfs_config}}
+      <ul>
+        <li><code>dfs.replication = 1</code>: con un solo DataNode no hay dónde poner una segunda copia. En un clúster
+          real, el valor por defecto es 3.</li>
+        <li><code>dfs.namenode.name.dir</code> y <code>dfs.datanode.data.dir</code>: las carpetas del disco local
+          donde cada servicio guarda lo suyo. HDFS es un sistema de archivos <em>encima</em> de los discos de cada
+          máquina.</li>
+        <li><code>min-block-size</code>: HDFS prohíbe bloques de menos de 1 MB. Lo bajamos a 64 KB solo para ver
+          bloques con archivos pequeños; en producción no se toca.</li>
+      </ul>
+
+      <h3>Arrancar los servicios</h3>
+      <p>Formatear crea un HDFS vacío —como formatear un disco nuevo, se hace una sola vez—. Después se arrancan el
+        NameNode y el DataNode en segundo plano y se espera a que el DataNode «se reporte» ante el NameNode.
+        <code>jps</code> lista los procesos de Java en marcha. La celda revisa antes qué ya está hecho, así que se
+        puede volver a ejecutar sin dañar nada.</p>
+
+      <div class="derivacion">
+        <button type="button" class="derivacion-boton" aria-expanded="false" aria-controls="s2m3-bash">
+          <i class="fas fa-terminal" aria-hidden="true"></i>
+          <span class="derivacion-texto">Si nunca has usado la terminal: cómo leer una celda <code>%%bash</code></span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="derivacion-panel" id="s2m3-bash" hidden>
+          <ol class="derivacion-pasos">
+            <li><p><strong><code>%%bash</code> en la primera línea</strong>: toda la celda son órdenes de terminal, no
+                Python. Con <code>!</code> al inicio, en cambio, solo esa línea va a la terminal.</p></li>
+            <li><p><strong><code>a | b</code></strong>: la salida de <code>a</code> es la entrada de <code>b</code>, como en
+                la tubería <code>mapper | sort | reducer</code> de la sesión 1.</p></li>
+            <li><p><strong><code>&gt; archivo</code></strong> guarda la salida en un archivo; <strong><code>2&gt;
+                  archivo</code></strong> guarda los mensajes de error.</p></li>
+            <li><p><strong><code>a &amp;&amp; b</code></strong>: <code>b</code> solo si <code>a</code> funcionó;
+                <strong><code>a || b</code></strong>: <code>b</code> solo si <code>a</code> falló.</p></li>
+            <li><p><strong><code>$HADOOP_HOME</code></strong> es el valor de una variable de entorno, y
+                <code>for i in $(seq 30); do …; done</code> repite algo hasta 30 veces.</p></li>
+          </ol>
+          <p class="derivacion-resultado">No hace falta escribir bash en este curso: basta con reconocer qué orden de
+            Hadoop se ejecuta y qué imprime.</p>
+        </div>
+      </div>
+
+      {{CELDA:hdfs_arranque}}
+      <p>Si no aparece <code>Live datanodes (1)</code>, vuelve a ejecutar la celda; si sigue sin aparecer, los
+        registros de cada servicio están en <code>$HADOOP_HOME/logs</code>.</p>
+
+      <h3>Cargar los datos del caso</h3>
+      <p>Las órdenes de HDFS imitan a las de Linux, con el prefijo <code>hdfs dfs</code>. Creamos una zona
+        <code>crudo</code> para los archivos tal como llegaron y otra <code>limpio</code> para lo procesado. El archivo
+        de ventas lo subimos con bloques de 64 KB para ver cómo se parte. La opción <code>-f</code> reemplaza el archivo
+        si ya existía. Es la ingesta por lotes del módulo 9 de la sesión 1, en su forma más simple.</p>
+      {{CELDA:hdfs_subir}}
+      <p>Las dos columnas de <code>-du</code> son el tamaño del archivo y el espacio que ocupa en el clúster contando
+        las réplicas. Aquí coinciden porque la replicación es 1; con replicación 3, la segunda columna sería el
+        triple.</p>
+
+      <table>
+        <caption class="sr-only">Órdenes de HDFS más usadas y su equivalente en Linux</caption>
+        <thead>
+          <tr>
+            <th scope="col">En HDFS</th>
+            <th scope="col">En Linux</th>
+            <th scope="col">Qué hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>hdfs dfs -ls /ruta</code></td><td><code>ls</code></td><td>Lista una carpeta</td></tr>
+          <tr><td><code>hdfs dfs -mkdir -p /ruta</code></td><td><code>mkdir -p</code></td><td>Crea carpetas</td></tr>
+          <tr><td><code>hdfs dfs -put local /ruta</code></td><td><code>cp</code></td><td>Sube del disco local a HDFS</td></tr>
+          <tr><td><code>hdfs dfs -get /ruta local</code></td><td><code>cp</code></td><td>Baja de HDFS al disco local</td></tr>
+          <tr><td><code>hdfs dfs -cat</code>, <code>-head</code></td><td><code>cat</code>, <code>head</code></td><td>Muestra el contenido</td></tr>
+          <tr><td><code>hdfs dfs -du -h</code></td><td><code>du -h</code></td><td>Espacio ocupado</td></tr>
+          <tr><td><code>hdfs dfs -rm -r</code></td><td><code>rm -r</code></td><td>Borra; si el clúster tiene la papelera activada, primero va a ella</td></tr>
+          <tr><td><code>hdfs dfs -chmod</code>, <code>-chown</code></td><td><code>chmod</code>, <code>chown</code></td><td>Permisos y dueño</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Bloques y réplicas, ahora de verdad</h3>
+      {{CELDA:hdfs_bloques}}
+      <p><code>ventas.csv</code> pesa {{CIFRA:bytes_ventas}} bytes y se guardó con bloques de 65.536 bytes (64 KB): son
+        {{CIFRA:bloques_ventas}} bloques, el último de apenas {{CIFRA:ultimo_bloque}} bytes. Un bloque no ocupa el
+        tamaño máximo si el archivo no lo llena. Los otros dos archivos usaron el bloque por defecto de 128 MB
+        (134.217.728 bytes) y caben en uno solo. Es la misma cuenta que hacía el simulador de la sesión 1.</p>
+      <p>El NameNode sabe dónde está cada bloque. La herramienta <code>fsck</code> («revisar el sistema de archivos»)
+        se lo pregunta:</p>
+      {{CELDA:hdfs_fsck}}
+      <p>Cada bloque tiene un identificador (<code>blk_…</code>), su tamaño y la dirección del DataNode que lo guarda.
+        El estado <code>HEALTHY</code> significa que no falta ni está dañado ningún bloque: cada uno conserva al menos
+        una copia sana.</p>
+
+      <h3>Permisos: un primer control de acceso</h3>
+      {{CELDA:hdfs_permisos}}
+      <p>Igual que en Linux: <code>rwx</code> para el dueño, <code>r-x</code> para su grupo y nada para los demás. El
+        750 se lee cifra por cifra: 7 = 4 + 2 + 1 = <code>rwx</code> (leer, escribir, entrar) para el dueño; 5 = 4 + 1 =
+        <code>r-x</code> para el grupo; 0 = nada para los demás. En un clúster real, el dueño sería una cuenta de
+        servicio y el grupo, el del equipo de datos (<code>hdfs dfs -chown -R etl:datos /guadua/crudo</code>): así los
+        datos crudos —que incluyen el identificador de cada cliente— quedan cerrados para quien no sea de ese equipo.
+        Aquí no lo notarás: <code>root</code> arrancó el NameNode y por eso es el superusuario de HDFS, y
+        <code>supergroup</code> es el grupo de superusuarios; a ellos los permisos no los detienen.</p>
+
+      <div class="warning">
+        <h4><i class="fas fa-triangle-exclamation mr-2" aria-hidden="true"></i>Un permiso no es seguridad si no se sabe
+          quién pide</h4>
+        <p style="margin-bottom:0;">Por defecto, HDFS usa autenticación <em>simple</em>: cree el nombre de usuario que
+          declara el cliente. Cualquiera con acceso a la red podría decir «soy root». En producción, un clúster con datos
+          personales necesita <strong>Kerberos</strong> para autenticar, una herramienta como <strong>Apache
+            Ranger</strong> para autorizar por tabla y columna, <strong>cifrado</strong> en disco (zonas cifradas) y en
+          la red (TLS), y registros de auditoría. Son medidas técnicas con las que se cumple el principio de seguridad
+          de la Ley 1581 de 2012 (artículo 4, literal g): proteger los registros contra consulta, uso o acceso no
+          autorizado.</p>
+      </div>
+
+      <h3>Leer sin descargar</h3>
+      {{CELDA:hdfs_leer}}
+      <p><code>-count</code> resume la carpeta: cuántas carpetas, cuántos archivos y cuánto pesan.</p>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Si Guadua tuviera un clúster de verdad,
+            con bloques de 128 MB y replicación 3, ¿en cuántos bloques quedaría <code>ventas.csv</code> y cuántos bytes
+            ocuparía en total en los discos del clúster?</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m3-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m3-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="s2m3-e1-pista" hidden>
+            <p style="margin:0;">Compara el tamaño del archivo con el del bloque. Y recuerda que un bloque solo ocupa lo
+              que contiene.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="s2m3-e1-sol" hidden>
+            <p style="margin:0;">{{CIFRA:bytes_ventas}} bytes caben de sobra en un bloque de 128 MB: <strong>un
+                bloque</strong>, con tres copias en tres DataNodes distintos, que ocupan {{CIFRA:bytes_ventas_x3}}
+              bytes en total, no 3 × 128 MB. Por eso HDFS rinde mal con millones de archivos pequeños: no por el
+              disco, sino porque el NameNode guarda en memoria una entrada por cada archivo y cada bloque.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

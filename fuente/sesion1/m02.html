@@ -1,0 +1,109 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 2 · Dato, información y conocimiento        (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-2">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 2 · Bloque 1 · Reconocimiento</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Dato, información y
+          conocimiento <span class="text-gray-500 font-normal text-2xl">/ Data, information, knowledge</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Distinguir dato, información y conocimiento, ubicar en
+              esa escalera el trabajo del procesamiento de datos y diagnosticar lo que ya sabes (Etapa 0 de la metodología del
+              curso, sin calificación).</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Una fila de un archivo de ventas no le dice nada a nadie: <code>V00002, 2025-01-01, Barranquilla, Tienda,
+          C0182, P011, 3, 16900</code>. Son <strong>datos</strong>: registros de hechos, concretos pero mudos. Cuando
+        se agrupan, se suman y se ponen en contexto —«Bogotá concentra el {{CIFRA:ciudad_top_pct}} % de las ventas del
+        semestre», «la app pasó del {{CIFRA:app_ene}} % al {{CIFRA:app_jun}} % de las ventas entre enero y junio»— se
+        vuelven <strong>información</strong>. Y cuando se descubre un patrón que explica o anticipa —«la app le gana
+        terreno a la tienda física y, si la tendencia sigue, la alcanzará»— aparece el <strong>conocimiento</strong>,
+        que es lo que permite tomar una <strong>decisión</strong>.</p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 640 320" width="100%" style="max-width:680px;" role="img"
+          aria-labelledby="dikw-titulo dikw-desc">
+          <title id="dikw-titulo">Pirámide de datos, información, conocimiento y decisión</title>
+          <desc id="dikw-desc">Cuatro niveles. Datos: hechos sueltos como la venta V00002. Información: datos
+            organizados, como el porcentaje de ventas de Bogotá. Conocimiento: patrones que permiten anticipar, como que
+            la app va camino de alcanzar a la tienda.
+            Decisión: acción con criterio, como invertir en la app.</desc>
+          <polygon points="135,20 185,20 212.8,90 107.2,90" fill="#B84A00" />
+          <polygon points="105.1,95.5 214.9,95.5 241.5,162.5 78.5,162.5" fill="#691E7A" />
+          <polygon points="76.3,168 243.7,168 270.3,235 49.7,235" fill="#8A2E9E" />
+          <polygon points="47.6,240.5 272.4,240.5 300,310 20,310" fill="#566B7F" />
+          <text x="160" y="60" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Decisión</text>
+          <text x="160" y="134" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Conocimiento</text>
+          <text x="160" y="206" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Información</text>
+          <text x="160" y="280" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Datos</text>
+          <g stroke="#cbd5e1" stroke-dasharray="4 4" stroke-width="1.2">
+            <line x1="205" y1="55" x2="315" y2="55" />
+            <line x1="232" y1="129" x2="315" y2="129" />
+            <line x1="262" y1="201" x2="315" y2="201" />
+            <line x1="292" y1="275" x2="315" y2="275" />
+          </g>
+          <g font-size="12.5">
+            <text x="322" y="50" font-weight="700" fill="#B84A00">Acción con criterio</text>
+            <text x="322" y="68" fill="#334155">«Invertir en la app y en sus domicilios»</text>
+            <text x="322" y="124" font-weight="700" fill="#691E7A">Patrones: ¿por qué?, ¿qué sigue?</text>
+            <text x="322" y="142" fill="#334155">«La app va camino de alcanzar a la tienda»</text>
+            <text x="322" y="196" font-weight="700" fill="#691E7A">Datos organizados: ¿qué?, ¿cuánto?</text>
+            <text x="322" y="214" fill="#334155">«Bogotá: {{CIFRA:ciudad_top_pct}} % de las ventas del semestre»</text>
+            <text x="322" y="270" font-weight="700" fill="#475569">Hechos sueltos, sin contexto</text>
+            <text x="322" y="288" fill="#334155" font-family="Fira Code, monospace" font-size="11.5">V00002 · Barranquilla · 3 · 16900</text>
+          </g>
+        </svg>
+        <p class="leyenda-diagrama">Cada escalón se construye procesando el anterior. El procesamiento de datos es,
+          sobre todo, el paso del primero al segundo. En la literatura se la llama pirámide DIKW (<em>data,
+          information, knowledge, wisdom</em>), con la sabiduría en la cima; aquí la cambiamos por la decisión, que es
+          donde esa sabiduría se vuelve acción.</p>
+      </div>
+
+      <div class="definition">
+        <h4><i class="fas fa-book mr-2" aria-hidden="true"></i>Tres palabras que no son sinónimos</h4>
+        <ul style="margin-bottom:0;">
+          <li><strong>Dato</strong> (<em>data</em>): representación de un hecho —un número, un texto, una fecha—
+            registrada sin interpretación.</li>
+          <li><strong>Información</strong> (<em>information</em>): datos procesados y puestos en contexto que
+            responden <em>qué</em>, <em>cuánto</em>, <em>dónde</em> o <em>cuándo</em>.</li>
+          <li><strong>Conocimiento</strong> (<em>knowledge</em>): relaciones y patrones extraídos de la información
+            que explican <em>por qué</em> ocurre algo o permiten anticipar <em>qué</em> ocurrirá.</li>
+        </ul>
+      </div>
+
+      <div class="warning">
+        <p style="margin-bottom:0;"><strong>Basura entra, basura sale</strong> (<em>garbage in, garbage out</em>). Si
+          en el paso de datos a información se cuela una venta duplicada, una ciudad escrita de varias formas o un
+          precio guardado como texto, todo lo que se construya encima —el gráfico, el patrón, la decisión— hereda el
+          error, y con más autoridad que antes porque ya «viene de los datos». Por eso la mitad de este curso trata de
+          <em>calidad</em>.</p>
+      </div>
+
+      <h3>Diagnóstico: ¿desde dónde partimos?</h3>
+      <p>Cinco preguntas para medir los presaberes del grupo. No tienen calificación. Si fallas una, lee la pista e
+        inténtalo otra vez. Al terminar, comparte en el chat cuántas acertaste al primer intento (lo dice el marcador):
+        así el docente sabrá dónde poner el énfasis.</p>
+
+      <div class="quiz" data-quiz="diagnostico">
+        <h4><i class="fas fa-stethoscope" aria-hidden="true"></i> Diagnóstico de entrada · Reconocimiento</h4>
+        <p class="text-sm" style="margin-bottom:0;">Cada opción trae su propia explicación, también las
+          incorrectas.</p>
+        <div class="quiz-progreso" role="presentation">
+          <div class="quiz-progreso-barra"></div>
+        </div>
+        <div class="quiz-preguntas"></div>
+        <div class="quiz-resumen" role="status" hidden></div>
+        <div class="quiz-marcador">
+          <span class="quiz-conteo"></span>
+          <button type="button" class="quiz-reiniciar">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+  </template>

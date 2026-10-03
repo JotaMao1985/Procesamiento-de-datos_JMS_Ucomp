@@ -1,0 +1,109 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 6 · ¿Por qué un computador no alcanza?      (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-6">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 6 · Bloque 2 · Tema 2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">¿Por qué un computador no
+          alcanza? <span class="text-gray-500 font-normal text-2xl">/ Scaling out</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Explicar con números por qué el volumen de datos obliga
+              a repartir el trabajo entre muchas máquinas, y cuándo esa estrategia deja de compensar.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>La quinta pregunta de la gerencia era si el proceso aguantaría datos mil veces más grandes. «Big Data» no es
+        un número de filas: es el punto en que los datos dejan de caber —en la memoria, en el
+        disco o en el tiempo disponible— de la herramienta con la que se venían procesando. Se suele describir con
+        varias <strong>V</strong>.</p>
+
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-database" aria-hidden="true"></i>Volumen</p>
+          <p>Cuánto dato hay. Una cadena real suma millones de líneas de venta al día.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-gauge-high" aria-hidden="true"></i>Velocidad</p>
+          <p>Con qué ritmo llega y cuán rápido hay que responder. En una cadena real, los eventos de la web y la app llegan por miles cada segundo.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-shapes" aria-hidden="true"></i>Variedad</p>
+          <p>Cuántos tipos de dato conviven: la tabla de ventas, el JSON de la web, el texto de las reseñas.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-magnifying-glass-chart" aria-hidden="true"></i>Veracidad</p>
+          <p>Cuánto se puede confiar en el dato. Ya vimos {{CIFRA:duplicados}} ventas repetidas y
+            {{CIFRA:grafias_ciudad}} formas de escribir seis ciudades.</p>
+        </div>
+        <div class="tarjeta">
+          <p class="tarjeta-titulo"><i class="fas fa-sack-dollar" aria-hidden="true"></i>Valor</p>
+          <p>Lo que se gana al procesarlo. Sin una decisión al final, el resto de las V es solo costo.</p>
+        </div>
+      </div>
+
+      <h3>Crecer hacia arriba o hacia los lados</h3>
+      <table>
+        <caption class="sr-only">Escalado vertical frente a escalado horizontal</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Escalado vertical (<em>scale up</em>)</th>
+            <th scope="col">Escalado horizontal (<em>scale out</em>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Idea</strong></td><td>Una máquina más grande: más memoria, más núcleos, más disco</td><td>Más máquinas comunes trabajando juntas: un <strong>clúster</strong></td></tr>
+          <tr><td><strong>Límite</strong></td><td>El de la máquina más grande que se pueda comprar</td><td>Mucho más alto: se agregan nodos, aunque cada uno suma costo de coordinación</td></tr>
+          <tr><td><strong>Costo</strong></td><td>Crece más rápido que la capacidad</td><td>Crece casi en proporción a la capacidad</td></tr>
+          <tr><td><strong>Si falla</strong></td><td>Todo se detiene (punto único de falla)</td><td>Los demás nodos siguen, si los datos están replicados y el coordinador tiene respaldo (módulo 8)</td></tr>
+          <tr><td><strong>Lo difícil</strong></td><td>Nada nuevo que programar</td><td>Repartir el trabajo y coordinar: de eso se encargan Hadoop y Spark</td></tr>
+        </tbody>
+      </table>
+
+      <p>El argumento a favor del escalado horizontal es de pura aritmética. Leer un archivo de tamaño \(D\) desde un
+        disco que entrega \(v\) megabytes por segundo toma \(D/v\) segundos. Si el archivo está repartido entre \(n\)
+        discos que leen <em>a la vez</em>, el tiempo se divide entre \(n\)… pero aparece un costo fijo \(c\) por
+        coordinar a todos, que una sola máquina no paga. El clúster compensa solo si \(T(n) &lt; T(1)\):</p>
+
+      <div class="formula">
+        $$T(1) = \frac{D}{v} \qquad\qquad T(n) = \frac{D}{n \cdot v} + c \quad \text{si } n > 1$$
+      </div>
+
+      <div class="simulador" data-simulador="tiempo-lectura">
+        <h4><i class="fas fa-stopwatch" aria-hidden="true"></i> ¿Cuánto tarda leer los datos?</h4>
+        <p class="simulador-intro">Mueve el tamaño de los datos y el número de nodos. La curva muestra el tiempo para
+          1, 2, 4… hasta 1.024 nodos; el punto naranja es tu configuración. Prueba con datos pequeños y mucho costo
+          de coordinación: ¿sigue valiendo la pena el clúster?</p>
+        <div class="simulador-controles"></div>
+        <div class="grafico-wrapper" style="height:280px;">
+          <canvas aria-label="Tiempo de lectura en función del número de nodos, en escala logarítmica"
+            role="img"></canvas>
+        </div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>De aquí nació Hadoop.</strong> El ejemplo clásico con el que White (2015)
+          abre su libro: un disco entrega del orden de 100 MB/s, así que leer 1 TB toma casi tres horas; repartido en
+          cien discos que leen en paralelo, menos de dos minutos. Y como mover terabytes por la red también toma tiempo,
+          la idea central del ecosistema es <strong>llevar el cómputo a donde están los datos</strong>, y no al
+          revés.</p>
+      </div>
+
+      <div class="warning">
+        <p style="margin-bottom:0;"><strong>Más nodos no siempre compensan.</strong> Por muchos nodos que se agreguen,
+          \(T(n)\) nunca baja de \(c\): pasado cierto punto, duplicar el clúster duplica el costo y casi no ahorra
+          tiempo (mira cómo se aplana la curva). Y cuando \(D\) es pequeño, \(c\) domina desde el principio y el
+          clúster es <em>más lento</em> que un portátil. En la realidad es aún peor: coordinar más nodos cuesta más, así
+          que \(c\) crece con \(n\). Las
+          {{CIFRA:filas_crudas}} ventas del caso se procesan en milisegundos con pandas: montar Hadoop para ellas sería
+          como contratar un camión de mudanzas para llevar una carta.</p>
+      </div>
+    </div>
+  </template>

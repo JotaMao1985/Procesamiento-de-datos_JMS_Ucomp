@@ -1,0 +1,135 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 16 · MapReduce sobre las ventas y Streaming (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-16">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 16 · Bloque 4 · Temas 4.1 y 4.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 25 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">MapReduce sobre las ventas
+          y estilo Hadoop Streaming <span class="text-gray-500 font-normal text-2xl">/ From groupby to
+            Streaming</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Reproducir con MapReduce un resumen de pandas,
+              verificarlo, y escribir el mapper y el reducer como programas que se comunican por texto: tal como los
+              ejecutará Hadoop en la sesión 2.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>En el módulo 13 obtuvimos el total por ciudad con una línea de <code>groupby</code>. Ahora lo haremos como lo
+        haría un clúster: partiendo los datos en bloques, procesando cada bloque por separado y juntando al final.</p>
+
+      <h3>Bloques, map con combiner y reduce</h3>
+      {{CELDA:mr_ventas}}
+      <p>Los {{CIFRA:filas_limpias}} registros se parten en cuatro bloques de hasta {{CIFRA:filas_bloque}} filas,
+        como HDFS parte un archivo en bloques de 128 MB (HDFS corta por tamaño, no por filas, pero la idea es la misma).
+        Cada bloque produce un diccionario de <strong>subtotales por ciudad</strong> —el <em>combiner</em>—, así que lo
+        que «viaja» al reduce son a lo sumo siete subtotales por bloque en lugar de {{CIFRA:filas_bloque}} pares
+        (ciudad, total). El reduce suma los subtotales: funciona porque la suma es asociativa y conmutativa (módulo
+        14).</p>
+
+      <h3>Control de coherencia</h3>
+      {{CELDA:mr_verifica}}
+      <p>Dos caminos independientes, el mismo resultado hasta el último decimal. Este tipo de verificación cruzada es
+        la que pide el criterio CR3: cuando el procesamiento corra en un clúster que no podemos inspeccionar a mano,
+        compararlo contra una muestra procesada por otra vía es la mejor garantía de que la lógica es correcta.</p>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Con los mismos cuatro
+            <code>bloques</code>, cuenta con MapReduce cuántas ventas hubo por método de pago y verifícalo contra
+            <code>value_counts()</code>.</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m16-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m16-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m16-e1-pista" hidden>
+            <p style="margin:0;">Es el conteo de palabras con otra clave: el map emite <code>(medio, 1)</code>. Copia la
+              forma de <code>map_y_combinar</code>: cada bloque cuenta sus medios en un <code>defaultdict(int)</code>
+              (map + combiner) y luego sumas los parciales (reduce). Para comparar Series sin que importe el orden,
+              ordénalas por índice con <code>sort_index()</code>.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m16-e1-sol" hidden>
+            {{CELDA:sol_pago}}
+            <p><strong>La tarjeta es el medio más usado, y el conteo con MapReduce coincide con
+                <code>value_counts()</code>.</strong></p>
+            <p style="margin-bottom:0;">Contar es sumar unos: cualquier <code>value_counts</code> es un MapReduce. Si
+              comparas sin <code>sort_index()</code>, la verificación puede fallar solo porque dos medios con el mismo
+              número de ventas salen en distinto orden: compara el contenido, no la presentación.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Mapper y reducer como programas: Hadoop Streaming</h3>
+      <p>Hadoop está escrito en Java, pero su modo <strong>Streaming</strong> permite usar como mapper y reducer
+        cualquier programa que lea líneas de texto por la entrada estándar y escriba líneas
+        <code>clave&lt;TAB&gt;valor</code> por la salida estándar. Python sirve. Primero exportamos solo las dos
+        columnas que necesita el trabajo:</p>
+
+      {{CELDA:exporta}}
+
+      <p>La celda mágica <code>%%writefile</code> de Jupyter (y por tanto de Colab) guarda el contenido de la celda en un archivo, en lugar de
+        ejecutarlo.</p>
+
+      {{CELDA:mapper_py}}
+
+      <p>El reducer aprovecha una garantía de Hadoop: <strong>recibe las líneas ordenadas por clave</strong>. Por eso
+        no necesita un diccionario: acumula mientras la clave no cambie y, cuando cambia, imprime el total de la
+        anterior. Así puede procesar millones de líneas con memoria constante.</p>
+
+      {{CELDA:reducer_py}}
+
+      <p>Y ahora la prueba de fuego, con tuberías de Unix: la salida de cada programa es la entrada del siguiente, y
+        <code>sort</code> hace de shuffle: ordena las líneas completas y, como cada una empieza por su clave, las de una
+        misma ciudad quedan juntas, que es justo lo que necesita el reducer.</p>
+
+      {{CELDA:streaming}}
+
+      <p>Los mismos totales que el <code>groupby</code> y que el MapReduce en memoria, ahora en pesos y ordenados por
+        clave, como los entregaría Hadoop.</p>
+
+      <table>
+        <caption class="sr-only">Correspondencia entre la tubería local y un trabajo de Hadoop</caption>
+        <thead>
+          <tr>
+            <th scope="col">En la tubería de hoy</th>
+            <th scope="col">En Hadoop (sesión 2)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>cat ventas_limpias.csv</code></td><td>El archivo en HDFS, partido en bloques</td></tr>
+          <tr><td><code>python3 mapper.py</code> (un proceso)</td><td>Una tarea map por bloque, en paralelo, en los nodos que tienen los datos</td></tr>
+          <tr><td><code>sort</code></td><td>Shuffle y orden: los pares viajan por la red al reducer de su partición</td></tr>
+          <tr><td><code>python3 reducer.py</code> (un proceso)</td><td>R tareas reduce en paralelo, una por partición</td></tr>
+          <tr><td>La pantalla</td><td>Archivos <code>part-00000</code>, <code>part-00001</code>… en HDFS</td></tr>
+        </tbody>
+      </table>
+
+      <p>En la sesión 2 ejecutaremos <em>exactamente estos dos archivos</em> en Hadoop, con una orden de este estilo
+        (no la ejecutes hoy):</p>
+      <pre><code class="language-bash">hadoop jar hadoop-streaming.jar \
+  -files mapper.py,reducer.py \
+  -input /guadua/limpio/ventas_limpias.csv \
+  -output /guadua/resultados/por_ciudad \
+  -mapper "python3 mapper.py" \
+  -reducer "python3 reducer.py"</code></pre>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Lo que acabamos de lograr.</strong> El mismo resultado por tres caminos
+          —<code>groupby</code>, MapReduce en memoria y programas encadenados—: los dos primeros, comparados con código;
+          el tercero, por ahora a ojo (en la sesión 2 lo compararemos con código contra pandas).
+          Cambiar de escala, de un portátil a un clúster, ya no cambia la lógica: solo el lugar donde se ejecuta.</p>
+      </div>
+    </div>
+  </template>

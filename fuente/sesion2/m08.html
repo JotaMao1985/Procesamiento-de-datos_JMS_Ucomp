@@ -1,0 +1,101 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 8 · Transformaciones, acciones y DAG        (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-8">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 8 · Bloque 2 · Tema 5.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Transformaciones, acciones y
+          el DAG <span class="text-gray-500 font-normal text-2xl">/ Lazy evaluation</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Distinguir transformaciones de acciones, explicar la
+              ejecución perezosa y predecir dónde un trabajo de Spark se parte en etapas.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Las operaciones de Spark son de dos clases, y confundirlas es la fuente de muchas sorpresas:</p>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Transformaciones</span>
+          <p class="tarjeta-titulo"><i class="fas fa-pen-ruler" aria-hidden="true"></i>Anotan qué hacer</p>
+          <p>Devuelven un nuevo RDD o DataFrame <strong>sin calcular nada</strong>: <code>map</code>,
+            <code>filter</code>, <code>flatMap</code>, <code>reduceByKey</code>, <code>join</code>,
+            <code>select</code>, <code>groupBy</code>…</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Acciones</span>
+          <p class="tarjeta-titulo"><i class="fas fa-play" aria-hidden="true"></i>Disparan el trabajo</p>
+          <p>Necesitan un resultado concreto, así que obligan a ejecutar todo lo anotado: <code>count</code>,
+            <code>collect</code>, <code>take</code>, <code>show</code>, <code>write</code>…</p>
+        </div>
+      </div>
+
+      {{CELDA:perezosa}}
+      <p>La primera línea respondió al instante sin leer una sola reseña. Solo <code>count()</code> hizo trabajar a
+        Spark, y <code>take(1)</code> lo hizo de nuevo: sin <code>cache()</code>, cada acción recalcula desde el
+        origen. A esto se le llama <strong>ejecución perezosa</strong>, y tiene una ventaja enorme: como Spark ve el
+        plan completo antes de ejecutarlo, puede optimizarlo. Con RDD, junta en una misma tarea los pasos que pueden
+        ir seguidos: el <code>filter</code> y el <code>map</code> de arriba recorren cada reseña una sola vez. Con los
+        DataFrames del módulo 9, además, lee solo las columnas necesarias y filtra antes de unir.</p>
+
+      <h3>Dependencias angostas y anchas</h3>
+      <p>Algunas transformaciones trabajan dentro de cada partición: para filtrar una reseña no hace falta mirar las
+        demás. Otras necesitan reunir datos de todas las particiones, como juntar todas las apariciones de una misma
+        palabra. Ahí hay un <strong>shuffle</strong>, el mismo de MapReduce, y Spark corta el trabajo: lo anterior al
+        shuffle es una <strong>etapa</strong> (<em>stage</em>) y lo que sigue, otra. No las confundas con las seis
+        etapas del ciclo de procesamiento de la sesión 1.</p>
+      <table>
+        <caption class="sr-only">Transformaciones angostas y anchas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Angostas (sin shuffle)</th>
+            <th scope="col">Anchas (con shuffle: nueva etapa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>map</code>, <code>flatMap</code>, <code>filter</code></td><td><code>reduceByKey</code>,
+              <code>groupByKey</code></td></tr>
+          <tr><td><code>select</code>, <code>withColumn</code>, <code>where</code></td><td><code>groupBy().agg()</code>,
+              <code>distinct</code>, <code>dropDuplicates</code></td></tr>
+          <tr><td><code>union</code></td><td><code>join</code> (salvo el de difusión, módulo 12), <code>orderBy</code>,
+              <code>repartition</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>El <strong>linaje</strong> de un RDD es la receta que Spark guarda para obtenerlo. Cada <code>+-</code> marca
+        un shuffle:</p>
+      {{CELDA:linaje}}
+      <p>Se lee de abajo hacia arriba. Abajo, <code>ParallelCollectionRDD</code>: los textos repartidos en 4
+        particiones (el número entre paréntesis). Encima, <code>PythonRDD</code> y <code>PairwiseRDD</code>: PySpark
+        junta en un solo paso las funciones de Python que pueden ir seguidas —el <code>flatMap</code>, el
+        <code>map</code> y la suma local de <code>reduceByKey</code>—; por eso no aparecen con su nombre. La línea que
+        empieza con <code>+-</code> es el shuffle: lo que está debajo es la primera etapa. Arriba,
+        <code>ShuffledRDD</code> recibe los pares ya repartidos por palabra y lo que sigue termina la suma: es la segunda
+        etapa. Los números entre corchetes y los nombres de celda cambiarán en tu Colab. Ese grafo de pasos, cortado en
+        etapas, se llama <strong>DAG</strong> (<em>grafo acíclico dirigido</em>). Si un ejecutor muere, Spark usa el linaje para recalcular solo las particiones
+        perdidas: así logra tolerancia a fallos sin replicar todo como HDFS.</p>
+
+      <div class="simulador" data-simulador="dag">
+        <h4><i class="fas fa-diagram-project" aria-hidden="true"></i> Arma un trabajo y mira sus etapas</h4>
+        <p class="simulador-intro">Añade transformaciones a la cadena y termina con una acción. El simulador agrupa las
+          operaciones en etapas, como lo haría el planificador de Spark, y cuenta las tareas.</p>
+        <div class="simulador-controles"></div>
+        <div class="dag-botones" role="group" aria-label="Operaciones para añadir"></div>
+        <div class="dag-etapas" aria-live="polite"></div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Qué mirar en el simulador.</strong> Mientras no hay acción, no se ejecuta
+          nada. Cada operación ancha abre una etapa nueva y obliga a mover datos. Prueba la misma cuenta con
+          <code>groupByKey</code> y con <code>reduceByKey</code>: ambas abren una etapa, pero <code>reduceByKey</code>
+          suma dentro de cada partición antes de enviar —como el combiner del módulo 4— y por eso viaja mucho menos.
+          Si el resultado se usa dos veces, <code>cache()</code> evita repetir las etapas anteriores.</p>
+      </div>
+    </div>
+  </template>

@@ -1,0 +1,33 @@
+# Publica en GitHub Pages el material ya construido (carpeta Htmls/).
+# Htmls/ se genera en local con precalculo/construye.py; aquí no se reconstruye.
+name: Publicar en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["Htmls/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: Htmls
+      - id: despliegue
+        uses: actions/deploy-pages@v5

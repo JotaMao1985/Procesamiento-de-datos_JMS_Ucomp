@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Sesión 1 de Profundización I: Procesamiento de Datos (Especialización en Big Data, UCompensar): etapas del procesamiento, cloud computing, ecosistema Hadoop, modelo MapReduce, limpieza y calidad de datos tabulares con pandas y MapReduce en Python.">
+  <meta name="author" content="Javier Mauricio Sierra">
+  <meta name="keywords"
+    content="procesamiento de datos, big data, cloud computing, Hadoop, HDFS, YARN, MapReduce, pandas, calidad del dato, limpieza de datos, Python, UCompensar">
+  <title>Sesión 1 — Del dato al MapReduce · Procesamiento de Datos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- KaTeX: solo con $$…$$ y \(…\); el «$» suelto es dinero en este curso -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          },
+          colors: {
+            primary: '#691E7A',
+            secondary: '#B84A00',
+            naranja: '#F46201',
+            ambar: '#FAA012',
+            gold: '#FAA012',
+            pizarra: '#566B7F',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+{{INCLUIR:comun/estilos.css}}
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Cabecera -->
+  <header class="uc-header sticky top-0 z-50 shadow-lg" role="banner">
+    <div class="contenedor-principal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-3">
+        <div class="flex items-center gap-4 min-w-0">
+          <span class="uc-logo"><img src="{{LOGO}}" alt="Fundación Universitaria Compensar"></span>
+          <div class="min-w-0">
+            <h1 class="text-xl font-bold text-white leading-tight tracking-tight" style="margin:0;">Procesamiento de Datos</h1>
+            <p class="text-xs text-white/80 font-medium tracking-wide" style="margin:0; text-align:left;">SESIÓN 1 · DEL DATO
+              AL MAPREDUCE · ESPECIALIZACIÓN EN BIG DATA</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <span class="reloj-sesion" id="relojSesion" role="status" aria-live="polite"><i class="fas fa-stopwatch"
+              aria-hidden="true"></i><span class="reloj-texto"></span></span>
+          <button type="button" class="uc-boton-header" id="botonPresentacion" aria-pressed="false"
+            title="Modo presentación (tecla P)">
+            <i class="fas fa-display" aria-hidden="true"></i> Presentación
+          </button>
+          <a href="index.html" class="uc-boton-header" id="enlaceSesiones"><i class="fas fa-house" aria-hidden="true"></i> Sesiones</a>
+        </div>
+      </div>
+    </div>
+    <div class="uc-franja" aria-hidden="true"></div>
+  </header>
+
+  <button id="sidebarToggle"
+    class="fixed left-4 top-1/2 -translate-y-1/2 z-50 bg-primary text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+    aria-label="Alternar barra lateral de navegación" aria-expanded="true" aria-controls="sidebar">
+    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+  </button>
+
+  <div class="contenedor-principal flex-grow flex flex-col md:flex-row max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 gap-8 relative">
+    <aside class="sidebar-container" id="sidebar" role="complementary" aria-label="Navegación de módulos">
+      <div class="sidebar-inner">
+        <div class="sidebar-title">
+          <i class="fas fa-list-ul mr-2" aria-hidden="true"></i>Sesión 1 · 6 horas
+        </div>
+        <nav id="module-nav" role="navigation" aria-label="Módulos de la sesión"></nav>
+      </div>
+    </aside>
+
+    <main id="main-content"
+      class="flex-grow order-1 md:order-2 min-w-0 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300"
+      role="main" tabindex="-1">
+      <div id="content-area" class="p-6 md:p-10 module-content"></div>
+    </main>
+  </div>
+
+  <!-- Pie: bibliografía del syllabus -->
+  <footer class="uc-header mt-8">
+    <div class="uc-franja" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <i class="fas fa-book-open" aria-hidden="true"></i> Bibliografía del curso (syllabus)
+      </h3>
+      <ul class="space-y-3 text-sm">
+        <li class="flex items-start gap-2">
+          <i class="fas fa-bookmark text-gold mt-1" aria-hidden="true"></i>
+          <span>Amo, D. y Santiago, R. (2017). <em class="text-gold">Learning analytics: la narración del
+              aprendizaje a través de los datos</em>. Editorial UOC. Disponible en eLibro con usuario UCompensar:
+            <a href="https://elibro-net.ucompensar.basesdedatosezproxy.com/es/ereader/ucompensar/58637?page=1"
+              class="underline text-gold" target="_blank" rel="noopener">enlace</a>.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i class="fas fa-bookmark text-gold mt-1" aria-hidden="true"></i>
+          <span>Kroenke, D. M. (1996). <em class="text-gold">Procesamiento de bases de datos: fundamentos,
+              diseño e instrumentación</em> (M. Á. Martínez Sarmiento y G. Sánchez García, trads.). Prentice-Hall
+            Hispanoamericana. Biblioteca Central Bogotá.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i class="fas fa-bookmark text-gold mt-1" aria-hidden="true"></i>
+          <span>Borda, P., Dabenigno, V., Freidin, B. y Güelman, M. (2017). <em class="text-gold">Estrategias
+              para el análisis de datos cualitativos</em> (Cuadernos de Métodos y Técnicas de la Investigación Social,
+            2). Instituto de Investigaciones Gino Germani, Universidad de Buenos Aires. Disponible en eLibro:
+            <a href="https://elibro-net.ucompensar.basesdedatosezproxy.com/es/ereader/ucompensar/66349?page=1"
+              class="underline text-gold" target="_blank" rel="noopener">enlace</a>.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <i class="fas fa-bookmark text-white/60 mt-1" aria-hidden="true"></i>
+          <span>Complementarios: Lipschutz, M. M. y Lipschutz, S. (1985). <em>Procesamiento de datos</em> (Compendios
+            Schaum). McGraw-Hill · González Sainz, N. (1987). <em>Comunicaciones y redes de procesamiento de
+              datos</em>. McGraw-Hill · Valentín López, G. M. (2015). <em>Grabación de datos</em>. RA-MA (eLibro).</span>
+        </li>
+      </ul>
+      <p class="text-xs mt-4 text-white/75">Las lecturas de cada sesión complementan y actualizan esta bibliografía
+        institucional con la documentación de las versiones que usa el curso (Hadoop 3.5, Spark 4.0), la normativa
+        colombiana vigente y textos de acceso abierto.</p>
+      <div class="mt-6 pt-6 border-t border-white/20 text-center">
+        <p class="text-white font-medium" style="text-align:center;">Material diseñado por <span
+            class="text-gold">Javier Mauricio Sierra</span></p>
+        <p class="text-xs mt-1 text-white/75" style="text-align:center;">Profundización I: Procesamiento de Datos
+          (cód. 65020) · Especialización en Big Data · Fundación Universitaria Compensar · 2026</p>
+        <p class="text-xs mt-1 text-white/75" style="text-align:center;">Los datos de «Tiendas Guadua S.A.S.» son
+          ficticios, generados para el curso.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ============================ MÓDULOS ============================ -->
+{{INCLUIR:sesion1/m01.html}}
+{{INCLUIR:sesion1/m02.html}}
+{{INCLUIR:sesion1/m03.html}}
+{{INCLUIR:sesion1/m04.html}}
+{{INCLUIR:sesion1/m05.html}}
+{{INCLUIR:sesion1/m06.html}}
+{{INCLUIR:sesion1/m07.html}}
+{{INCLUIR:sesion1/m08.html}}
+{{INCLUIR:sesion1/m09.html}}
+{{INCLUIR:sesion1/m10.html}}
+{{INCLUIR:sesion1/m11.html}}
+{{INCLUIR:sesion1/m12.html}}
+{{INCLUIR:sesion1/m13.html}}
+{{INCLUIR:sesion1/m14.html}}
+{{INCLUIR:sesion1/m15.html}}
+{{INCLUIR:sesion1/m16.html}}
+{{INCLUIR:sesion1/m17.html}}
+
+  <script>
+{{INCLUIR:comun/libreria.js}}
+  </script>
+  <script>
+{{INCLUIR:sesion1/sesion1.js}}
+  </script>
+</body>
+
+</html>

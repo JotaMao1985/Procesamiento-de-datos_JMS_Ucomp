@@ -1,0 +1,97 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 9 · DataFrames y Spark SQL                  (Bloque 2) -->
+  <!-- ============================================================ -->
+  <template id="module-9">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 9 · Bloque 2 · Temas 5.1 y 5.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">DataFrames y Spark SQL
+          <span class="text-gray-500 font-normal text-2xl">/ Structured APIs</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Pasar de los RDD a los DataFrames, leer el caso con
+              Spark y consultar el mismo DataFrame con Python y con SQL.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Un RDD no sabe qué hay dentro de sus objetos: para Spark son cajas cerradas que le entregamos a una función
+        de Python. Un <strong>DataFrame</strong> es una tabla distribuida con <strong>esquema</strong> —columnas con
+        nombre y tipo—, como el de pandas pero repartido en particiones. Como Spark sabe qué columnas hay y qué se
+        quiere hacer con ellas, su optimizador (<em>Catalyst</em>) reescribe el plan, y el trabajo pesado corre dentro
+        de Java sin pasar por Python. Por eso, desde Python, los DataFrames son mucho más rápidos que los RDD, y son la
+        forma recomendada de usar Spark.</p>
+
+      <h3>Leer el caso</h3>
+      {{CELDA:df_crudo}}
+      <p>Con <code>inferSchema=True</code>, Spark recorre el archivo para adivinar los tipos: es una excepción a la
+        pereza del módulo 8, porque lee los datos en ese momento; por eso en el bloque 3 le daremos el esquema escrito.
+        Acertó con <code>cantidad</code> y <code>descuento</code>, pero <code>precio_unitario</code> y
+        <code>fecha</code> quedaron como texto: es el mismo diagnóstico que dio <code>ventas.info()</code> en la sesión
+        1. Los <code>$12.900</code> siguen ahí, y la venta V00005 trae la fecha como <code>01/01/2025</code>.</p>
+      {{CELDA:df_mostrar}}
+
+      <p>Contar por canal se escribe casi igual que en pandas, pero el resultado hay que pedirlo con una acción como
+        <code>show()</code>:</p>
+      {{CELDA:df_canal}}
+      <p>Las nueve grafías de canal de la sesión 1. Cambiar de herramienta no limpia los datos: en el bloque 3
+        repetiremos la limpieza, ahora en Spark.</p>
+
+      <h3>El mismo DataFrame, en SQL</h3>
+      <p>Registrado como <strong>vista temporal</strong>, un DataFrame se consulta con SQL. No es una copia: SQL y
+        Python son dos formas de pedirle trabajo al mismo motor, y para la misma pregunta Catalyst produce el mismo plan.
+        Aquí preguntamos por ciudad:</p>
+      {{CELDA:df_sql}}
+      <p>La suciedad de la ciudad también sigue ahí: «Bogotá D.C.» y «bogota» son la misma Bogotá.</p>
+
+      <h3>Spark lee de HDFS</h3>
+      <p>Para cerrar el círculo con el bloque 1: el archivo que subimos a nuestro HDFS se lee con la misma función,
+        cambiando la ruta.</p>
+      {{CELDA:df_hdfs}}
+      <p>El almacenamiento es de Hadoop; el procesamiento, de Spark. En HDFS, <code>ventas.csv</code> ocupa
+        {{CIFRA:bloques_ventas}} bloques, pero Spark lo leyó en {{CIFRA:particiones_hdfs}} partición: con
+        {{CIFRA:bytes_ventas}} bytes no vale la pena repartirlo más. En un clúster real, Spark además intentaría
+        ejecutar cada tarea en el DataNode que tiene el bloque, igual que MapReduce.</p>
+
+      <table>
+        <caption class="sr-only">Equivalencias entre pandas y PySpark</caption>
+        <thead>
+          <tr>
+            <th scope="col">pandas</th>
+            <th scope="col">PySpark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>pd.read_csv(ruta)</code></td><td><code>spark.read.csv(ruta, header=True)</code></td></tr>
+          <tr><td><code>df.head()</code></td><td><code>df.show(5)</code> (una acción)</td></tr>
+          <tr><td><code>df.info()</code></td><td><code>df.printSchema()</code></td></tr>
+          <tr><td><code>df[["a", "b"]]</code></td><td><code>df.select("a", "b")</code></td></tr>
+          <tr><td><code>df[df["a"] &gt; 0]</code></td><td><code>df.filter(F.col("a") &gt; 0)</code></td></tr>
+          <tr><td><code>df["c"] = df["a"] * 2</code></td><td><code>df = df.withColumn("c", F.col("a") * 2)</code></td></tr>
+          <tr><td><code>df.groupby("a")["b"].sum()</code></td><td><code>df.groupBy("a").agg(F.sum("b"))</code></td></tr>
+          <tr><td><code>df.merge(otro, on="k")</code></td><td><code>df.join(otro, on="k")</code></td></tr>
+          <tr><td><code>len(df)</code></td><td><code>df.count()</code> (una acción)</td></tr>
+          <tr><td>—</td><td><code>df.toPandas()</code>: trae todo al driver; solo con resultados pequeños</td></tr>
+        </tbody>
+      </table>
+      <p>Una diferencia de fondo: los DataFrames de Spark son <strong>inmutables</strong>. No se modifica una columna
+        «en su lugar»; cada operación devuelve un DataFrame nuevo, que se vuelve a asignar.</p>
+
+      <div class="quiz" data-quiz="control-b2">
+        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Control del bloque 2</h4>
+        <p class="text-sm" style="margin-bottom:0;">Cuatro preguntas antes del break largo.</p>
+        <div class="quiz-progreso" role="presentation">
+          <div class="quiz-progreso-barra"></div>
+        </div>
+        <div class="quiz-preguntas"></div>
+        <div class="quiz-resumen" role="status" hidden></div>
+        <div class="quiz-marcador">
+          <span class="quiz-conteo"></span>
+          <button type="button" class="quiz-reiniciar">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+  </template>

@@ -1,0 +1,127 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 15 · MapReduce a mano: conteo de palabras   (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-15">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 15 · Bloque 4 · Tema 4.1</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">MapReduce a mano: conteo
+          de palabras <span class="text-gray-500 font-normal text-2xl">/ Word count</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Implementar en Python puro las fases map, shuffle y
+              reduce sobre las reseñas del caso, y ver con un simulador cómo se reparte ese trabajo entre varios nodos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p>El «hola mundo» de MapReduce es contar cuántas veces aparece cada palabra en una colección de textos. Es
+        trivial en una máquina, y tiene la misma forma que el índice invertido con el que Google indexaba la web: allí el
+        mapper emite (palabra, documento) en lugar de (palabra, 1), y el reducer junta la lista de documentos de cada
+        palabra. Lo haremos con las {{CIFRA:resenas}} reseñas de Tiendas Guadua: nuestro primer contacto con
+        <strong>datos no estructurados</strong>, y un primer paso hacia el criterio CR2: integrar resultados
+        cuantitativos y cualitativos.</p>
+
+      {{CELDA:wc_textos}}
+
+      <h3>Fase map: de un texto a pares (palabra, 1)</h3>
+      {{CELDA:wc_map}}
+      <p>La expresión regular <code>[a-záéíóúüñ]+</code> extrae secuencias de letras —incluidas tildes y eñes— y deja
+        fuera números y signos. Cada palabra se emite con un 1: «la vi una vez». Las {{CIFRA:resenas}} reseñas producen
+        {{CIFRA:pares_emitidos}} pares.</p>
+
+      <h3>Fase shuffle: agrupar por clave</h3>
+      {{CELDA:wc_shuffle}}
+      <p>Cada par es una <strong>tupla</strong> —dos valores fijos entre paréntesis— y <code>for palabra, uno in
+        …</code> la desempaca en dos variables. Un <code>defaultdict(list)</code> crea una lista vacía la primera vez
+        que aparece una clave; ojo: también la crea si solo <em>consultas</em> una clave que no existe, así que para
+        curiosear usa <code>grupos.get("envio")</code>. Ordenar los pares
+        antes de agrupar imita a Hadoop, que entrega las claves a cada reducer en orden. De {{CIFRA:pares_emitidos}}
+        pares quedan {{CIFRA:palabras_distintas}} claves.</p>
+
+      <h3>Fase reduce: sumar los unos</h3>
+      {{CELDA:wc_reduce}}
+      <p>La palabra más frecuente es «{{CIFRA:palabra_top}}», con {{CIFRA:palabra_top_n}} apariciones. Correcto…
+        y completamente inútil para la gerencia.</p>
+
+      {{CELDA:wc_vacias}}
+      <p>Quitando las <strong>palabras vacías</strong> (<em>stopwords</em>) —artículos, preposiciones, conectores—
+        aparece lo que de verdad dicen los clientes: «{{CIFRA:palabra_util_top}}» encabeza la lista con
+        {{CIFRA:palabra_util_top_n}} apariciones, y detrás vienen la app, «excelente», el pedido, la calidad, el
+        domicilio y el precio. La lista de vacías es una decisión, no una verdad: aquí quitamos «no» porque solo
+        contamos temas, pero en la sesión 3, cuando midamos si esas palabras se dicen con gusto o con enojo, «no» será
+        imprescindible («no vuelvo a pedir»).</p>
+
+      {{CELDA:wc_counter}}
+      <p>Una verificación: <code>Counter</code>, de la biblioteca estándar, cuenta lo mismo en una línea. Si nuestro
+        MapReduce diera algo distinto, el error sería nuestro. Comparar contra una implementación de referencia es un
+        control de coherencia que repetiremos en el módulo 16.</p>
+
+      <div class="simulador" data-simulador="mapreduce">
+        <h4><i class="fas fa-shuffle" aria-hidden="true"></i> MapReduce paso a paso</h4>
+        <p class="simulador-intro">Cada línea del texto es un registro; las líneas se reparten entre los mappers por
+          turnos (la primera al mapper 1, la segunda al 2…), y lo que recibe cada uno es su división (<em>split</em>):
+          en Hadoop, un bloque de HDFS con muchas líneas. Cambia el número de mappers y reducers, activa el <em>combiner</em> y escribe tus propias
+          frases. El color de cada par indica a qué reducer lo envía la partición
+          \(\text{hash}(\text{palabra}) \bmod R\).</p>
+        <div class="mr-entrada">
+          <label for="mr-texto">Texto de entrada (una línea por registro)</label>
+          <textarea id="mr-texto" spellcheck="false"></textarea>
+        </div>
+        <div class="simulador-controles"></div>
+        <div class="simulador-lectura" aria-live="polite"></div>
+        <div class="mr-flujo"></div>
+        <p class="grafico-etiqueta">Pares que recibe cada reducer (lo que viaja por la red en el shuffle)</p>
+        <div class="grafico-wrapper" style="height:200px;">
+          <canvas aria-label="Número de pares recibidos por cada reducer" role="img"></canvas>
+        </div>
+      </div>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>Qué mirar en el simulador.</strong> Con el combiner apagado, cada «la»
+          viaja por separado; encendido, cada mapper envía un solo <code>(la, n)</code>. En un clúster la red es el
+          recurso más lento, así que esa diferencia es la que más pesa. Y fíjate en el reparto: una palabra muy
+          frecuente cae siempre en el mismo reducer, que puede quedar mucho más cargado que los demás. Ese
+          desequilibrio tiene nombre: <strong>sesgo de datos</strong> (<em>data skew</em>).</p>
+      </div>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio · integrar lo cualitativo</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Reutiliza <code>mapper</code> para
+            contar las palabras (sin vacías) de las reseñas con calificación de 2 o menos. ¿De qué se quejan los
+            clientes?</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m15-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m15-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m15-e1-pista" hidden>
+            <p style="margin:0;">Filtra con <code>resenas.loc[resenas["calificacion"] &lt;= 2, "texto"]</code>,
+              aplica <code>mapper</code> a cada texto y cuenta con <code>Counter</code> descartando las palabras de
+              <code>VACIAS</code>.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m15-e1-sol" hidden>
+            {{CELDA:sol_negativas}}
+            <p><strong>Sobre todo, de la entrega y de la atención.</strong></p>
+            <p style="margin-bottom:0;">Las quejas giran en torno a la <strong>entrega</strong> —«llegó», «pedido»,
+              «domicilio»— y a la <strong>atención</strong> —«nadie», «chat»—. Pero el conteo también engaña: «dos» y
+              «veces» salen de tres quejas distintas —un cobro doble, una llamada repetida y un carrito perdido en la
+              web—, y las dos apariciones de «precio» vienen de una sola reseña. Contar pares de palabras
+              (<em>bigramas</em>, reto del taller) junta «dos veces» en una unidad, pero no dice de qué se queja cada
+              cliente: para eso hay que volver al texto. Ese ir y venir entre la cifra y la reseña es integrar lo
+              cuantitativo con lo cualitativo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

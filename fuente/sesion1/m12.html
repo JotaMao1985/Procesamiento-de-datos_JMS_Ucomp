@@ -1,0 +1,173 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 12 · Limpieza y calidad del dato            (Bloque 3) -->
+  <!-- ============================================================ -->
+  <template id="module-12">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 12 · Bloque 3 · Tema 3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 30 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Limpieza y calidad del dato
+          <span class="text-gray-500 font-normal text-2xl">/ Data cleaning &amp; quality</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Aplicar una limpieza trazable en la que cada paso
+              responde a una dimensión de calidad, y medir el antes y el después con un reporte de calidad (CR3).</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Limpiar no es «arreglar lo que se vea raro». Es aplicar <strong>reglas explícitas</strong>, cada una
+        justificada por una dimensión de calidad, documentadas y medibles. Así cualquiera puede repetir el proceso,
+        auditarlo y discutir sus decisiones.</p>
+
+      <table>
+        <caption class="sr-only">Dimensiones de calidad del dato</caption>
+        <thead>
+          <tr>
+            <th scope="col">Dimensión</th>
+            <th scope="col">Pregunta que responde</th>
+            <th scope="col">En el caso Guadua</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Unicidad</strong></td><td>¿Cada hecho está registrado una sola vez?</td><td>Ventas cargadas dos veces</td></tr>
+          <tr><td><strong>Consistencia</strong></td><td>¿Lo mismo se escribe siempre igual?</td><td>«Bogotá», «bogota», «Bogotá D.C.»</td></tr>
+          <tr><td><strong>Validez</strong></td><td>¿El dato cumple el tipo y el formato esperados?</td><td>Precios como texto; fechas en dos formatos</td></tr>
+          <tr><td><strong>Exactitud</strong></td><td>¿El valor corresponde a la realidad?</td><td>Cantidades de {{CIFRA:cantidad_min}} o de {{CIFRA:cantidad_max}}</td></tr>
+          <tr><td><strong>Completitud</strong></td><td>¿Están todos los datos necesarios?</td><td>Vacíos en cliente, descuento, ciudad y pago</td></tr>
+          <tr><td><strong>Oportunidad</strong></td><td>¿El dato llega a tiempo para decidir?</td><td>Un consolidado de enero a junio que llega en agosto</td></tr>
+        </tbody>
+      </table>
+      <p class="text-sm" style="color:#64748b;">Estas seis son las dimensiones «primarias» que propuso DAMA UK (2013)
+        y que recoge el DAMA-DMBOK; la norma ISO/IEC 25012 usa un modelo más amplio, de quince características
+        (exactitud, completitud, consistencia, actualidad, credibilidad…). Distintos autores las agrupan o nombran de
+        forma ligeramente diferente. Un ejemplo: para DAMA UK, un valor fuera del rango que fija la regla de negocio
+        —una cantidad de {{CIFRA:cantidad_min}} o de 0— es un problema de <em>validez</em>; aquí lo tratamos como
+        exactitud porque la pregunta de fondo es si esa venta pudo ocurrir así. Cualquiera de las dos etiquetas es
+        defendible si se declara en la bitácora.</p>
+
+      <p>Los seis pasos que siguen se aplican sobre una <strong>copia</strong> del archivo, <code>df</code>, para poder
+        comparar al final contra el original <code>ventas</code>. El orden importa: lo primero es quitar las copias,
+        para no limpiar dos veces la misma venta ni apartar dos veces el mismo error.</p>
+
+      <h3>Paso 1 · Unicidad: quitar duplicados</h3>
+      {{CELDA:duplicados}}
+      <p><code>duplicated()</code> marca cada fila idéntica a otra anterior —en todas las columnas, incluido el
+        <code>id_venta</code>— y <code>drop_duplicates()</code> conserva la primera aparición. Las
+        {{CIFRA:duplicados}} filas repetidas eran una doble carga del exporte.</p>
+
+      <h3>Paso 2 · Consistencia: una ciudad, una forma de escribirla</h3>
+      {{CELDA:texto}}
+      <p>Dos ideas en este bloque. Primero, <strong>normalizar</strong>: quitar espacios, pasar a minúsculas y quitar
+        tildes deja «Bogotá D.C.», «BOGOTÁ» y « Bogotá» como <code>bogota d.c.</code> y <code>bogota</code>. El truco de
+        las tildes: <code>normalize("NFKD")</code> separa cada letra de su tilde (á → a + ´) y, al pasar a ASCII con
+        <code>errors="ignore"</code>, la tilde se descarta. Segundo, un <strong>diccionario de equivalencias</strong>
+        que lleva cada forma a la canónica. El control <code>sin_regla</code> —las ciudades no vacías
+        (<code>notna()</code>) <em>y</em> (<code>&amp;</code>) que <em>no</em> (<code>~</code>) están en el diccionario
+        (<code>isin</code>)— es la parte importante: si mañana aparece «Barranqui», no se pierde en silencio, sale en
+        pantalla. Sin él, <code>map</code> la volvería vacío y <code>fillna</code> la escondería como «Sin dato». Las {{CIFRA:nulos_ciudad}} ventas sin ciudad quedan como «Sin dato», no se borran.</p>
+
+      <h3>Paso 3 · Validez: precios que sean números</h3>
+      {{CELDA:precios}}
+      <p>{{CIFRA:precios_texto}} precios venían como <code>$3.100</code>: con signo y con punto de miles, como se
+        escriben en Colombia. La expresión regular <code>[$.\s]</code> se lee «cualquiera de estos caracteres:
+        <code>$</code>, punto o espacio» (<code>\s</code> es un espacio), y <code>replace</code> los borra. Después,
+        <code>to_numeric(..., errors="coerce")</code> convierte lo que pueda y deja vacío lo que no: así un caso
+        inesperado aparece como vacío contable, no como un error que detiene todo.</p>
+
+      <div class="warning">
+        <p style="margin-bottom:0;"><strong>Cuidado con el punto.</strong> Quitar los puntos funciona porque los
+          precios en pesos son enteros. Si la columna tuviera decimales escritos con punto (<code>12.5</code> dólares),
+          el mismo código convertiría <code>12.5</code> en <code>125</code>, diez veces más, sin ningún aviso. Toda regla de limpieza depende de conocer el negocio.</p>
+      </div>
+
+      <h3>Paso 4 · Validez: fechas en un solo formato</h3>
+      {{CELDA:fechas}}
+      <p>{{CIFRA:fechas_dma}} fechas venían como <code>dd/mm/aaaa</code>. Se interpreta cada formato
+        <strong>explícitamente</strong> y se combinan con <code>fillna</code>: lo que no es ISO se intenta como
+        día/mes/año.</p>
+
+      <div class="note">
+        <p style="margin-bottom:0;"><strong>¿Y si dejo que pandas adivine?</strong> <code>pd.to_datetime(...,
+          format="mixed", dayfirst=True)</code> da aquí el mismo resultado, pero decide fila por fila:
+          <code>dayfirst</code> es solo una preferencia, y una fecha como <code>12/31/2025</code>, que no cabe como
+          día/mes, la lee como mes/día sin avisar. Con formatos explícitos, lo que no cumple el formato declarado queda
+          vacío y se cuenta: para eso está el control «Fechas sin interpretar». Ojo: ninguna de las dos formas resuelve
+          una fecha ambigua como <code>03/04/2025</code> —3 de abril en Colombia, 4 de marzo en Estados Unidos—; eso lo
+          decide quien conoce la fuente, y por eso la regla queda escrita en el código.</p>
+      </div>
+
+      <h3>Paso 5 · Exactitud: apartar cantidades imposibles</h3>
+      {{CELDA:reglas}}
+      <p>La regla de negocio dice que una línea de venta tiene entre 1 y 50 unidades. Las {{CIFRA:fuera_rango}} que la
+        violan no se borran: se apartan en <code>cuarentena</code>, una tabla que alguien del negocio puede revisar
+        (¿al {{CIFRA:cantidad_max}} le sobra un cero? ¿las negativas son devoluciones mal registradas?). Limpiar no es decidir por el
+        negocio.</p>
+
+      <h3>Paso 6 · Completitud: cada vacío con su regla</h3>
+      {{CELDA:completitud}}
+      <p>Ningún vacío se rellena «porque sí». Un descuento sin registrar se toma como cero; un cliente vacío se marca
+        <code>ANONIMO</code> porque —lo comprobarás en el ejercicio del final— todos los vacíos de cliente están en la
+        tienda física, donde se puede comprar sin registrarse; un medio de pago desconocido queda como «Sin
+        dato» en lugar de inventarse. Son decisiones de negocio y por eso van escritas en el código, a la vista.</p>
+
+      <h3>El reporte de calidad: antes y después</h3>
+      {{CELDA:reporte}}
+      <p>Conservamos {{CIFRA:filas_limpias}} de {{CIFRA:filas_crudas}} filas ({{CIFRA:pct_filas_conservadas}} %). Los
+        indicadores de problema quedan en cero, y las grafías bajan a las que deben ser: tres canales y siete valores de
+        ciudad —las seis ciudades más «Sin dato», la etiqueta de las ventas sin ciudad—. Este cuadro es el entregable que pide la gerencia en su primera
+        pregunta —¿podemos confiar en el consolidado?—, y es un control de coherencia en el sentido del criterio CR3.</p>
+
+      <div class="simulador" data-simulador="calidad">
+        <h4><i class="fas fa-toggle-on" aria-hidden="true"></i> Tablero de calidad: ¿qué cambia cada paso?</h4>
+        <p class="simulador-intro">Activa y desactiva los pasos de limpieza. Los indicadores y el gráfico del total
+          vendido por ciudad se calcularon con pandas, para cada una de las 64 combinaciones, al construir el material.
+          Empieza con todo apagado y fíjate en las barras de Bogotá; luego activa solo «Apartar cantidades imposibles» y
+          mira qué le pasa a Barranquilla.</p>
+        <div class="simulador-controles"></div>
+        <div class="indicadores"></div>
+        <p class="grafico-etiqueta">Total vendido por grafía de ciudad (millones de pesos)</p>
+        <p class="text-sm" style="color:#64748b;margin:0 0 .4rem;">Morado: la ciudad bien escrita · naranja: otra
+          grafía de la misma ciudad · gris: «Sin dato» y grafías poco frecuentes agrupadas.</p>
+        <div class="grafico-wrapper" style="height:320px;">
+          <canvas aria-label="Total vendido por cada forma en que aparece escrita la ciudad, según los pasos de limpieza activos"
+            role="img"></canvas>
+        </div>
+        <div class="simulador-lectura"></div>
+      </div>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicio</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>Los {{CIFRA:nulos_cliente}} vacíos de
+            <code>id_cliente</code>, ¿son un error de calidad? Averígualo contando cuántos hay en cada canal (usa el
+            archivo original <code>ventas</code>).</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m12-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="m12-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="m12-e1-pista" hidden>
+            <p style="margin:0;">En el original el canal tiene varias grafías: estandarízalo primero con
+              <code>str.strip().str.capitalize()</code>. Después, <code>isna()</code> agrupado por ese canal y
+              sumado.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="m12-e1-sol" hidden>
+            <p><strong>No es un error: todos los vacíos están en el canal Tienda.</strong></p>
+            {{CELDA:sol_nulos_canal}}
+            <p style="margin-bottom:0;">En la web y en la app no se puede comprar sin cuenta; en la tienda física sí. El
+              vacío <em>significa algo</em> —compra anónima— y por eso se rellena con una etiqueta y no se elimina la
+              fila: borrarlas haría desaparecer el {{CIFRA:pct_nulos_cliente}} % de todas las ventas y el
+              {{CIFRA:pct_anonimo_tienda}} % de las de tienda. Antes de tratar un vacío, pregunta por qué falta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

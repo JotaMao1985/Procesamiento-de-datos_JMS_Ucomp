@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Material interactivo de Profundización I: Procesamiento de Datos, Especialización en Big Data, Fundación Universitaria Compensar.">
+  <title>Procesamiento de Datos · Especialización en Big Data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+{{INCLUIR:comun/estilos.css}}
+
+    .portada-heroe {
+      background: linear-gradient(135deg, #5C1A6C 0%, var(--uc-morado-profundo) 100%);
+      color: white;
+    }
+
+    .portada-heroe p {
+      color: rgba(255, 255, 255, 0.9);
+      text-align: left;
+    }
+
+    .sesion-tarjeta {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    a.sesion-tarjeta:hover,
+    a.sesion-tarjeta:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(105, 30, 122, 0.18);
+    }
+
+    .sesion-tarjeta ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+      margin: 0.75rem 0 1rem;
+      color: #374151;
+      font-size: 0.92rem;
+    }
+
+    .sesion-tarjeta ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .sesion-estado {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .sesion-tarjeta.proxima {
+      background: #f8fafc;
+    }
+
+    .sesion-tarjeta.proxima .sesion-estado {
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="portada-heroe">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <span class="uc-logo mb-6"><img src="{{LOGO}}" alt="Fundación Universitaria Compensar"></span>
+      <p class="text-sm font-bold tracking-widest uppercase" style="color: var(--uc-ambar); margin:0;">Especialización en
+        Big Data · Profundización I</p>
+      <h1 class="text-4xl md:text-5xl font-black mt-2 mb-4">Procesamiento de Datos</h1>
+      <p class="text-lg max-w-3xl" style="margin:0;">Del dato crudo a la información confiable, de una máquina a un
+        clúster: limpieza y calidad, cloud computing, Hadoop, MapReduce, Spark y datos no estructurados, con Python y
+        un mismo caso de principio a fin.</p>
+    </div>
+    <div class="uc-franja" aria-hidden="true"></div>
+  </header>
+
+  <main id="contenido" class="flex-grow max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid gap-6 md:grid-cols-3">
+      <a class="sesion-tarjeta" href="sesion-1-del-dato-al-mapreduce.html">
+        <span class="tarjeta-etiqueta">Sesión 1 · 6 horas</span>
+        <h2 class="text-2xl font-bold" style="color: var(--uc-morado); margin:0;">Del dato al MapReduce</h2>
+        <ul>
+          <li>Etapas del procesamiento de datos</li>
+          <li>Computación en la nube y ecosistema Hadoop</li>
+          <li>Datos tabulares con pandas: limpieza y calidad</li>
+          <li>MapReduce simple en Python</li>
+        </ul>
+        <span class="sesion-estado" style="color: var(--uc-naranja-texto);">Abrir la sesión <i
+            class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <a class="sesion-tarjeta" href="sesion-2-de-hadoop-a-spark.html">
+        <span class="tarjeta-etiqueta">Sesión 2 · 6 horas</span>
+        <h2 class="text-2xl font-bold" style="color: var(--uc-morado); margin:0;">De Hadoop a Spark</h2>
+        <ul>
+          <li>HDFS y Hadoop Streaming en Colab</li>
+          <li>Ecosistema Spark y PySpark</li>
+          <li>Datos tabulares y semiestructurados con Spark</li>
+          <li>Bases de datos con Spark SQL y sus controles</li>
+        </ul>
+        <span class="sesion-estado" style="color: var(--uc-naranja-texto);">Abrir la sesión <i
+            class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <div class="sesion-tarjeta proxima">
+        <span class="tarjeta-etiqueta">Sesión 3 · 4 horas</span>
+        <h2 class="text-2xl font-bold" style="color: var(--uc-morado); margin:0;">Datos no estructurados</h2>
+        <ul>
+          <li>Tipos de datos no estructurados</li>
+          <li>Extracción y carga</li>
+          <li>Procesamiento de lenguaje natural</li>
+          <li>Análisis de sentimientos y cierre del caso</li>
+        </ul>
+        <span class="sesion-estado"><i class="fas fa-hourglass-half" aria-hidden="true"></i> Próximamente</span>
+      </div>
+    </div>
+
+    <div class="note mt-10">
+      <p><strong>Antes de empezar.</strong> Necesitas una cuenta de Google para abrir los notebooks en Colab y
+        conexión a internet: el material carga sus bibliotecas desde la red. Cada sesión trae su notebook, con las
+        mismas celdas que el material, y termina con un taller en grupo; el curso cierra en la sesión 3 con la
+        sustentación del caso.</p>
+      <p style="margin:0;"><strong>El caso del curso.</strong> Las tres sesiones trabajan con <em>Tiendas Guadua
+          S.A.S.</em>, una cadena comercial ficticia con tiendas en seis ciudades, tienda web y app. Sus datos de
+        ventas, navegación web y reseñas se generaron para el curso y no corresponden a ninguna empresa real.</p>
+    </div>
+  </main>
+
+  <footer class="uc-header">
+    <div class="uc-franja" aria-hidden="true"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+      <p class="text-white text-sm" style="text-align:center; margin:0;">Profundización I: Procesamiento de Datos (cód.
+        65020) · Especialización en Big Data · Fundación Universitaria Compensar · Material diseñado por <span
+          style="color: var(--uc-ambar);">Javier Mauricio Sierra</span></p>
+    </div>
+  </footer>
+</body>
+
+</html>

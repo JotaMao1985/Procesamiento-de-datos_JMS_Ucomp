@@ -1,0 +1,15 @@
+# Sistema
+.DS_Store
+__pycache__/
+*.pyc
+
+# Restos de ejecutar las celdas en local
+_trabajo/
+spark-warehouse/
+metastore_db/
+derby.log
+*.parcial
+hadoop-*.tar.gz
+
+# Documento institucional: no se publica
+*SYLLABUS*.pdf

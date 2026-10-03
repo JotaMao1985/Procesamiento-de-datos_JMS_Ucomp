@@ -1,0 +1,117 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 16 · Explorar y consultar con Spark SQL     (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-16">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 16 · Bloque 4 · Tema 6.3</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Explorar y consultar con
+          Spark SQL <span class="text-gray-500 font-normal text-2xl">/ Querying with Spark SQL</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Responder las preguntas de la gerencia con SQL sobre la
+              base de datos del caso y leer en el plan de ejecución cuánto trabajo cuesta cada consulta.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Con las tablas en el catálogo, cualquiera que sepa SQL puede trabajar con los datos, sin Python. Volvamos a
+        las preguntas que planteó la gerencia en la sesión 1.</p>
+
+      <h3>¿Cuánto vendimos por ciudad?</h3>
+      {{CELDA:sql_ciudad}}
+
+      <h3>¿Y por categoría? Un <code>JOIN</code> con la dimensión</h3>
+      <p>La categoría no está en la tabla de hechos: hay que unirla con <code>productos</code>. La participación usa
+        una ventana sobre todo el resultado (<code>OVER ()</code>): la suma de las sumas.</p>
+      {{CELDA:sql_categoria}}
+
+      <h3>¿Está ganando terreno la app?</h3>
+      {{CELDA:sql_app}}
+      <p>Sí: del {{CIFRA:app_ene}} % del valor vendido en enero al {{CIFRA:app_jun}} % en junio, con un bajón en marzo.
+        Es la misma cifra de la sesión 1, ahora en una consulta SQL que cualquiera puede volver a correr el mes
+        próximo.</p>
+
+      <h3>Una CTE y una ventana: el acumulado de cada canal</h3>
+      <p>Una <strong>CTE</strong> (<code>WITH … AS</code>) le da nombre a una consulta intermedia para usarla como si
+        fuera una tabla: hace legibles las consultas largas. Encima, una ventana por canal calcula el acumulado mes a
+        mes.</p>
+      {{CELDA:sql_acumulado}}
+      <p>La tienda sigue siendo el canal que más vende en el semestre, pero termina junio por debajo de enero; la app
+        sube todos los meses. Es la lectura de la sesión 1 —la app gana terreno sobre todo frente a la tienda— vista
+        ahora en pesos y no en porcentajes.</p>
+
+      <h3>¿Cuánto cuesta una consulta? El plan de ejecución</h3>
+      <p><code>EXPLAIN</code> muestra el plan que Spark va a ejecutar, sin ejecutarlo. Filtremos un solo mes.
+        <strong>Antes de ejecutar:</strong> ¿cuántas carpetas de meses abrirá Spark para esta consulta? ¿Y cuántas
+        columnas leerá?</p>
+      {{CELDA:sql_explain}}
+      <ul>
+        <li><strong>Location</strong>: Spark solo abrirá la carpeta <code>mes=2025-06</code>. Las otras cinco ni se
+          tocan. Es la <strong>poda de particiones</strong> (<em>partition pruning</em>), y es el premio de haber
+          particionado por mes.</li>
+        <li><strong>PartitionFilters</strong>: el filtro que permitió esa poda.</li>
+        <li><strong>ReadSchema</strong>: de las {{CIFRA:columnas_parquet}} columnas que guardan los archivos, solo lee <code>ciudad</code> y
+          <code>total</code>.
+          Parquet lo permite porque guarda cada columna por separado.</li>
+      </ul>
+      <p>Con cientos de gigabytes, la diferencia entre leer todo y leer un mes y dos columnas es la diferencia entre
+        una consulta de horas y una de segundos, y en la nube, entre una factura grande y una pequeña.</p>
+
+      <div class="exercise">
+        <h4><i class="fas fa-pen-to-square mr-2" aria-hidden="true"></i>Ejercicios</h4>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">1.</span>En la app, ¿cuántas ventas y qué
+            ticket promedio tiene cada método de pago?</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m16-e1-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m16-e1-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="s2m16-e1-pista" hidden>
+            <p style="margin:0;">Un <code>WHERE canal = 'App'</code> antes de agrupar por <code>metodo_pago</code>.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="s2m16-e1-sol" hidden>
+            {{CELDA:sol_sql_pago}}
+            <p style="margin-bottom:0;">La billetera digital es el medio más usado en la app, seguida de cerca por la
+              tarjeta; ninguno reúne la mitad de las ventas. El ticket promedio casi no cambia de un medio a otro; el de
+              «Sin dato» se calcula sobre muy pocas ventas y no dice mucho. Esa fila es la regla de completitud de la
+              sesión 1 haciendo su trabajo: el vacío sigue visible en vez de inventarse un medio de pago.</p>
+          </div>
+        </div>
+        <div class="ejercicio-guiado">
+          <p class="ejercicio-enunciado"><span class="ejercicio-numero">2.</span>Con la tabla
+            <code>eventos_web</code>, calcula la tasa de aprobación de los pagos por sistema operativo. (Si no alcanza el
+            tiempo en clase, queda para el trabajo independiente.)</p>
+          <div class="ejercicio-acciones">
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m16-e2-pista">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i> Pista <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ejercicio-boton" aria-expanded="false" aria-controls="s2m16-e2-sol">
+              <i class="fas fa-key" aria-hidden="true"></i> Solución <i class="fas fa-chevron-down"
+                aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ejercicio-panel pista" id="s2m16-e2-pista" hidden>
+            <p style="margin:0;">El promedio de un indicador 0/1 es una proporción: <code>AVG(CAST(pago_aprobado AS
+                INT))</code>.</p>
+          </div>
+          <div class="ejercicio-panel solucion" id="s2m16-e2-sol" hidden>
+            {{CELDA:sol_sql_eventos}}
+            <p style="margin-bottom:0;">Ojo con las conclusiones: Linux parece aprobar menos, pero sobre muy pocos pagos,
+              donde un par de rechazos mueve mucho el porcentaje. Antes de reportar una tasa, reporta también sobre
+              cuántos casos se calculó.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>

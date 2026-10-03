@@ -1,0 +1,73 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 15 · Cargar la información                  (Bloque 4) -->
+  <!-- ============================================================ -->
+  <template id="module-15">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 15 · Bloque 4 · Tema 6.2</span><span class="chip-tiempo"><i
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Cargar la información
+          <span class="text-gray-500 font-normal text-2xl">/ Loading data</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Cargar las tablas del caso con SQL y con la API de
+              DataFrames, particionar por mes y hacer cargas que se puedan repetir sin duplicar datos.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Con SQL: <code>INSERT</code></h3>
+      {{CELDA:bd_insertar}}
+
+      <h3>Con la API: <code>saveAsTable</code>, particionada por mes</h3>
+      <p>Las ventas limpias de Spark van a la capa plata. <code>partitionBy("mes")</code> guarda cada mes en su propia
+        carpeta; en el módulo 16 veremos por qué eso ahorra trabajo. Ojo con la palabra: esta partición es una carpeta
+        en el disco (partición de la tabla), no la partición en memoria del módulo 7 ni la partición de reducers de la
+        sesión 1.</p>
+      {{CELDA:bd_ventas}}
+      {{CELDA:bd_archivos}}
+      <p>Seis carpetas, una por mes, y el archivo <code>_SUCCESS</code> que ya conocemos de Hadoop. En el disco, las
+        ventas en Parquet ocupan bastante menos que el CSV, aunque traen una columna más (<code>total</code>): Parquet
+        guarda cada columna junta y comprimida, y los valores de una misma columna se parecen mucho entre sí. En el
+        módulo 17 lo mediremos columna por columna.</p>
+
+      {{CELDA:bd_resto}}
+      <p>La cuarentena también va a la base de datos, con el motivo de cada fila: quien revise la calidad puede
+        consultarla con SQL sin abrir el notebook.</p>
+
+      <h3>Cargas que se pueden repetir</h3>
+      <p>Un proceso de carga se ejecuta muchas veces: cada noche, o de nuevo después de un fallo. Si repetirlo cambia
+        el resultado, el proceso es una fuente de errores. <strong>Antes de ejecutar:</strong> si cargas dos veces la
+        misma tabla de productos con <code>append</code>, ¿cuántas filas quedan?</p>
+      {{CELDA:bd_idempotencia}}
+
+      <table>
+        <caption class="sr-only">Modos de escritura de Spark</caption>
+        <thead>
+          <tr>
+            <th scope="col">Modo</th>
+            <th scope="col">Si la tabla ya existe…</th>
+            <th scope="col">Úsalo cuando…</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>overwrite</code></td><td>reemplaza su contenido</td><td>cargas la tabla completa cada vez</td></tr>
+          <tr><td><code>append</code></td><td>agrega las filas nuevas</td><td>cargas solo lo nuevo y tienes cómo evitar
+              repetirlo (por ejemplo, borrar antes la partición del día)</td></tr>
+          <tr><td><code>errorifexists</code></td><td>falla (es el modo por defecto)</td><td>quieres que nadie sobrescriba
+              por accidente</td></tr>
+          <tr><td><code>ignore</code></td><td>no hace nada</td><td>la tabla solo se crea una vez</td></tr>
+        </tbody>
+      </table>
+
+      <div class="definition">
+        <h4><i class="fas fa-repeat mr-2" aria-hidden="true"></i>Idempotencia</h4>
+        <p style="margin-bottom:0;">Una operación es <strong>idempotente</strong> si ejecutarla una o diez veces deja el
+          mismo resultado. Las cargas idempotentes son un control de coherencia en sí mismas: un reintento después de un
+          fallo no puede duplicar las ventas. Lo practicamos desde el bloque 1, cuando cada job de Hadoop borraba antes
+          su carpeta de salida.</p>
+      </div>
+    </div>
+  </template>

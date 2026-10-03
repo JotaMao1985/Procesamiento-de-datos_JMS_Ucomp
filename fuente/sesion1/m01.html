@@ -1,0 +1,132 @@
+  <!-- ============================================================ -->
+  <!-- MÓDULO 1 · Bienvenida y hoja de ruta              (Bloque 1) -->
+  <!-- ============================================================ -->
+  <template id="module-1">
+    <div class="animate-fade-in">
+      <div class="border-b border-gray-100 pb-6 mb-6">
+        <div class="modulo-meta"><span>Módulo 1 · Bloque 1</span><span class="chip-tiempo"><i class="far fa-clock"
+              aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Bienvenida y hoja de ruta
+          <span class="text-gray-500 font-normal text-2xl">/ Welcome &amp; roadmap</span></h2>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
+          <span class="text-xl" aria-hidden="true">🎯</span>
+          <div>
+            <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
+            <p class="text-gray-600 text-sm" style="margin:0;">Ubicar esta sesión dentro del curso: qué competencia
+              se desarrolla, con qué criterios se valora, cómo se reparte el tiempo de hoy y cómo se usa este
+              material.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>Una empresa no decide con datos: decide con <strong>información confiable</strong> que alguien obtuvo a
+        partir de datos. Entre el registro crudo que deja una caja registradora y el gráfico que mira la gerencia hay
+        un trabajo silencioso —recopilar, limpiar, transformar, verificar, guardar— que es el tema de este curso.
+        Cuando los datos son muchos, llegan rápido o vienen en formatos distintos, ese trabajo ya no cabe en un solo
+        computador, y ahí aparecen la nube, Hadoop y Spark.</p>
+
+      <div class="definition">
+        <h4><i class="fas fa-award mr-2" aria-hidden="true"></i>Competencia y resultado de aprendizaje del curso</h4>
+        <p><strong>Competencia.</strong> Gestiona, visualiza y asegura grandes volúmenes de datos estructurados,
+          semiestructurados o no estructurados, provenientes de diferentes fuentes de información, utilizando
+          procesos de extracción, transformación, análisis, interpretación y visualización con el fin de integrarlos
+          y detectar patrones, relaciones, tendencias o posibilidades que faciliten la toma de decisiones en el ámbito
+          empresarial en el cual se aplique.</p>
+        <p style="margin-bottom:0;"><strong>Resultado de aprendizaje.</strong> Procesa y evalúa resultados
+          cuantitativos y cualitativos para establecer controles de seguridad, eficiencia, coherencia y correlación,
+          de acuerdo con la metodología y las políticas de datos, dando cumplimiento a los aspectos éticos y legales
+          vigentes para la confiabilidad de los datos.</p>
+      </div>
+
+      <h3>Los tres criterios con los que se valora el curso</h3>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">CR1</span>
+          <p class="tarjeta-titulo"><i class="fas fa-shield-halved" aria-hidden="true"></i>Seguridad en la
+            transformación</p>
+          <p>Esquematizar técnicas, modelos y métodos de seguridad en las fases de transformación del dato.</p>
+          <p><strong>Hoy:</strong> controles de seguridad en cada una de las seis etapas (módulo 4) y datos personales
+            en la nube (módulo 7).</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">CR2</span>
+          <p class="tarjeta-titulo"><i class="fas fa-object-group" aria-hidden="true"></i>Integrar lo cuantitativo y
+            lo cualitativo</p>
+          <p>Integrar resultados cuantitativos y cualitativos en las técnicas de manipulación de datos.</p>
+          <p><strong>Hoy:</strong> ventas (números) y reseñas de clientes (texto) del mismo caso, procesadas con
+            pandas y con MapReduce (módulos 13 a 15).</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">CR3</span>
+          <p class="tarjeta-titulo"><i class="fas fa-list-check" aria-hidden="true"></i>Controles de calidad</p>
+          <p>Emplear bases de datos para establecer controles de seguridad, eficiencia, coherencia y correlación.</p>
+          <p><strong>Hoy:</strong> los controles, todavía sin base de datos: reporte de calidad antes y después de
+            limpiar (módulo 12) y verificación cruzada MapReduce contra pandas (módulo 16). En la sesión 2 los
+            llevaremos a tablas de Spark SQL.</p>
+        </div>
+      </div>
+
+      <h3>El curso en tres sesiones</h3>
+      <div class="rejilla-tarjetas">
+        <div class="tarjeta destacada">
+          <span class="tarjeta-etiqueta">Sesión 1 · 6 h · hoy</span>
+          <p class="tarjeta-titulo"><i class="fas fa-seedling" aria-hidden="true"></i>Del dato al MapReduce</p>
+          <ul>
+            <li>Etapas del procesamiento de datos</li>
+            <li>Computación en la nube y ecosistema Hadoop</li>
+            <li>Datos tabulares con pandas: limpieza y calidad</li>
+            <li>MapReduce simple en Python</li>
+          </ul>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Sesión 2 · 6 h</span>
+          <p class="tarjeta-titulo"><i class="fas fa-bolt" aria-hidden="true"></i>De Hadoop a Spark</p>
+          <ul>
+            <li>HDFS y Hadoop Streaming en Colab</li>
+            <li>Ecosistema Spark y PySpark</li>
+            <li>Datos tabulares y semiestructurados con Spark</li>
+            <li>Bases de datos con Spark SQL y sus controles</li>
+          </ul>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">Sesión 3 · 4 h</span>
+          <p class="tarjeta-titulo"><i class="fas fa-comments" aria-hidden="true"></i>Datos no estructurados</p>
+          <ul>
+            <li>Tipos de datos no estructurados</li>
+            <li>Extracción y carga</li>
+            <li>Procesamiento de lenguaje natural</li>
+            <li>Análisis de sentimientos y cierre del caso</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>La agenda de hoy</h3>
+      <p>Seis horas en cuatro bloques de 75 minutos, con un break de 15 minutos después de los bloques 1 y 3 y uno de
+        30 a la mitad. Escribe la hora de inicio en la agenda: la agenda, la barra lateral y el reloj del modo
+        presentación se ajustan a la hora real.</p>
+      <div class="agenda" data-agenda></div>
+
+      <h3>Cómo trabajaremos</h3>
+      <p>El curso sigue el <strong>aprendizaje basado en problemas</strong>: un mismo caso —<em>Tiendas Guadua
+          S.A.S.</em>, una cadena comercial ficticia— atraviesa las tres sesiones. Hoy recibimos sus datos de ventas
+        tal como llegan de los sistemas, con todos sus problemas, y los dejamos listos para decidir. En la sesión 2 los
+        procesaremos a escala con Spark, y en la 3 escucharemos lo que dicen sus clientes en texto libre.</p>
+      <p>La evaluación es formativa e integral: <strong>autoevaluación</strong> (los ejercicios con solución
+        y las preguntas con retroalimentación: diagnóstico de entrada, control del bloque 2 y cierre), <strong>coevaluación</strong> (la revisión entre pares del taller) y
+        <strong>heteroevaluación</strong> (el docente valora el taller con la rúbrica del módulo 17).</p>
+
+      <div class="note">
+        <h4><i class="fas fa-circle-info mr-2" aria-hidden="true"></i>Cómo usar este material</h4>
+        <ul style="margin-bottom:0;">
+          <li>La barra lateral agrupa los módulos por bloque; las líneas punteadas son los breaks.</li>
+          <li>El botón <strong>Presentación</strong> (o la tecla <strong>P</strong>) agranda el texto para
+            proyectar; con las flechas ← → se pasa de módulo.</li>
+          <li>Cada bloque de código lleva un identificador, como <code>[cargar]</code>: la celda del notebook de
+            Colab empieza con el mismo, así que se puede seguir la clase celda a celda. Bajo cada bloque está la
+            <strong>salida real</strong> de ejecutarlo.</li>
+          <li>Los ejercicios tienen <strong>pista</strong> y <strong>solución</strong> desplegables: intenta antes
+            de abrirlas.</li>
+        </ul>
+      </div>
+    </div>
+  </template>
