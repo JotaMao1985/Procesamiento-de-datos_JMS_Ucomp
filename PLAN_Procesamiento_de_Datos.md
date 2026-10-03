@@ -66,6 +66,12 @@ escribirse en cualquier lugar: la librería reordena las opciones con semilla fi
 correcta entre las letras. Por eso ninguna retroalimentación debe citar posiciones («las dos
 primeras»).
 
+**Publicación** (desde el 2026-10-03). El repositorio público es
+<https://github.com/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp>, en la rama `main`. El sitio
+<https://jotamao1985.github.io/Procesamiento-de-datos_JMS_Ucomp/> sirve la carpeta `Htmls/` como
+raíz. Al hacer `git push` de cambios en `Htmls/`, el flujo `.github/workflows/pages.yml` lo
+publica de nuevo. El syllabus en PDF no se sube: lo excluye `.gitignore`.
+
 ## Revisión de contenido del 2026-10-02 (8 revisores en paralelo)
 
 El docente pidió revisar redacción, coherencia, gráficos, simulaciones, preguntas, barajado,
