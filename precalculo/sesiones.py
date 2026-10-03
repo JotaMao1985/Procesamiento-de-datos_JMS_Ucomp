@@ -44,9 +44,9 @@ SESIONES = {
         "fuente": "sesion2/sesion2.html",
         "html": "sesion-2-de-hadoop-a-spark.html",
         "notebook": "sesion-2-hadoop-spark.ipynb",
-        "modulos": 18,
-        "breaks": [15, 30, 15, 0],
-        "minutos": 360,
+        "modulos": 14,
+        "breaks": [30, 0],
+        "minutos": 240,
         "docker": True,
     },
 }

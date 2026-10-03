@@ -9,34 +9,26 @@ const courseData = {
   title: "Procesamiento de Datos",
   sesion: 2,
   bloques: [
-    { id: 1, titulo: "MapReduce para Hadoop", corto: "Hadoop", minutos: 75, breakDespues: 15,
-      detalle: "HDFS en Colab · Hadoop Streaming · combiner · límites de MapReduce" },
-    { id: 2, titulo: "Ecosistema Spark", corto: "Spark", minutos: 75, breakDespues: 30,
-      detalle: "Arquitectura · RDD · ejecución perezosa · DataFrames y SQL" },
-    { id: 3, titulo: "Datos tabulares y semiestructurados con Spark", corto: "Datos con Spark", minutos: 75, breakDespues: 15,
-      detalle: "Esquemas · limpieza · uniones y ventanas · JSON anidado" },
-    { id: 4, titulo: "Bases de datos con Spark", corto: "Bases de datos", minutos: 75, breakDespues: 0,
-      detalle: "Crear · cargar · consultar · controles CR3 · taller" }
+    { id: 1, titulo: "De MapReduce en Hadoop a Spark", corto: "Hadoop y Spark", minutos: 105, breakDespues: 30,
+      detalle: "HDFS en Colab · Hadoop Streaming · combiner · límites de MapReduce · arquitectura de Spark y RDD" },
+    { id: 2, titulo: "Datos tabulares y semiestructurados con Spark", corto: "Datos con Spark", minutos: 105, breakDespues: 0,
+      detalle: "DAG · DataFrames y SQL · esquemas · limpieza · uniones y ventanas · JSON anidado · taller" }
   ],
   modules: [
     { id: 1, bloque: 1, title: "Bienvenida y retorno al caso", duration: "10 min" },
     { id: 2, bloque: 1, title: "Hadoop en Colab", duration: "10 min" },
-    { id: 3, bloque: 1, title: "HDFS en la práctica", duration: "20 min" },
+    { id: 3, bloque: 1, title: "HDFS en la práctica", duration: "15 min" },
     { id: 4, bloque: 1, title: "Hadoop Streaming", duration: "25 min" },
     { id: 5, bloque: 1, title: "Lo que Hadoop resolvió y lo que no", duration: "10 min" },
-    { id: 6, bloque: 2, title: "Spark: el ecosistema", duration: "15 min" },
-    { id: 7, bloque: 2, title: "Arquitectura y RDD", duration: "20 min" },
-    { id: 8, bloque: 2, title: "Transformaciones y DAG", duration: "20 min" },
-    { id: 9, bloque: 2, title: "DataFrames y Spark SQL", duration: "20 min" },
-    { id: 10, bloque: 3, title: "Leer con esquema", duration: "15 min" },
-    { id: 11, bloque: 3, title: "Limpieza en Spark", duration: "25 min" },
-    { id: 12, bloque: 3, title: "Agregar, unir y ventanas", duration: "15 min" },
-    { id: 13, bloque: 3, title: "Eventos web en JSON", duration: "20 min" },
-    { id: 14, bloque: 4, title: "Crear la base de datos", duration: "10 min" },
-    { id: 15, bloque: 4, title: "Cargar la información", duration: "15 min" },
-    { id: 16, bloque: 4, title: "Consultar con Spark SQL", duration: "15 min" },
-    { id: 17, bloque: 4, title: "Controles (CR3)", duration: "25 min" },
-    { id: 18, bloque: 4, title: "Cierre y taller", duration: "10 min" }
+    { id: 6, bloque: 1, title: "Spark: el ecosistema", duration: "15 min" },
+    { id: 7, bloque: 1, title: "Arquitectura y RDD", duration: "20 min" },
+    { id: 8, bloque: 2, title: "Transformaciones y DAG", duration: "15 min" },
+    { id: 9, bloque: 2, title: "DataFrames y Spark SQL", duration: "15 min" },
+    { id: 10, bloque: 2, title: "Leer con esquema", duration: "15 min" },
+    { id: 11, bloque: 2, title: "Limpieza en Spark", duration: "20 min" },
+    { id: 12, bloque: 2, title: "Agregar, unir y ventanas", duration: "10 min" },
+    { id: 13, bloque: 2, title: "Eventos web en JSON", duration: "20 min" },
+    { id: 14, bloque: 2, title: "Cierre y taller", duration: "10 min" }
   ]
 };
 
@@ -183,7 +175,7 @@ SIMULADORES['iterativo'] = function (raiz) {
 SIMULADORES['ecosistema-spark'] = function (raiz) {
   const ecosistema = [
     { capa: 'Bibliotecas', piezas: [
-      { nombre: 'Spark SQL y DataFrames', hoy: true, desc: 'Tablas distribuidas con esquema, consultables con SQL o con funciones de Python. Su optimizador, Catalyst, reescribe cada consulta antes de ejecutarla.', caso: 'Toda la limpieza del bloque 3 y la base de datos del bloque 4.' },
+      { nombre: 'Spark SQL y DataFrames', hoy: true, desc: 'Tablas distribuidas con esquema, consultables con SQL o con funciones de Python. Su optimizador, Catalyst, reescribe cada consulta antes de ejecutarla.', caso: 'La limpieza, las uniones y las ventanas de los módulos 10 a 12; en la sesión 3, la base de datos del caso.' },
       { nombre: 'Structured Streaming', desc: 'Procesa flujos de datos que no terminan, como si fueran una tabla que crece, con la misma API de los DataFrames.', caso: 'Actualizar cada minuto un tablero con los pagos rechazados en la app.' },
       { nombre: 'MLlib', desc: 'Aprendizaje automático distribuido: regresión, clasificación, agrupamiento, recomendación, sobre DataFrames.', caso: 'Pronosticar las ventas de la semana por tienda.' },
       { nombre: 'GraphX / GraphFrames', desc: 'Análisis de grafos: relaciones entre entidades, caminos, comunidades.', caso: 'Descubrir qué productos se compran juntos.' }
@@ -194,7 +186,7 @@ SIMULADORES['ecosistema-spark'] = function (raiz) {
     ] },
     { capa: 'Lenguajes', piezas: [
       { nombre: 'Python (PySpark)', hoy: true, desc: 'La interfaz más usada. El código de Python arma el plan; el trabajo pesado corre en la máquina virtual de Java.', caso: 'Todo el notebook de hoy.' },
-      { nombre: 'SQL', hoy: true, desc: 'Consultas SQL sobre DataFrames y tablas del catálogo, con el mismo motor y el mismo optimizador.', caso: 'Las consultas del módulo 16.' },
+      { nombre: 'SQL', hoy: true, desc: 'Consultas SQL sobre DataFrames y tablas del catálogo, con el mismo motor y el mismo optimizador.', caso: 'La consulta sobre la vista ventas_crudas del módulo 9; en la sesión 3, las de la base de datos.' },
       { nombre: 'Scala y Java', desc: 'Spark está escrito en Scala; estas interfaces son las más cercanas al motor.', caso: 'Un equipo de ingeniería que escribe procesos de alto rendimiento.' },
       { nombre: 'R', desc: 'Existe la interfaz SparkR, marcada como obsoleta desde Spark 4.0; en R se usa más el paquete sparklyr.', caso: 'Un equipo de estadística que ya trabaja en R.' }
     ] },
@@ -207,7 +199,7 @@ SIMULADORES['ecosistema-spark'] = function (raiz) {
     { capa: 'Almacenamiento y formatos', piezas: [
       { nombre: 'HDFS', hoy: true, desc: 'El sistema de archivos distribuido de Hadoop. Spark lo lee y lo escribe directamente.', caso: 'El ventas.csv del bloque 1, leído por Spark en el módulo 9.' },
       { nombre: 'S3 · GCS · ADLS', desc: 'Almacenamiento de objetos de la nube (Amazon, Google, Microsoft): barato, casi ilimitado y separado del cómputo.', caso: 'Guardar años de ventas sin mantener un clúster encendido.' },
-      { nombre: 'Parquet', hoy: true, desc: 'Formato de archivo columnar y comprimido: cada consulta lee solo las columnas que necesita.', caso: 'Las tablas de la base de datos guadua.' },
+      { nombre: 'Parquet', desc: 'Formato de archivo columnar y comprimido: cada consulta lee solo las columnas que necesita.', caso: 'Las tablas de la base de datos guadua, en la sesión 3.' },
       { nombre: 'Delta Lake · Iceberg', desc: 'Formatos de tabla sobre Parquet que agregan transacciones, historial de versiones y cambios de esquema controlados.', caso: 'Corregir una venta sin reescribir todo el mes, y poder ver cómo estaba la tabla ayer.' }
     ] }
   ];
@@ -448,80 +440,6 @@ SIMULADORES['embudo'] = function (raiz) {
 };
 
 // ====================================================================
-// Módulo 17 · ¿Cuántos bytes lee tu consulta? (tamaños reales de Parquet)
-// ====================================================================
-SIMULADORES['formatos'] = function (raiz) {
-  const F = DATOS_SIM.formatos;
-  const meses = [...new Set(F.parquet.map(r => r.mes))].sort();
-  const columnas = F.columnas;
-  const bytes = {};
-  F.parquet.forEach(r => { bytes[`${r.columna}|${r.mes}`] = r.bytes; });
-  const CONSULTAS = {
-    junio: { texto: 'Total por ciudad en junio', columnas: ['ciudad', 'total'], meses: ['2025-06'] },
-    canal: { texto: 'Total por canal, todo el semestre', columnas: ['canal', 'total'], meses },
-    clientes: { texto: 'Clientes distintos por mes', columnas: ['id_cliente'], meses },
-    todo: { texto: 'Toda la tabla (SELECT *)', columnas, meses }
-  };
-  const elegidas = { columnas: new Set(CONSULTAS.junio.columnas), meses: new Set(CONSULTAS.junio.meses) };
-  const params = { consulta: 'junio' };
-  const controles = raiz.querySelector('.simulador-controles');
-
-  const selector = crearSelector(controles, {
-    clave: 'consulta', etiqueta: 'Consulta de ejemplo',
-    opciones: [...Object.entries(CONSULTAS).map(([v, c]) => ({ valor: v, texto: c.texto })), { valor: 'propia', texto: 'Personalizada' }]
-  }, params, () => {
-    const c = CONSULTAS[params.consulta];
-    if (c) { elegidas.columnas = new Set(c.columnas); elegidas.meses = new Set(c.meses); }
-    sincronizar();
-    pintar();
-  });
-
-  const opciones = document.createElement('div');
-  opciones.className = 'pq-opciones';
-  const casillas = (nombre, lista, clase) => `<fieldset><legend>${nombre}</legend><div class="pq-casillas">` +
-    lista.map(v => `<label><input type="checkbox" data-${clase}="${v}">${v}</label>`).join('') + '</div></fieldset>';
-  opciones.innerHTML = casillas('Columnas que usa la consulta', columnas, 'columna') + casillas('Meses que filtra', meses, 'mes');
-  controles.appendChild(opciones);
-
-  function sincronizar() {
-    opciones.querySelectorAll('input[data-columna]').forEach(i => { i.checked = elegidas.columnas.has(i.dataset.columna); });
-    opciones.querySelectorAll('input[data-mes]').forEach(i => { i.checked = elegidas.meses.has(i.dataset.mes); });
-  }
-  opciones.addEventListener('change', evento => {
-    const i = evento.target;
-    const conjunto = i.dataset.columna ? elegidas.columnas : elegidas.meses;
-    const valor = i.dataset.columna || i.dataset.mes;
-    if (i.checked) conjunto.add(valor); else conjunto.delete(valor);
-    params.consulta = 'propia';
-    selector.value = 'propia';
-    pintar();
-  });
-
-  function pintar() {
-    let leidos = 0;
-    const filas = columnas.map(col => `<tr><th scope="row">${col}</th>` + meses.map(mes => {
-      const b = bytes[`${col}|${mes}`] || 0;
-      const leida = elegidas.columnas.has(col) && elegidas.meses.has(mes);
-      if (leida) leidos += b;
-      return `<td class="${leida ? 'leida' : ''}">${numeroCO(b)}${leida ? '<span class="sr-only"> (se lee)</span>' : ''}</td>`;
-    }).join('') + '</tr>').join('');
-    raiz.querySelector('.pq-rejilla').innerHTML =
-      `<table><caption class="sr-only">Bytes de cada columna en cada partición mensual; en color, las que lee la consulta</caption>` +
-      `<thead><tr><th scope="col">columna</th>${meses.map(m => `<th scope="col">${m}</th>`).join('')}</tr></thead><tbody>${filas}</tbody></table>`;
-    const totalParquet = F.parquet.reduce((a, r) => a + r.bytes, 0);
-    actualizarLectura(raiz.querySelector('.simulador-lectura'), [
-      { etiqueta: 'CSV original (siempre completo):', valor: `${numeroCO(F.csv_bytes)} bytes` },
-      { etiqueta: 'Parquet de la tabla limpia:', valor: `${numeroCO(totalParquet)} bytes` },
-      { etiqueta: 'Esta consulta en Parquet:', valor: leidos ? `${numeroCO(leidos)} bytes` : '0 bytes (sin columnas o sin meses no lee datos)' },
-      { etiqueta: 'Frente al CSV:', valor: `${numeroCO(100 * leidos / F.csv_bytes, 1)} %` }
-    ]);
-  }
-  sincronizar();
-  pintar();
-  return [];
-};
-
-// ====================================================================
 // Autoevaluaciones
 // ====================================================================
 AUTOEVALUACIONES['retorno'] = [
@@ -614,28 +532,6 @@ AUTOEVALUACIONES['control-b2'] = [
   }
 ];
 
-// Gráfico de la pregunta 8 del cierre: bytes por columna en Parquet (todo el semestre)
-function graficoBytesPorColumna(canvas) {
-  const porColumna = {};
-  DATOS_SIM.formatos.parquet.forEach(r => { porColumna[r.columna] = (porColumna[r.columna] || 0) + r.bytes; });
-  const orden = Object.entries(porColumna).sort((a, b) => b[1] - a[1]);
-  return new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: orden.map(o => o[0]),
-      datasets: [{ data: orden.map(o => o[1]), backgroundColor: orden.map(o => o[0] === 'id_venta' || o[0] === 'canal' ? COLORES_GRAFICO.secundario : COLORES_GRAFICO.primario), borderWidth: 0 }]
-    },
-    options: {
-      indexAxis: 'y', responsive: true, maintainAspectRatio: false, animation: false,
-      plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales: {
-        x: { beginAtZero: true, title: { display: true, text: 'Bytes en Parquet (seis meses)' }, ticks: { font: { family: 'Fira Code', size: 10 } } },
-        y: { ticks: { font: { family: 'Fira Code', size: 11 } }, grid: { display: false } }
-      }
-    }
-  });
-}
-
 AUTOEVALUACIONES['cierre'] = [
   {
     tipo: 'opcion', modulo: 2,
@@ -649,12 +545,56 @@ AUTOEVALUACIONES['cierre'] = [
     ]
   },
   {
+    tipo: 'opcion', modulo: 3,
+    pregunta: 'La carpeta <code>/guadua/crudo</code> quedó con permisos <code>750</code>. En un clúster con la configuración por defecto de HDFS, ¿qué tan protegidos quedan los datos crudos de los clientes?',
+    pista: '¿Cómo sabe HDFS quién está pidiendo el archivo?',
+    opciones: [
+      { texto: 'Poco: con autenticación simple, HDFS cree el usuario que declara quien pide.', correcta: true, retro: 'Los permisos se aplican, pero confían en el nombre declarado: cualquiera con acceso a la red podría decir «soy root». Un clúster con datos personales necesita Kerberos para autenticar, además de autorización por tabla, cifrado y auditoría.' },
+      { texto: 'Del todo: solo el dueño y su grupo pueden leerlos, y HDFS verifica quién es cada uno.', correcta: false, retro: 'Con autenticación simple, HDFS no verifica nada: cree el nombre que declara el cliente. Verificarlo es el trabajo de Kerberos.' },
+      { texto: 'Del todo, porque además HDFS guarda cifrado cada bloque con una clave del dueño.', correcta: false, retro: 'HDFS no cifra por defecto: el cifrado en disco exige configurar zonas cifradas, y el de la red, TLS.' },
+      { texto: 'Nada: en HDFS los permisos son solo informativos y ningún usuario se detiene por ellos.', correcta: false, retro: 'Detienen a cualquier usuario que no sea superusuario. En Colab no se nota porque root arrancó el NameNode y por eso es el superusuario de HDFS.' }
+    ]
+  },
+  {
     tipo: 'numerica', modulo: 4,
     pregunta: 'Un job de Streaming lee 4 archivos (4 mappers) y cada mapper ve ventas de las 7 «ciudades» (incluida «Sin dato»). Si el combiner suma por ciudad una vez en cada mapper, ¿cuántos registros llegan a los reducers?',
     pista: '¿Cuántos subtotales distintos puede producir cada mapper después de combinar?',
     respuesta: 28, tolerancia: 0, unidad: 'registros',
     retroAcierto: '4 mappers × 7 ciudades = {{CIFRA:combine_output}} subtotales, contra {{CIFRA:map_output}} pares sin combiner: es lo que mostraron los contadores reales. Ojo: Hadoop no garantiza cuántas veces ejecuta el combiner (cero, una o varias), y por eso la operación debe dar el mismo resultado en cualquier caso.',
     retroFallo: 'Cada mapper resume sus ventas en un subtotal por ciudad: 4 × 7 = 28. Sin combiner llegarían los {{CIFRA:map_output}} pares.'
+  },
+  {
+    tipo: 'opcion', modulo: 5,
+    pregunta: 'Un modelo de aprendizaje automático recorre las mismas ventas veinte veces hasta converger, y los datos caben en la memoria del clúster. ¿Por qué Spark le saca tanta ventaja a MapReduce?',
+    pista: '¿Dónde quedan los datos entre una pasada y la siguiente?',
+    opciones: [
+      { texto: 'Spark lee una vez y repite las pasadas en memoria; MapReduce vuelve al disco en cada una.', correcta: true, retro: 'Cada job de MapReduce lee su entrada de HDFS y escribe su salida con réplicas: veinte pasadas son veinte viajes al disco. Si los datos no cupieran en memoria, Spark perdería buena parte de su ventaja.' },
+      { texto: 'Spark reparte cada pasada entre más núcleos que MapReduce, aunque el clúster sea el mismo.', correcta: false, retro: 'Los dos reparten el trabajo en tareas, una por núcleo a la vez. La diferencia está en dónde quedan los datos entre pasadas.' },
+      { texto: 'Spark procesa todo en una sola partición y así se ahorra el shuffle de cada pasada.', correcta: false, retro: 'Spark también reparte en particiones y también hace shuffle cuando la operación lo exige; lo que evita es volver al disco.' },
+      { texto: 'Spark comprime los resultados de cada pasada y MapReduce los guarda tal como salen.', correcta: false, retro: 'La compresión no es la diferencia: MapReduce escribe en HDFS, con tres réplicas, el resultado intermedio de cada pasada.' }
+    ]
+  },
+  {
+    tipo: 'opcion', modulo: 8,
+    pregunta: 'En medio de un conteo de palabras se cae el ejecutor que tenía dos de las cuatro particiones de un RDD. ¿Qué hace Spark?',
+    pista: '¿Qué guarda Spark de cada RDD, además de sus datos?',
+    opciones: [
+      { texto: 'Recalcula solo esas dos particiones a partir del linaje.', correcta: true, retro: 'El linaje es la receta de cada partición: Spark repite los pasos que la produjeron y solo para lo que se perdió. Así tolera fallos sin replicar todo, como hace HDFS.' },
+      { texto: 'Las recupera de las réplicas que guardó en otros ejecutores, como HDFS con sus bloques.', correcta: false, retro: 'Spark no replica las particiones en memoria: guarda la receta (el linaje) y recalcula lo perdido. Las réplicas son la estrategia de HDFS.' },
+      { texto: 'Repite el trabajo completo desde el principio, con las cuatro particiones.', correcta: false, retro: 'No hace falta: el linaje le dice qué pasos produjeron cada partición, y recalcula solo las que se perdieron.' },
+      { texto: 'Detiene el trabajo con un error, porque lo que estaba en memoria ya no se puede recuperar.', correcta: false, retro: 'Para eso guarda el linaje: los datos en memoria se pierden, pero la receta permite volver a calcularlos.' }
+    ]
+  },
+  {
+    tipo: 'opcion', modulo: 9,
+    pregunta: 'En HDFS, <code>ventas.csv</code> quedó en {{CIFRA:bloques_ventas}} bloques de 64 KB, pero Spark lo leyó en {{CIFRA:particiones_hdfs}} partición. ¿Qué explica la diferencia?',
+    pista: '¿El bloque y la partición los decide el mismo sistema?',
+    opciones: [
+      { texto: 'Spark arma sus particiones por tamaño, y el archivo es demasiado pequeño para partirlo.', correcta: true, retro: 'Con {{CIFRA:bytes_ventas}} bytes no vale la pena repartir el trabajo. El bloque es cómo HDFS guarda el archivo; la partición, cómo Spark reparte el trabajo. Con un archivo grande habría muchas particiones.' },
+      { texto: 'HDFS juntó sus bloques en uno solo al entregarle el archivo completo a Spark.', correcta: false, retro: 'Los bloques siguen igual en HDFS; lo que cambia es cómo Spark agrupa lo que lee en tareas.' },
+      { texto: 'Spark solo puede usar una partición cuando lee un archivo guardado en HDFS.', correcta: false, retro: 'Con un archivo grande, Spark lo reparte en muchas particiones aunque venga de HDFS; este pesa menos de 200 KB.' },
+      { texto: 'Es un error de configuración: Spark debería crear siempre una partición por cada bloque.', correcta: false, retro: 'No existe esa regla. Partición y bloque son cosas distintas, y no hace falta que coincidan.' }
+    ]
   },
   {
     tipo: 'opcion', modulo: 10,
@@ -679,6 +619,17 @@ AUTOEVALUACIONES['cierre'] = [
     ]
   },
   {
+    tipo: 'opcion', modulo: 12,
+    pregunta: 'Para unir las {{CIFRA:filas_limpias}} ventas con el catálogo de {{CIFRA:productos}} productos, el código usa <code>F.broadcast</code> sobre el catálogo. ¿Qué se gana?',
+    pista: '¿Cuál de las dos tablas tendría que viajar por la red en una unión normal?',
+    opciones: [
+      { texto: 'Copia el catálogo a cada ejecutor y une ahí, sin hacer shuffle de las ventas.', correcta: true, retro: 'Una unión normal reúne por llave las filas de las dos tablas, con un shuffle. Si una tabla es pequeña, es más barato copiarla completa a cada ejecutor y no mover la grande.' },
+      { texto: 'Ordena las ventas por id_producto antes de unir, para que la unión sea más rápida.', correcta: false, retro: 'Ordenar exigiría mover las ventas entre particiones; la difusión justamente lo evita copiando la tabla pequeña.' },
+      { texto: 'Guarda el catálogo en el disco para que no ocupe memoria en los ejecutores.', correcta: false, retro: 'Es al revés: el catálogo se copia en la memoria de cada ejecutor. Por eso solo conviene con tablas pequeñas.' },
+      { texto: 'Une solo los productos que se vendieron y descarta del resultado los demás.', correcta: false, retro: 'Eso lo decide el tipo de unión (aquí, <code>how="left"</code> conserva todas las ventas). La difusión cambia cómo se une, no qué se une.' }
+    ]
+  },
+  {
     tipo: 'opcion', modulo: 13,
     pregunta: 'En <code>logs_web.jsonl</code>, el campo <code>consulta</code> está vacío en la mayoría de los {{CIFRA:eventos}} eventos, e <code>id_cliente</code> solo aparece en el {{CIFRA:pct_eventos_cliente}} %. ¿Cómo se interpretan esos vacíos?',
     pista: '¿Qué eventos deberían traer una consulta? ¿Y en qué eventos es normal no saber quién es el cliente?',
@@ -687,65 +638,6 @@ AUTOEVALUACIONES['cierre'] = [
       { texto: 'Los dos son errores de captura de la tienda web, así que hay que descartar los eventos que no los traen.', correcta: false, retro: 'Se perderían casi todas las vistas, los carritos y los pagos. consulta no aplica a esos eventos: no es un error.' },
       { texto: 'No hay vacíos: Spark solo crea en cada evento las columnas que ese evento declara.', correcta: false, retro: 'Spark arma un esquema que cubre todos los campos y pone nulo donde un evento no trae el suyo; por eso el conteo de cada columna da cifras distintas.' },
       { texto: 'Hay que rellenarlos con el valor más frecuente de cada campo para completar la tabla.', correcta: false, retro: 'Inventaría búsquedas y clientes que no existen. Un vacío se trata según su causa, como los clientes anónimos de la tienda en la sesión 1.' }
-    ]
-  },
-  {
-    tipo: 'opcion', modulo: 14,
-    pregunta: '<code>ventas_bronce</code> se creó con <code>CREATE TABLE … USING csv OPTIONS (path …)</code>, apuntando a <code>datos/ventas.csv</code>. ¿Qué pasa con ese archivo si se ejecuta <code>DROP TABLE ventas_bronce</code>?',
-    pista: '¿Quién maneja los archivos de esta tabla: Spark, dentro de su carpeta, o alguien más?',
-    opciones: [
-      { texto: 'Nada: se borra la definición del catálogo y el archivo queda intacto.', correcta: true, retro: 'Al indicar path, la tabla es externa: Spark solo apuntaba al archivo. Por eso las tablas externas son la opción natural para datos de origen.' },
-      { texto: 'Se borra el archivo junto con la definición de la tabla en el catálogo.', correcta: false, retro: 'Eso pasaría con una tabla administrada, cuyos archivos maneja Spark dentro de su carpeta.' },
-      { texto: 'Se mueve a la papelera de HDFS y se puede recuperar durante unos días.', correcta: false, retro: 'La papelera es de HDFS y actúa con hdfs dfs -rm; con una tabla externa, Spark ni siquiera toca los archivos.' },
-      { texto: 'Nada, porque Spark no permite borrar tablas externas con DROP TABLE.', correcta: false, retro: 'Sí lo permite: DROP TABLE borra la definición del catálogo; lo que no toca son los archivos.' }
-    ]
-  },
-  {
-    tipo: 'opcion', modulo: 15,
-    pregunta: 'Cada noche, la carga de <code>guadua.ventas</code> escribe el semestre completo actualizado, y a veces se relanza tras un fallo. ¿Qué modo de escritura deja cada noche la tabla con los datos nuevos y sin duplicados, aunque la carga se ejecute dos veces?',
-    pista: '¿Qué le hace cada modo a una tabla que ya tiene datos?',
-    opciones: [
-      { texto: '<code>mode("overwrite")</code>', correcta: true, retro: 'Reemplaza el contenido en cada ejecución: correrla una o diez veces deja la misma tabla, con los datos de esa noche. Es una carga idempotente.' },
-      { texto: '<code>mode("append")</code>', correcta: false, retro: 'append agrega sin comparar con lo que ya hay: en el módulo 15, dos cargas seguidas de productos dejaron cada producto repetido.' },
-      { texto: '<code>mode("errorifexists")</code>', correcta: false, retro: 'Es el modo por defecto y falla si la tabla ya existe: después de la primera noche, todas las cargas terminarían en error.' },
-      { texto: '<code>mode("ignore")</code>', correcta: false, retro: 'Si la tabla existe no hace nada: se quedaría para siempre con los datos de la primera noche, sin ningún aviso.' }
-    ]
-  },
-  {
-    tipo: 'grafico', modulo: 17, alto: 280,
-    descripcionGrafico: 'Bytes que ocupa cada columna de la tabla de ventas en Parquet, de mayor a menor',
-    pregunta: 'El gráfico muestra cuánto ocupa cada columna de <code>guadua.ventas</code> en Parquet. Compara las dos barras resaltadas, <code>id_venta</code> y <code>canal</code>: las dos son texto y tienen un valor por venta. ¿Qué explica la diferencia?',
-    pista: '¿Cuántos valores distintos tiene cada columna?',
-    dibujar: graficoBytesPorColumna,
-    opciones: [
-      { texto: 'id_venta cambia en cada fila; canal repite tres valores, que Parquet guarda como códigos cortos.', correcta: true, retro: 'Parquet guarda los valores repetidos de una columna como un diccionario de códigos cortos. Una columna con un valor distinto por fila no se puede comprimir así.' },
-      { texto: 'id_venta tiene más vacíos, y Parquet reserva espacio fijo para cada valor que falta.', correcta: false, retro: 'Ninguna de las dos tiene vacíos en la tabla limpia.' },
-      { texto: 'Parquet comprime solo las columnas cortas y guarda los textos largos tal como vienen.', correcta: false, retro: 'Comprime todas las columnas; lo que cambia es cuánto se repiten los valores.' },
-      { texto: 'id_venta es la llave de la tabla, y Parquet guarda las llaves dos veces para poder buscarlas rápido.', correcta: false, retro: 'Parquet no sabe qué es una llave primaria; guarda cada columna una sola vez.' }
-    ]
-  },
-  {
-    tipo: 'multiple', modulo: 17,
-    pregunta: 'Sobre la columna <code>cliente</code> de <code>ventas_analitica</code> (hash con sal de <code>id_cliente</code>), marca lo correcto.',
-    pista: '¿Quién puede deshacer la relación entre el código y el cliente?',
-    opciones: [
-      { texto: 'Permite contar clientes distintos igual que con el identificador original.', correcta: true, retro: 'Cada cliente tiene un único código, así que los conteos y los seguimientos se conservan.' },
-      { texto: 'Sigue siendo un dato personal bajo la Ley 1581, porque quien tenga la sal puede volver a vincularlo.', correcta: true, retro: 'Seudonimizar reduce el riesgo, pero no anonimiza.' },
-      { texto: 'La sal debe guardarse fuera del código y de los datos.', correcta: true, retro: 'Si la sal se filtra junto con los datos, el seudónimo deja de proteger.' },
-      { texto: 'Con el código se puede recuperar el id_cliente sin la sal.', correcta: false, retro: 'Un hash no se invierte, y la sal impide recalcularlo desde identificadores conocidos.' },
-      { texto: 'Bastaría el hash sin sal: SHA-256 tampoco se puede invertir.', correcta: false, retro: 'Sin sal, cualquiera puede calcular el hash de C0001, C0002… y armar la tabla de equivalencias: los identificadores posibles son pocos y conocidos. La sal es lo que lo impide.' }
-    ],
-    retroFallo: 'Son correctas tres: conserva los conteos, sigue siendo un dato personal y la sal se guarda aparte. Un hash con sal no se puede invertir, y sin sal no protegería: los identificadores posibles se pueden probar uno por uno.'
-  },
-  {
-    tipo: 'opcion', modulo: 17,
-    pregunta: 'La correlación entre el número del mes y la participación de la app en las ventas es {{CIFRA:corr_app}}. ¿Qué se puede concluir?',
-    pista: 'Fíjate en cuántos puntos hay y en qué mide la correlación.',
-    opciones: [
-      { texto: 'Que la participación de la app tendió a subir mes a mes, sin que eso explique por qué.', correcta: true, retro: 'La correlación describe la asociación (con un bajón en marzo: no es una línea perfecta). Las causas —precios, domicilios, experiencia de uso— exigen otra evidencia.' },
-      { texto: 'Que el paso del tiempo es la causa de que la app gane participación.', correcta: false, retro: 'Correlación no es causalidad: el mes no hace nada por sí mismo.' },
-      { texto: 'Que en diciembre la app ya tendrá más de la mitad de todas las ventas de la cadena Guadua.', correcta: false, retro: 'Extrapolar seis puntos a seis meses más es arriesgado: nada garantiza que la tendencia siga igual.' },
-      { texto: 'Que la correlación no sirve, porque solo un valor de 1 indica relación.', correcta: false, retro: 'Un valor cercano a 1 indica una relación lineal muy fuerte; nunca será exactamente 1 con datos reales.' }
     ]
   }
 ];
@@ -786,33 +678,33 @@ RUBRICAS['taller-2'] = {
       ]
     },
     {
-      clave: 'C · CR3', nombre: 'Base de datos y consultas', puntos: 20,
-      foco: 'Mide el diseño de las tablas (hechos, dimensiones, capas), la carga idempotente y si las consultas responden preguntas de negocio con SQL correcto.',
+      clave: 'C · Tema 5.2', nombre: 'Preguntas de la gerencia con Spark', puntos: 20,
+      foco: 'Mide si las agregaciones, uniones y ventanas en Spark responden preguntas de negocio y si cada resultado se <strong>lee</strong> en el informe.',
       niveles: [
-        { nombre: 'Excelente', rango: '18–20', observa: 'Tablas bien diseñadas y particionadas, carga repetible, cuatro consultas correctas (con JOIN y ventana) y un EXPLAIN interpretado.' },
-        { nombre: 'Aceptable', rango: '13–17', observa: 'Tablas y consultas correctas; falta el EXPLAIN o alguna consulta es trivial.' },
-        { nombre: 'Insuficiente', rango: '7–12', observa: 'Tablas sin diseño o consultas con errores.' },
-        { nombre: 'No logrado', rango: '0–6', observa: 'No hay base de datos.' }
+        { nombre: 'Excelente', rango: '18–20', observa: 'Tabla mensual por ciudad y categoría correcta; cuatro preguntas respondidas, al menos una con unión y una con ventana, cada una con su lectura.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Tabla y preguntas correctas, pero falta la unión o la ventana, o alguna lectura es superficial.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Agregaciones con errores, o preguntas planteadas sin responder.' },
+        { nombre: 'No logrado', rango: '0–6', observa: 'No hay agregaciones en Spark.' }
       ]
     },
     {
-      clave: 'D · CR1 · CR3', nombre: 'Controles de seguridad, eficiencia, coherencia y correlación', puntos: 25,
-      foco: 'Mide si hay un control <strong>ejecutable</strong> de cada tipo, con su resultado y su interpretación, si el de seguridad respeta la Ley 1581 de 2012 y si el esquema muestra qué protege el dato en cada fase.',
+      clave: 'D · CR1', nombre: 'Seguridad en las fases del dato', puntos: 20,
+      foco: 'Mide si los controles de seguridad de la sesión se <strong>ejecutan</strong> y si el esquema muestra qué protege el dato en cada fase y por qué, de acuerdo con la Ley 1581 de 2012.',
       niveles: [
-        { nombre: 'Excelente', rango: '23–25', observa: 'Los cuatro controles, ejecutables y con resultado; seudónimo con sal leída fuera del notebook; esquema de seguridad por fase; correlación interpretada con sus límites.' },
-        { nombre: 'Aceptable', rango: '17–22', observa: 'Los cuatro controles con resultado, pero alguno sin interpretación, el esquema incompleto o la sal escrita en el notebook.' },
-        { nombre: 'Insuficiente', rango: '9–16', observa: 'Faltan uno o dos tipos de control, o alguno solo se describe sin ejecutarse.' },
-        { nombre: 'No logrado', rango: '0–8', observa: 'Hay uno o ningún tipo de control, o la tabla para analistas permite identificar al cliente.' }
+        { nombre: 'Excelente', rango: '18–20', observa: 'Huella del software verificada y permisos de HDFS aplicados en el notebook; esquema por fase completo, con el porqué de cada control y lo que le falta a la configuración de Colab para datos personales.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Los dos controles ejecutados, pero el esquema está incompleto o no explica el porqué.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Un solo control ejecutado, o un esquema sin controles que lo respalden.' },
+        { nombre: 'No logrado', rango: '0–6', observa: 'No hay controles de seguridad.' }
       ]
     },
     {
-      clave: 'E · CR2', nombre: 'Integración y comunicación', puntos: 15,
+      clave: 'E · CR2', nombre: 'Integración y comunicación', puntos: 20,
       foco: 'Mide si el informe <strong>integra</strong> eventos web y ventas en una conclusión útil, declara lo que los datos no permiten concluir y se entiende sin leer el código.',
       niveles: [
-        { nombre: 'Excelente', rango: '14–15', observa: 'Conclusión que combina ambas fuentes, con sus límites; informe claro, con cifras y unidades.' },
-        { nombre: 'Aceptable', rango: '10–13', observa: 'Ambas fuentes presentes, conexión débil; informe comprensible.' },
-        { nombre: 'Insuficiente', rango: '5–9', observa: 'Fuentes analizadas por separado; informe confuso.' },
-        { nombre: 'No logrado', rango: '0–4', observa: 'Falta la integración o el informe.' }
+        { nombre: 'Excelente', rango: '18–20', observa: 'Conclusión que combina ambas fuentes, con sus límites; informe claro, con cifras y unidades.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Ambas fuentes presentes, conexión débil; informe comprensible.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Fuentes analizadas por separado; informe confuso.' },
+        { nombre: 'No logrado', rango: '0–6', observa: 'Falta la integración o el informe.' }
       ]
     }
   ]

@@ -12,7 +12,7 @@ Comprueba, y termina con error si algo falla:
   5. La agenda cuadra: los módulos de cada bloque suman sus minutos y la
      sesión, con breaks, suma lo que debe.
   6. Controles propios de cada sesión (tablero de calidad en la 1; en la 2,
-     que la sesión parta del mismo total que dejó la 1).
+     que la sesión parta del mismo total que dejó la 1 y que Spark concilie con pandas).
   7. Contraste WCAG de los pares texto/fondo de la paleta.
 """
 
@@ -181,10 +181,11 @@ def propios(numero, sesion):
     comprobar(c["sin_combiner"]["map_output"] == c["con_combiner"]["map_output"]
               and c["con_combiner"]["reduce_input"] < c["sin_combiner"]["reduce_input"],
               "contadores de Hadoop: mismo map, menos registros al reduce con combiner")
-    tabla = s["celdas"]["ctl_conciliacion"]["salida"]["html"]
-    filas = re.findall(r"<tr>\s*<th>[^<]+</th>((?:\s*<td>[^<]*</td>)+)", tabla)
-    iguales = all(len(set(re.findall(r"<td>([^<]*)</td>", f))) == 1 for f in filas)
-    comprobar(len(filas) == 7 and iguales, "conciliación: las cuatro vías dan el mismo total en las 7 ciudades")
+    texto = s["celdas"]["sp_coherencia"]["texto"]
+    filas = re.search(r"Filas · Spark: (\d+) · pandas: (\d+)", texto)
+    comprobar(filas and filas.group(1) == filas.group(2) and "¿Las mismas ventas? True" in texto
+              and re.search(r"Mayor diferencia por ciudad \(pesos\): 0\.0\n", texto),
+              "conciliación: Spark y pandas llegan a las mismas ventas y a los mismos totales por ciudad")
 
 
 # ---------------------------------------------------------------- 7

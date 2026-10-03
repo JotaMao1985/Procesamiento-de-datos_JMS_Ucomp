@@ -5,7 +5,7 @@
     <div class="animate-fade-in">
       <div class="border-b border-gray-100 pb-6 mb-6">
         <div class="modulo-meta"><span>Módulo 9 · Bloque 2 · Temas 5.1 y 5.2</span><span class="chip-tiempo"><i
-              class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
+              class="far fa-clock" aria-hidden="true"></i> 15 min</span></div>
         <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">DataFrames y Spark SQL
           <span class="text-gray-500 font-normal text-2xl">/ Structured APIs</span></h2>
         <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
@@ -28,7 +28,7 @@
       <h3>Leer el caso</h3>
       {{CELDA:df_crudo}}
       <p>Con <code>inferSchema=True</code>, Spark recorre el archivo para adivinar los tipos: es una excepción a la
-        pereza del módulo 8, porque lee los datos en ese momento; por eso en el bloque 3 le daremos el esquema escrito.
+        pereza del módulo 8, porque lee los datos en ese momento; por eso en el módulo 10 le daremos el esquema escrito.
         Acertó con <code>cantidad</code> y <code>descuento</code>, pero <code>precio_unitario</code> y
         <code>fecha</code> quedaron como texto: es el mismo diagnóstico que dio <code>ventas.info()</code> en la sesión
         1. Los <code>$12.900</code> siguen ahí, y la venta V00005 trae la fecha como <code>01/01/2025</code>.</p>
@@ -37,7 +37,7 @@
       <p>Contar por canal se escribe casi igual que en pandas, pero el resultado hay que pedirlo con una acción como
         <code>show()</code>:</p>
       {{CELDA:df_canal}}
-      <p>Las nueve grafías de canal de la sesión 1. Cambiar de herramienta no limpia los datos: en el bloque 3
+      <p>Las nueve grafías de canal de la sesión 1. Cambiar de herramienta no limpia los datos: en el módulo 11
         repetiremos la limpieza, ahora en Spark.</p>
 
       <h3>El mismo DataFrame, en SQL</h3>
@@ -81,8 +81,8 @@
         «en su lugar»; cada operación devuelve un DataFrame nuevo, que se vuelve a asignar.</p>
 
       <div class="quiz" data-quiz="control-b2">
-        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Control del bloque 2</h4>
-        <p class="text-sm" style="margin-bottom:0;">Cuatro preguntas antes del break largo.</p>
+        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Control: Spark por dentro</h4>
+        <p class="text-sm" style="margin-bottom:0;">Cuatro preguntas antes de pasar a los datos del caso.</p>
         <div class="quiz-progreso" role="presentation">
           <div class="quiz-progreso-barra"></div>
         </div>

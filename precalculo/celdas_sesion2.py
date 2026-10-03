@@ -370,7 +370,7 @@ hdfs dfs -cat /guadua/resultados/conteo/part-00000
 # cuatro partes. ¿Puedes reutilizar `reducer.py`? Resuélvelo en una celda nueva (**+ Código**); la pista y la solución están en el material HTML.
 
 # %% [markdown]
-# ## Bloque 2 · Módulo 6 — Spark: el ecosistema
+# ## Bloque 1 · Módulo 6 — Spark: el ecosistema
 
 # %% spark_sesion variable
 from pyspark.sql import SparkSession
@@ -387,7 +387,7 @@ sc.setLogLevel("ERROR")      # el registro interno de Java solo mostrará errore
 print("Spark", spark.version, "· núcleos disponibles:", sc.defaultParallelism)
 
 # %% [markdown]
-# ## Bloque 2 · Módulo 7 — Arquitectura y RDD
+# ## Bloque 1 · Módulo 7 — Arquitectura y RDD
 
 # %% rdd_particiones
 # Un RDD es una colección repartida en PARTICIONES; cada partición la procesa una tarea
@@ -464,7 +464,7 @@ print("Filas leídas desde HDFS:", desde_hdfs.count())
 print("Particiones en Spark:", desde_hdfs.rdd.getNumPartitions())
 
 # %% [markdown]
-# ## Bloque 3 · Módulo 10 — Leer con esquema
+# ## Bloque 2 · Módulo 10 — Leer con esquema
 # Declaramos el esquema que deben cumplir las ventas (un contrato) y vemos qué filas no lo cumplen.
 # Comparamos los tres modos de lectura: `PERMISSIVE` conserva la fila con nulos, `DROPMALFORMED` la
 # descarta sin avisar y `FAILFAST` detiene todo (el error de la celda `modos` es intencional).
@@ -526,7 +526,7 @@ print("Filas en bronce:", bronce.count())
 bronce.printSchema()
 
 # %% [markdown]
-# ## Bloque 3 · Módulo 11 — La limpieza de la sesión 1, en Spark
+# ## Bloque 2 · Módulo 11 — La limpieza de la sesión 1, en Spark
 # Las seis reglas de la sesión 1, ahora en PySpark. Spark 4 trabaja en **modo ANSI**: una conversión
 # imposible es un error, no un nulo (el error de `sp_ansi` es intencional); cuando el nulo es lo que se
 # quiere, se pide con las funciones `try_`. La última celda comprueba que Spark y pandas llegan a la misma tabla.
@@ -603,7 +603,7 @@ print("Mayor diferencia por ciudad (pesos):",
       round((spark_ciudad - df.groupby("ciudad")["total"].sum()).abs().max(), 6))
 
 # %% [markdown]
-# ## Bloque 3 · Módulo 12 — Agregar, unir y ventanas
+# ## Bloque 2 · Módulo 12 — Agregar, unir y ventanas
 
 # %% sp_union
 # Unir con el catálogo. broadcast: la tabla pequeña se copia a cada ejecutor y se evita un shuffle
@@ -658,7 +658,7 @@ puesto = F.row_number().over(Window.partitionBy("categoria").orderBy(F.desc("uni
 # y canal. ¿Hay algún canal que tenga siempre el ticket más alto? Resuélvelo en una celda nueva (**+ Código**); la pista y la solución están en el material HTML.
 
 # %% [markdown]
-# ## Bloque 3 · Módulo 13 — Datos semiestructurados: los eventos de la web
+# ## Bloque 2 · Módulo 13 — Datos semiestructurados: los eventos de la web
 # JSON con campos opcionales y anidados: un nulo puede ser «no aplica» o un error de calidad.
 # Los eventos no siguen a una persona de la búsqueda al pago: comparan volúmenes, no son un embudo.
 
@@ -689,7 +689,7 @@ pagos = logs.filter(F.col("evento") == "pagar")
       .show())
 
 # %% logs_aplanar
-# Aplanar: de JSON anidado a una tabla con columnas simples, lista para guardar en la base de datos
+# Aplanar: de JSON anidado a una tabla con columnas simples, lista para guardarla en una base de datos (sesión 3)
 eventos = logs.select(
     F.to_timestamp("ts").alias("momento"),
     "sesion", "evento", "ciudad", "id_cliente", "id_producto", "consulta",
@@ -715,302 +715,6 @@ eventos.orderBy("momento", "sesion").show(3)
 # %% [markdown]
 # **Ejercicio (módulo 13).** ¿Qué buscan más los clientes en la web y la app? Muestra las cinco búsquedas
 # más frecuentes, con su reparto entre móvil y escritorio. Resuélvelo en una celda nueva (**+ Código**); la pista y la solución están en el material HTML.
-
-# %% [markdown]
-# ## Bloque 4 · Módulo 14 — Crear la base de datos
-# Un modelo en estrella en miniatura: la tabla de hechos `ventas` y la dimensión `productos`, más la capa
-# bronce (`ventas_bronce`), la cuarentena y los eventos web. El catálogo vive en memoria: si reinicias la
-# sesión, vuelve a ejecutar desde `spark_sesion` (la primera celda de este módulo limpia los restos).
-
-# %% bd_crear
-import shutil
-
-# El catálogo vive en memoria: tras reiniciar la sesión, las tablas ya no existen pero sus carpetas
-# sí, y Spark no deja crear una tabla administrada sobre una carpeta con datos. Limpiamos esos restos.
-if not spark.catalog.databaseExists("guadua"):
-    shutil.rmtree("spark-warehouse/guadua.db", ignore_errors=True)
-
-# Una base de datos (o «esquema») agrupa tablas en el catálogo de Spark
-spark.sql("CREATE DATABASE IF NOT EXISTS guadua COMMENT 'Caso Tiendas Guadua (ficticio)'")
-spark.sql("USE guadua")
-spark.sql("SHOW DATABASES").show()
-
-# %% bd_ddl
-# DDL: la tabla se DEFINE antes de cargarla, con tipos y comentarios
-spark.sql("""
-    CREATE TABLE IF NOT EXISTS productos (
-        id_producto  STRING  COMMENT 'Llave del producto',
-        nombre       STRING,
-        categoria    STRING,
-        precio_lista INT     COMMENT 'Pesos colombianos'
-    )
-    USING parquet
-    COMMENT 'Catálogo de productos'
-""")
-spark.sql("DESCRIBE TABLE productos").show(truncate=False)
-
-# %% bd_externa
-# Tabla EXTERNA: el catálogo solo apunta al archivo; los datos se quedan donde están
-ruta_csv = os.path.abspath("datos/ventas.csv")
-spark.sql(f"""
-    CREATE TABLE IF NOT EXISTS ventas_bronce
-    USING csv
-    OPTIONS (path '{ruta_csv}', header 'true')
-""")
-spark.sql("SELECT COUNT(*) AS filas FROM ventas_bronce").show()
-
-# %% [markdown]
-# ## Bloque 4 · Módulo 15 — Cargar la información
-
-# %% bd_insertar
-# Cargar con SQL: INSERT OVERWRITE reemplaza el contenido (se puede repetir sin duplicar)
-productos_sp.createOrReplaceTempView("productos_csv")
-spark.sql("""
-    INSERT OVERWRITE TABLE productos
-    SELECT id_producto, nombre, categoria, precio_lista FROM productos_csv
-""")
-spark.sql("""
-    SELECT categoria, COUNT(*) AS productos, MIN(precio_lista) AS minimo, MAX(precio_lista) AS maximo
-    FROM productos GROUP BY categoria ORDER BY categoria
-""").show()
-
-# %% bd_ventas
-# Cargar con la API: tabla ADMINISTRADA en Parquet, particionada por mes (capa PLATA).
-# La tabla de hechos guarda la llave del producto; nombre y categoría viven en «productos»
-(ventas_sp.drop("nombre", "categoria")
-          .write
-          .mode("overwrite")
-          .format("parquet")
-          .partitionBy("mes")
-          .saveAsTable("guadua.ventas"))
-spark.sql("SELECT mes, COUNT(*) AS ventas FROM ventas GROUP BY mes ORDER BY mes").show()
-
-# %% bd_archivos variable
-# Cada partición es una carpeta; dentro, archivos Parquet (columnares y comprimidos)
-!ls spark-warehouse/guadua.db/ventas
-!du -sh datos/ventas.csv spark-warehouse/guadua.db/ventas
-
-# %% bd_resto
-# Las demás tablas: eventos web aplanados y la cuarentena, con el motivo de cada fila
-eventos.write.mode("overwrite").format("parquet").saveAsTable("guadua.eventos_web")
-(cuarentena_sp.withColumn("motivo", F.lit("cantidad fuera de [1, 50]"))
-              .write.mode("overwrite").format("parquet").saveAsTable("guadua.cuarentena"))
-tablas = [t for t in spark.catalog.listTables("guadua") if not t.isTemporary]
-for tabla in sorted(tablas, key=lambda t: t.name):
-    filas = spark.table(f"guadua.{tabla.name}").count()
-    print(f"{tabla.name:<14} {tabla.tableType:<9} {filas:>5} filas")
-
-# %% bd_idempotencia
-# ¿Y si la carga se ejecuta dos veces? Con «append», los datos se DUPLICAN sin aviso
-spark.table("productos").write.mode("overwrite").saveAsTable("prueba_carga")
-spark.table("productos").write.mode("append").saveAsTable("prueba_carga")
-print("dos cargas con append    →", spark.table("prueba_carga").count(), "filas")
-spark.table("productos").write.mode("overwrite").saveAsTable("prueba_carga")
-filas = spark.table("prueba_carga").count()
-spark.sql("DROP TABLE prueba_carga")              # la tabla era solo para la prueba
-print("una carga con overwrite  →", filas, "filas")
-
-# %% [markdown]
-# ## Bloque 4 · Módulo 16 — Explorar y consultar con Spark SQL
-
-# %% sql_ciudad
-spark.sql("""
-    SELECT ciudad,
-           COUNT(*)                         AS ventas,
-           ROUND(SUM(total) / 1e6, 1)       AS millones,
-           CAST(ROUND(AVG(total)) AS INT)   AS ticket_promedio
-    FROM ventas
-    GROUP BY ciudad
-    ORDER BY SUM(total) DESC          -- la suma exacta: el redondeo no deja empates
-""").show()
-
-# %% sql_categoria
-# JOIN con la dimensión: la categoría está en «productos», no en «ventas»
-spark.sql("""
-    SELECT p.categoria,
-           ROUND(SUM(v.total) / 1e6, 1)                            AS millones,
-           ROUND(100 * SUM(v.total) / SUM(SUM(v.total)) OVER (), 1) AS pct
-    FROM ventas v
-    JOIN productos p ON v.id_producto = p.id_producto
-    GROUP BY p.categoria
-    ORDER BY millones DESC, p.categoria   -- el nombre desempata: Frescos y Aseo redondean igual
-""").show()
-
-# %% sql_app
-# ¿Está ganando terreno la app? Participación mensual, con CASE WHEN
-spark.sql("""
-    SELECT mes,
-           ROUND(100 * SUM(CASE WHEN canal = 'App' THEN total END) / SUM(total), 1) AS pct_app
-    FROM ventas
-    GROUP BY mes
-    ORDER BY mes
-""").show()
-
-# %% sql_acumulado
-# Una CTE (WITH) y una ventana: ventas mensuales y acumuladas de cada canal
-spark.sql("""
-    WITH mensual AS (
-        SELECT canal, mes, SUM(total) / 1e6 AS millones
-        FROM ventas
-        GROUP BY canal, mes
-    )
-    SELECT canal, mes,
-           ROUND(millones, 2)                                          AS millones,
-           ROUND(SUM(millones) OVER (PARTITION BY canal ORDER BY mes), 2) AS acumulado
-    FROM mensual
-    ORDER BY canal, mes
-""").show(18)
-
-# %% sql_explain
-# EFICIENCIA: con un filtro sobre la columna de partición, Spark solo abre la carpeta de junio
-plan = spark.sql("""
-    EXPLAIN SELECT ciudad, SUM(total) FROM ventas WHERE mes = '2025-06' GROUP BY ciudad
-""").first()[0]
-# El plan es un texto largo: tomamos la línea que lee los archivos (FileScan), le quitamos los
-# números internos que Spark pone a cada columna (#12) y mostramos tres de sus campos.
-# Para ver el plan completo: print(plan)
-escaneo = re.sub(r"#\d+", "", next(l for l in plan.splitlines() if "FileScan" in l))
-for campo in ["Location", "PartitionFilters", "ReadSchema"]:
-    print(re.search(campo + r": .*?(?=, [A-Z]\w+: |$)", escaneo).group(0))
-
-# %% sol_sql_pago solucion
-# Ticket promedio y número de ventas por método de pago en la app
-spark.sql("""
-    SELECT metodo_pago, COUNT(*) AS ventas, CAST(ROUND(AVG(total)) AS INT) AS ticket_promedio
-    FROM ventas
-    WHERE canal = 'App'
-    GROUP BY metodo_pago
-    ORDER BY ventas DESC
-""").show()
-
-# %% sol_sql_eventos solucion
-# Tasa de aprobación de pagos por sistema operativo, desde la tabla de eventos
-spark.sql("""
-    SELECT sistema_operativo,
-           COUNT(*)                                          AS pagos,
-           ROUND(100 * AVG(CAST(pago_aprobado AS INT)), 1)   AS pct_aprobados
-    FROM eventos_web
-    WHERE evento = 'pagar'
-    GROUP BY sistema_operativo
-    ORDER BY pagos DESC, sistema_operativo
-""").show()
-
-
-# %% [markdown]
-# **Ejercicios (módulo 16).**
-# 1. En la app, ¿cuántas ventas y qué ticket promedio tiene cada método de pago?
-# 2. Con la tabla `eventos_web`, calcula la tasa de aprobación de los pagos por sistema operativo.
-#
-# Resuélvelo en una celda nueva (**+ Código**); la pista y la solución están en el material HTML.
-
-# %% [markdown]
-# ## Bloque 4 · Módulo 17 — Controles: seguridad, eficiencia, coherencia y correlación
-# Los cuatro controles del criterio CR3 sobre `guadua`. La sal de `ctl_seguridad` es un ejemplo
-# público: en tu trabajo, guárdala en el panel **Secretos** de Colab (icono de llave) y léela con
-# `google.colab.userdata`. Si Hadoop no arrancó, borra la línea «Hadoop Streaming» de `ctl_conciliacion`.
-
-# %% ctl_seguridad
-# SEGURIDAD: una tabla para analistas SIN el identificador del cliente.
-# El seudónimo es un hash con «sal» secreta: permite contar y seguir clientes, no identificarlos
-# En producción la sal es un secreto largo y aleatorio que nunca va en el código (en Colab:
-# panel Secretos y google.colab.userdata). Aquí, si no existe la variable SAL_GUADUA, se usa un
-# valor de ejemplo PÚBLICO: estos seudónimos no protegen nada (los datos son ficticios).
-SAL = os.environ.get("SAL_GUADUA", "sal-de-ejemplo")
-seudonimo = F.when(F.col("id_cliente") == "ANONIMO", F.lit("ANONIMO")).otherwise(
-    F.substring(F.sha2(F.concat(F.lit(SAL), F.col("id_cliente")), 256), 1, 16))
-(spark.table("ventas")
-      .withColumn("cliente", seudonimo)
-      .drop("id_cliente")
-      .write.mode("overwrite").format("parquet").saveAsTable("guadua.ventas_analitica"))
-
-spark.sql("SELECT id_venta, mes, ciudad, cliente, total FROM ventas_analitica ORDER BY id_venta").show(4)
-# ¿Se puede seguir contando clientes? («ANONIMO» agrupa las compras sin registro: no se cuenta)
-spark.sql("""
-    SELECT (SELECT COUNT(DISTINCT id_cliente) FROM ventas
-            WHERE id_cliente <> 'ANONIMO')                   AS clientes_originales,
-           (SELECT COUNT(DISTINCT cliente) FROM ventas_analitica
-            WHERE cliente <> 'ANONIMO')                      AS clientes_seudonimizados
-""").show()
-
-# %% ctl_coherencia
-# COHERENCIA: controles que deben dar CERO antes de publicar cualquier cifra
-controles = {
-    "id_venta repetido": "SELECT COUNT(*) - COUNT(DISTINCT id_venta) FROM ventas",
-    "venta sin producto en el catálogo":
-        "SELECT COUNT(*) FROM ventas v LEFT ANTI JOIN productos p ON v.id_producto = p.id_producto",
-    "cantidad fuera de [1, 50]": "SELECT COUNT(*) FROM ventas WHERE cantidad NOT BETWEEN 1 AND 50",
-    "canal desconocido": "SELECT COUNT(*) FROM ventas WHERE canal NOT IN ('Tienda', 'Web', 'App')",
-    "vacíos en columnas clave":
-        "SELECT COUNT(*) FROM ventas WHERE fecha IS NULL OR ciudad IS NULL OR total IS NULL",
-    "filas sin destino (distintas en bronce − plata − cuarentena)": """
-        SELECT (SELECT COUNT(*) FROM (SELECT DISTINCT * FROM ventas_bronce))
-             - (SELECT COUNT(*) FROM ventas)
-             - (SELECT COUNT(*) FROM cuarentena)""",
-}
-for nombre, consulta in controles.items():
-    fallas = spark.sql(consulta).first()[0]
-    print(f"{'✔' if fallas == 0 else '✘'} {nombre}: {fallas}")
-
-# %% ctl_conciliacion
-# Cuatro caminos, un mismo resultado: total por ciudad, en millones de pesos
-por_sql = spark.sql("SELECT ciudad, SUM(total) AS total FROM ventas GROUP BY ciudad").toPandas()
-conciliacion = pd.DataFrame({
-    "pandas (sesión 1)": df.groupby("ciudad")["total"].sum(),
-    "Hadoop Streaming": hadoop_ciudad,
-    "Spark DataFrame": spark_ciudad,
-    "Spark SQL": por_sql.set_index("ciudad")["total"],
-}).div(1e6).round(3)
-conciliacion
-
-# %% ctl_correlacion
-# CORRELACIÓN: ¿qué variables se mueven juntas? (−1 inversa, 0 ninguna, +1 directa)
-print("precio unitario vs. cantidad:",
-      round(spark.table("ventas").stat.corr("precio_unitario", "cantidad"), 2))
-
-app_mensual = spark.sql("""
-    SELECT MONTH(fecha) AS numero_mes,
-           100 * SUM(CASE WHEN canal = 'App' THEN total END) / SUM(total) AS pct_app
-    FROM ventas GROUP BY MONTH(fecha)
-""")
-print("mes vs. participación de la app:", round(app_mensual.stat.corr("numero_mes", "pct_app"), 2))
-
-# Integrar dos fuentes por su llave: vistas vs. unidades vendidas por producto. Los eventos solo
-# cubren junio, y en la tienda física nadie pasa por la web: se comparan las ventas web y app de junio
-vistas_vs_unidades = spark.sql("""
-    SELECT p.id_producto,
-           COALESCE(w.vistas, 0)   AS vistas,
-           COALESCE(u.unidades, 0) AS unidades
-    FROM productos p
-    LEFT JOIN (SELECT id_producto, COUNT(*) AS vistas FROM eventos_web
-               WHERE evento = 'ver_producto' GROUP BY id_producto) w ON p.id_producto = w.id_producto
-    LEFT JOIN (SELECT id_producto, SUM(cantidad) AS unidades FROM ventas
-               WHERE mes = '2025-06' AND canal IN ('Web', 'App')
-               GROUP BY id_producto) u ON p.id_producto = u.id_producto
-""")
-print("vistas vs. unidades vendidas en web y app (junio):",
-      round(vistas_vs_unidades.stat.corr("vistas", "unidades"), 2))
-
-# %% ctl_formatos variable
-import glob
-import pyarrow.parquet as pq
-
-# EFICIENCIA: Parquet guarda cada columna por separado; ¿cuántos bytes ocupa cada una?
-# Cada archivo Parquet guarda al final sus metadatos, con los bytes de cada columna
-filas = []
-for archivo in glob.glob("spark-warehouse/guadua.db/ventas/mes=*/*.parquet"):
-    mes = archivo.split("mes=")[1].split("/")[0]
-    meta = pq.ParquetFile(archivo).metadata
-    for g in range(meta.num_row_groups):
-        for c in range(meta.num_columns):
-            columna = meta.row_group(g).column(c)
-            filas.append((mes, columna.path_in_schema, columna.total_compressed_size))
-bytes_parquet = pd.DataFrame(filas, columns=["mes", "columna", "bytes"])
-por_columna = bytes_parquet.groupby("columna")["bytes"].sum().sort_values(ascending=False)
-junio = bytes_parquet.query("mes == '2025-06' and columna in ['ciudad', 'total']")["bytes"].sum()
-print(f"CSV, todo el archivo              : {os.path.getsize('datos/ventas.csv'):>7} bytes")
-print(f"Parquet, las {len(por_columna)} columnas          : {por_columna.sum():>7} bytes")
-print(f"Parquet, ciudad y total de junio  : {junio:>7} bytes")
-por_columna.to_frame("bytes en Parquet")
 
 # %% cifras privada
 # Cifras que el texto del material cita. Se calculan aquí para que NINGUNA se escriba
@@ -1039,13 +743,18 @@ _dropmalformed = _l.cache().count()
 _l.unpersist()
 _pagos = logs.filter(F.col("evento") == "pagar")
 _cuenta_logs = {c: logs.filter(F.col(c).isNotNull()).count() for c in logs.columns}
-_corr_precio = spark.table("ventas").stat.corr("precio_unitario", "cantidad")
-_corr_app = app_mensual.stat.corr("numero_mes", "pct_app")
-_corr_vistas = vistas_vs_unidades.stat.corr("vistas", "unidades")
-_csv = os.path.getsize("datos/ventas.csv")
 _aprobacion = (_pagos.groupBy(F.col("pago.medio").alias("medio"))
                      .agg(F.avg(F.col("pago.aprobado").cast("int")).alias("tasa")).toPandas())
-_parquet = int(bytes_parquet["bytes"].sum())
+
+
+def _pct_app(mes):
+    """Participación de la app en las ventas del mes (la cifra que la sesión 1 calculó con pandas)."""
+    fila = (ventas_sp.filter(F.col("mes") == mes)
+                     .agg(F.sum(F.when(F.col("canal") == "App", F.col("total"))).alias("app"),
+                          F.sum("total").alias("todo")).first())
+    return 100 * fila["app"] / fila["todo"]
+
+
 CIFRAS = {
     "filas_crudas": _es(len(ventas)),
     "filas_limpias": _es(len(df)),
@@ -1075,23 +784,12 @@ CIFRAS = {
     "eventos_pago": _es(_pagos.count()),
     "medio_mas_rechazo": _aprobacion.sort_values("tasa")["medio"].iloc[0].lower(),
     "pct_pagos_aprobados": _es(100 * _pagos.filter(F.col("pago.aprobado")).count() / _pagos.count(), 1),
-    "corr_precio": _es(_corr_precio, 2),
-    "corr_app": _es(_corr_app, 2),
-    "corr_vistas": _es(_corr_vistas, 2),
-    "bytes_csv": _es(_csv),
-    "bytes_parquet": _es(_parquet),
-    "pct_parquet": _es(100 * _parquet / _csv, 1),
-    "bytes_junio_2col": _es(int(junio)),
-    "pct_junio_2col": _es(100 * junio / _csv, 1),
-    "app_ene": _es(spark.sql("SELECT 100 * SUM(CASE WHEN canal = 'App' THEN total END) / SUM(total) "
-                             "FROM ventas WHERE mes = '2025-01'").first()[0], 1),
-    "app_jun": _es(spark.sql("SELECT 100 * SUM(CASE WHEN canal = 'App' THEN total END) / SUM(total) "
-                             "FROM ventas WHERE mes = '2025-06'").first()[0], 1),
+    "app_ene": _es(_pct_app("2025-01"), 1),
+    "app_jun": _es(_pct_app("2025-06"), 1),
     "nucleos": _es(sc.defaultParallelism),
     "particiones_hdfs": _es(desde_hdfs.rdd.getNumPartitions()),
     "pagos_sin_cliente": _es(_pagos.filter(F.col("id_cliente").isNull()).count()),
     "productos": _es(productos_sp.count()),
-    "columnas_parquet": _es(len(por_columna)),
 }
 
 # Datos para los simuladores del HTML, calculados con los mismos datos
@@ -1106,13 +804,6 @@ SIMULADORES = {
                                           F.col("pago.aprobado").alias("aprobado"))
                                  .agg(F.count("*").alias("n")).toPandas()
                                  .sort_values(["tipo", "so", "aprobado"]).iterrows())],
-    "formatos": {
-        "csv_bytes": _csv,
-        "parquet": [{"mes": r.mes, "columna": r.columna, "bytes": int(r.bytes)}
-                    for r in bytes_parquet.groupby(["mes", "columna"], as_index=False)["bytes"].sum()
-                                          .itertuples()],
-        "columnas": list(ESQUEMA.fieldNames()) + ["total"],
-    },
     "combiner": {
         estado: {"map_output": _contador(f"job_{estado}.log", "Map output records"),
                  "combine_output": _contador(f"job_{estado}.log", "Combine output records"),
@@ -1124,12 +815,12 @@ SIMULADORES = {
 
 # %% [markdown]
 # ## Para el taller
-# El enunciado completo y la rúbrica están en el módulo 18 del material HTML.
-# Sigue trabajando en este mismo notebook: ya tienes HDFS en marcha, la sesión de Spark
-# y la base de datos `guadua` con sus tablas.
+# El enunciado completo y la rúbrica están en el módulo 14 del material HTML.
+# Sigue trabajando en este mismo notebook: ya tienes HDFS en marcha, la sesión de Spark,
+# la tabla plata `v` y los eventos web `logs`.
 #
 # Al terminar, puedes apagar los servicios con la celda siguiente. No la ejecutes antes de acabar:
-# `spark.stop()` borra el catálogo en memoria y habría que volver a crear las tablas.
+# `spark.stop()` borra de la memoria los DataFrames y las vistas, y habría que volver a ejecutar el notebook.
 
 # %% apagar
 # Apagar Spark y los servicios de HDFS (Colab también los apaga al cerrar el entorno)

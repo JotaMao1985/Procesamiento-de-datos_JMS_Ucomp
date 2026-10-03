@@ -30,10 +30,10 @@ Abrir con la frase y con la pregunta: ¿qué pasa entre el registro que deja una
 ::: tarjetas
 ### Sesión 1 · hoy · 6 h
 **Del dato al MapReduce.** Seis etapas, nube y Hadoop, limpieza con pandas y MapReduce en Python.
-### Sesión 2 · 6 h
-**De Hadoop a Spark.** HDFS y Hadoop Streaming en Colab, PySpark, datos semiestructurados y Spark SQL.
-### Sesión 3 · 4 h
-**Datos no estructurados.** Extracción y carga, lenguaje natural, análisis de sentimientos y cierre del caso.
+### Sesión 2 · 4 h
+**De Hadoop a Spark.** HDFS y Hadoop Streaming en Colab, PySpark, Spark SQL y datos semiestructurados.
+### Sesión 3 · 6 h
+**Bases de datos y datos no estructurados.** Spark SQL, lenguaje natural, sentimientos y cierre del caso.
 :::
 
 ???
@@ -64,7 +64,7 @@ Pedir que escriban la hora de inicio en la agenda del material: la agenda y la b
 Evaluación formativa: **autoevaluación** (los cuestionarios), **coevaluación** y **heteroevaluación** del taller.
 
 ???
-CR3 habla de bases de datos: hoy hacemos los controles todavía sin base de datos y en la sesión 2 los llevamos a Spark SQL. La rúbrica del taller está en el módulo 17; los criterios se acuerdan con el grupo.
+CR3 habla de bases de datos: hoy hacemos los controles todavía sin base de datos, en la sesión 2 los repetimos en Hadoop y Spark, y en la sesión 3 los llevamos a una base de datos con Spark SQL. La rúbrica del taller está en el módulo 17; los criterios se acuerdan con el grupo.
 
 # Del dato a la decisión {seccion=modulo-2}
 
@@ -1162,10 +1162,10 @@ El enunciado completo y la rúbrica están en el módulo 17; las tres preguntas 
 
 - El `mapper.py` y el `reducer.py` de hoy, en **Hadoop Streaming**
 - **Spark**: el mismo procesamiento, en memoria y con DataFrames
-- La limpieza de hoy, repetida en Spark; los logs JSON de la web
-- Una base de datos consultable con **Spark SQL**
+- La limpieza de hoy, repetida en Spark
+- Los logs JSON de la web: datos **semiestructurados**
 
 No hace falta guardar nada de hoy: el notebook de la sesión 2 repite la limpieza en sus primeras celdas.
 
 ???
-El taller se entrega antes de la sesión 2, y el curso cierra en la sesión 3 con la sustentación del caso.
+El taller se entrega antes de la sesión 2. La sesión 2 dura 4 horas; la 3, de 6, empieza con la base de datos del caso en Spark SQL, sigue con las reseñas y cierra el curso con la sustentación del caso.

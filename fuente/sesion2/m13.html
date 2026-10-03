@@ -1,10 +1,10 @@
   <!-- ============================================================ -->
-  <!-- MÓDULO 13 · Datos semiestructurados: logs web      (Bloque 3) -->
+  <!-- MÓDULO 13 · Datos semiestructurados: logs web      (Bloque 2) -->
   <!-- ============================================================ -->
   <template id="module-13">
     <div class="animate-fade-in">
       <div class="border-b border-gray-100 pb-6 mb-6">
-        <div class="modulo-meta"><span>Módulo 13 · Bloque 3 · Tema 5.2</span><span class="chip-tiempo"><i
+        <div class="modulo-meta"><span>Módulo 13 · Bloque 2 · Tema 5.2</span><span class="chip-tiempo"><i
               class="far fa-clock" aria-hidden="true"></i> 20 min</span></div>
         <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Datos semiestructurados: los
           eventos de la web <span class="text-gray-500 font-normal text-2xl">/ Semi-structured data</span></h2>
@@ -13,14 +13,14 @@
           <div>
             <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
             <p class="text-gray-600 text-sm" style="margin:0;">Leer datos JSON con campos opcionales y anidados,
-              medir su completitud y aplanarlos en una tabla lista para la base de datos.</p>
+              medir su completitud y aplanarlos en una tabla de columnas simples.</p>
           </div>
         </div>
       </div>
 
       <p>En la sesión 1 presentamos <code>logs_web.jsonl</code>: un evento de la tienda web o de la app por línea, en
         formato JSON. El archivo cubre los {{CIFRA:eventos}} eventos de junio de 2025: por eso, cuando lo crucemos con
-        las ventas (módulo 17), compararemos con las ventas de junio. Cada evento nombra sus campos —por eso tiene estructura— pero no todos traen los mismos: una
+        las ventas (en el taller 2), compararemos con las ventas de junio. Cada evento nombra sus campos —por eso tiene estructura— pero no todos traen los mismos: una
         búsqueda trae <code>consulta</code>, un pago trae <code>pago</code>. Es el dato
         <strong>semiestructurado</strong>. Así se ven dos líneas del archivo:</p>
       <div class="tarjeta tipo-dato">
@@ -73,7 +73,8 @@
       </div>
 
       <h3>Aplanar: de JSON anidado a tabla</h3>
-      <p>Para guardar los eventos en la base de datos y consultarlos con SQL, conviene una tabla de columnas simples.
+      <p>Para unir los eventos con otras tablas, o guardarlos en una base de datos y consultarlos con SQL, conviene una
+        tabla de columnas simples.
         Se eligen los campos, se «sacan» los anidados y se convierte la marca de tiempo en un tipo de fecha y hora:</p>
       {{CELDA:logs_aplanar}}
 
@@ -107,9 +108,9 @@
       </div>
 
       <div class="note">
-        <p style="margin-bottom:0;"><strong>Lo logrado en el bloque 3.</strong> La limpieza de la sesión 1 corre ahora en
+        <p style="margin-bottom:0;"><strong>Lo logrado en el bloque 2.</strong> La limpieza de la sesión 1 corre ahora en
           Spark y llega a las mismas {{CIFRA:filas_limpias}} ventas; los {{CIFRA:eventos}} eventos de la web quedaron
-          aplanados en una tabla. Después del break, todo esto pasa a una base de datos con nombre, permanencia y
+          aplanados en una tabla. En la sesión 3, todo esto pasa a una base de datos con nombre, permanencia y
           controles.</p>
       </div>
     </div>

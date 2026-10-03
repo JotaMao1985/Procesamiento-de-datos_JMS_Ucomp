@@ -22,17 +22,19 @@
         <code>mapper.py</code> y un <code>reducer.py</code> que se comunicaban por texto. Funcionó en una sola máquina.
         Hoy damos el salto que prometimos: <strong>los mismos programas en Hadoop</strong>, sobre un sistema de archivos
         distribuido, y después <strong>Spark</strong>, el motor que reemplazó a MapReduce en la mayoría de las
-        empresas. Terminaremos con una <strong>base de datos</strong> consultable con SQL y con los controles que la
-        hacen confiable.</p>
+        empresas: con él repetiremos la limpieza de la sesión 1 y leeremos los eventos de la web. En la sesión 3, todo
+        esto pasará a una <strong>base de datos</strong> consultable con SQL, con los controles que la hacen
+        confiable.</p>
 
       <div class="definition">
         <h4><i class="fas fa-briefcase mr-2" aria-hidden="true"></i>El encargo de la gerencia para hoy</h4>
         <ul style="margin-bottom:0;">
           <li>«Si mañana los datos fueran mil veces más, ¿el mismo proceso seguiría funcionando?» Es la quinta pregunta
-            de la sesión 1: la responden los bloques 1 a 3.</li>
+            de la sesión 1: la responde la sesión de hoy.</li>
+          <li>«Antes de publicar una cifra, demuéstrennos que es correcta.» Módulos 4 y 11: cada resultado se compara
+            con el de otro camino.</li>
           <li>«Queremos que cualquier analista consulte las ventas con SQL, sin pedirle el notebook a nadie y sin ver
-            quién es cada cliente.» Bloque 4.</li>
-          <li>«Antes de publicar una cifra, demuéstrennos que es correcta.» Módulo 17.</li>
+            quién es cada cliente.» Lo resolveremos al empezar la sesión 3, con la base de datos del caso.</li>
         </ul>
       </div>
 
@@ -80,29 +82,29 @@
           <span class="tarjeta-etiqueta">CR1</span>
           <p class="tarjeta-titulo"><i class="fas fa-shield-halved" aria-hidden="true"></i>Seguridad en la
             transformación</p>
-          <p>Verificar la integridad del software que se descarga (módulo 2), permisos en HDFS (módulo 3) y
-            seudonimizar clientes antes de entregar datos a analistas (módulo 17).</p>
+          <p>Verificar la integridad del software que se descarga (módulo 2) y cerrar con permisos los datos crudos en
+            HDFS (módulo 3). En la sesión 3, seudonimizar a los clientes antes de entregar datos a analistas.</p>
         </div>
         <div class="tarjeta">
           <span class="tarjeta-etiqueta">CR2</span>
           <p class="tarjeta-titulo"><i class="fas fa-object-group" aria-hidden="true"></i>Integrar lo cuantitativo y
             lo cualitativo</p>
-          <p>Hoy, integrar fuentes: unir las ventas (estructuradas) con el comportamiento de los clientes en la web
-            (semiestructurado) por una llave común, y medir si se relacionan (módulos 13 y 17). Lo cualitativo de las
-            reseñas vuelve en la sesión 3, con el análisis de sentimientos.</p>
+          <p>Hoy, integrar fuentes: leer el comportamiento de los clientes en la web (semiestructurado, módulo 13) y,
+            en el taller, unirlo con las ventas (estructuradas) por una llave común. Lo cualitativo de las reseñas
+            vuelve en la sesión 3, con el análisis de sentimientos.</p>
         </div>
-        <div class="tarjeta destacada">
-          <span class="tarjeta-etiqueta">CR3 · el centro de hoy</span>
-          <p class="tarjeta-titulo"><i class="fas fa-database" aria-hidden="true"></i>Bases de datos con
-            controles</p>
-          <p>Crear la base de datos del caso con Spark y establecer en ella controles de seguridad, eficiencia,
-            coherencia y correlación (bloque 4).</p>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">CR3</span>
+          <p class="tarjeta-titulo"><i class="fas fa-list-check" aria-hidden="true"></i>Controles de calidad</p>
+          <p>Hoy, controles de coherencia todavía sin base de datos: comparar el resultado de Hadoop con el de pandas
+            (módulo 4) y la limpieza de Spark con la de pandas (módulo 11). En la sesión 3, la base de datos del caso
+            con sus controles de seguridad, eficiencia, coherencia y correlación.</p>
         </div>
       </div>
 
       <h3>La agenda de hoy</h3>
-      <p>Cuatro bloques de 75 minutos, con breaks de 15, 30 y 15 minutos. Escribe la hora de inicio en la agenda: la
-        agenda, la barra lateral y el reloj del modo presentación se ajustan a la hora real.</p>
+      <p>Cuatro horas en dos bloques de 105 minutos, con un break de 30 minutos en la mitad. Escribe la hora de inicio
+        en la agenda: la agenda, la barra lateral y el reloj del modo presentación se ajustan a la hora real.</p>
       <div class="agenda" data-agenda></div>
 
       <h3>Antes de empezar: el notebook</h3>

@@ -154,7 +154,7 @@
           <tr><td><strong>Mapper / reducer</strong></td><td>Funciones del programador en MapReduce: emitir pares clave–valor; resumir los valores de cada clave.</td></tr>
           <tr><td><strong>Combiner</strong></td><td>Reducción local, opcional, de la salida de cada mapper para enviar menos pares por la red. Hadoop puede ejecutarlo cero, una o varias veces: solo sirve para operaciones asociativas y conmutativas, como la suma.</td></tr>
           <tr><td><strong>Shuffle</strong> (<em>shuffle and sort</em>)</td><td>Fase en que los pares viajan por la red y se agrupan y ordenan por clave.</td></tr>
-          <tr><td><strong>Partición</strong> (<em>partition</em>)</td><td>En MapReduce, el grupo de claves que recibe un mismo reducer: por defecto, hash(clave) mod R. En la sesión 2 la palabra tiene otros dos sentidos.</td></tr>
+          <tr><td><strong>Partición</strong> (<em>partition</em>)</td><td>En MapReduce, el grupo de claves que recibe un mismo reducer: por defecto, hash(clave) mod R. En las sesiones 2 y 3 la palabra tiene otros dos sentidos.</td></tr>
           <tr><td><strong>Series / DataFrame</strong></td><td>En pandas, una columna de valores con su índice / una tabla de columnas con nombre, todas del mismo largo.</td></tr>
           <tr><td><strong>Calidad del dato</strong> (<em>data quality</em>)</td><td>Grado en que el dato sirve para su uso. DAMA UK (2013) la mide en seis dimensiones: unicidad, consistencia, validez, exactitud, completitud y oportunidad.</td></tr>
           <tr><td><strong>Cuarentena</strong> (<em>quarantine</em>)</td><td>Tabla donde se apartan, sin borrarlos, los registros que violan una regla, para revisión.</td></tr>
@@ -226,7 +226,7 @@
             <a href="https://www.sic.gov.co/sites/default/files/files/Publicaciones/Guia-Accountability.pdf"
               target="_blank" rel="noopener" class="text-primary underline">sic.gov.co</a>. Cómo demuestra una
             organización que cumple la Ley 1581 (CR1). En español, acceso abierto.</li>
-          <li>Del syllabus, como puente a las sesiones 2 y 3: Kroenke, D. M. (1996). <em>Procesamiento de bases de
+          <li>Del syllabus, como puente a la sesión 3: Kroenke, D. M. (1996). <em>Procesamiento de bases de
               datos: fundamentos, diseño e instrumentación</em> (M. Á. Martínez Sarmiento y G. Sánchez García,
             trads.). Prentice-Hall Hispanoamericana; y Borda, P., Dabenigno, V., Freidin, B. y Güelman, M. (2017).
             <em>Estrategias para el análisis de datos cualitativos</em>. Instituto de Investigaciones Gino Germani,
@@ -239,10 +239,10 @@
         <p style="margin-bottom:0;">Subiremos los datos de Guadua a HDFS y ejecutaremos el <code>mapper.py</code> y el
           <code>reducer.py</code> de hoy con Hadoop Streaming. Después pasaremos a <strong>Spark</strong>: el mismo
           procesamiento, en memoria y con DataFrames que recuerdan a los de pandas, aunque con su propia sintaxis;
-          repetiremos en Spark la limpieza de hoy, leeremos los logs JSON de la web y crearemos una base de datos
-          consultable con Spark SQL. No tienes que guardar archivos de hoy para la sesión 2: su notebook repite la
-          limpieza en sus primeras celdas. El taller se entrega antes de esa sesión, y el curso cierra en la sesión 3
-          con la sustentación del caso.</p>
+          repetiremos en Spark la limpieza de hoy y leeremos los logs JSON de la web. No tienes que guardar archivos de
+          hoy para la sesión 2: su notebook repite la limpieza en sus primeras celdas. El taller se entrega antes de esa
+          sesión. En la sesión 3 crearemos la base de datos del caso con Spark SQL, analizaremos las reseñas y el curso
+          cerrará con la sustentación del caso.</p>
       </div>
     </div>
   </template>

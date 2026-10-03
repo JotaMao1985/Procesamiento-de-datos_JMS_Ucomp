@@ -1,0 +1,115 @@
+<!-- Piezas del cierre de la sesión 2 (antiguo módulo 18) que trataban de los módulos 14 a 17.
+     Se retiraron el 2026-10-03 al pasar la sesión 2 a 4 horas; son para el cierre de la sesión 3.
+     Este archivo NO se incluye en ninguna página. -->
+
+<!-- Seis ideas: la 5 y la 6 originales -->
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">5</span>
+          <p class="tarjeta-titulo">Una base de datos es catálogo + archivos</p>
+          <p>Tablas con nombre y tipos, en Parquet y particionadas: cualquiera las consulta con SQL y cada consulta lee
+            solo lo que necesita.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">6</span>
+          <p class="tarjeta-titulo">Confiable = verificado</p>
+          <p>Cuatro caminos, el mismo total; controles que dan cero; seudónimos con sal. La confianza se demuestra con
+            evidencia ejecutable.</p>
+        </div>
+
+<!-- Taller 2: puntos 3 y 4 originales -->
+          <li><strong>Base de datos.</strong> En la base <code>guadua</code>: una tabla oro con las ventas mensuales
+            por ciudad y categoría, particionada por mes y cargada de forma repetible (ejecutar la carga dos veces no debe
+            duplicar filas), y cuatro consultas SQL que respondan preguntas de la gerencia (al menos una con
+            <code>JOIN</code> y una con ventana). Para una de ellas, el <code>EXPLAIN</code> que muestre la poda de
+            particiones, con su interpretación.</li>
+          <li><strong>Controles (CR1 y CR3).</strong> Al menos un control de cada tipo, ejecutable y con su resultado:
+            seguridad (una tabla o vista para analistas con el cliente seudonimizado con hash y sal; la sal se lee de una
+            variable de entorno o del panel Secretos de Colab y no se escribe en el notebook), eficiencia (bytes leídos
+            por una consulta en CSV frente a Parquet), coherencia (una batería de reglas que den cero) y correlación (una
+            relación medida e interpretada con sus límites). Incluyan en el informe un esquema de qué control de
+            seguridad protege el dato en cada fase (HDFS crudo, bronce, plata, oro) y por qué.</li>
+
+<!-- Glosario -->
+          <tr><td><strong>Catálogo</strong> (<em>metastore</em>)</td><td>Registro de bases de datos, tablas, columnas y ubicación de sus archivos.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Lago de datos / lakehouse</strong> (<em>data lake / lakehouse</em>)</td><td>Archivos abiertos, como Parquet, más un catálogo que les da forma de tablas / un lago al que se agregan transacciones, historial de versiones y control de cambios (Delta Lake, Apache Iceberg).</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Tabla de hechos / dimensión</strong> (<em>fact / dimension table</em>)</td><td>Una fila por evento medible, con llaves y medidas (<code>ventas</code>) / los atributos descriptivos de una entidad (<code>productos</code>). Juntas forman un modelo en estrella (<em>star schema</em>).</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Tabla administrada / externa</strong> (<em>managed / external table</em>)</td><td>Sus archivos los maneja Spark y <code>DROP TABLE</code> los borra / solo apunta a archivos de otros, que <code>DROP TABLE</code> no toca.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>DDL</strong> (<em>data definition language</em>)</td><td>Parte de SQL que define estructuras: <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Partición de tabla</strong> (<em>table partition</em>)</td><td>Carpeta con las filas que comparten el valor de una columna —<code>mes=2025-06</code>—, creada con <code>partitionBy</code>.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Modos de escritura</strong> (<em>save modes</em>)</td><td>Qué hace Spark si la tabla ya existe: <code>overwrite</code> la reemplaza, <code>append</code> agrega filas, <code>errorifexists</code> falla (por defecto), <code>ignore</code> no hace nada.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Idempotencia</strong> (<em>idempotency</em>)</td><td>Ejecutar una o varias veces deja el mismo resultado.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Plan de ejecución</strong> (<em>execution plan</em>)</td><td>Los pasos con que Spark va a resolver una consulta; <code>EXPLAIN</code> lo muestra sin ejecutarla.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Poda de particiones</strong> (<em>partition pruning</em>)</td><td>Leer solo las carpetas (particiones de tabla) que cumplen el filtro.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>CTE</strong> (<em>common table expression</em>)</td><td>Consulta intermedia con nombre (<code>WITH … AS</code>) que se usa como si fuera una tabla.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Seudonimización</strong> (<em>pseudonymisation</em>)</td><td>Reemplazar un identificador por un código que no revela la identidad sin una información adicional guardada aparte. Los datos seudonimizados siguen siendo datos personales.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Sal</strong> (<em>salt</em>)</td><td>Valor que se une al identificador antes de calcular el hash. Si es secreto y se guarda fuera del código y de los datos, nadie puede recalcular el seudónimo; en rigor funciona entonces como una clave, y la práctica recomendada es un hash con clave (HMAC).</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Anonimización</strong> (<em>anonymisation</em>)</td><td>Transformar los datos de forma irreversible para que la persona ya no sea identificable; solo así dejan de ser datos personales.</td></tr>
+
+<!-- Glosario -->
+          <tr><td><strong>Correlación de Pearson</strong> (<em>Pearson correlation</em>)</td><td>Grado en que dos variables varían juntas en línea recta, de −1 a +1. No dice cuál causa a cuál.</td></tr>
+
+<!-- Lectura guía -->
+          <li>Departamento Administrativo Nacional de Estadística. (2024). <em>Guía para la anonimización de datos
+              estructurados</em>.
+            <a href="https://www.dane.gov.co/files/sen/registros-administrativos/guia-anonimizacion-datos2024.pdf"
+              target="_blank" rel="noopener" class="text-primary underline">dane.gov.co</a>. <strong>Capítulo
+              3</strong>, marco conceptual: qué es anonimizar y por qué seudonimizar no basta (módulo 17). En español,
+            acceso abierto.</li>
+
+<!-- Para profundizar -->
+          <li>Armbrust, M., Ghodsi, A., Xin, R. y Zaharia, M. (2021). Lakehouse: A new generation of open platforms
+            that unify data warehousing and advanced analytics. En <em>11th Annual Conference on Innovative Data
+              Systems Research (CIDR ’21)</em>.
+            <a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf" target="_blank" rel="noopener"
+              class="text-primary underline">cidrdb.org</a>. Qué le agrega un <em>lakehouse</em> a un lago de datos
+            (módulo 14). En inglés, acceso abierto.</li>
+
+<!-- Para profundizar -->
+          <li>European Union Agency for Cybersecurity. (2019). <em>Pseudonymisation techniques and best
+              practices</em>. ENISA.
+            <a href="https://www.enisa.europa.eu/publications/pseudonymisation-techniques-and-best-practices"
+              target="_blank" rel="noopener" class="text-primary underline">enisa.europa.eu</a>. Técnicas de
+            seudonimización —hash, hash con clave, cifrado— y sus riesgos (módulo 17). En inglés, acceso abierto.</li>
+
+<!-- Para profundizar -->
+          <li>Apache Software Foundation. (s. f.). <em>Parquet file format</em>.
+            <a href="https://parquet.apache.org/docs/file-format/" target="_blank" rel="noopener"
+              class="text-primary underline">parquet.apache.org</a>. Cómo guarda Parquet cada columna (módulos 15 a
+            17). En inglés, acceso abierto.</li>
+
+<!-- Para profundizar -->
+          <li>Del syllabus: Kroenke, D. M. (1996). <em>Procesamiento de bases de datos: fundamentos, diseño e
+              instrumentación</em> (M. Á. Martínez Sarmiento y G. Sánchez García, trads.). Prentice-Hall
+            Hispanoamericana. Para el modelo relacional y el SQL básico. Las funciones de ventana y las CTE del módulo
+            16 son posteriores a ese libro: ver la referencia de Spark SQL sobre
+            <a href="https://spark.apache.org/docs/4.0.4/sql-ref-syntax-qry-select-window.html" target="_blank"
+              rel="noopener" class="text-primary underline">funciones de ventana</a> y
+            <a href="https://spark.apache.org/docs/4.0.4/sql-ref-syntax-qry-select-cte.html" target="_blank"
+              rel="noopener" class="text-primary underline">CTE</a>.</li>
+

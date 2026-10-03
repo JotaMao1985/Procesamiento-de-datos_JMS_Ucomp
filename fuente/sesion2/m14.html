@@ -1,141 +1,225 @@
   <!-- ============================================================ -->
-  <!-- MÓDULO 14 · Crear la base de datos                 (Bloque 4) -->
+  <!-- MÓDULO 14 · Cierre, taller y lecturas              (Bloque 2) -->
   <!-- ============================================================ -->
   <template id="module-14">
     <div class="animate-fade-in">
       <div class="border-b border-gray-100 pb-6 mb-6">
-        <div class="modulo-meta"><span>Módulo 14 · Bloque 4 · Tema 6.1</span><span class="chip-tiempo"><i
-              class="far fa-clock" aria-hidden="true"></i> 10 min</span></div>
-        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Crear la base de datos
-          <span class="text-gray-500 font-normal text-2xl">/ Creating a database</span></h2>
+        <div class="modulo-meta"><span>Módulo 14 · Bloque 2</span><span class="chip-tiempo"><i class="far fa-clock"
+              aria-hidden="true"></i> 10 min</span></div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" style="border:none; padding:0;">Cierre: autoevaluación,
+          taller y lecturas <span class="text-gray-500 font-normal text-2xl">/ Wrap-up</span></h2>
         <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 flex items-start gap-3">
           <span class="text-xl" aria-hidden="true">🎯</span>
           <div>
             <h3 class="font-bold text-gray-800 text-sm" style="margin:0;">Objetivo</h3>
-            <p class="text-gray-600 text-sm" style="margin:0;">Entender cómo guarda Spark una base de datos, diseñar
-              las tablas del caso y crearlas con SQL, distinguiendo tablas administradas y externas.</p>
+            <p class="text-gray-600 text-sm" style="margin:0;">Consolidar las ideas de la sesión, comprobar lo
+              aprendido y dejar claro el trabajo independiente antes de la sesión 3.</p>
           </div>
         </div>
       </div>
 
-      <p>Hasta ahora, cada resultado vivía en una variable de Python que desaparece al cerrar Colab. Una
-        <strong>base de datos</strong> les da nombre, estructura y permanencia, y permite que cualquiera los consulte
-        con SQL sin conocer el código que los produjo.</p>
-
-      <h3>Catálogo y almacenamiento</h3>
-      <p>En Spark, una base de datos tiene dos partes, como HDFS tenía NameNode y DataNodes:</p>
+      <h3>Seis ideas para llevarse</h3>
       <div class="rejilla-tarjetas">
         <div class="tarjeta">
-          <span class="tarjeta-etiqueta">Catálogo</span>
-          <p class="tarjeta-titulo"><i class="fas fa-book" aria-hidden="true"></i>Lo que existe</p>
-          <p>Nombres de bases de datos y tablas, columnas, tipos, comentarios y dónde están los archivos. En producción
-            lo guarda un servicio aparte —Hive Metastore, AWS Glue Data Catalog, Unity Catalog— para que lo compartan
-            muchos usuarios y herramientas.</p>
+          <span class="tarjeta-etiqueta">1</span>
+          <p class="tarjeta-titulo">El mismo código, otra escala</p>
+          <p>El <code>mapper.py</code> y el <code>reducer.py</code> de la sesión 1 corrieron sin cambios en Hadoop, y
+            la limpieza dio en Spark las mismas {{CIFRA:filas_limpias}} ventas: con más datos cambia la herramienta, no
+            el proceso. Es la respuesta a la quinta pregunta de la gerencia.</p>
         </div>
         <div class="tarjeta">
-          <span class="tarjeta-etiqueta">Almacenamiento</span>
-          <p class="tarjeta-titulo"><i class="fas fa-hard-drive" aria-hidden="true"></i>Los datos</p>
-          <p>Archivos —normalmente Parquet— en una carpeta: en Colab, <code>spark-warehouse/</code>; en un clúster,
-            HDFS o el almacenamiento de objetos de la nube.</p>
+          <span class="tarjeta-etiqueta">2</span>
+          <p class="tarjeta-titulo">La red es lo que cuesta</p>
+          <p>El shuffle es la fase cara. El combiner bajó lo que viaja en un {{CIFRA:shuffle_ahorro_pct}} %; en Spark,
+            <code>reduceByKey</code> trae esa misma idea incorporada.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">3</span>
+          <p class="tarjeta-titulo">Spark es perezoso a propósito</p>
+          <p>Las transformaciones anotan, las acciones ejecutan. Ver el plan completo le permite optimizarlo.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">4</span>
+          <p class="tarjeta-titulo">El esquema es un contrato</p>
+          <p>Declararlo hace visibles las filas que no lo cumplen. <code>DROPMALFORMED</code> las pierde en
+            silencio.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">5</span>
+          <p class="tarjeta-titulo">Un vacío no siempre es un error</p>
+          <p>En un dato semiestructurado, un campo puede faltar porque no aplica a ese evento. Medir la completitud
+            exige saber qué campos debe traer cada uno.</p>
+        </div>
+        <div class="tarjeta">
+          <span class="tarjeta-etiqueta">6</span>
+          <p class="tarjeta-titulo">Confiable = verificado</p>
+          <p>Hadoop y Spark dieron los mismos resultados que pandas, comprobado con código. La confianza se demuestra
+            con evidencia ejecutable.</p>
         </div>
       </div>
-      <p>Esta combinación —archivos abiertos más un catálogo que les da forma de tablas— es la base de un lago de
-        datos que se consulta con SQL. Cuando además se agregan transacciones, historial de versiones y control de
-        cambios con formatos como Delta Lake o Apache Iceberg, se habla de <em>lakehouse</em>: la escala de un lago de
-        datos con la disciplina de una base de datos.</p>
 
-      <h3>El diseño: un modelo en estrella en miniatura</h3>
-      <div class="diagram">
-        <svg viewBox="0 0 720 230" width="100%" role="img" aria-labelledby="estrella-titulo estrella-desc">
-          <title id="estrella-titulo">Tablas de la base de datos guadua</title>
-          <desc id="estrella-desc">La tabla de hechos ventas, con una fila por venta, se relaciona por id_producto con
-            la dimensión productos. Aparte están ventas_bronce, una tabla externa sobre el CSV original; cuarentena, con
-            las filas apartadas; y eventos_web, con los eventos de la web aplanados.</desc>
-          <rect x="250" y="20" width="220" height="190" rx="10" fill="#691E7A" />
-          <g fill="#fff">
-            <text x="360" y="48" font-size="15" font-weight="700" text-anchor="middle">ventas · hechos</text>
-            <g font-size="11.5" font-family="Fira Code, monospace">
-              <text x="270" y="78">id_venta</text>
-              <text x="270" y="98">fecha · mes</text>
-              <text x="270" y="118">ciudad · canal</text>
-              <text x="270" y="138">id_cliente · metodo_pago</text>
-              <text x="270" y="158" fill="#FAA012">id_producto ⟶</text>
-              <text x="270" y="178">cantidad · precio_unitario</text>
-              <text x="270" y="198">descuento · total</text>
-            </g>
-          </g>
-          <rect x="535" y="55" width="170" height="120" rx="10" fill="#FFF1E6" stroke="#F46201" />
-          <g fill="#1F2933">
-            <text x="620" y="82" font-size="14" font-weight="700" text-anchor="middle">productos</text>
-            <g font-size="11.5" font-family="Fira Code, monospace">
-              <text x="552" y="108" fill="#B84A00">id_producto</text>
-              <text x="552" y="128">nombre</text>
-              <text x="552" y="148">categoria · precio_lista</text>
-            </g>
-          </g>
-          <line x1="470" y1="154" x2="535" y2="104" stroke="#F46201" stroke-width="2" />
-          <g>
-            <rect x="15" y="20" width="185" height="54" rx="10" fill="#E9EEF2" stroke="#566B7F" />
-            <rect x="15" y="88" width="185" height="54" rx="10" fill="#E9EEF2" stroke="#566B7F" />
-            <rect x="15" y="156" width="185" height="54" rx="10" fill="#E9EEF2" stroke="#566B7F" />
-          </g>
-          <g fill="#1F2933" text-anchor="middle">
-            <text x="107" y="44" font-size="13" font-weight="700">ventas_bronce</text>
-            <text x="107" y="62" font-size="10.5">externa · capa bronce</text>
-            <text x="107" y="112" font-size="13" font-weight="700">cuarentena</text>
-            <text x="107" y="130" font-size="10.5">filas apartadas y su motivo</text>
-            <text x="107" y="180" font-size="13" font-weight="700">eventos_web</text>
-            <text x="107" y="198" font-size="10.5">logs aplanados</text>
-          </g>
-        </svg>
-        <p class="leyenda-diagrama">La tabla de <strong>hechos</strong> guarda una fila por venta y solo la
-          <em>llave</em> del producto; el nombre y la categoría viven una sola vez en la <strong>dimensión</strong>
-          <code>productos</code>. Si un producto cambia de categoría, se corrige en un solo lugar. Es un <strong>modelo
-            en estrella</strong> en miniatura: en una bodega completa, la fecha, la ciudad y el cliente tendrían también
-          su propia dimensión; aquí, como no tienen más atributos, se quedan como columnas de <code>ventas</code>. Con
-          este diseño se responden las preguntas de la gerencia: ciudad, canal y mes están en los hechos, y la categoría
-          queda a un <code>JOIN</code> de distancia.</p>
+      <div class="quiz" data-quiz="cierre">
+        <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Autoevaluación de la sesión</h4>
+        <p class="text-sm" style="margin-bottom:0;">Diez preguntas, con retroalimentación en cada opción. En clase, las
+          cuatro primeras; el resto, en casa antes de empezar el taller.</p>
+        <div class="quiz-progreso" role="presentation">
+          <div class="quiz-progreso-barra"></div>
+        </div>
+        <div class="quiz-preguntas"></div>
+        <div class="quiz-resumen" role="status" hidden></div>
+        <div class="quiz-marcador">
+          <span class="quiz-conteo"></span>
+          <button type="button" class="quiz-reiniciar">Reiniciar</button>
+        </div>
       </div>
 
-      <h3>Crear la base de datos</h3>
-      {{CELDA:bd_crear}}
-      <p><code>USE guadua</code> hace que las tablas que se nombren sin prefijo se busquen y se creen en
-        <code>guadua</code>.</p>
+      <h3>Taller 2 · Trabajo independiente</h3>
+      <div class="exercise">
+        <h4><i class="fas fa-clipboard-list mr-2" aria-hidden="true"></i>Tiendas Guadua, de Hadoop a Spark</h4>
+        <p>En los mismos grupos del taller 1, continúen en el notebook de la sesión y entreguen en el espacio del curso
+          <strong>el notebook ejecutado de principio a fin</strong> (<code>.ipynb</code> con sus salidas) y <strong>un
+            informe de dos páginas</strong> para la gerencia de Tiendas Guadua (PDF), más un anexo técnico sin límite
+          de extensión. Plazo de entrega: la fecha que fije el docente, con margen antes de la sesión 3 para la
+          coevaluación.</p>
+        <ol style="margin-bottom:0.5rem;">
+          <li><strong>Hadoop.</strong> El total vendido <em>por canal</em> con Hadoop Streaming sobre HDFS: un mapper
+            nuevo que lea un archivo con las columnas <code>canal,total</code>. Ejecútenlo sin y con combiner, reporten
+            en una tabla los contadores <code>Map output records</code>, <code>Reduce input records</code> y
+            <code>Reduce shuffle bytes</code>, expliquen la diferencia y comprueben en el código que los totales por canal
+            coinciden con los de pandas.</li>
+          <li><strong>Limpieza en Spark.</strong> La tabla plata construida en PySpark, con su conciliación contra pandas
+            (mismas filas, mismos identificadores, mismos totales) y una tabla de cuarentena con el motivo de cada
+            fila.</li>
+          <li><strong>Preguntas de la gerencia.</strong> Con la tabla plata unida al catálogo de productos, una tabla con
+            las ventas mensuales por ciudad y categoría, y cuatro preguntas de la gerencia respondidas con Spark (con
+            DataFrames o con SQL sobre una vista temporal), al menos una con unión y una con función de ventana. Cada
+            respuesta, con su lectura en el informe.</li>
+          <li><strong>Seguridad (CR1).</strong> Los controles de la sesión, con su resultado en el notebook y su
+            interpretación: la huella del software descargado y los permisos de la carpeta de datos crudos en HDFS. En el
+            informe, un esquema de qué control de seguridad protege el dato en cada fase (descarga, HDFS crudo, bronce,
+            plata) y por qué, y qué le faltaría a la configuración de Colab para guardar datos personales de
+            verdad.</li>
+          <li><strong>Integración (CR2).</strong> Una conclusión que combine los eventos web con las ventas <em>del mismo
+              mes</em> (los eventos solo cubren junio) a través de una llave común: por ejemplo, si los productos que
+            más se agregan al carrito son también los que más unidades venden por la web y la app en junio. Declaren qué
+            permiten y qué no permiten concluir estos datos (por ejemplo, que cada evento tiene su propia sesión y no se
+            puede seguir a una persona hasta la compra).</li>
+        </ol>
+        <p class="text-sm" style="margin-bottom:0;">Coevaluación: entre la entrega y la sesión 3, cada grupo califica con
+          esta rúbrica el trabajo que le asigne el docente y deja un comentario por criterio. El docente informa cuánto
+          pesan la coevaluación y su propia calificación en la nota.</p>
+      </div>
 
-      <h3>Definir una tabla con DDL</h3>
-      <p>El lenguaje de definición de datos (DDL) de SQL declara la tabla antes de cargarla: nombre, columnas, tipos,
-        comentarios y formato de almacenamiento. Es el mismo contrato que el esquema del módulo 10, ahora guardado en
-        el catálogo para todos.</p>
-      {{CELDA:bd_ddl}}
+      <div class="rubrica" data-rubrica="taller-2"></div>
 
-      <h3>Tablas administradas y externas</h3>
-      {{CELDA:bd_externa}}
+      <h3>Glosario de la sesión</h3>
+      <p>Los términos nuevos de la sesión 2, en el orden en que aparecen, con su equivalente en inglés. Los de la sesión
+        1 —HDFS, bloque, shuffle, combiner, calidad del dato— siguen valiendo.</p>
       <table>
-        <caption class="sr-only">Diferencias entre tablas administradas y externas</caption>
+        <caption class="sr-only">Glosario de la sesión 2</caption>
         <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Administrada (<em>managed</em>)</th>
-            <th scope="col">Externa (<em>external</em>)</th>
+            <th scope="col">Término</th>
+            <th scope="col">Significado</th>
           </tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Quién maneja los archivos</th><td>Spark, dentro de su carpeta</td><td>Alguien más; Spark
-              solo apunta a ellos</td></tr>
-          <tr><th scope="row">Al hacer <code>DROP TABLE</code></th><td>Se borran la definición <strong>y los
-                datos</strong></td><td>Se borra solo la definición; los archivos quedan</td></tr>
-          <tr><th scope="row">En el caso</th><td><code>productos</code>, <code>ventas</code>, <code>cuarentena</code>,
-              <code>eventos_web</code></td><td><code>ventas_bronce</code>: el CSV original, que nunca se toca (la capa bronce del módulo 10)</td></tr>
+          <tr><td><strong>Modo pseudodistribuido</strong> (<em>pseudo-distributed mode</em>)</td><td>Todos los servicios de Hadoop —NameNode, DataNode…— en una sola máquina, como procesos separados.</td></tr>
+          <tr><td><strong>Integridad / autenticidad</strong> (<em>integrity / authenticity</em>)</td><td>El archivo llegó sin alteraciones, lo que se comprueba con su huella / lo publicó quien dice publicarlo, lo que se comprueba con su firma digital (los archivos <code>.asc</code> de Apache).</td></tr>
+          <tr><td><strong>Huella criptográfica</strong> (<em>cryptographic hash</em>)</td><td>Resumen de tamaño fijo —SHA-512, SHA-256— que cambia por completo si cambia un solo byte. Sirve para verificar integridad. En la sesión 3 servirá también para seudonimizar, calculada junto con un secreto.</td></tr>
+          <tr><td><strong>Hadoop Streaming</strong></td><td>Modo de Hadoop que usa como mapper y reducer cualquier programa que lea líneas por la entrada estándar y escriba pares clave–valor por la salida estándar.</td></tr>
+          <tr><td><strong>Job, tarea, split</strong> (<em>job, task, input split</em>)</td><td>Un job es un trabajo completo enviado al clúster; se divide en tareas. En Hadoop hay una tarea map por split de entrada —«number of splits: 4» son cuatro mappers— y una por reducer; en Spark, cada acción dispara un job y hay una tarea por partición.</td></tr>
+          <tr><td><strong>Contadores</strong> (<em>counters</em>)</td><td>Estadísticas que Hadoop registra de cada job: registros leídos, emitidos, bytes del shuffle…</td></tr>
+          <tr><td><strong>Parquet</strong></td><td>Formato de archivo abierto, columnar y comprimido: guarda cada columna junta, con su esquema, y permite leer solo las columnas necesarias.</td></tr>
+          <tr><td><strong>Driver / ejecutor</strong> (<em>driver / executor</em>)</td><td>El proceso que planifica una aplicación de Spark / los procesos que ejecutan sus tareas.</td></tr>
+          <tr><td><strong>Partición (en memoria)</strong> (<em>partition</em>)</td><td>Trozo de un RDD o DataFrame que procesa una tarea; es la unidad de paralelismo de Spark. No confundir con la partición de una tabla, que veremos en la sesión 3.</td></tr>
+          <tr><td><strong>RDD</strong></td><td><em>Resilient Distributed Dataset</em>: colección distribuida que se puede recalcular a partir de su linaje.</td></tr>
+          <tr><td><strong>Linaje</strong> (<em>lineage</em>)</td><td>La receta de transformaciones con que Spark obtuvo un resultado; si se pierde una partición, la recalcula a partir de ella.</td></tr>
+          <tr><td><strong>Transformación / acción</strong> (<em>transformation / action</em>)</td><td>Operación que anota un paso / operación que obliga a ejecutar.</td></tr>
+          <tr><td><strong>Ejecución perezosa</strong> (<em>lazy evaluation</em>)</td><td>Spark no calcula nada hasta que una acción lo exige.</td></tr>
+          <tr><td><strong>Dependencia angosta / ancha</strong> (<em>narrow / wide dependency</em>)</td><td>Transformación que trabaja dentro de cada partición (<code>filter</code>, <code>map</code>) / que necesita datos de todas y por eso exige un shuffle (<code>reduceByKey</code>, <code>join</code>, <code>groupBy</code>).</td></tr>
+          <tr><td><strong>DAG, etapa</strong> (<em>directed acyclic graph, stage</em>)</td><td>Grafo acíclico dirigido con los pasos de un job; Spark lo parte en etapas en cada dependencia ancha, es decir, en cada shuffle.</td></tr>
+          <tr><td><strong>Caché</strong> (<em>cache</em>)</td><td>Guardar en memoria un resultado intermedio para que varias acciones no lo recalculen desde el origen.</td></tr>
+          <tr><td><strong>DataFrame</strong> (Spark)</td><td>Tabla distribuida e inmutable, con esquema, cuyo plan optimiza Spark. Se parece al de pandas, pero está repartida en particiones.</td></tr>
+          <tr><td><strong>Esquema</strong> (<em>schema</em>)</td><td>Columnas y tipos que deben cumplir los datos: un contrato. En Spark SQL, «esquema» también se usa como sinónimo de base de datos.</td></tr>
+          <tr><td><strong>Modos de lectura</strong> (<em>read modes</em>)</td><td>Qué hace Spark con una fila que no cumple el esquema: <code>PERMISSIVE</code> la conserva con nulos, <code>DROPMALFORMED</code> la descarta sin avisar, <code>FAILFAST</code> detiene la lectura.</td></tr>
+          <tr><td><strong>Modo ANSI</strong> (<em>ANSI mode</em>)</td><td>Comportamiento estándar de SQL, activo por defecto desde Spark 4: una conversión inválida es un error, no un nulo. Las funciones <code>try_</code> devuelven nulo a propósito.</td></tr>
+          <tr><td><strong>Bronce, plata, oro</strong> (<em>bronze, silver, gold</em>)</td><td>Capas de la llamada arquitectura «medallón»: los datos tal como llegaron, limpios y validados, y listos para el negocio.</td></tr>
+          <tr><td><strong>Join de difusión</strong> (<em>broadcast join</em>)</td><td>Unión en la que la tabla pequeña se copia a cada ejecutor, para no hacer shuffle de la grande.</td></tr>
+          <tr><td><strong>Función de ventana</strong> (<em>window function</em>)</td><td>Cálculo por grupo que conserva las filas —un ranking, un acumulado—; el grupo se define con <code>PARTITION BY</code> y el orden con <code>ORDER BY</code>.</td></tr>
+          <tr><td><strong>Dato semiestructurado, JSON Lines</strong> (<em>semi-structured data, JSON Lines</em>)</td><td>Cada registro nombra sus campos, que pueden faltar o venir anidados (<em>struct</em>). En un archivo JSON Lines (<code>.jsonl</code>) hay un objeto JSON por línea.</td></tr>
         </tbody>
       </table>
 
-      <div class="note">
-        <p style="margin-bottom:0;"><strong>Sobre este notebook.</strong> Para no instalar más servicios, la sesión de
-          Spark de Colab guarda el catálogo en memoria: los archivos de <code>spark-warehouse/</code> quedan en el
-          disco, pero si Colab se reinicia hay que volver a crear las tablas: la primera celda de este módulo borra los
-          archivos que quedaron sin catálogo, y las de los módulos 14 y 15 las recrean. Con un catálogo persistente —el
-          Metastore de Hive o el de la plataforma de nube— las definiciones sobreviven y las comparten todos los
-          usuarios.</p>
+      <div class="references">
+        <h3><i class="fas fa-book-open mr-2" aria-hidden="true"></i>Lecturas de esta sesión</h3>
+        <p class="text-sm" style="margin-bottom:0.5rem;">Complementan la bibliografía del syllabus (al pie de la
+          página). Las <strong>lecturas guía</strong> conviene hacerlas antes del taller 2; las demás son para
+          profundizar. La documentación enlazada es la de las versiones que usa el notebook: Hadoop 3.5.0 y Spark
+          4.0.4.</p>
+        <p class="text-sm" style="margin:0 0 0.25rem;"><strong>Lecturas guía</strong></p>
+        <ul>
+          <li>Zaharia, M., Xin, R. S., Wendell, P., Das, T., Armbrust, M., Dave, A., Meng, X., Rosen, J.,
+            Venkataraman, S., Franklin, M. J., Ghodsi, A., Gonzalez, J., Shenker, S. y Stoica, I. (2016). Apache Spark:
+            A unified engine for big data processing. <em>Communications of the ACM, 59</em>(11), 56–65.
+            <a href="https://doi.org/10.1145/2934664" target="_blank" rel="noopener"
+              class="text-primary underline">https://doi.org/10.1145/2934664</a>. La visión de conjunto, escrita por
+            sus creadores (módulos 5 a 8). En inglés, acceso abierto.</li>
+          <li>Damji, J. S., Wenig, B., Das, T. y Lee, D. (2020). <em>Learning Spark: Lightning-fast data
+              analytics</em> (2.ª ed.). O'Reilly Media. <strong>Capítulos 3 y 4</strong>: DataFrames y esquemas; Spark
+            SQL, tablas administradas y externas, Parquet, JSON y CSV (módulos 9 a 13, y la base de datos de la sesión 3); los capítulos 1 y 2 si
+            necesitas el panorama. En inglés, de pago; el código es libre en
+            <a href="https://github.com/databricks/LearningSparkV2" target="_blank" rel="noopener"
+              class="text-primary underline">github.com/databricks/LearningSparkV2</a>. Está escrito para Spark 3.0:
+            no cubre el modo ANSI, activo por defecto desde Spark 4.</li>
+          <li>Apache Software Foundation. (s. f.). <em>Spark SQL, DataFrames and Datasets guide</em> (Apache Spark
+            4.0.4).
+            <a href="https://spark.apache.org/docs/4.0.4/sql-programming-guide.html" target="_blank" rel="noopener"
+              class="text-primary underline">Guía de Spark SQL, versión 4.0.4</a>; en especial
+            <a href="https://spark.apache.org/docs/4.0.4/sql-ref-ansi-compliance.html" target="_blank" rel="noopener"
+              class="text-primary underline">ANSI compliance</a> (módulo 11) y
+            <a href="https://spark.apache.org/docs/4.0.4/sql-data-sources-json.html" target="_blank" rel="noopener"
+              class="text-primary underline">JSON files</a> (módulo 13). En inglés, acceso abierto.</li>
+        </ul>
+        <p class="text-sm" style="margin:0.75rem 0 0.25rem;"><strong>Para profundizar</strong></p>
+        <ul style="margin-bottom:0;">
+          <li>Apache Software Foundation. (2026). <em>Hadoop Streaming</em> y <em>Setting up a single node
+              cluster</em> (Apache Hadoop 3.5.0).
+            <a href="https://hadoop.apache.org/docs/r3.5.0/hadoop-streaming/HadoopStreaming.html" target="_blank"
+              rel="noopener" class="text-primary underline">Hadoop Streaming, versión 3.5.0</a> ·
+            <a href="https://hadoop.apache.org/docs/r3.5.0/hadoop-project-dist/hadoop-common/SingleCluster.html"
+              target="_blank" rel="noopener" class="text-primary underline">modo pseudodistribuido</a> (módulos 2 a
+            4). En inglés, acceso abierto.</li>
+          <li>White, T. (2015). <em>Hadoop: The definitive guide</em> (4.ª ed.). O'Reilly Media. <strong>Capítulos 2 y
+              9</strong>: Streaming y combiner, y contadores (módulo 4). En inglés, de pago. Su
+            capítulo sobre Spark describe una versión muy anterior: para Spark, mejor las lecturas guía.</li>
+          <li>Microsoft. (2026). <em>¿Qué es la arquitectura de medallón de Lakehouse?</em> Microsoft Learn.
+            <a href="https://learn.microsoft.com/es-es/azure/databricks/lakehouse/medallion" target="_blank"
+              rel="noopener" class="text-primary underline">learn.microsoft.com</a>. Las capas bronce, plata y oro
+            (módulo 10); los ejemplos usan Azure Databricks. En español, acceso abierto.</li>
+        </ul>
       </div>
+
+      <div class="note">
+        <h4><i class="fas fa-forward mr-2" aria-hidden="true"></i>En la sesión 3</h4>
+        <p>Empezamos donde termina hoy: las ventas limpias y los eventos web pasan a una <strong>base de datos</strong>
+          con Spark SQL, que crearemos, cargaremos y consultaremos, con sus controles de seguridad, eficiencia,
+          coherencia y correlación; ahí responderemos a la gerencia cómo consultar las ventas sin ver quién es cada
+          cliente. Después cambiamos de tipo de dato: tras el estructurado (las ventas) y el semiestructurado (los
+          eventos web), llega el <strong>no estructurado</strong>, el texto. Extraeremos y prepararemos las reseñas de
+          los clientes, aplicaremos procesamiento de lenguaje natural y análisis de sentimientos, y cerraremos el caso
+          integrando lo que dicen los clientes con lo que muestran las ventas. Trae tu notebook con el taller 2.</p>
+        <p style="margin-bottom:0;">Al final de la sesión 3, cada grupo sustentará el caso ante la gerencia de Guadua
+          (actividad calificable): qué preguntas respondió, con qué datos y procesos, qué controles demuestran que sus
+          cifras son confiables y qué no permiten concluir los datos. Prepárenla con los hallazgos de los talleres 1 y
+          2; el formato y el tiempo por grupo los confirma el docente.</p>
+      </div>
+
+      <h3>Al terminar: apagar los servicios</h3>
+      <p>La última celda del notebook detiene Spark y HDFS. Ejecútala solo cuando termines el taller: con
+        <code>spark.stop()</code> se pierden los DataFrames y las vistas que están en memoria, y habría que volver a
+        ejecutar el notebook. No es obligatoria —Colab los apaga al cerrar el entorno—, pero es buena costumbre liberar los
+        recursos que uno encendió.</p>
+      {{CELDA:apagar}}
     </div>
   </template>

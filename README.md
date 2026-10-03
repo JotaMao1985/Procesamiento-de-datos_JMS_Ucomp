@@ -1,7 +1,7 @@
 # Profundización I: Procesamiento de Datos
 
 Material de clase del curso *Profundización I: Procesamiento de Datos* (Especialización en Big Data,
-UCompensar). Son tres sesiones sincrónicas (6 h + 6 h + 4 h) que siguen un mismo caso:
+UCompensar). Son tres sesiones sincrónicas (6 h + 4 h + 6 h) que siguen un mismo caso:
 **Tiendas Guadua S.A.S.**, una empresa **ficticia**. Sus datos se generan con una semilla fija y no
 corresponden a personas ni a empresas reales.
 
@@ -10,8 +10,8 @@ corresponden a personas ni a empresas reales.
 | Sesión | Tema | Notebook |
 |---|---|---|
 | 1 | Del dato al MapReduce: ciclo de procesamiento, nube, Hadoop, pandas y MapReduce en Python | [Abrir en Colab](https://colab.research.google.com/github/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp/blob/main/notebooks/sesion-1-procesamiento.ipynb) |
-| 2 | De Hadoop a Spark: HDFS, Hadoop Streaming, PySpark, Spark SQL y base de datos del caso | [Abrir en Colab](https://colab.research.google.com/github/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp/blob/main/notebooks/sesion-2-hadoop-spark.ipynb) |
-| 3 | Datos no estructurados | Próximamente |
+| 2 | De Hadoop a Spark: HDFS, Hadoop Streaming, PySpark, Spark SQL y datos semiestructurados | [Abrir en Colab](https://colab.research.google.com/github/JotaMao1985/Procesamiento-de-datos_JMS_Ucomp/blob/main/notebooks/sesion-2-hadoop-spark.ipynb) |
+| 3 | Bases de datos con Spark SQL y datos no estructurados: NLP y análisis de sentimientos | Próximamente |
 
 Cada sesión tiene:
 
@@ -29,7 +29,8 @@ Htmls/        páginas publicadas en GitHub Pages (generadas, no se editan a man
 notebooks/    notebooks para Colab, uno por sesión
 datos/        datos del caso (los mismos que genera la primera celda de cada notebook)
 fuente/       fuente de las páginas: módulos, estilos y lógica de simuladores y cuestionarios;
-              en fuente/diapositivas/, la fuente Markdown de las diapositivas
+              en fuente/diapositivas/, la fuente Markdown de las diapositivas; en
+              fuente/sesion3/de_la_sesion2/, el bloque de bases de datos que pasa a la sesión 3
 precalculo/   scripts que generan los datos, ejecutan las celdas y construyen y auditan cada sesión
 ```
 

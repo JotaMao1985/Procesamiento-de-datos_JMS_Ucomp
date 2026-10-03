@@ -104,12 +104,10 @@
             <tr><td>No aparece <code>Live datanodes (1)</code></td><td>Repite <code>hdfs_arranque</code>. Si persiste: <strong>Entorno de ejecución → Desconectar y borrar el entorno</strong>, y luego <strong>Ejecutar anteriores</strong>.</td></tr>
             <tr><td>Un job imprime las últimas líneas de <code>job.log</code></td><td>Casi siempre falta una celda anterior (<code>mapper.py</code>, <code>reducer.py</code> o los archivos en HDFS): <strong>Ejecutar anteriores</strong>.</td></tr>
             <tr><td><code>NameError: name '…' is not defined</code></td><td>Se perdió una variable: <strong>Ejecutar anteriores</strong> desde la celda en la que ibas.</td></tr>
-            <tr><td><code>TABLE_OR_VIEW_NOT_FOUND</code> en el bloque 4</td><td>El catálogo de Spark vive en memoria: ejecuta de nuevo las celdas de los módulos 14 y 15.</td></tr>
           </tbody>
         </table>
         <p style="margin-bottom:0;">Si Hadoop no arranca en tu Colab, no te detengas: desde el módulo 6 todo funciona
-          solo con Spark, salvo la lectura desde HDFS del módulo 9 y la columna «Hadoop Streaming» de la conciliación
-          del módulo 17.</p>
+          solo con Spark, salvo la lectura desde HDFS del módulo 9.</p>
       </div>
     </div>
   </template>
