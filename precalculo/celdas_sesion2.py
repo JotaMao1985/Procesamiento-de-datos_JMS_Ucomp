@@ -817,10 +817,12 @@ SIMULADORES = {
 # ## Para el taller
 # El enunciado completo y la rúbrica están en el módulo 14 del material HTML.
 # Sigue trabajando en este mismo notebook: ya tienes HDFS en marcha, la sesión de Spark,
-# la tabla plata `v` y los eventos web `logs`.
+# la tabla plata `v`, las ventas unidas al catálogo `ventas_sp` y los eventos web, crudos (`logs`)
+# y aplanados (`eventos`).
 #
 # Al terminar, puedes apagar los servicios con la celda siguiente. No la ejecutes antes de acabar:
-# `spark.stop()` borra de la memoria los DataFrames y las vistas, y habría que volver a ejecutar el notebook.
+# `spark.stop()` deja inservibles los DataFrames y borra las vistas temporales, y con HDFS detenido
+# no corren los jobs de Hadoop: habría que volver a ejecutar el notebook.
 
 # %% apagar
 # Apagar Spark y los servicios de HDFS (Colab también los apaga al cerrar el entorno)

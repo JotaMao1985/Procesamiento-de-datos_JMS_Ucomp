@@ -47,21 +47,24 @@
         <div class="tarjeta">
           <span class="tarjeta-etiqueta">5</span>
           <p class="tarjeta-titulo">Un vacío no siempre es un error</p>
-          <p>En un dato semiestructurado, un campo puede faltar porque no aplica a ese evento. Medir la completitud
-            exige saber qué campos debe traer cada uno.</p>
+          <p>En un dato semiestructurado, un campo puede faltar porque no aplica: una vista de producto no trae
+            <code>consulta</code>. Pero un pago sin <code>id_cliente</code> sí es un error. Medir la completitud exige
+            saber qué campos debe traer cada tipo de evento.</p>
         </div>
         <div class="tarjeta">
           <span class="tarjeta-etiqueta">6</span>
           <p class="tarjeta-titulo">Confiable = verificado</p>
-          <p>Hadoop y Spark dieron los mismos resultados que pandas, comprobado con código. La confianza se demuestra
-            con evidencia ejecutable.</p>
+          <p>Una herramienta no sabe si su resultado es correcto: lo sabemos al compararlo con un camino
+            independiente, como Hadoop contra pandas (módulo 4) y la limpieza de Spark contra la de pandas (módulo 11).
+            Es la respuesta al segundo encargo de la gerencia: la confianza se demuestra con evidencia ejecutable.</p>
         </div>
       </div>
 
       <div class="quiz" data-quiz="cierre">
         <h4><i class="fas fa-circle-question" aria-hidden="true"></i> Autoevaluación de la sesión</h4>
-        <p class="text-sm" style="margin-bottom:0;">Diez preguntas, con retroalimentación en cada opción. En clase, las
-          cuatro primeras; el resto, en casa antes de empezar el taller.</p>
+        <p class="text-sm" style="margin-bottom:0;">Diez preguntas, en el orden de los módulos y con retroalimentación
+          en cada respuesta. En clase, las cuatro últimas (módulos 10 a 13); las seis primeras, en casa antes de empezar
+          el taller.</p>
         <div class="quiz-progreso" role="presentation">
           <div class="quiz-progreso-barra"></div>
         </div>
@@ -78,43 +81,52 @@
         <h4><i class="fas fa-clipboard-list mr-2" aria-hidden="true"></i>Tiendas Guadua, de Hadoop a Spark</h4>
         <p>En los mismos grupos del taller 1, continúen en el notebook de la sesión y entreguen en el espacio del curso
           <strong>el notebook ejecutado de principio a fin</strong> (<code>.ipynb</code> con sus salidas) y <strong>un
-            informe de dos páginas</strong> para la gerencia de Tiendas Guadua (PDF), más un anexo técnico sin límite
-          de extensión. Plazo de entrega: la fecha que fije el docente, con margen antes de la sesión 3 para la
-          coevaluación.</p>
+            informe de dos páginas</strong> para la gerencia de Tiendas Guadua (PDF), con las lecturas del punto 3, el
+          esquema del punto 4 y la conclusión del punto 5, más un anexo técnico sin límite de extensión con la tabla
+          de contadores y su explicación, la conciliación y la cuarentena. Plazo de entrega: la fecha que fije el
+          docente, con margen antes de la sesión 3 para la coevaluación. Si los servidores de Apache no responden
+          durante el plazo, guarden la salida de la celda <code>hadoop_descarga</code> y avísenle al docente antes de
+          la entrega.</p>
         <ol style="margin-bottom:0.5rem;">
           <li><strong>Hadoop.</strong> El total vendido <em>por canal</em> con Hadoop Streaming sobre HDFS: un mapper
-            nuevo que lea un archivo con las columnas <code>canal,total</code>. Ejecútenlo sin y con combiner, reporten
+            nuevo que lea un archivo con las columnas <code>canal,total</code>. Ejecuten el job sin combiner y con combiner, reporten
             en una tabla los contadores <code>Map output records</code>, <code>Reduce input records</code> y
             <code>Reduce shuffle bytes</code>, expliquen la diferencia y comprueben en el código que los totales por canal
-            coinciden con los de pandas.</li>
+            coinciden con los de pandas. Si usan dos reducers, lean todas las partes de la salida
+            (<code>part-*</code>).</li>
           <li><strong>Limpieza en Spark.</strong> La tabla plata construida en PySpark, con su conciliación contra pandas
             (mismas filas, mismos identificadores, mismos totales) y una tabla de cuarentena con el motivo de cada
             fila.</li>
           <li><strong>Preguntas de la gerencia.</strong> Con la tabla plata unida al catálogo de productos, una tabla con
-            las ventas mensuales por ciudad y categoría, y cuatro preguntas de la gerencia respondidas con Spark (con
-            DataFrames o con SQL sobre una vista temporal), al menos una con unión y una con función de ventana. Cada
+            el total vendido en pesos por mes, ciudad y categoría (la tabla resumida de la capa oro, módulo 10), y
+            cuatro preguntas nuevas que podría hacerles la gerencia, formuladas por ustedes y distintas de las cinco de
+            la sesión 1 y de las del taller 1, respondidas con Spark (con DataFrames o con SQL sobre una vista
+            temporal), al menos una con unión y una con función de ventana. Cada
             respuesta, con su lectura en el informe.</li>
-          <li><strong>Seguridad (CR1).</strong> Los controles de la sesión, con su resultado en el notebook y su
-            interpretación: la huella del software descargado y los permisos de la carpeta de datos crudos en HDFS. En el
-            informe, un esquema de qué control de seguridad protege el dato en cada fase (descarga, HDFS crudo, bronce,
-            plata) y por qué, y qué le faltaría a la configuración de Colab para guardar datos personales de
-            verdad.</li>
-          <li><strong>Integración (CR2).</strong> Una conclusión que combine los eventos web con las ventas <em>del mismo
+          <li><strong>Seguridad.</strong> Los dos controles de la sesión, con su resultado en el notebook y su
+            interpretación: la huella del software descargado (qué garantiza y qué no) y los permisos de la carpeta de
+            datos crudos en HDFS (a quién detienen y a quién no en Colab). En el informe, un esquema de qué control de
+            seguridad protege el dato en cada fase (instalación de la herramienta, HDFS crudo, bronce, plata y la tabla
+            resumida del punto 3) y por qué, y qué le faltaría a la configuración de Colab para guardar datos
+            personales de verdad, según el principio de seguridad de la Ley 1581 de 2012.</li>
+          <li><strong>Integración.</strong> Una conclusión que combine los eventos web con las ventas <em>del mismo
               mes</em> (los eventos solo cubren junio) a través de una llave común: por ejemplo, si los productos que
-            más se agregan al carrito son también los que más unidades venden por la web y la app en junio. Declaren qué
+            más se agregan al carrito son también los que más unidades vendieron por la web y la app en junio. Declaren qué
             permiten y qué no permiten concluir estos datos (por ejemplo, que cada evento tiene su propia sesión y no se
             puede seguir a una persona hasta la compra).</li>
         </ol>
         <p class="text-sm" style="margin-bottom:0;">Coevaluación: entre la entrega y la sesión 3, cada grupo califica con
-          esta rúbrica el trabajo que le asigne el docente y deja un comentario por criterio. El docente informa cuánto
-          pesan la coevaluación y su propia calificación en la nota.</p>
+          esta rúbrica el trabajo que le asigne el docente y deja un comentario por criterio. Antes de empezar, revisen la rúbrica y propongan
+          ajustes en el espacio del curso: los criterios se acuerdan con el grupo. El docente informa cuánto pesan la
+          coevaluación y su propia calificación en la nota.</p>
       </div>
 
       <div class="rubrica" data-rubrica="taller-2"></div>
 
       <h3>Glosario de la sesión</h3>
-      <p>Los términos nuevos de la sesión 2, en el orden en que aparecen, con su equivalente en inglés. Los de la sesión
-        1 —HDFS, bloque, shuffle, combiner, calidad del dato— siguen valiendo.</p>
+      <p>Los términos nuevos de la sesión 2, y los de la sesión 1 que hoy ganan un sentido nuevo (job, split, dato
+        semiestructurado), en el orden en que aparecen, con su equivalente en inglés. Los demás de la sesión 1 —HDFS,
+        bloque, shuffle, combiner, calidad del dato— siguen valiendo.</p>
       <table>
         <caption class="sr-only">Glosario de la sesión 2</caption>
         <thead>
@@ -127,26 +139,30 @@
           <tr><td><strong>Modo pseudodistribuido</strong> (<em>pseudo-distributed mode</em>)</td><td>Todos los servicios de Hadoop —NameNode, DataNode…— en una sola máquina, como procesos separados.</td></tr>
           <tr><td><strong>Integridad / autenticidad</strong> (<em>integrity / authenticity</em>)</td><td>El archivo llegó sin alteraciones, lo que se comprueba con su huella / lo publicó quien dice publicarlo, lo que se comprueba con su firma digital (los archivos <code>.asc</code> de Apache).</td></tr>
           <tr><td><strong>Huella criptográfica</strong> (<em>cryptographic hash</em>)</td><td>Resumen de tamaño fijo —SHA-512, SHA-256— que cambia por completo si cambia un solo byte. Sirve para verificar integridad. En la sesión 3 servirá también para seudonimizar, calculada junto con un secreto.</td></tr>
+          <tr><td><strong>Autenticación simple / Kerberos</strong> (<em>simple authentication / Kerberos</em>)</td><td>Modo por defecto de HDFS, que da por cierto el nombre de usuario que declara quien pide / protocolo que verifica esa identidad. Sin Kerberos, los permisos de HDFS no bastan para proteger datos personales.</td></tr>
           <tr><td><strong>Hadoop Streaming</strong></td><td>Modo de Hadoop que usa como mapper y reducer cualquier programa que lea líneas por la entrada estándar y escriba pares clave–valor por la salida estándar.</td></tr>
           <tr><td><strong>Job, tarea, split</strong> (<em>job, task, input split</em>)</td><td>Un job es un trabajo completo enviado al clúster; se divide en tareas. En Hadoop hay una tarea map por split de entrada —«number of splits: 4» son cuatro mappers— y una por reducer; en Spark, cada acción dispara un job y hay una tarea por partición.</td></tr>
           <tr><td><strong>Contadores</strong> (<em>counters</em>)</td><td>Estadísticas que Hadoop registra de cada job: registros leídos, emitidos, bytes del shuffle…</td></tr>
           <tr><td><strong>Parquet</strong></td><td>Formato de archivo abierto, columnar y comprimido: guarda cada columna junta, con su esquema, y permite leer solo las columnas necesarias.</td></tr>
+          <tr><td><strong>Gestor de clúster</strong> (<em>cluster manager</em>)</td><td>Servicio al que Spark le pide máquinas y memoria: <code>local</code>, <em>standalone</em>, YARN o Kubernetes. Cambiarlo no cambia el código.</td></tr>
+          <tr><td><strong>SparkSession</strong></td><td>Puerta de entrada a Spark desde un programa: con ella se leen datos, se crean DataFrames y se ejecuta SQL.</td></tr>
           <tr><td><strong>Driver / ejecutor</strong> (<em>driver / executor</em>)</td><td>El proceso que planifica una aplicación de Spark / los procesos que ejecutan sus tareas.</td></tr>
           <tr><td><strong>Partición (en memoria)</strong> (<em>partition</em>)</td><td>Trozo de un RDD o DataFrame que procesa una tarea; es la unidad de paralelismo de Spark. No confundir con la partición de una tabla, que veremos en la sesión 3.</td></tr>
           <tr><td><strong>RDD</strong></td><td><em>Resilient Distributed Dataset</em>: colección distribuida que se puede recalcular a partir de su linaje.</td></tr>
-          <tr><td><strong>Linaje</strong> (<em>lineage</em>)</td><td>La receta de transformaciones con que Spark obtuvo un resultado; si se pierde una partición, la recalcula a partir de ella.</td></tr>
           <tr><td><strong>Transformación / acción</strong> (<em>transformation / action</em>)</td><td>Operación que anota un paso / operación que obliga a ejecutar.</td></tr>
           <tr><td><strong>Ejecución perezosa</strong> (<em>lazy evaluation</em>)</td><td>Spark no calcula nada hasta que una acción lo exige.</td></tr>
           <tr><td><strong>Dependencia angosta / ancha</strong> (<em>narrow / wide dependency</em>)</td><td>Transformación que trabaja dentro de cada partición (<code>filter</code>, <code>map</code>) / que necesita datos de todas y por eso exige un shuffle (<code>reduceByKey</code>, <code>join</code>, <code>groupBy</code>).</td></tr>
+          <tr><td><strong>Linaje</strong> (<em>lineage</em>)</td><td>La receta de transformaciones con que Spark obtuvo un resultado; si se pierde una partición, la recalcula a partir de ella.</td></tr>
           <tr><td><strong>DAG, etapa</strong> (<em>directed acyclic graph, stage</em>)</td><td>Grafo acíclico dirigido con los pasos de un job; Spark lo parte en etapas en cada dependencia ancha, es decir, en cada shuffle.</td></tr>
           <tr><td><strong>Caché</strong> (<em>cache</em>)</td><td>Guardar en memoria un resultado intermedio para que varias acciones no lo recalculen desde el origen.</td></tr>
           <tr><td><strong>DataFrame</strong> (Spark)</td><td>Tabla distribuida e inmutable, con esquema, cuyo plan optimiza Spark. Se parece al de pandas, pero está repartida en particiones.</td></tr>
-          <tr><td><strong>Esquema</strong> (<em>schema</em>)</td><td>Columnas y tipos que deben cumplir los datos: un contrato. En Spark SQL, «esquema» también se usa como sinónimo de base de datos.</td></tr>
+          <tr><td><strong>Vista temporal</strong> (<em>temporary view</em>)</td><td>Nombre con el que un DataFrame se consulta con SQL (<code>createOrReplaceTempView</code>). No copia los datos y desaparece al cerrar la sesión de Spark.</td></tr>
+          <tr><td><strong>Esquema</strong> (<em>schema</em>)</td><td>Columnas y tipos que deben cumplir los datos: un contrato.</td></tr>
           <tr><td><strong>Modos de lectura</strong> (<em>read modes</em>)</td><td>Qué hace Spark con una fila que no cumple el esquema: <code>PERMISSIVE</code> la conserva con nulos, <code>DROPMALFORMED</code> la descarta sin avisar, <code>FAILFAST</code> detiene la lectura.</td></tr>
-          <tr><td><strong>Modo ANSI</strong> (<em>ANSI mode</em>)</td><td>Comportamiento estándar de SQL, activo por defecto desde Spark 4: una conversión inválida es un error, no un nulo. Las funciones <code>try_</code> devuelven nulo a propósito.</td></tr>
           <tr><td><strong>Bronce, plata, oro</strong> (<em>bronze, silver, gold</em>)</td><td>Capas de la llamada arquitectura «medallón»: los datos tal como llegaron, limpios y validados, y listos para el negocio.</td></tr>
+          <tr><td><strong>Modo ANSI</strong> (<em>ANSI mode</em>)</td><td>Comportamiento estándar de SQL, activo por defecto desde Spark 4: una conversión inválida es un error, no un nulo. Las funciones <code>try_</code> devuelven nulo a propósito.</td></tr>
           <tr><td><strong>Join de difusión</strong> (<em>broadcast join</em>)</td><td>Unión en la que la tabla pequeña se copia a cada ejecutor, para no hacer shuffle de la grande.</td></tr>
-          <tr><td><strong>Función de ventana</strong> (<em>window function</em>)</td><td>Cálculo por grupo que conserva las filas —un ranking, un acumulado—; el grupo se define con <code>PARTITION BY</code> y el orden con <code>ORDER BY</code>.</td></tr>
+          <tr><td><strong>Función de ventana</strong> (<em>window function</em>)</td><td>Cálculo por grupo que conserva las filas —un ranking, un acumulado—; el grupo se define con <code>partitionBy</code> y el orden con <code>orderBy</code> (en SQL, <code>PARTITION BY</code> y <code>ORDER BY</code>).</td></tr>
           <tr><td><strong>Dato semiestructurado, JSON Lines</strong> (<em>semi-structured data, JSON Lines</em>)</td><td>Cada registro nombra sus campos, que pueden faltar o venir anidados (<em>struct</em>). En un archivo JSON Lines (<code>.jsonl</code>) hay un objeto JSON por línea.</td></tr>
         </tbody>
       </table>
@@ -166,9 +182,10 @@
               class="text-primary underline">https://doi.org/10.1145/2934664</a>. La visión de conjunto, escrita por
             sus creadores (módulos 5 a 8). En inglés, acceso abierto.</li>
           <li>Damji, J. S., Wenig, B., Das, T. y Lee, D. (2020). <em>Learning Spark: Lightning-fast data
-              analytics</em> (2.ª ed.). O'Reilly Media. <strong>Capítulos 3 y 4</strong>: DataFrames y esquemas; Spark
-            SQL, tablas administradas y externas, Parquet, JSON y CSV (módulos 9 a 13, y la base de datos de la sesión 3); los capítulos 1 y 2 si
-            necesitas el panorama. En inglés, de pago; el código es libre en
+              analytics</em> (2.ª ed.). O'Reilly Media. <strong>Capítulos 3 a 5</strong>: DataFrames y esquemas; Spark
+            SQL y las fuentes JSON y CSV; uniones, ventanas y tablas dinámicas (módulos 9 a 13). Las tablas
+            administradas y externas y Parquet, del capítulo 4, son para la base de datos de la sesión 3; los capítulos
+            1 y 2, si necesitas el panorama. En inglés, de pago; el código es libre en
             <a href="https://github.com/databricks/LearningSparkV2" target="_blank" rel="noopener"
               class="text-primary underline">github.com/databricks/LearningSparkV2</a>. Está escrito para Spark 3.0:
             no cubre el modo ANSI, activo por defecto desde Spark 4.</li>
@@ -190,6 +207,14 @@
             <a href="https://hadoop.apache.org/docs/r3.5.0/hadoop-project-dist/hadoop-common/SingleCluster.html"
               target="_blank" rel="noopener" class="text-primary underline">modo pseudodistribuido</a> (módulos 2 a
             4). En inglés, acceso abierto.</li>
+          <li>Apache Software Foundation. (2026). <em>HDFS permissions guide</em> y <em>Hadoop in secure mode</em>
+            (Apache Hadoop 3.5.0).
+            <a href="https://hadoop.apache.org/docs/r3.5.0/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html"
+              target="_blank" rel="noopener" class="text-primary underline">Permisos de HDFS, versión 3.5.0</a> ·
+            <a href="https://hadoop.apache.org/docs/r3.5.0/hadoop-project-dist/hadoop-common/SecureMode.html"
+              target="_blank" rel="noopener" class="text-primary underline">modo seguro con Kerberos</a>. Qué protegen
+            los permisos y qué agrega la autenticación con Kerberos (módulo 3 y punto 4 del taller). En inglés, acceso
+            abierto.</li>
           <li>White, T. (2015). <em>Hadoop: The definitive guide</em> (4.ª ed.). O'Reilly Media. <strong>Capítulos 2 y
               9</strong>: Streaming y combiner, y contadores (módulo 4). En inglés, de pago. Su
             capítulo sobre Spark describe una versión muy anterior: para Spark, mejor las lecturas guía.</li>
@@ -204,8 +229,8 @@
         <h4><i class="fas fa-forward mr-2" aria-hidden="true"></i>En la sesión 3</h4>
         <p>Empezamos donde termina hoy: las ventas limpias y los eventos web pasan a una <strong>base de datos</strong>
           con Spark SQL, que crearemos, cargaremos y consultaremos, con sus controles de seguridad, eficiencia,
-          coherencia y correlación; ahí responderemos a la gerencia cómo consultar las ventas sin ver quién es cada
-          cliente. Después cambiamos de tipo de dato: tras el estructurado (las ventas) y el semiestructurado (los
+          coherencia y correlación; con ella atenderemos el encargo que hoy quedó pendiente: que cualquier analista
+          consulte las ventas con SQL sin ver quién es cada cliente. Después cambiamos de tipo de dato: tras el estructurado (las ventas) y el semiestructurado (los
           eventos web), llega el <strong>no estructurado</strong>, el texto. Extraeremos y prepararemos las reseñas de
           los clientes, aplicaremos procesamiento de lenguaje natural y análisis de sentimientos, y cerraremos el caso
           integrando lo que dicen los clientes con lo que muestran las ventas. Trae tu notebook con el taller 2.</p>
@@ -216,9 +241,9 @@
       </div>
 
       <h3>Al terminar: apagar los servicios</h3>
-      <p>La última celda del notebook detiene Spark y HDFS. Ejecútala solo cuando termines el taller: con
-        <code>spark.stop()</code> se pierden los DataFrames y las vistas que están en memoria, y habría que volver a
-        ejecutar el notebook. No es obligatoria —Colab los apaga al cerrar el entorno—, pero es buena costumbre liberar los
+      <p>La última celda del notebook detiene Spark y HDFS. Ejecútala solo cuando termines el taller: después de
+        <code>spark.stop()</code> los DataFrames ya no se pueden usar y las vistas temporales desaparecen, y con HDFS
+        detenido no corren los jobs de Hadoop; para seguir, habría que volver a ejecutar el notebook. No es obligatoria —Colab los apaga al cerrar el entorno—, pero es buena costumbre liberar los
         recursos que uno encendió.</p>
       {{CELDA:apagar}}
     </div>

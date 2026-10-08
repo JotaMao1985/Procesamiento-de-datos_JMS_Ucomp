@@ -20,9 +20,9 @@ const courseData = {
   modules: [
     { id: 1, bloque: 1, title: "Bienvenida y hoja de ruta", duration: "10 min" },
     { id: 2, bloque: 1, title: "Dato, información y conocimiento", duration: "15 min" },
-    { id: 3, bloque: 1, title: "El caso y sus datos", duration: "15 min" },
-    { id: 4, bloque: 1, title: "Las seis etapas", duration: "25 min" },
-    { id: 5, bloque: 1, title: "El caso por etapas y Colab", duration: "10 min" },
+    { id: 3, bloque: 1, title: "El caso y sus datos", duration: "10 min" },
+    { id: 4, bloque: 1, title: "Las seis etapas", duration: "20 min" },
+    { id: 5, bloque: 1, title: "El caso por etapas y Colab", duration: "20 min" },
     { id: 6, bloque: 2, title: "¿Por qué un computador no alcanza?", duration: "15 min" },
     { id: 7, bloque: 2, title: "Computación en la nube", duration: "20 min" },
     { id: 8, bloque: 2, title: "Ecosistema Hadoop", duration: "20 min" },

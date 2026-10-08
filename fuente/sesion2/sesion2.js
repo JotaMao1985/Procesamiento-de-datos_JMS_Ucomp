@@ -15,19 +15,19 @@ const courseData = {
       detalle: "DAG · DataFrames y SQL · esquemas · limpieza · uniones y ventanas · JSON anidado · taller" }
   ],
   modules: [
-    { id: 1, bloque: 1, title: "Bienvenida y retorno al caso", duration: "10 min" },
+    { id: 1, bloque: 1, title: "Bienvenida y retorno al caso", duration: "15 min" },
     { id: 2, bloque: 1, title: "Hadoop en Colab", duration: "10 min" },
-    { id: 3, bloque: 1, title: "HDFS en la práctica", duration: "15 min" },
+    { id: 3, bloque: 1, title: "HDFS en la práctica", duration: "18 min" },
     { id: 4, bloque: 1, title: "Hadoop Streaming", duration: "25 min" },
     { id: 5, bloque: 1, title: "Lo que Hadoop resolvió y lo que no", duration: "10 min" },
-    { id: 6, bloque: 1, title: "Spark: el ecosistema", duration: "15 min" },
-    { id: 7, bloque: 1, title: "Arquitectura y RDD", duration: "20 min" },
+    { id: 6, bloque: 1, title: "Spark: el ecosistema", duration: "10 min" },
+    { id: 7, bloque: 1, title: "Arquitectura y RDD", duration: "17 min" },
     { id: 8, bloque: 2, title: "Transformaciones y DAG", duration: "15 min" },
-    { id: 9, bloque: 2, title: "DataFrames y Spark SQL", duration: "15 min" },
-    { id: 10, bloque: 2, title: "Leer con esquema", duration: "15 min" },
+    { id: 9, bloque: 2, title: "DataFrames y Spark SQL", duration: "18 min" },
+    { id: 10, bloque: 2, title: "Leer con esquema", duration: "14 min" },
     { id: 11, bloque: 2, title: "Limpieza en Spark", duration: "20 min" },
     { id: 12, bloque: 2, title: "Agregar, unir y ventanas", duration: "10 min" },
-    { id: 13, bloque: 2, title: "Eventos web en JSON", duration: "20 min" },
+    { id: 13, bloque: 2, title: "Eventos web en JSON", duration: "18 min" },
     { id: 14, bloque: 2, title: "Cierre y taller", duration: "10 min" }
   ]
 };
@@ -549,10 +549,10 @@ AUTOEVALUACIONES['cierre'] = [
     pregunta: 'La carpeta <code>/guadua/crudo</code> quedó con permisos <code>750</code>. En un clúster con la configuración por defecto de HDFS, ¿qué tan protegidos quedan los datos crudos de los clientes?',
     pista: '¿Cómo sabe HDFS quién está pidiendo el archivo?',
     opciones: [
-      { texto: 'Poco: con autenticación simple, HDFS cree el usuario que declara quien pide.', correcta: true, retro: 'Los permisos se aplican, pero confían en el nombre declarado: cualquiera con acceso a la red podría decir «soy root». Un clúster con datos personales necesita Kerberos para autenticar, además de autorización por tabla, cifrado y auditoría.' },
-      { texto: 'Del todo: solo el dueño y su grupo pueden leerlos, y HDFS verifica quién es cada uno.', correcta: false, retro: 'Con autenticación simple, HDFS no verifica nada: cree el nombre que declara el cliente. Verificarlo es el trabajo de Kerberos.' },
-      { texto: 'Del todo, porque además HDFS guarda cifrado cada bloque con una clave del dueño.', correcta: false, retro: 'HDFS no cifra por defecto: el cifrado en disco exige configurar zonas cifradas, y el de la red, TLS.' },
-      { texto: 'Nada: en HDFS los permisos son solo informativos y ningún usuario se detiene por ellos.', correcta: false, retro: 'Detienen a cualquier usuario que no sea superusuario. En Colab no se nota porque root arrancó el NameNode y por eso es el superusuario de HDFS.' }
+      { texto: 'Poco: con autenticación simple, HDFS da por cierto el nombre de usuario que declara quien pide.', correcta: true, retro: 'Los permisos se aplican, pero confían en el nombre declarado: frenan los descuidos de usuarios honestos, no a quien mienta. Cualquiera con acceso a la red podría declararse dueño de la carpeta, o superusuario, y HDFS le creería. Un clúster con datos personales necesita Kerberos para autenticar, además de autorización por tabla, cifrado y auditoría.' },
+      { texto: 'Del todo: solo el dueño y su grupo pueden leerlos, y HDFS verifica quién es cada uno.', correcta: false, retro: 'Con autenticación simple, HDFS no verifica la identidad: acepta el nombre que declara el cliente. Verificarla es el trabajo de Kerberos.' },
+      { texto: 'Del todo, porque además HDFS guarda cifrado cada bloque con una clave del dueño.', correcta: false, retro: 'HDFS no cifra por defecto: guardar los bloques cifrados exige configurar zonas cifradas. Y aun cifrados, con autenticación simple quien declare ser el dueño recibe la clave para leerlos.' },
+      { texto: 'Nada: en HDFS los permisos son solo informativos y ningún usuario se detiene por ellos.', correcta: false, retro: 'Sí se aplican: detienen a quien no sea el dueño, ni de su grupo, ni superusuario. En Colab no se nota porque root arrancó el NameNode y por eso es el superusuario de HDFS.' }
     ]
   },
   {
@@ -565,35 +565,35 @@ AUTOEVALUACIONES['cierre'] = [
   },
   {
     tipo: 'opcion', modulo: 5,
-    pregunta: 'Un modelo de aprendizaje automático recorre las mismas ventas veinte veces hasta converger, y los datos caben en la memoria del clúster. ¿Por qué Spark le saca tanta ventaja a MapReduce?',
+    pregunta: 'Un modelo de aprendizaje automático recorre las mismas ventas veinte veces hasta converger. Los datos caben en la memoria del clúster y el código los guarda con <code>cache()</code>. ¿Por qué Spark le saca tanta ventaja a MapReduce?',
     pista: '¿Dónde quedan los datos entre una pasada y la siguiente?',
     opciones: [
-      { texto: 'Spark lee una vez y repite las pasadas en memoria; MapReduce vuelve al disco en cada una.', correcta: true, retro: 'Cada job de MapReduce lee su entrada de HDFS y escribe su salida con réplicas: veinte pasadas son veinte viajes al disco. Si los datos no cupieran en memoria, Spark perdería buena parte de su ventaja.' },
+      { texto: 'Spark lee una vez y repite las pasadas en memoria; MapReduce vuelve al disco en cada una.', correcta: true, retro: 'Cada job de MapReduce lee su entrada de HDFS y escribe su salida con réplicas: veinte pasadas son veinte viajes al disco. Ojo: sin <code>cache()</code>, Spark también volvería a leer de HDFS en cada pasada (módulo 8), y si los datos no cupieran en memoria perdería buena parte de su ventaja.' },
       { texto: 'Spark reparte cada pasada entre más núcleos que MapReduce, aunque el clúster sea el mismo.', correcta: false, retro: 'Los dos reparten el trabajo en tareas, una por núcleo a la vez. La diferencia está en dónde quedan los datos entre pasadas.' },
       { texto: 'Spark procesa todo en una sola partición y así se ahorra el shuffle de cada pasada.', correcta: false, retro: 'Spark también reparte en particiones y también hace shuffle cuando la operación lo exige; lo que evita es volver al disco.' },
-      { texto: 'Spark comprime los resultados de cada pasada y MapReduce los guarda tal como salen.', correcta: false, retro: 'La compresión no es la diferencia: MapReduce escribe en HDFS, con tres réplicas, el resultado intermedio de cada pasada.' }
+      { texto: 'Spark guarda el resultado de cada pasada en HDFS con una sola réplica, y MapReduce con tres.', correcta: false, retro: 'Spark no escribe en HDFS entre pasadas: deja los datos en memoria. Escribir en disco en cada pasada, con una réplica o con tres, es justo el costo de MapReduce.' }
     ]
   },
   {
     tipo: 'opcion', modulo: 8,
-    pregunta: 'En medio de un conteo de palabras se cae el ejecutor que tenía dos de las cuatro particiones de un RDD. ¿Qué hace Spark?',
-    pista: '¿Qué guarda Spark de cada RDD, además de sus datos?',
+    pregunta: 'En un clúster, en medio de un conteo de palabras, se cae el ejecutor que tenía dos de las cuatro particiones de un RDD. ¿Qué hace Spark?',
+    pista: '¿Qué guarda Spark de cada RDD para poder volver a obtenerlo?',
     opciones: [
-      { texto: 'Recalcula solo esas dos particiones a partir del linaje.', correcta: true, retro: 'El linaje es la receta de cada partición: Spark repite los pasos que la produjeron y solo para lo que se perdió. Así tolera fallos sin replicar todo, como hace HDFS.' },
-      { texto: 'Las recupera de las réplicas que guardó en otros ejecutores, como HDFS con sus bloques.', correcta: false, retro: 'Spark no replica las particiones en memoria: guarda la receta (el linaje) y recalcula lo perdido. Las réplicas son la estrategia de HDFS.' },
+      { texto: 'Recalcula solo esas dos particiones a partir del linaje.', correcta: true, retro: 'El linaje es la receta de cada partición: Spark repite los pasos que la produjeron y solo para lo que se perdió. Así tolera fallos sin guardar réplicas de todo, que es la estrategia de HDFS.' },
+      { texto: 'Las recupera de las réplicas que guardó en otros ejecutores, como HDFS con sus bloques.', correcta: false, retro: 'Por defecto, Spark no guarda réplicas de las particiones: guarda la receta (el linaje) y recalcula lo perdido. Las réplicas son la estrategia de HDFS.' },
       { texto: 'Repite el trabajo completo desde el principio, con las cuatro particiones.', correcta: false, retro: 'No hace falta: el linaje le dice qué pasos produjeron cada partición, y recalcula solo las que se perdieron.' },
       { texto: 'Detiene el trabajo con un error, porque lo que estaba en memoria ya no se puede recuperar.', correcta: false, retro: 'Para eso guarda el linaje: los datos en memoria se pierden, pero la receta permite volver a calcularlos.' }
     ]
   },
   {
     tipo: 'opcion', modulo: 9,
-    pregunta: 'En HDFS, <code>ventas.csv</code> quedó en {{CIFRA:bloques_ventas}} bloques de 64 KB, pero Spark lo leyó en {{CIFRA:particiones_hdfs}} partición. ¿Qué explica la diferencia?',
+    pregunta: 'En HDFS, <code>ventas.csv</code> quedó en {{CIFRA:bloques_ventas}} bloques de 64 KB, pero <code>spark.read.csv</code> lo leyó en {{CIFRA:particiones_hdfs}} partición. ¿Qué explica la diferencia?',
     pista: '¿El bloque y la partición los decide el mismo sistema?',
     opciones: [
       { texto: 'Spark arma sus particiones por tamaño, y el archivo es demasiado pequeño para partirlo.', correcta: true, retro: 'Con {{CIFRA:bytes_ventas}} bytes no vale la pena repartir el trabajo. El bloque es cómo HDFS guarda el archivo; la partición, cómo Spark reparte el trabajo. Con un archivo grande habría muchas particiones.' },
       { texto: 'HDFS juntó sus bloques en uno solo al entregarle el archivo completo a Spark.', correcta: false, retro: 'Los bloques siguen igual en HDFS; lo que cambia es cómo Spark agrupa lo que lee en tareas.' },
       { texto: 'Spark solo puede usar una partición cuando lee un archivo guardado en HDFS.', correcta: false, retro: 'Con un archivo grande, Spark lo reparte en muchas particiones aunque venga de HDFS; este pesa menos de 200 KB.' },
-      { texto: 'Es un error de configuración: Spark debería crear siempre una partición por cada bloque.', correcta: false, retro: 'No existe esa regla. Partición y bloque son cosas distintas, y no hace falta que coincidan.' }
+      { texto: 'Es un error de configuración: Spark debería crear siempre una partición por cada bloque.', correcta: false, retro: 'No es un error ni una regla fija: el bloque lo decide HDFS al guardar y la partición la decide Spark al leer. Al leer un DataFrame, Spark junta lo pequeño en particiones de varios MB, así que bloque y partición no tienen por qué coincidir.' }
     ]
   },
   {
@@ -601,7 +601,7 @@ AUTOEVALUACIONES['cierre'] = [
     pregunta: 'Al leer las ventas con <code>mode="DROPMALFORMED"</code> quedaron {{CIFRA:dropmalformed}} filas en lugar de {{CIFRA:filas_crudas}}. ¿Cuál es el riesgo?',
     pista: '¿Qué tenían de malo esas filas? Compáralo con lo que viste en la columna <code>_corrupt_record</code>.',
     opciones: [
-      { texto: 'Que se pierdan sin aviso ventas válidas con el precio escrito como «$3.100», y el total quede corto.', correcta: true, retro: 'Las {{CIFRA:corruptos}} filas descartadas eran ventas reales con el precio escrito como texto. Por eso conviene una capa bronce sin pérdidas y reglas explícitas en la plata.' },
+      { texto: 'Que se pierdan sin aviso ventas reales con el precio escrito como «$3.100», y el total quede corto.', correcta: true, retro: 'Las {{CIFRA:corruptos}} filas descartadas eran ventas reales con el precio escrito como texto. Por eso conviene una capa bronce sin pérdidas y reglas explícitas en la plata.' },
       { texto: 'Ninguno: las filas descartadas eran las ventas cargadas dos veces, que de todos modos había que quitar.', correcta: false, retro: 'Los duplicados no violan el esquema, y eran {{CIFRA:duplicados}}, no {{CIFRA:corruptos}}. Lo que se descartó fueron precios escritos como «$3.100».' },
       { texto: 'Que Spark se detenga a mitad de la lectura y no entregue ningún resultado.', correcta: false, retro: 'Ese es el comportamiento de FAILFAST, no de DROPMALFORMED.' },
       { texto: 'Que las filas que quedan mantengan el precio como texto y no se puedan sumar.', correcta: false, retro: 'Con el esquema declarado, las filas que quedan tienen el precio como número entero; las de precio con «$» son justamente las descartadas.' }
@@ -620,13 +620,13 @@ AUTOEVALUACIONES['cierre'] = [
   },
   {
     tipo: 'opcion', modulo: 12,
-    pregunta: 'Para unir las {{CIFRA:filas_limpias}} ventas con el catálogo de {{CIFRA:productos}} productos, el código usa <code>F.broadcast</code> sobre el catálogo. ¿Qué se gana?',
-    pista: '¿Cuál de las dos tablas tendría que viajar por la red en una unión normal?',
+    pregunta: 'Para unir las {{CIFRA:filas_limpias}} ventas con el catálogo de {{CIFRA:productos}} productos, el código usa un join de difusión (<code>F.broadcast</code> sobre el catálogo). ¿Qué se gana frente a una unión normal?',
+    pista: 'En una unión normal, las dos tablas viajan por la red. ¿Cuál es más barato copiar entera?',
     opciones: [
-      { texto: 'Copia el catálogo a cada ejecutor y une ahí, sin hacer shuffle de las ventas.', correcta: true, retro: 'Una unión normal reúne por llave las filas de las dos tablas, con un shuffle. Si una tabla es pequeña, es más barato copiarla completa a cada ejecutor y no mover la grande.' },
+      { texto: 'Copia el catálogo a cada ejecutor y une ahí, sin hacer shuffle de las ventas.', correcta: true, retro: 'Una unión normal reúne por llave las filas de las dos tablas, con un shuffle. Si una tabla es pequeña, es más barato copiarla completa a cada ejecutor y no mover la grande. Con un catálogo de pocos KB, Spark habría elegido la difusión por su cuenta (umbral de 10 MB); <code>F.broadcast</code> la pide de forma explícita y deja la intención escrita.' },
       { texto: 'Ordena las ventas por id_producto antes de unir, para que la unión sea más rápida.', correcta: false, retro: 'Ordenar exigiría mover las ventas entre particiones; la difusión justamente lo evita copiando la tabla pequeña.' },
       { texto: 'Guarda el catálogo en el disco para que no ocupe memoria en los ejecutores.', correcta: false, retro: 'Es al revés: el catálogo se copia en la memoria de cada ejecutor. Por eso solo conviene con tablas pequeñas.' },
-      { texto: 'Une solo los productos que se vendieron y descarta del resultado los demás.', correcta: false, retro: 'Eso lo decide el tipo de unión (aquí, <code>how="left"</code> conserva todas las ventas). La difusión cambia cómo se une, no qué se une.' }
+      { texto: 'Reparte el catálogo en partes, una por ejecutor, para que ninguno cargue la tabla completa.', correcta: false, retro: 'Es al revés: cada ejecutor recibe el catálogo completo. Repartirlo por id_producto obligaría a llevar cada venta a la parte de su producto, y eso es justo el shuffle que se evita.' }
     ]
   },
   {
@@ -649,7 +649,7 @@ RUBRICAS['taller-2'] = {
   titulo: 'Rúbrica del Taller 2',
   total: 100,
   intro: 'Cada criterio se puntúa por separado. Pulsa un criterio para ver qué mide y qué distingue cada nivel.',
-  nota: 'Puntos sobre 100. La equivalencia con la escala de calificación institucional la define el docente. La misma rúbrica se usa en la coevaluación entre grupos.',
+  nota: 'Puntos sobre 100. La equivalencia con la escala de calificación institucional la define el docente. La misma rúbrica se usa en la coevaluación entre grupos. Los criterios A y B evalúan los controles de eficiencia y coherencia del CR3, todavía sin base de datos; el criterio C, el tema 5.2 del syllabus.',
   anulan: [
     'El notebook no se puede ejecutar de principio a fin por errores del propio código (no cuentan las caídas del servidor de descarga de Hadoop).',
     'Cifras del informe que no salen del notebook entregado.',
@@ -661,19 +661,19 @@ RUBRICAS['taller-2'] = {
       clave: 'A · CR3', nombre: 'Hadoop y verificación', puntos: 20,
       foco: 'Mide si el job de Streaming funciona sobre HDFS, si los contadores se <strong>leen e interpretan</strong> y si el resultado se verifica contra otro camino.',
       niveles: [
-        { nombre: 'Excelente', rango: '18–20', observa: 'Job correcto sin y con combiner; tabla de contadores con la explicación del ahorro en el shuffle; verificación contra pandas en el código.' },
-        { nombre: 'Aceptable', rango: '13–17', observa: 'Job correcto sin y con combiner y tabla de contadores, pero la explicación es superficial o la verificación se hace a ojo.' },
-        { nombre: 'Insuficiente', rango: '7–12', observa: 'El job corre, pero falta la tabla de contadores o falta la verificación.' },
-        { nombre: 'No logrado', rango: '0–6', observa: 'No hay job de Hadoop o su resultado es incorrecto.' }
+        { nombre: 'Excelente', rango: '18–20', observa: 'Job por canal, con un mapper propio, correcto sin y con combiner; tabla con los tres contadores de los dos jobs y una explicación de por qué bajan Reduce input records y Reduce shuffle bytes y no Map output records; totales por canal comparados con pandas en el código.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Job por canal correcto sin y con combiner y tabla de contadores, pero la explicación no dice por qué cambian unos contadores y otros no, o la comparación con pandas se hace a ojo.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'El job por canal corre, pero en una sola de las dos versiones, o falta la tabla de contadores, o falta la comparación con pandas.' },
+        { nombre: 'No logrado', rango: '0–6', observa: 'No hay job de Hadoop por canal (repetir el job por ciudad de la sesión no cuenta) o su resultado es incorrecto.' }
       ]
     },
     {
       clave: 'B · CR3', nombre: 'Limpieza en Spark y conciliación', puntos: 20,
-      foco: 'Mide si la capa plata en PySpark aplica las reglas de calidad y si se <strong>demuestra</strong> que coincide con pandas fila por fila.',
+      foco: 'Mide si la capa plata en PySpark aplica las reglas de calidad, si se <strong>demuestra</strong> en el código que tiene las mismas filas, los mismos identificadores y los mismos totales que la de pandas, y si la cuarentena explica cada fila.',
       niveles: [
         { nombre: 'Excelente', rango: '18–20', observa: 'Mismas filas, mismos identificadores y mismos totales que pandas, comprobado en el código; cuarentena con motivo.' },
-        { nombre: 'Aceptable', rango: '13–17', observa: 'Limpieza correcta; la conciliación compara solo conteos o totales.' },
-        { nombre: 'Insuficiente', rango: '7–12', observa: 'Limpieza incompleta o sin conciliar.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Limpieza correcta, pero la conciliación compara solo conteos o totales, o la cuarentena no trae el motivo de cada fila.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Alguna regla de la sesión 1 sin aplicar, o limpieza sin conciliar con pandas.' },
         { nombre: 'No logrado', rango: '0–6', observa: 'No hay limpieza en Spark.' }
       ]
     },
@@ -681,29 +681,29 @@ RUBRICAS['taller-2'] = {
       clave: 'C · Tema 5.2', nombre: 'Preguntas de la gerencia con Spark', puntos: 20,
       foco: 'Mide si las agregaciones, uniones y ventanas en Spark responden preguntas de negocio y si cada resultado se <strong>lee</strong> en el informe.',
       niveles: [
-        { nombre: 'Excelente', rango: '18–20', observa: 'Tabla mensual por ciudad y categoría correcta; cuatro preguntas respondidas, al menos una con unión y una con ventana, cada una con su lectura.' },
-        { nombre: 'Aceptable', rango: '13–17', observa: 'Tabla y preguntas correctas, pero falta la unión o la ventana, o alguna lectura es superficial.' },
-        { nombre: 'Insuficiente', rango: '7–12', observa: 'Agregaciones con errores, o preguntas planteadas sin responder.' },
-        { nombre: 'No logrado', rango: '0–6', observa: 'No hay agregaciones en Spark.' }
+        { nombre: 'Excelente', rango: '18–20', observa: 'Tabla mensual por ciudad y categoría correcta; cuatro preguntas bien resueltas, al menos una con unión y una con ventana; cada lectura da la cifra con su unidad y dice qué significa para la gerencia.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Tabla mensual y cuatro preguntas bien resueltas, pero falta la unión o la ventana, o alguna lectura repite la cifra sin decir qué significa.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Falta la tabla mensual o tiene errores, o solo dos o tres preguntas están bien resueltas.' },
+        { nombre: 'No logrado', rango: '0–6', observa: 'Una o ninguna pregunta bien resuelta, o no hay agregaciones en Spark.' }
       ]
     },
     {
       clave: 'D · CR1', nombre: 'Seguridad en las fases del dato', puntos: 20,
-      foco: 'Mide si los controles de seguridad de la sesión se <strong>ejecutan</strong> y si el esquema muestra qué protege el dato en cada fase y por qué, de acuerdo con la Ley 1581 de 2012.',
+      foco: 'Mide si los controles de seguridad de la sesión se <strong>interpretan</strong> —qué garantizan y qué no— y si el esquema muestra qué protege el dato en cada fase y por qué, de acuerdo con la Ley 1581 de 2012.',
       niveles: [
-        { nombre: 'Excelente', rango: '18–20', observa: 'Huella del software verificada y permisos de HDFS aplicados en el notebook; esquema por fase completo, con el porqué de cada control y lo que le falta a la configuración de Colab para datos personales.' },
-        { nombre: 'Aceptable', rango: '13–17', observa: 'Los dos controles ejecutados, pero el esquema está incompleto o no explica el porqué.' },
-        { nombre: 'Insuficiente', rango: '7–12', observa: 'Un solo control ejecutado, o un esquema sin controles que lo respalden.' },
-        { nombre: 'No logrado', rango: '0–6', observa: 'No hay controles de seguridad.' }
+        { nombre: 'Excelente', rango: '18–20', observa: 'Los dos controles interpretados en el notebook (la huella prueba integridad, no autenticidad; los permisos no detienen a root, superusuario de HDFS); esquema con un control pertinente en cada fase y su porqué; y lo que le falta a Colab para datos personales, ligado al principio de seguridad de la Ley 1581 de 2012.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Los dos controles interpretados y esquema con todas las fases, pero algún control no protege el dato en su fase o no explica su porqué, o falta lo que le falta a Colab.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Solo una de las dos partes: controles interpretados sin esquema por fases, o esquema sin interpretar los controles; o un esquema al que le faltan fases.' },
+        { nombre: 'No logrado', rango: '0–6', observa: 'Ni interpretación de los controles ni esquema por fases.' }
       ]
     },
     {
       clave: 'E · CR2', nombre: 'Integración y comunicación', puntos: 20,
       foco: 'Mide si el informe <strong>integra</strong> eventos web y ventas en una conclusión útil, declara lo que los datos no permiten concluir y se entiende sin leer el código.',
       niveles: [
-        { nombre: 'Excelente', rango: '18–20', observa: 'Conclusión que combina ambas fuentes, con sus límites; informe claro, con cifras y unidades.' },
-        { nombre: 'Aceptable', rango: '13–17', observa: 'Ambas fuentes presentes, conexión débil; informe comprensible.' },
-        { nombre: 'Insuficiente', rango: '7–12', observa: 'Fuentes analizadas por separado; informe confuso.' },
+        { nombre: 'Excelente', rango: '18–20', observa: 'Eventos y ventas web y app de junio unidos en el código por una llave común; conclusión que combina ambas fuentes y declara qué no permiten concluir; informe que se entiende sin leer el código, con cifras y unidades.' },
+        { nombre: 'Aceptable', rango: '13–17', observa: 'Fuentes unidas por una llave y conclusión que las combina, pero sin declarar sus límites, o comparando con ventas de otros meses; informe comprensible.' },
+        { nombre: 'Insuficiente', rango: '7–12', observa: 'Las dos fuentes se describen por separado, sin unirlas por una llave, o el informe no se entiende sin el código.' },
         { nombre: 'No logrado', rango: '0–6', observa: 'Falta la integración o el informe.' }
       ]
     }

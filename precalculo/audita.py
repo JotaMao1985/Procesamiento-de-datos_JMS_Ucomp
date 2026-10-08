@@ -155,6 +155,16 @@ def agenda(numero, sesion):
     for b, (minutos, _) in bloques.items():
         suma = sum(int(d) for _, bl, d in modulos if int(bl) == b)
         comprobar(suma == minutos, f"bloque {b}: módulos suman {suma} de {minutos} min")
+    # La cabecera de cada módulo (bloque y chip de minutos) debe decir lo mismo que courseData
+    distintos = []
+    for m, bl, d in modulos:
+        cabecera = (RAIZ / "fuente" / f"sesion{numero}" / f"m{int(m):02d}.html").read_text(encoding="utf-8")[:1500]
+        meta = re.search(r"Módulo (\d+) · Bloque (\d)", cabecera)
+        chip = re.search(r"</i> (\d+) min</span>", cabecera)
+        if not (meta and chip and meta.groups() == (m, bl) and chip.group(1) == d):
+            distintos.append(m)
+    comprobar(not distintos, "cabeceras de los módulos (bloque y minutos) iguales a courseData"
+                             + (f"; distintas: {', '.join(distintos)}" if distintos else ""))
     total = sum(m + p for m, p in bloques.values())
     comprobar(total == sesion["minutos"], f"sesión completa con breaks: {total} min")
     comprobar([p for _, (_, p) in sorted(bloques.items())] == sesion["breaks"], f"breaks: {sesion['breaks']}")
