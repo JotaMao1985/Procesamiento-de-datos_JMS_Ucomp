@@ -363,10 +363,13 @@ Abrir el simulador «La pila de responsabilidad» del módulo 7 y cambiar de mod
 
 Guadua quiere procesar sus ventas con Spark sin instalar ni mantener servidores, y pagando solo las horas de uso. Un clúster gestionado como **Amazon EMR** o **Google Cloud Dataproc** es…
 
-IaaS · PaaS · SaaS · en casa (*on-premise*)
+- a) PaaS
+- b) *On-premise*
+- c) IaaS
+- d) SaaS
 
 ::: respuesta
-**PaaS.** El proveedor entrega Hadoop y Spark instalados y mantenidos; Guadua aporta datos y código. En IaaS tendría que instalarlos y repararlos ella misma; un SaaS sería una aplicación terminada, sin código propio.
+**a) PaaS.** El proveedor entrega Hadoop y Spark instalados y mantenidos; Guadua aporta datos y código. En IaaS tendría que instalarlos y repararlos ella misma; un SaaS sería una aplicación terminada, sin código propio.
 :::
 
 ???
@@ -461,10 +464,13 @@ En el dibujo, lo morado va al reducer 1, y lo naranja, al 2. Las seis fases comp
 
 ## ¿En qué fase viajan por la red los pares que emiten los mappers? {.pregunta}
 
-En el map · en el shuffle · en el reduce · en la lectura de la entrada.
+- a) En el map
+- b) En el *shuffle*
+- c) En la lectura de la entrada
+- d) En el reduce
 
 ::: respuesta
-**En el *shuffle*.** Los pares salen del nodo que los produjo y viajan al reducer de su partición. Cada tarea map, en cambio, lee en lo posible el bloque de su propio nodo: es la localidad de datos.
+**b) En el *shuffle*.** Los pares salen del nodo que los produjo y viajan al reducer de su partición. Cada tarea map, en cambio, lee en lo posible el bloque de su propio nodo: es la localidad de datos.
 :::
 
 ???

@@ -1690,8 +1690,13 @@
             <div><div><span class="chip-ejercicio" style="background:var(--primary)"><i class="fas fa-circle-question"></i>Pregunta para la clase</span></div><h2>Usar Spark sin instalarlo y pagar solo por hora: ¿qué modelo es?</h2></div>
         </div>
         <div class="cuerpo"><p>Guadua quiere procesar sus ventas con Spark sin instalar ni mantener servidores, y pagando solo las horas de uso. Un clúster gestionado como <strong>Amazon EMR</strong> o <strong>Google Cloud Dataproc</strong> es…</p>
-<p>IaaS · PaaS · SaaS · en casa (<em>on-premise</em>)</p>
-<div class="paso"><div class="caja respuesta"><span class="caja-etiqueta"><i class="fas fa-check"></i>Respuesta</span><div class="caja-cuerpo"><p><strong>PaaS.</strong> El proveedor entrega Hadoop y Spark instalados y mantenidos; Guadua aporta datos y código. En IaaS tendría que instalarlos y repararlos ella misma; un SaaS sería una aplicación terminada, sin código propio.</p></div></div></div></div>
+<ul>
+<li>a) PaaS</li>
+<li>b) <em>On-premise</em></li>
+<li>c) IaaS</li>
+<li>d) SaaS</li>
+</ul>
+<div class="paso"><div class="caja respuesta"><span class="caja-etiqueta"><i class="fas fa-check"></i>Respuesta</span><div class="caja-cuerpo"><p><strong>a) PaaS.</strong> El proveedor entrega Hadoop y Spark instalados y mantenidos; Guadua aporta datos y código. En IaaS tendría que instalarlos y repararlos ella misma; un SaaS sería una aplicación terminada, sin código propio.</p></div></div></div></div>
         
     </div>
     <div class="pie"><span class="sello">Sesión 1 · Del dato al MapReduce</span><span>Procesamiento de Datos · UCompensar</span><span class="num">33 / 89</span></div>
@@ -1926,8 +1931,13 @@
             <div class="ficha-icono"><i class="fas fa-book-open"></i></div>
             <div><div><span class="chip-ejercicio" style="background:var(--primary)"><i class="fas fa-circle-question"></i>Pregunta para la clase</span></div><h2>¿En qué fase viajan por la red los pares que emiten los mappers?</h2></div>
         </div>
-        <div class="cuerpo"><p>En el map · en el shuffle · en el reduce · en la lectura de la entrada.</p>
-<div class="paso"><div class="caja respuesta"><span class="caja-etiqueta"><i class="fas fa-check"></i>Respuesta</span><div class="caja-cuerpo"><p><strong>En el <em>shuffle</em>.</strong> Los pares salen del nodo que los produjo y viajan al reducer de su partición. Cada tarea map, en cambio, lee en lo posible el bloque de su propio nodo: es la localidad de datos.</p></div></div></div></div>
+        <div class="cuerpo"><ul>
+<li>a) En el map</li>
+<li>b) En el <em>shuffle</em></li>
+<li>c) En la lectura de la entrada</li>
+<li>d) En el reduce</li>
+</ul>
+<div class="paso"><div class="caja respuesta"><span class="caja-etiqueta"><i class="fas fa-check"></i>Respuesta</span><div class="caja-cuerpo"><p><strong>b) En el <em>shuffle</em>.</strong> Los pares salen del nodo que los produjo y viajan al reducer de su partición. Cada tarea map, en cambio, lee en lo posible el bloque de su propio nodo: es la localidad de datos.</p></div></div></div></div>
         
     </div>
     <div class="pie"><span class="sello">Sesión 1 · Del dato al MapReduce</span><span>Procesamiento de Datos · UCompensar</span><span class="num">43 / 89</span></div>
@@ -2976,12 +2986,22 @@ if actual is not None:
                     const [a, b] = r.split('-').map(Number);
                     return Array.from({ length: (b || a) - a + 1 }, (_, i) => a + i);
                 }));
-                html = html.split('\n').map((linea, i) => {
+                // Un token de varias líneas (una cadena """…""", un comentario /* … */) llega como un
+                // solo <span>: se cierra al final de cada línea y se reabre en la siguiente, para que
+                // cada .linea quede bien anidada.
+                let abiertas = [];
+                html = html.split('\n').map((linea) => {
+                    const prefijo = abiertas.join('');
+                    for (const m of linea.matchAll(/<(\/?)span\b[^>]*>/g)) {
+                        if (m[1]) abiertas.pop(); else abiertas.push(m[0]);
+                    }
+                    return prefijo + linea + '</span>'.repeat(abiertas.length);
+                }).map((linea, i) => {
                     const plano = linea.replace(/<[^>]*>/g, '').replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&').trimStart();
                     const clases = ['linea'];
                     if (pref && plano.startsWith(pref)) clases.push('lp-salida');
                     if (foco.has(i + 1)) clases.push('foco');
-                    return `<span class="${clases.join(' ')}">${linea || ' '}</span>`;
+                    return `<span class="${clases.join(' ')}">${linea}${plano ? '' : ' '}</span>`;
                 }).join('\n');
                 code.innerHTML = html;
                 code.dataset.hecho = '1';
