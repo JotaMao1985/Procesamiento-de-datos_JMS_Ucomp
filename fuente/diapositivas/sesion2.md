@@ -78,7 +78,7 @@ Hadoop y Spark guardan estado entre celdas: si te saltas una, las siguientes fal
 :::
 
 ???
-La segunda celda va plegada: se ejecuta sin abrirla y debe imprimir `df: 2969 ventas limpias · total 44.0 millones de pesos`. Versiones de referencia: Python 3.13, pandas 2.2.3, PySpark 4.0.4 y Java 21; en Colab pueden variar. Si Colab recicló la máquina, «Ejecutar anteriores» repite también la descarga de Hadoop y vuelve a crear HDFS: tres o cuatro minutos. Si el enlace no abre: descargar el notebook y subirlo (Archivo → Subir notebook).
+La segunda celda va plegada: se ejecuta sin abrirla y debe imprimir `df: 2969 ventas limpias · total 44.0 millones de pesos`. Versiones de referencia: Python 3.13, pandas 2.2.3, PySpark 4.0.4 y Java 21; en Colab pueden variar. Si Colab recicló la máquina, «Ejecutar anteriores» repite también la descarga de Hadoop y vuelve a crear HDFS: tres o cuatro minutos. Si el enlace no abre: descargar el notebook y subirlo (Archivo → Subir cuaderno).
 
 ## ¿Qué garantía necesita el `reducer.py` de la sesión 1? {.pregunta}
 

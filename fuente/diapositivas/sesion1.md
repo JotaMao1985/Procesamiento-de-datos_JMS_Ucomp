@@ -259,7 +259,7 @@ Si tras un break ya no están los archivos: **Entorno de ejecución → Ejecutar
 :::
 
 ???
-Si Colab advierte que el notebook no lo creó Google, elegir «Ejecutar de todos modos». Si el enlace no se abre: descargar el notebook y subirlo (Archivo → Subir notebook). Quien no alcance lo termina en el break.
+Si Colab advierte que el notebook no lo creó Google, elegir «Ejecutar de todos modos». Si el enlace no se abre: descargar el notebook y subirlo (Archivo → Subir cuaderno). Quien no alcance lo termina en el break.
 
 ## Break de 15 minutos {.idea etiqueta="Break" icono=fa-mug-hot}
 

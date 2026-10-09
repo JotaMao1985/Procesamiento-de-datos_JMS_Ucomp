@@ -3874,7 +3874,7 @@ html.modo-presentacion #enlaceSesiones {
             aria-hidden="true"></i>logs_web.jsonl</button>
       </div>
       <p class="text-sm text-gray-600 mb-6">¿El enlace no abre? Descarga el notebook y súbelo en Colab
-        (<strong>Archivo → Subir notebook</strong>).</p>
+        (<strong>Archivo → Subir cuaderno</strong>).</p>
 
       <div class="celda" data-celda="datos"><pre><code class="language-python"># En el notebook, esta celda trae el generador completo (oculto).
 # Crea la carpeta datos/ con los cuatro archivos del caso (los mismos de la sesión 1)
@@ -4117,7 +4117,7 @@ Hadoop 3.5.0</pre><p class="salida-nota">Salida de referencia: en Colab puede va
             <tr><td>«No se pudo descargar…»</td><td>Espera un minuto y repite la celda: prueba los dos sitios de Apache. Si sigue fallando, avisa al docente y continúa: desde el módulo 6 todo funciona solo con Spark.</td></tr>
             <tr><td><code>¿Íntegro? False</code></td><td>No instales ese archivo. Bórralo con <code>!rm -f hadoop-*.tar.gz*</code> y repite la descarga.</td></tr>
             <tr><td><code>hdfs: command not found</code></td><td>Colab reinició la sesión y perdió las variables de entorno: ejecuta otra vez <code>hadoop_instala</code>.</td></tr>
-            <tr><td>No aparece <code>Live datanodes (1)</code></td><td>Repite <code>hdfs_arranque</code>. Si persiste: <strong>Entorno de ejecución → Desconectar y borrar el entorno</strong>, y luego <strong>Ejecutar anteriores</strong>.</td></tr>
+            <tr><td>No aparece <code>Live datanodes (1)</code></td><td>Repite <code>hdfs_arranque</code>. Si persiste: <strong>Entorno de ejecución → Desconectarse y eliminar entorno de ejecución</strong>, y luego <strong>Ejecutar anteriores</strong>.</td></tr>
             <tr><td>Un job imprime las últimas líneas de <code>job.log</code></td><td>Casi siempre falta una celda anterior (<code>mapper.py</code>, <code>reducer.py</code> o los archivos en HDFS): <strong>Ejecutar anteriores</strong>.</td></tr>
             <tr><td><code>NameError: name '…' is not defined</code></td><td>Se perdió una variable: <strong>Ejecutar anteriores</strong> desde la celda en la que ibas.</td></tr>
           </tbody>
