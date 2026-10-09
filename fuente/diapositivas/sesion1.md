@@ -1145,7 +1145,7 @@ Diez preguntas de los cuatro bloques, en el módulo 17 del material:
 Al terminar, el cuestionario indica qué módulos conviene repasar.
 
 ???
-Resolver en clase las cinco primeras y comentar las que más se fallen; las de casa no se proyectan.
+Proyectar cada pregunta desde el módulo 17 del material, sin marcarla. Cada uno escribe su respuesta solo, en silencio y con su material cerrado (un minuto); después se vota a mano alzada (en la 3, se comparan los resultados), se discuten solo las preguntas en que el grupo se divide, pidiendo el porqué y no solo la respuesta, y se marca la más votada para leer la retroalimentación. Las de casa no se proyectan: pedir que las respondan sin consultar las diapositivas ni el resto del material, y que repasen después con la retroalimentación.
 
 ## Taller 1: informe de calidad y primer procesamiento del caso {columnas=3:2}
 

@@ -924,7 +924,7 @@ Diez preguntas de toda la sesión, en el módulo 14 del material:
 Al terminar las diez, el cuestionario indica qué módulos conviene repasar.
 
 ???
-Resolver en clase las cuatro y comentar las que más se fallen; si el tiempo no alcanza, solo la 7 y la 10, que conectan con los puntos 2 y 5 del taller. Las de casa no se proyectan.
+Proyectar cada pregunta desde el módulo 14 del material, sin marcarla. Cada uno escribe su letra solo, en silencio y con su material cerrado (un minuto); después se vota a mano alzada, se discuten solo las preguntas en que el grupo se divide, pidiendo el porqué y no solo la letra, y se marca la opción más votada para leer la retroalimentación. Si el tiempo no alcanza, solo la 7 y la 10, que conectan con los puntos 2 y 5 del taller. Las de casa no se proyectan: pedir que las respondan sin consultar las diapositivas ni el resto del material, y que repasen después con la retroalimentación.
 
 ## Taller 2: de Hadoop a Spark, con evidencia ejecutable {columnas=3:2}
 
